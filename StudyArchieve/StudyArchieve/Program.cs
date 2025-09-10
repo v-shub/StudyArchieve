@@ -2,7 +2,7 @@ using DataAccess.Models;
 using DataAccess.Wrapper;
 using Microsoft.EntityFrameworkCore;
 
-namespace StudyArchieve
+namespace StudyArchieveApi
 {
     public class Program
     {

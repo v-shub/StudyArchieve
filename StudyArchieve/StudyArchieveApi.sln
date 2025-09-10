@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36414.22 d17.14
+VisualStudioVersion = 17.14.36414.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudyArchieve", "StudyArchieve\StudyArchieve.csproj", "{B5FB74D5-B785-4DA7-980A-AE1B3060F870}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudyArchieveApi", "StudyArchieve\StudyArchieveApi.csproj", "{B5FB74D5-B785-4DA7-980A-AE1B3060F870}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{61159845-D8F8-441D-91F6-BF240F82EBC0}"
 EndProject

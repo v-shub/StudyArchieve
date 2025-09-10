@@ -3274,9 +3274,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\StudyArchieve.csproj",
-      "projectName": "StudyArchieve",
-      "projectPath": "C:\\Users\\User\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\StudyArchieve.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\StudyArchieveApi.csproj",
+      "projectName": "StudyArchieveApi",
+      "projectPath": "C:\\Users\\User\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\StudyArchieveApi.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\User\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\obj\\",
       "projectStyle": "PackageReference",

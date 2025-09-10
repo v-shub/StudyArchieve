@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\User\\Shubina\\StudyArchieve\\StudyArchieve\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{61159845-D8F8-441D-91F6-BF240F82EBC0}|DataAccess\\DataAccess.csproj|c:\\users\\user\\shubina\\studyarchieve\\studyarchieve\\dataaccess\\models\\studyarchievecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{61159845-D8F8-441D-91F6-BF240F82EBC0}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\models\\studyarchievecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|c:\\users\\user\\shubina\\studyarchieve\\studyarchieve\\studyarchieve\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|solutionrelative:studyarchieve\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieve.csproj|c:\\users\\user\\shubina\\studyarchieve\\studyarchieve\\studyarchieve\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieve.csproj|solutionrelative:studyarchieve\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{61159845-D8F8-441D-91F6-BF240F82EBC0}|DataAccess\\DataAccess.csproj|c:\\users\\user\\shubina\\studyarchieve\\studyarchieve\\dataaccess\\models\\studyarchievecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61159845-D8F8-441D-91F6-BF240F82EBC0}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\models\\studyarchievecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{61159845-D8F8-441D-91F6-BF240F82EBC0}|DataAccess\\DataAccess.csproj|c:\\users\\user\\shubina\\studyarchieve\\studyarchieve\\dataaccess\\wrapper\\repositorywrapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -25,6 +25,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{61159845-D8F8-441D-91F6-BF240F82EBC0}|DataAccess\\DataAccess.csproj|c:\\users\\user\\shubina\\studyarchieve\\studyarchieve\\dataaccess\\repositories\\repositorybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{61159845-D8F8-441D-91F6-BF240F82EBC0}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\repositories\\repositorybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|c:\\users\\user\\shubina\\studyarchieve\\studyarchieve\\studyarchieve\\studyarchieveapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|solutionrelative:studyarchieve\\studyarchieveapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,17 +38,30 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
+              "Title": "StudyArchieveApi.http",
+              "DocumentMoniker": "C:\\Users\\User\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\StudyArchieveApi.http",
+              "RelativeDocumentMoniker": "StudyArchieve\\StudyArchieveApi.http",
+              "ToolTip": "C:\\Users\\User\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\StudyArchieveApi.http",
+              "RelativeToolTip": "StudyArchieve\\StudyArchieveApi.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2025-09-10T06:17:20.122Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\User\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Program.cs",
               "RelativeDocumentMoniker": "StudyArchieve\\Program.cs",
               "ToolTip": "C:\\Users\\User\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Program.cs",
               "RelativeToolTip": "StudyArchieve\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABQAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-10T06:10:30.7Z",
               "EditorCaption": ""
@@ -59,8 +76,7 @@
               "RelativeToolTip": "DataAccess\\Wrapper\\RepositoryWrapper.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T06:00:13.343Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-10T06:00:13.343Z"
             },
             {
               "$type": "Document",
@@ -100,16 +116,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "StudyArchieveContext.cs",
               "DocumentMoniker": "C:\\Users\\User\\Shubina\\StudyArchieve\\StudyArchieve\\DataAccess\\Models\\StudyArchieveContext.cs",
               "RelativeDocumentMoniker": "DataAccess\\Models\\StudyArchieveContext.cs",
               "ToolTip": "C:\\Users\\User\\Shubina\\StudyArchieve\\StudyArchieve\\DataAccess\\Models\\StudyArchieveContext.cs",
               "RelativeToolTip": "DataAccess\\Models\\StudyArchieveContext.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAYwCEAAAA6AAAAAAAAAA==",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAzwCEAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T05:35:36.909Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-10T05:35:36.909Z"
             }
           ]
         }

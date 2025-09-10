@@ -1,4 +1,4 @@
-namespace StudyArchieve
+namespace StudyArchieveApi
 {
     public class WeatherForecast
     {
