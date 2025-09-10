@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Models;
 
-public partial class ShubinaContext : DbContext
+public partial class StudyArchieveContext : DbContext
 {
-    public ShubinaContext()
+    public StudyArchieveContext()
     {
     }
 
-    public ShubinaContext(DbContextOptions<ShubinaContext> options)
+    public StudyArchieveContext(DbContextOptions<StudyArchieveContext> options)
         : base(options)
     {
     }
