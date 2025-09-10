@@ -1,3 +1,6 @@
+using DataAccess.Models;
+using DataAccess.Wrapper;
+using Microsoft.EntityFrameworkCore;
 
 namespace StudyArchieve
 {
@@ -7,10 +10,13 @@ namespace StudyArchieve
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            builder.Services.AddDbContext<StudyArchieveContext>(
+                options => options.UseSqlServer(
+                    "Server= shubina.mssql.somee.com ;Database= shubina;User Id= v_shub_SQLLogin_1;Password= xLy-9UQ-nkT-8dW;TrustServerCertificate=True"));
+
+            builder.Services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
 
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
