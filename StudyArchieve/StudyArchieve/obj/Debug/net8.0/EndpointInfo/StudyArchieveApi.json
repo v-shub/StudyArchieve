@@ -1,0 +1,388 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "StudyArchieveApi",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Subject": {
+      "get": {
+        "tags": [
+          "Subject"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Subject"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Subject"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Subject"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Subject"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Subject"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Subject"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Subject"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Subject"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Subject"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Subject/{id}": {
+      "get": {
+        "tags": [
+          "Subject"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AcademicYear": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "yearLabel": {
+            "type": "string",
+            "nullable": true
+          },
+          "tasks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Task"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Author": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "tasks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Task"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Solution": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "taskId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "solutionText": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateAdded": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "isOriginal": {
+            "type": "boolean"
+          },
+          "solutionFiles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SolutionFile"
+            },
+            "nullable": true
+          },
+          "task": {
+            "$ref": "#/components/schemas/Task"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SolutionFile": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "solutionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fileName": {
+            "type": "string",
+            "nullable": true
+          },
+          "filePath": {
+            "type": "string",
+            "nullable": true
+          },
+          "solution": {
+            "$ref": "#/components/schemas/Solution"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Subject": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "tasks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Task"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tag": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "tasks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Task"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Task": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "conditionText": {
+            "type": "string",
+            "nullable": true
+          },
+          "subjectId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "academicYearId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "typeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dateAdded": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "academicYear": {
+            "$ref": "#/components/schemas/AcademicYear"
+          },
+          "solutions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Solution"
+            },
+            "nullable": true
+          },
+          "subject": {
+            "$ref": "#/components/schemas/Subject"
+          },
+          "taskFiles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TaskFile"
+            },
+            "nullable": true
+          },
+          "type": {
+            "$ref": "#/components/schemas/TaskType"
+          },
+          "authors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Author"
+            },
+            "nullable": true
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tag"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TaskFile": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "taskId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fileName": {
+            "type": "string",
+            "nullable": true
+          },
+          "filePath": {
+            "type": "string",
+            "nullable": true
+          },
+          "task": {
+            "$ref": "#/components/schemas/Task"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TaskType": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "tasks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Task"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

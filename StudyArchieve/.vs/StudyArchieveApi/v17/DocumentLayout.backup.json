@@ -1,34 +1,42 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\User\\Shubina\\StudyArchieve\\StudyArchieve\\",
+  "WorkspaceRootPath": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|c:\\users\\user\\shubina\\studyarchieve\\studyarchieve\\studyarchieve\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|solutionrelative:studyarchieve\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{61159845-D8F8-441D-91F6-BF240F82EBC0}|DataAccess\\DataAccess.csproj|c:\\users\\user\\shubina\\studyarchieve\\studyarchieve\\dataaccess\\models\\studyarchievecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{61159845-D8F8-441D-91F6-BF240F82EBC0}|DataAccess\\DataAccess.csproj|c:\\users\\victo\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\modules\\studyarchieve\\studyarchieve\\dataaccess\\models\\studyarchievecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{61159845-D8F8-441D-91F6-BF240F82EBC0}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\models\\studyarchievecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{61159845-D8F8-441D-91F6-BF240F82EBC0}|DataAccess\\DataAccess.csproj|c:\\users\\user\\shubina\\studyarchieve\\studyarchieve\\dataaccess\\wrapper\\repositorywrapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|c:\\users\\victo\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\modules\\studyarchieve\\studyarchieve\\studyarchieve\\controllers\\subjectcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|solutionrelative:studyarchieve\\controllers\\subjectcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|c:\\users\\victo\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\modules\\studyarchieve\\studyarchieve\\studyarchieve\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|solutionrelative:studyarchieve\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{406CFA48-10FF-4FBA-BBF1-5ED3F541C389}|BusinessLogic\\BusinessLogic.csproj|c:\\users\\victo\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\modules\\studyarchieve\\studyarchieve\\businesslogic\\services\\subjectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{406CFA48-10FF-4FBA-BBF1-5ED3F541C389}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\services\\subjectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61159845-D8F8-441D-91F6-BF240F82EBC0}|DataAccess\\DataAccess.csproj|c:\\users\\victo\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\modules\\studyarchieve\\studyarchieve\\dataaccess\\wrapper\\repositorywrapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{61159845-D8F8-441D-91F6-BF240F82EBC0}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\wrapper\\repositorywrapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{61159845-D8F8-441D-91F6-BF240F82EBC0}|DataAccess\\DataAccess.csproj|c:\\users\\user\\shubina\\studyarchieve\\studyarchieve\\dataaccess\\wrapper\\irepositorywrapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{61159845-D8F8-441D-91F6-BF240F82EBC0}|DataAccess\\DataAccess.csproj|c:\\users\\victo\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\modules\\studyarchieve\\studyarchieve\\dataaccess\\interfaces\\isubjectrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61159845-D8F8-441D-91F6-BF240F82EBC0}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\interfaces\\isubjectrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61159845-D8F8-441D-91F6-BF240F82EBC0}|DataAccess\\DataAccess.csproj|c:\\users\\victo\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\modules\\studyarchieve\\studyarchieve\\dataaccess\\wrapper\\irepositorywrapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{61159845-D8F8-441D-91F6-BF240F82EBC0}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\wrapper\\irepositorywrapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{61159845-D8F8-441D-91F6-BF240F82EBC0}|DataAccess\\DataAccess.csproj|c:\\users\\user\\shubina\\studyarchieve\\studyarchieve\\dataaccess\\interfaces\\irepositorybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{61159845-D8F8-441D-91F6-BF240F82EBC0}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\interfaces\\irepositorybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{406CFA48-10FF-4FBA-BBF1-5ED3F541C389}|BusinessLogic\\BusinessLogic.csproj|c:\\users\\victo\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\modules\\studyarchieve\\studyarchieve\\businesslogic\\interfaces\\isubjectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{406CFA48-10FF-4FBA-BBF1-5ED3F541C389}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\interfaces\\isubjectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{61159845-D8F8-441D-91F6-BF240F82EBC0}|DataAccess\\DataAccess.csproj|c:\\users\\user\\shubina\\studyarchieve\\studyarchieve\\dataaccess\\repositories\\repositorybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{61159845-D8F8-441D-91F6-BF240F82EBC0}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\repositories\\repositorybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|c:\\users\\user\\shubina\\studyarchieve\\studyarchieve\\studyarchieve\\studyarchieveapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
-      "RelativeMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|solutionrelative:studyarchieve\\studyarchieveapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+      "AbsoluteMoniker": "D:0:0:{61159845-D8F8-441D-91F6-BF240F82EBC0}|DataAccess\\DataAccess.csproj|c:\\users\\victo\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\modules\\studyarchieve\\studyarchieve\\dataaccess\\repositories\\subjectrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61159845-D8F8-441D-91F6-BF240F82EBC0}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\repositories\\subjectrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,93 +46,140 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 12,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Program.cs",
+              "RelativeDocumentMoniker": "StudyArchieve\\Program.cs",
+              "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Program.cs",
+              "RelativeToolTip": "StudyArchieve\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-13T16:13:16.442Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SubjectController.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Controllers\\SubjectController.cs",
+              "RelativeDocumentMoniker": "StudyArchieve\\Controllers\\SubjectController.cs",
+              "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Controllers\\SubjectController.cs",
+              "RelativeToolTip": "StudyArchieve\\Controllers\\SubjectController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-13T16:07:25.005Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SubjectService.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\BusinessLogic\\Services\\SubjectService.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\Services\\SubjectService.cs",
+              "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\BusinessLogic\\Services\\SubjectService.cs",
+              "RelativeToolTip": "BusinessLogic\\Services\\SubjectService.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAAABgAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-13T16:01:01.469Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ISubjectService.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\BusinessLogic\\Interfaces\\ISubjectService.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\Interfaces\\ISubjectService.cs",
+              "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\BusinessLogic\\Interfaces\\ISubjectService.cs",
+              "RelativeToolTip": "BusinessLogic\\Interfaces\\ISubjectService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-13T15:56:51.702Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RepositoryWrapper.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\DataAccess\\Wrapper\\RepositoryWrapper.cs",
+              "RelativeDocumentMoniker": "DataAccess\\Wrapper\\RepositoryWrapper.cs",
+              "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\DataAccess\\Wrapper\\RepositoryWrapper.cs",
+              "RelativeToolTip": "DataAccess\\Wrapper\\RepositoryWrapper.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAiwCMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-13T15:52:49.672Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "StudyArchieveApi.http",
-              "DocumentMoniker": "C:\\Users\\User\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\StudyArchieveApi.http",
-              "RelativeDocumentMoniker": "StudyArchieve\\StudyArchieveApi.http",
-              "ToolTip": "C:\\Users\\User\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\StudyArchieveApi.http",
-              "RelativeToolTip": "StudyArchieve\\StudyArchieveApi.http",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2025-09-10T06:17:20.122Z",
+              "Title": "IRepositoryWrapper.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\DataAccess\\Wrapper\\IRepositoryWrapper.cs",
+              "RelativeDocumentMoniker": "DataAccess\\Wrapper\\IRepositoryWrapper.cs",
+              "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\DataAccess\\Wrapper\\IRepositoryWrapper.cs",
+              "RelativeToolTip": "DataAccess\\Wrapper\\IRepositoryWrapper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-13T15:51:47.566Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "SubjectRepository.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\DataAccess\\Repositories\\SubjectRepository.cs",
+              "RelativeDocumentMoniker": "DataAccess\\Repositories\\SubjectRepository.cs",
+              "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\DataAccess\\Repositories\\SubjectRepository.cs",
+              "RelativeToolTip": "DataAccess\\Repositories\\SubjectRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-13T15:23:45.576Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ISubjectRepository.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\DataAccess\\Interfaces\\ISubjectRepository.cs",
+              "RelativeDocumentMoniker": "DataAccess\\Interfaces\\ISubjectRepository.cs",
+              "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\DataAccess\\Interfaces\\ISubjectRepository.cs",
+              "RelativeToolTip": "DataAccess\\Interfaces\\ISubjectRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-13T14:52:44.557Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Program.cs",
-              "RelativeDocumentMoniker": "StudyArchieve\\Program.cs",
-              "ToolTip": "C:\\Users\\User\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Program.cs",
-              "RelativeToolTip": "StudyArchieve\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T06:10:30.7Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RepositoryWrapper.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Shubina\\StudyArchieve\\StudyArchieve\\DataAccess\\Wrapper\\RepositoryWrapper.cs",
-              "RelativeDocumentMoniker": "DataAccess\\Wrapper\\RepositoryWrapper.cs",
-              "ToolTip": "C:\\Users\\User\\Shubina\\StudyArchieve\\StudyArchieve\\DataAccess\\Wrapper\\RepositoryWrapper.cs",
-              "RelativeToolTip": "DataAccess\\Wrapper\\RepositoryWrapper.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T06:00:13.343Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IRepositoryWrapper.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Shubina\\StudyArchieve\\StudyArchieve\\DataAccess\\Wrapper\\IRepositoryWrapper.cs",
-              "RelativeDocumentMoniker": "DataAccess\\Wrapper\\IRepositoryWrapper.cs",
-              "ToolTip": "C:\\Users\\User\\Shubina\\StudyArchieve\\StudyArchieve\\DataAccess\\Wrapper\\IRepositoryWrapper.cs",
-              "RelativeToolTip": "DataAccess\\Wrapper\\IRepositoryWrapper.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T05:58:51.238Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "RepositoryBase.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Shubina\\StudyArchieve\\StudyArchieve\\DataAccess\\Repositories\\RepositoryBase.cs",
-              "RelativeDocumentMoniker": "DataAccess\\Repositories\\RepositoryBase.cs",
-              "ToolTip": "C:\\Users\\User\\Shubina\\StudyArchieve\\StudyArchieve\\DataAccess\\Repositories\\RepositoryBase.cs",
-              "RelativeToolTip": "DataAccess\\Repositories\\RepositoryBase.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAABSAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T05:47:41.799Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "IRepositoryBase.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Shubina\\StudyArchieve\\StudyArchieve\\DataAccess\\Interfaces\\IRepositoryBase.cs",
-              "RelativeDocumentMoniker": "DataAccess\\Interfaces\\IRepositoryBase.cs",
-              "ToolTip": "C:\\Users\\User\\Shubina\\StudyArchieve\\StudyArchieve\\DataAccess\\Interfaces\\IRepositoryBase.cs",
-              "RelativeToolTip": "DataAccess\\Interfaces\\IRepositoryBase.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T05:44:09.324Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "StudyArchieveContext.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Shubina\\StudyArchieve\\StudyArchieve\\DataAccess\\Models\\StudyArchieveContext.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\DataAccess\\Models\\StudyArchieveContext.cs",
               "RelativeDocumentMoniker": "DataAccess\\Models\\StudyArchieveContext.cs",
-              "ToolTip": "C:\\Users\\User\\Shubina\\StudyArchieve\\StudyArchieve\\DataAccess\\Models\\StudyArchieveContext.cs",
+              "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\DataAccess\\Models\\StudyArchieveContext.cs",
               "RelativeToolTip": "DataAccess\\Models\\StudyArchieveContext.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAzwCEAAAA6AAAAAAAAAA==",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAAAHIAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T05:35:36.909Z"
+              "WhenOpened": "2025-09-10T05:35:36.909Z",
+              "EditorCaption": ""
             }
           ]
         }

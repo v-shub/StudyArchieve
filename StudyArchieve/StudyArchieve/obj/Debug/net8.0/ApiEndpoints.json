@@ -1,0 +1,76 @@
+[
+  {
+    "ContainingType": "StudyArchieveApi.Controllers.SubjectController",
+    "Method": "GetAll",
+    "RelativePath": "api/Subject",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StudyArchieveApi.Controllers.SubjectController",
+    "Method": "Add",
+    "RelativePath": "api/Subject",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "subject",
+        "Type": "DataAccess.Models.Subject",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StudyArchieveApi.Controllers.SubjectController",
+    "Method": "Update",
+    "RelativePath": "api/Subject",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "subject",
+        "Type": "DataAccess.Models.Subject",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StudyArchieveApi.Controllers.SubjectController",
+    "Method": "Delete",
+    "RelativePath": "api/Subject",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StudyArchieveApi.Controllers.SubjectController",
+    "Method": "GetById",
+    "RelativePath": "api/Subject/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

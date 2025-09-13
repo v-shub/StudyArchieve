@@ -1,3 +1,5 @@
+using BusinessLogic.Interfaces;
+using BusinessLogic.Services;
 using DataAccess.Models;
 using DataAccess.Wrapper;
 using Microsoft.EntityFrameworkCore;
@@ -15,6 +17,7 @@ namespace StudyArchieveApi
                     "Server= shubina.mssql.somee.com ;Database= shubina;User Id= v_shub_SQLLogin_1;Password= xLy-9UQ-nkT-8dW;TrustServerCertificate=True"));
 
             builder.Services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
+            builder.Services.AddScoped<ISubjectService, SubjectService>();
 
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
