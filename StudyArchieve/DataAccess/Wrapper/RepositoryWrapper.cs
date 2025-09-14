@@ -14,6 +14,7 @@ namespace DataAccess.Wrapper
         private StudyArchieveContext _repoContext;
         private ISubjectRepository _subject;
         private IAcademicYearRepository _academicYear;
+        private ITaskTypeRepository _taskType;
         public ISubjectRepository Subject
         {
             get
@@ -34,6 +35,17 @@ namespace DataAccess.Wrapper
                     _academicYear = new AcademicYearRepository(_repoContext);
                 }
                 return _academicYear;
+            }
+        }
+        public ITaskTypeRepository TaskType
+        {
+            get
+            {
+                if (_taskType == null)
+                {
+                    _taskType = new TaskTypeRepository(_repoContext);
+                }
+                return _taskType;
             }
         }
         public RepositoryWrapper(StudyArchieveContext repositoryContext)

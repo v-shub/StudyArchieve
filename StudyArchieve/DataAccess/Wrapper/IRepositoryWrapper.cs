@@ -11,6 +11,7 @@ namespace DataAccess.Wrapper
     {
         ISubjectRepository Subject { get; }
         IAcademicYearRepository AcademicYear { get; }
+        ITaskTypeRepository TaskType { get; }
         void Save();
     }
 }

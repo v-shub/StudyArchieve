@@ -146,5 +146,79 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StudyArchieveApi.Controllers.TaskTypeController",
+    "Method": "GetAll",
+    "RelativePath": "api/TaskType",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StudyArchieveApi.Controllers.TaskTypeController",
+    "Method": "Add",
+    "RelativePath": "api/TaskType",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "taskType",
+        "Type": "DataAccess.Models.TaskType",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StudyArchieveApi.Controllers.TaskTypeController",
+    "Method": "Update",
+    "RelativePath": "api/TaskType",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "taskType",
+        "Type": "DataAccess.Models.TaskType",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StudyArchieveApi.Controllers.TaskTypeController",
+    "Method": "Delete",
+    "RelativePath": "api/TaskType",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StudyArchieveApi.Controllers.TaskTypeController",
+    "Method": "GetById",
+    "RelativePath": "api/TaskType/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]
