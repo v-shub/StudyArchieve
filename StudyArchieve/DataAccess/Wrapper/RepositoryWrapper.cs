@@ -19,6 +19,7 @@ namespace DataAccess.Wrapper
         private ITagRepository _tag;
         private ITaskRepository _task;
         private ISolutionRepository _solution;
+        private ITaskFileRepository _taskFile;
         public ISubjectRepository Subject
         {
             get
@@ -94,6 +95,17 @@ namespace DataAccess.Wrapper
                     _solution = new SolutionRepository(_repoContext);
                 }
                 return _solution;
+            }
+        }
+        public ITaskFileRepository TaskFile
+        {
+            get
+            {
+                if (_taskFile == null)
+                {
+                    _taskFile = new TaskFileRepository(_repoContext);
+                }
+                return _taskFile;
             }
         }
         public RepositoryWrapper(StudyArchieveContext repositoryContext)
