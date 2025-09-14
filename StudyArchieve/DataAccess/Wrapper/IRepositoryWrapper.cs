@@ -14,6 +14,7 @@ namespace DataAccess.Wrapper
         ITaskTypeRepository TaskType { get; }
         IAuthorRepository Author { get; }
         ITagRepository Tag { get; }
+        ITaskRepository Exercise { get; }
         void Save();
     }
 }
