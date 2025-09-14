@@ -17,6 +17,7 @@ namespace DataAccess.Wrapper
         ITaskRepository Exercise { get; }
         ISolutionRepository Solution { get; }
         ITaskFileRepository TaskFile { get; }
+        ISolutionFileRepository SolutionFile { get; }
         void Save();
     }
 }

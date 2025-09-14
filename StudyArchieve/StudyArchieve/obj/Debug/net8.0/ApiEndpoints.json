@@ -222,6 +222,80 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "StudyArchieveApi.Controllers.SolutionFileController",
+    "Method": "GetAll",
+    "RelativePath": "api/SolutionFile",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StudyArchieveApi.Controllers.SolutionFileController",
+    "Method": "Add",
+    "RelativePath": "api/SolutionFile",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "solutionFile",
+        "Type": "DataAccess.Models.SolutionFile",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StudyArchieveApi.Controllers.SolutionFileController",
+    "Method": "Update",
+    "RelativePath": "api/SolutionFile",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "solutionFile",
+        "Type": "DataAccess.Models.SolutionFile",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StudyArchieveApi.Controllers.SolutionFileController",
+    "Method": "Delete",
+    "RelativePath": "api/SolutionFile",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StudyArchieveApi.Controllers.SolutionFileController",
+    "Method": "GetById",
+    "RelativePath": "api/SolutionFile/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "StudyArchieveApi.Controllers.SubjectController",
     "Method": "GetAll",
     "RelativePath": "api/Subject",

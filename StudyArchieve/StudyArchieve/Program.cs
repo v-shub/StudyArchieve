@@ -25,6 +25,7 @@ namespace StudyArchieveApi
             builder.Services.AddScoped<ITaskService, TaskService>();
             builder.Services.AddScoped<ISolutionService, SolutionService>();
             builder.Services.AddScoped<ITaskFileService, TaskFileService>();
+            builder.Services.AddScoped<ISolutionFileService, SolutionFileService>();
 
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
