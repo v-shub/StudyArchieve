@@ -10,6 +10,7 @@ namespace DataAccess.Wrapper
     public interface IRepositoryWrapper
     {
         ISubjectRepository Subject { get; }
+        IAcademicYearRepository AcademicYear { get; }
         void Save();
     }
 }

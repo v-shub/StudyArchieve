@@ -1,5 +1,79 @@
 [
   {
+    "ContainingType": "StudyArchieveApi.Controllers.AcademicYearController",
+    "Method": "GetAll",
+    "RelativePath": "api/AcademicYear",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StudyArchieveApi.Controllers.AcademicYearController",
+    "Method": "Add",
+    "RelativePath": "api/AcademicYear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "academicYear",
+        "Type": "DataAccess.Models.AcademicYear",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StudyArchieveApi.Controllers.AcademicYearController",
+    "Method": "Update",
+    "RelativePath": "api/AcademicYear",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "academicYear",
+        "Type": "DataAccess.Models.AcademicYear",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StudyArchieveApi.Controllers.AcademicYearController",
+    "Method": "Delete",
+    "RelativePath": "api/AcademicYear",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StudyArchieveApi.Controllers.AcademicYearController",
+    "Method": "GetById",
+    "RelativePath": "api/AcademicYear/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "StudyArchieveApi.Controllers.SubjectController",
     "Method": "GetAll",
     "RelativePath": "api/Subject",

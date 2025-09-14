@@ -27,9 +27,9 @@ namespace BusinessLogic.Services
 
         public Task<Subject> GetById(int id)
         {
-            var user = _repositoryWrapper.Subject
+            var that = _repositoryWrapper.Subject
                 .FindByCondition(x => x.Id == id).First();
-            return Task.FromResult(user);
+            return Task.FromResult(that);
         }
 
         public Task Create(Subject model)
@@ -48,10 +48,10 @@ namespace BusinessLogic.Services
 
         public Task Delete(int id)
         {
-            var user = _repositoryWrapper.Subject
+            var that = _repositoryWrapper.Subject
                 .FindByCondition(x => x.Id == id).First();
 
-            _repositoryWrapper.Subject.Delete(user);
+            _repositoryWrapper.Subject.Delete(that);
             _repositoryWrapper.Save();
             return Task.CompletedTask;
         }

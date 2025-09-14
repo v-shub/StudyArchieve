@@ -1,12 +1,1 @@
-{
-  "Version": 1,
-  "Hash": "NBMW0TCeWIndLAF9nC+/OHLeY8Wy6thubnxO6gj+0S8=",
-  "Source": "StudyArchieveApi",
-  "BasePath": "_content/StudyArchieveApi",
-  "Mode": "Default",
-  "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": [],
-  "Endpoints": []
-}
+{"Version":1,"Hash":"NBMW0TCeWIndLAF9nC+/OHLeY8Wy6thubnxO6gj+0S8=","Source":"StudyArchieveApi","BasePath":"_content/StudyArchieveApi","Mode":"Default","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}

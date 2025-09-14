@@ -13,7 +13,9 @@ namespace DataAccess.Wrapper
     {
         private StudyArchieveContext _repoContext;
         private ISubjectRepository _subject;
-        public ISubjectRepository Subject {
+        private IAcademicYearRepository _academicYear;
+        public ISubjectRepository Subject
+        {
             get
             {
                 if (_subject == null)
@@ -23,9 +25,20 @@ namespace DataAccess.Wrapper
                 return _subject;
             }
         }
-        public RepositoryWrapper(StudyArchieveContext reposytoryContext)
+        public IAcademicYearRepository AcademicYear
         {
-            _repoContext = reposytoryContext;
+            get
+            {
+                if (_academicYear == null)
+                {
+                    _academicYear = new AcademicYearRepository(_repoContext);
+                }
+                return _academicYear;
+            }
+        }
+        public RepositoryWrapper(StudyArchieveContext repositoryContext)
+        {
+            _repoContext = repositoryContext;
         }
         public void Save()
         {

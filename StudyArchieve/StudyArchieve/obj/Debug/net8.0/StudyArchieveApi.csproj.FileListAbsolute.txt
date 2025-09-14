@@ -80,12 +80,6 @@ C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchi
 C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\StudyArchieve\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\StudyArchieve\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\StudyArchieve\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\StudyArchieve\obj\Debug\net8.0\staticwebassets\msbuild.StudyArchieveApi.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\StudyArchieve\obj\Debug\net8.0\staticwebassets\msbuild.StudyArchieveApi.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
-C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\StudyArchieve\obj\Debug\net8.0\staticwebassets\msbuild.build.StudyArchieveApi.props
-C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\StudyArchieve\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.StudyArchieveApi.props
-C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\StudyArchieve\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.StudyArchieveApi.props
-C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\StudyArchieve\obj\Debug\net8.0\staticwebassets.pack.json
 C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\StudyArchieve\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\StudyArchieve\obj\Debug\net8.0\StudyArc.5C4A7AFD.Up2Date
 C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\StudyArchieve\obj\Debug\net8.0\StudyArchieveApi.dll
@@ -93,3 +87,8 @@ C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchi
 C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\StudyArchieve\obj\Debug\net8.0\StudyArchieveApi.pdb
 C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\StudyArchieve\obj\Debug\net8.0\StudyArchieveApi.genruntimeconfig.cache
 C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\StudyArchieve\obj\Debug\net8.0\ref\StudyArchieveApi.dll
+C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\StudyArchieve\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\StudyArchieve\obj\Debug\net8.0\rjimswa.dswa.cache.json
+C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\StudyArchieve\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\StudyArchieve\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\StudyArchieve\obj\Debug\net8.0\staticwebassets.build.json.cache
