@@ -27,7 +27,7 @@ namespace StudyArchieveApi.Controllers
         {
             return Ok(await _taskService.GetById(id));
         }
-
+        /*
         [HttpPost]
         public async Task<IActionResult> Add(Exercise task)
         {
@@ -47,6 +47,6 @@ namespace StudyArchieveApi.Controllers
         {
             await _taskService.Delete(id);
             return Ok();
-        }
+        }*/
     }
 }

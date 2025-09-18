@@ -26,7 +26,7 @@ namespace StudyArchieveApi.Controllers
         {
             return Ok(await _solutionFileService.GetById(id));
         }
-
+        /*
         [HttpPost]
         public async Task<IActionResult> Add(SolutionFile solutionFile)
         {
@@ -46,6 +46,6 @@ namespace StudyArchieveApi.Controllers
         {
             await _solutionFileService.Delete(id);
             return Ok();
-        }
+        }*/
     }
 }

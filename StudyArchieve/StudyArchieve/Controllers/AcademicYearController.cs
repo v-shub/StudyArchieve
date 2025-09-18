@@ -26,7 +26,7 @@ namespace StudyArchieveApi.Controllers
         {
             return Ok(await _academicYearService.GetById(id));
         }
-
+        /*
         [HttpPost]
         public async Task<IActionResult> Add(AcademicYear academicYear)
         {
@@ -46,6 +46,6 @@ namespace StudyArchieveApi.Controllers
         {
             await _academicYearService.Delete(id);
             return Ok();
-        }
+        }*/
     }
 }

@@ -11,54 +11,6 @@
   },
   {
     "ContainingType": "StudyArchieveApi.Controllers.AcademicYearController",
-    "Method": "Add",
-    "RelativePath": "api/AcademicYear",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "academicYear",
-        "Type": "DataAccess.Models.AcademicYear",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "StudyArchieveApi.Controllers.AcademicYearController",
-    "Method": "Update",
-    "RelativePath": "api/AcademicYear",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "academicYear",
-        "Type": "DataAccess.Models.AcademicYear",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "StudyArchieveApi.Controllers.AcademicYearController",
-    "Method": "Delete",
-    "RelativePath": "api/AcademicYear",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "StudyArchieveApi.Controllers.AcademicYearController",
     "Method": "GetById",
     "RelativePath": "api/AcademicYear/{id}",
     "HttpMethod": "GET",
@@ -81,54 +33,6 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "StudyArchieveApi.Controllers.AuthorController",
-    "Method": "Add",
-    "RelativePath": "api/Author",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "author",
-        "Type": "DataAccess.Models.Author",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "StudyArchieveApi.Controllers.AuthorController",
-    "Method": "Update",
-    "RelativePath": "api/Author",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "author",
-        "Type": "DataAccess.Models.Author",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "StudyArchieveApi.Controllers.AuthorController",
-    "Method": "Delete",
-    "RelativePath": "api/Author",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
     "ReturnTypes": []
   },
   {
@@ -159,54 +63,6 @@
   },
   {
     "ContainingType": "StudyArchieveApi.Controllers.SolutionController",
-    "Method": "Add",
-    "RelativePath": "api/Solution",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "solution",
-        "Type": "DataAccess.Models.Solution",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "StudyArchieveApi.Controllers.SolutionController",
-    "Method": "Update",
-    "RelativePath": "api/Solution",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "solution",
-        "Type": "DataAccess.Models.Solution",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "StudyArchieveApi.Controllers.SolutionController",
-    "Method": "Delete",
-    "RelativePath": "api/Solution",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "StudyArchieveApi.Controllers.SolutionController",
     "Method": "GetById",
     "RelativePath": "api/Solution/{id}",
     "HttpMethod": "GET",
@@ -229,54 +85,6 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "StudyArchieveApi.Controllers.SolutionFileController",
-    "Method": "Add",
-    "RelativePath": "api/SolutionFile",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "solutionFile",
-        "Type": "DataAccess.Models.SolutionFile",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "StudyArchieveApi.Controllers.SolutionFileController",
-    "Method": "Update",
-    "RelativePath": "api/SolutionFile",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "solutionFile",
-        "Type": "DataAccess.Models.SolutionFile",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "StudyArchieveApi.Controllers.SolutionFileController",
-    "Method": "Delete",
-    "RelativePath": "api/SolutionFile",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
     "ReturnTypes": []
   },
   {
@@ -307,54 +115,6 @@
   },
   {
     "ContainingType": "StudyArchieveApi.Controllers.SubjectController",
-    "Method": "Add",
-    "RelativePath": "api/Subject",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "subject",
-        "Type": "DataAccess.Models.Subject",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "StudyArchieveApi.Controllers.SubjectController",
-    "Method": "Update",
-    "RelativePath": "api/Subject",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "subject",
-        "Type": "DataAccess.Models.Subject",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "StudyArchieveApi.Controllers.SubjectController",
-    "Method": "Delete",
-    "RelativePath": "api/Subject",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "StudyArchieveApi.Controllers.SubjectController",
     "Method": "GetById",
     "RelativePath": "api/Subject/{id}",
     "HttpMethod": "GET",
@@ -377,54 +137,6 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "StudyArchieveApi.Controllers.TagController",
-    "Method": "Add",
-    "RelativePath": "api/Tag",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "tag",
-        "Type": "DataAccess.Models.Tag",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "StudyArchieveApi.Controllers.TagController",
-    "Method": "Update",
-    "RelativePath": "api/Tag",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "tag",
-        "Type": "DataAccess.Models.Tag",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "StudyArchieveApi.Controllers.TagController",
-    "Method": "Delete",
-    "RelativePath": "api/Tag",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
     "ReturnTypes": []
   },
   {
@@ -455,54 +167,6 @@
   },
   {
     "ContainingType": "StudyArchieveApi.Controllers.TaskController",
-    "Method": "Add",
-    "RelativePath": "api/Task",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "task",
-        "Type": "DataAccess.Models.Task",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "StudyArchieveApi.Controllers.TaskController",
-    "Method": "Update",
-    "RelativePath": "api/Task",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "task",
-        "Type": "DataAccess.Models.Task",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "StudyArchieveApi.Controllers.TaskController",
-    "Method": "Delete",
-    "RelativePath": "api/Task",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "StudyArchieveApi.Controllers.TaskController",
     "Method": "GetById",
     "RelativePath": "api/Task/{id}",
     "HttpMethod": "GET",
@@ -529,54 +193,6 @@
   },
   {
     "ContainingType": "StudyArchieveApi.Controllers.TaskFileController",
-    "Method": "Add",
-    "RelativePath": "api/TaskFile",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "taskFile",
-        "Type": "DataAccess.Models.TaskFile",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "StudyArchieveApi.Controllers.TaskFileController",
-    "Method": "Update",
-    "RelativePath": "api/TaskFile",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "taskFile",
-        "Type": "DataAccess.Models.TaskFile",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "StudyArchieveApi.Controllers.TaskFileController",
-    "Method": "Delete",
-    "RelativePath": "api/TaskFile",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "StudyArchieveApi.Controllers.TaskFileController",
     "Method": "GetById",
     "RelativePath": "api/TaskFile/{id}",
     "HttpMethod": "GET",
@@ -599,54 +215,6 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "StudyArchieveApi.Controllers.TaskTypeController",
-    "Method": "Add",
-    "RelativePath": "api/TaskType",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "taskType",
-        "Type": "DataAccess.Models.TaskType",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "StudyArchieveApi.Controllers.TaskTypeController",
-    "Method": "Update",
-    "RelativePath": "api/TaskType",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "taskType",
-        "Type": "DataAccess.Models.TaskType",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "StudyArchieveApi.Controllers.TaskTypeController",
-    "Method": "Delete",
-    "RelativePath": "api/TaskType",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
     "ReturnTypes": []
   },
   {

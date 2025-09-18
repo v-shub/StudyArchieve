@@ -27,7 +27,7 @@ namespace StudyArchieveApi.Controllers
         {
             return Ok(await _taskFileService.GetById(id));
         }
-
+        /*
         [HttpPost]
         public async Task<IActionResult> Add(TaskFile taskFile)
         {
@@ -47,6 +47,6 @@ namespace StudyArchieveApi.Controllers
         {
             await _taskFileService.Delete(id);
             return Ok();
-        }
+        }*/
     }
 }
