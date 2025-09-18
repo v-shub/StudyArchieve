@@ -10,5 +10,7 @@ namespace DataAccess.Interfaces
 {
     public interface ITaskRepository : IRepositoryBase<Exercise>
     {
+        IQueryable<Exercise> GetTasksWithDetails();
+        IQueryable<Exercise> GetOneTaskWithAllConnected(int id);
     }
 }

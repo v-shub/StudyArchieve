@@ -1,4 +1,5 @@
-﻿using DataAccess.Models;
+﻿using BusinessLogic.DTOs.Task;
+using DataAccess.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +12,9 @@ namespace BusinessLogic.Interfaces
 {
     public interface ITaskService
     {
-        Task<List<Exercise>> GetAll();
-        Task<Exercise> GetById(int id);
+        Task<List<TaskDto>> GetAll();
+        Task<List<TaskDto>> GetByFilter(int? sublectId, int? academicYearId, int? typeId, int[]? authorIds, int[]? tagIds);
+        Task<FullTaskDto> GetById(int id);
         Task Create(Exercise model);
         Task Update(Exercise model);
         Task Delete(int id);

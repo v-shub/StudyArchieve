@@ -14,7 +14,7 @@ namespace StudyArchieveApi.Controllers
         {
             _solutionFileService = solutionFileService;
         }
-
+        /*
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {

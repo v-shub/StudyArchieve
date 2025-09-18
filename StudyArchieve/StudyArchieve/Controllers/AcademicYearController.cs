@@ -20,7 +20,7 @@ namespace StudyArchieveApi.Controllers
         {
             return Ok(await _academicYearService.GetAll());
         }
-
+        /*
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {

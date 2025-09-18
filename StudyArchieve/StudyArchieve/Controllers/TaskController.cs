@@ -2,6 +2,7 @@
 using DataAccess.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using Exercise = DataAccess.Models.Task;
 
 namespace StudyArchieveApi.Controllers
@@ -15,11 +16,16 @@ namespace StudyArchieveApi.Controllers
         {
             _taskService = taskService;
         }
-
+        /*
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             return Ok(await _taskService.GetAll());
+        }*/
+        [HttpGet]
+        public async Task<IActionResult> GetByFilter(int? subjectId, int? academicYearId, int? typeId, [FromQuery] int[]? authorIds, [FromQuery] int[]? tagIds)
+        {
+            return Ok(await _taskService.GetByFilter(subjectId, academicYearId, typeId, authorIds, tagIds));
         }
 
         [HttpGet("{id}")]

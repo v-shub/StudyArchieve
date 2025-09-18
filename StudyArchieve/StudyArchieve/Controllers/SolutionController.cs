@@ -14,7 +14,7 @@ namespace StudyArchieveApi.Controllers
         {
             _solutionService = solutionService;
         }
-
+        /*
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -26,7 +26,7 @@ namespace StudyArchieveApi.Controllers
         {
             return Ok(await _solutionService.GetById(id));
         }
-        /*
+        
         [HttpPost]
         public async Task<IActionResult> Add(Solution solution)
         {
