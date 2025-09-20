@@ -14,19 +14,20 @@ namespace DataAccess.Repositories
     public class TaskRepository : RepositoryBase<Exercise>, ITaskRepository
     {
         public TaskRepository(StudyArchieveContext repositoryContext) : base(repositoryContext) { }
-        public IQueryable<Exercise> GetTasksWithDetails()
+        public async Task<List<Exercise>> GetTasksWithDetails()
         {
-            return RepositoryContext.Tasks
+            return await RepositoryContext.Tasks
                 .Include(t => t.Authors)
                 .Include(t => t.Tags)
                 .Include(t => t.AcademicYear)
                 .Include(t => t.Subject)
                 .Include(t => t.Type)
-                .AsNoTracking();
+                .AsNoTracking()
+                .ToListAsync();
         }
-        public IQueryable<Exercise> GetOneTaskWithAllConnected(int id)
+        public async Task<Exercise> GetOneTaskWithAllConnected(int id)
         {
-            return RepositoryContext.Tasks
+            return await RepositoryContext.Tasks
                 .Include(t => t.Authors)
                 .Include(t => t.Tags)
                 .Include(t => t.Solutions)
@@ -36,7 +37,8 @@ namespace DataAccess.Repositories
                 .Include(t => t.Subject)
                 .Include(t => t.Type)
                 .Where(t => t.Id == id)
-                .AsNoTracking();
+                .AsNoTracking()
+                .FirstAsync();
         }
     }
 }

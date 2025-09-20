@@ -1,12 +1,12 @@
 ﻿using Domain.Interfaces;
 using Domain.Models;
-using Domain.Wrapper;
 using DataAccess.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Task = System.Threading.Tasks.Task;
 
 namespace DataAccess.Wrapper
 {
@@ -125,9 +125,9 @@ namespace DataAccess.Wrapper
         {
             _repoContext = repositoryContext;
         }
-        public void Save()
+        public async Task Save()
         {
-            _repoContext.SaveChanges();
+            await _repoContext.SaveChangesAsync();
         }
     }
 }

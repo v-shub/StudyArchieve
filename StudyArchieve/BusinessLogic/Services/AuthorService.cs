@@ -1,6 +1,5 @@
 ﻿using Domain.Interfaces;
 using Domain.Models;
-using Domain.Wrapper;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -20,40 +19,37 @@ namespace BusinessLogic.Services
             _repositoryWrapper = repositoryWrapper;
         }
 
-        public Task<List<Author>> GetAll()
+        public async Task<List<Author>> GetAll()
         {
-            return _repositoryWrapper.Author.FindAll().ToListAsync();
+            return await _repositoryWrapper.Author.FindAll();
         }
 
-        public Task<Author> GetById(int id)
+        public async Task<Author> GetById(int id)
         {
-            var that = _repositoryWrapper.Author
-                .FindByCondition(x => x.Id == id).First();
-            return Task.FromResult(that);
+            var that = await _repositoryWrapper.Author
+                .FindByCondition(x => x.Id == id);
+            return that.First();
         }
 
-        public Task Create(Author model)
+        public async Task Create(Author model)
         {
-            _repositoryWrapper.Author.Create(model);
-            _repositoryWrapper.Save();
-            return Task.CompletedTask;
+            await _repositoryWrapper.Author.Create(model);
+            await _repositoryWrapper.Save();
         }
 
-        public Task Update(Author model)
+        public async Task Update(Author model)
         {
-            _repositoryWrapper.Author.Update(model);
-            _repositoryWrapper.Save();
-            return Task.CompletedTask;
+            await _repositoryWrapper.Author.Update(model);
+            await _repositoryWrapper.Save();
         }
 
-        public Task Delete(int id)
+        public async Task Delete(int id)
         {
-            var that = _repositoryWrapper.Author
-                .FindByCondition(x => x.Id == id).First();
+            var that = await _repositoryWrapper.Author
+                .FindByCondition(x => x.Id == id);
 
-            _repositoryWrapper.Author.Delete(that);
-            _repositoryWrapper.Save();
-            return Task.CompletedTask;
+            await _repositoryWrapper.Author.Delete(that.First());
+            await _repositoryWrapper.Save();
         }
     }
 }

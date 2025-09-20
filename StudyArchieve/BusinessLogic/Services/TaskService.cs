@@ -1,7 +1,6 @@
 ﻿using Domain.DTOs.Task;
 using Domain.Interfaces;
 using Domain.Models;
-using Domain.Wrapper;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -23,15 +22,16 @@ namespace BusinessLogic.Services
             _repositoryWrapper = repositoryWrapper;
         }
 
-        public Task<List<TaskDto>> GetAll()
+        public async Task<List<TaskDto>> GetAll()
         {
-            var tasks = _repositoryWrapper.Exercise
-                .GetTasksWithDetails().ToList();
-            return Task.FromResult(TaskMapper.ToDtoList(tasks));
+            var tasks = await _repositoryWrapper.Exercise
+                .GetTasksWithDetails();
+            return TaskMapper.ToDtoList(tasks);
         }
-        public Task<List<TaskDto>> GetByFilter(int? subjectId = null, int? academicYearId = null, int? typeId = null, int[]? authorIds = null, int[]? tagIds = null)
+        public async Task<List<TaskDto>> GetByFilter(int? subjectId = null, int? academicYearId = null, int? typeId = null, int[]? authorIds = null, int[]? tagIds = null)
         {
-            var query = _repositoryWrapper.Exercise.GetTasksWithDetails();
+            var allTasks = await _repositoryWrapper.Exercise.GetTasksWithDetails();
+            var query = allTasks.AsQueryable();
 
             // Фильтрация по subjectId (если передан)
             if (subjectId.HasValue)
@@ -64,38 +64,35 @@ namespace BusinessLogic.Services
             }
 
             var tasks = query.ToList();
-            return Task.FromResult(TaskMapper.ToDtoList(tasks));
+            return TaskMapper.ToDtoList(tasks);
         }
 
-        public Task<FullTaskDto> GetById(int id)
+        public async Task<FullTaskDto> GetById(int id)
         {
-            var that = _repositoryWrapper.Exercise
-                .GetOneTaskWithAllConnected(id).First();
-            return Task.FromResult(TaskMapper.ToFullDto(that));
+            var that = await _repositoryWrapper.Exercise
+                .GetOneTaskWithAllConnected(id);
+            return TaskMapper.ToFullDto(that);
         }
 
-        public Task Create(Exercise model)
+        public async Task Create(Exercise model)
         {
-            _repositoryWrapper.Exercise.Create(model);
-            _repositoryWrapper.Save();
-            return Task.CompletedTask;
+            await _repositoryWrapper.Exercise.Create(model);
+            await _repositoryWrapper.Save();
         }
 
-        public Task Update(Exercise model)
+        public async Task Update(Exercise model)
         {
-            _repositoryWrapper.Exercise.Update(model);
-            _repositoryWrapper.Save();
-            return Task.CompletedTask;
+            await _repositoryWrapper.Exercise.Update(model);
+            await _repositoryWrapper.Save();
         }
 
-        public Task Delete(int id)
+        public async Task Delete(int id)
         {
-            var that = _repositoryWrapper.Exercise
-                .FindByCondition(x => x.Id == id).First();
+            var that = await _repositoryWrapper.Exercise
+                .FindByCondition(x => x.Id == id);
 
-            _repositoryWrapper.Exercise.Delete(that);
-            _repositoryWrapper.Save();
-            return Task.CompletedTask;
+            await _repositoryWrapper.Exercise.Delete(that.First());
+            await _repositoryWrapper.Save();
         }
     }
 }

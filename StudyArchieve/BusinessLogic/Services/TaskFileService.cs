@@ -1,6 +1,5 @@
 ﻿using Domain.Interfaces;
 using Domain.Models;
-using Domain.Wrapper;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -20,40 +19,37 @@ namespace BusinessLogic.Services
             _repositoryWrapper = repositoryWrapper;
         }
 
-        public Task<List<TaskFile>> GetAll()
+        public async Task<List<TaskFile>> GetAll()
         {
-            return _repositoryWrapper.TaskFile.FindAll().ToListAsync();
+            return await _repositoryWrapper.TaskFile.FindAll();
         }
 
-        public Task<TaskFile> GetById(int id)
+        public async Task<TaskFile> GetById(int id)
         {
-            var that = _repositoryWrapper.TaskFile
-                .FindByCondition(x => x.Id == id).First();
-            return Task.FromResult(that);
+            var that = await _repositoryWrapper.TaskFile
+                .FindByCondition(x => x.Id == id);
+            return that.First();
         }
 
-        public Task Create(TaskFile model)
+        public async Task Create(TaskFile model)
         {
-            _repositoryWrapper.TaskFile.Create(model);
-            _repositoryWrapper.Save();
-            return Task.CompletedTask;
+            await _repositoryWrapper.TaskFile.Create(model);
+            await _repositoryWrapper.Save();
         }
 
-        public Task Update(TaskFile model)
+        public async Task Update(TaskFile model)
         {
-            _repositoryWrapper.TaskFile.Update(model);
-            _repositoryWrapper.Save();
-            return Task.CompletedTask;
+            await _repositoryWrapper.TaskFile.Update(model);
+            await _repositoryWrapper.Save();
         }
 
-        public Task Delete(int id)
+        public async Task Delete(int id)
         {
-            var that = _repositoryWrapper.TaskFile
-                .FindByCondition(x => x.Id == id).First();
+            var that = await _repositoryWrapper.TaskFile
+                .FindByCondition(x => x.Id == id);
 
-            _repositoryWrapper.TaskFile.Delete(that);
-            _repositoryWrapper.Save();
-            return Task.CompletedTask;
+            await _repositoryWrapper.TaskFile.Delete(that.First());
+            await _repositoryWrapper.Save();
         }
     }
 }

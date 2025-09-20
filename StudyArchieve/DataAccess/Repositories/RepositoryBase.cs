@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
+using Task = System.Threading.Tasks.Task;
 
 namespace DataAccess.Repositories
 {
@@ -17,11 +18,11 @@ namespace DataAccess.Repositories
         {
             RepositoryContext = studyArchieveContext;
         }
-        public IQueryable<T> FindAll() => RepositoryContext.Set<T>().AsNoTracking();
-        public IQueryable<T> FindByCondition(Expression<Func<T, bool>> condition) =>
-            RepositoryContext.Set<T>().Where(condition).AsNoTracking();
-        public void Create(T entity) => RepositoryContext.Set<T>().Add(entity);
-        public void Update(T entity) => RepositoryContext.Set<T>().Update(entity);
-        public void Delete(T entity) => RepositoryContext.Set<T>().Remove(entity);
+        public async Task<List<T>> FindAll() => await RepositoryContext.Set<T>().AsNoTracking().ToListAsync();
+        public async Task<List<T>> FindByCondition(Expression<Func<T, bool>> condition) =>
+            await RepositoryContext.Set<T>().Where(condition).AsNoTracking().ToListAsync();
+        public async Task Create(T entity) => await RepositoryContext.Set<T>().AddAsync(entity);
+        public async Task Update(T entity) => RepositoryContext.Set<T>().Update(entity);
+        public async Task Delete(T entity) => RepositoryContext.Set<T>().Remove(entity);
     }
 }

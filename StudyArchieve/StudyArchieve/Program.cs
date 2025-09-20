@@ -2,7 +2,6 @@ using Domain.Interfaces;
 using BusinessLogic.Services;
 using DataAccess;
 using DataAccess.Wrapper;
-using Domain.Wrapper;
 using Microsoft.EntityFrameworkCore;
 
 namespace StudyArchieveApi

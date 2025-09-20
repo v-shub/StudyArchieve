@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Wrapper
+namespace Domain.Interfaces
 {
     public interface IRepositoryWrapper
     {
@@ -18,6 +18,6 @@ namespace Domain.Wrapper
         ISolutionRepository Solution { get; }
         ITaskFileRepository TaskFile { get; }
         ISolutionFileRepository SolutionFile { get; }
-        void Save();
+        Task Save();
     }
 }
