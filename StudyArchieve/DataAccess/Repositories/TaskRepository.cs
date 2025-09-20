@@ -1,12 +1,12 @@
-﻿using DataAccess.Interfaces;
-using DataAccess.Models;
+﻿using Domain.Interfaces;
+using Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Exercise = DataAccess.Models.Task;
+using Exercise = Domain.Models.Task;
 using Task = System.Threading.Tasks.Task;
 
 namespace DataAccess.Repositories

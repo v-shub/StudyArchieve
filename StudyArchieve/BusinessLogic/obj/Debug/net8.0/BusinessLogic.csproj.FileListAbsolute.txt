@@ -13,8 +13,6 @@ C:\Users\User\Shubina\StudyArchieve\StudyArchieve\BusinessLogic\obj\Debug\net8.0
 C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\BusinessLogic\bin\Debug\net8.0\BusinessLogic.deps.json
 C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\BusinessLogic\bin\Debug\net8.0\BusinessLogic.dll
 C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\BusinessLogic\bin\Debug\net8.0\BusinessLogic.pdb
-C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\BusinessLogic\bin\Debug\net8.0\DataAccess.dll
-C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\BusinessLogic\bin\Debug\net8.0\DataAccess.pdb
 C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\BusinessLogic\obj\Debug\net8.0\BusinessLogic.csproj.AssemblyReference.cache
 C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\BusinessLogic\obj\Debug\net8.0\BusinessLogic.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\BusinessLogic\obj\Debug\net8.0\BusinessLogic.AssemblyInfoInputs.cache
@@ -26,3 +24,5 @@ C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchi
 C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\BusinessLogic\obj\Debug\net8.0\refint\BusinessLogic.dll
 C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\BusinessLogic\obj\Debug\net8.0\BusinessLogic.pdb
 C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\BusinessLogic\obj\Debug\net8.0\ref\BusinessLogic.dll
+C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\BusinessLogic\bin\Debug\net8.0\Domain.dll
+C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\BusinessLogic\bin\Debug\net8.0\Domain.pdb

@@ -92,3 +92,5 @@ C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchi
 C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\StudyArchieve\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
 C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\StudyArchieve\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
 C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\StudyArchieve\obj\Debug\net8.0\staticwebassets.build.json.cache
+C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\StudyArchieve\bin\Debug\net8.0\Domain.dll
+C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\StudyArchieve\bin\Debug\net8.0\Domain.pdb

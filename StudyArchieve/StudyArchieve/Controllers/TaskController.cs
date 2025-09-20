@@ -1,9 +1,9 @@
-﻿using BusinessLogic.Interfaces;
-using DataAccess.Models;
+﻿using Domain.Interfaces;
+using Domain.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using Exercise = DataAccess.Models.Task;
+using Exercise = Domain.Models.Task;
 
 namespace StudyArchieveApi.Controllers
 {

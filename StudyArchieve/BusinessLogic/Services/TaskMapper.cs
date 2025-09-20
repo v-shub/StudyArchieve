@@ -1,11 +1,11 @@
-﻿using BusinessLogic.DTOs.Task;
-using DataAccess.Models;
+﻿using Domain.DTOs.Task;
+using Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Exercise = DataAccess.Models.Task;
+using Exercise = Domain.Models.Task;
 
 namespace BusinessLogic.Services
 {

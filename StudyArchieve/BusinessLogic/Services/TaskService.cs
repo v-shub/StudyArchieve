@@ -1,7 +1,7 @@
-﻿using BusinessLogic.DTOs.Task;
-using BusinessLogic.Interfaces;
-using DataAccess.Models;
-using DataAccess.Wrapper;
+﻿using Domain.DTOs.Task;
+using Domain.Interfaces;
+using Domain.Models;
+using Domain.Wrapper;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
-using Exercise = DataAccess.Models.Task;
+using Exercise = Domain.Models.Task;
 using Task = System.Threading.Tasks.Task;
 
 namespace BusinessLogic.Services
