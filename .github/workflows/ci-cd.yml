@@ -1,0 +1,32 @@
+name: Build and Format Check
+
+on:
+  push:
+    branches: ["*"]  # Для всех веток
+  pull_request:
+    branches: ["*"]  # Для всех PR
+
+jobs:
+  build-and-format:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.400  # Укажите нужную версию .NET
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build project
+      run: dotnet build --no-restore --configuration Release
+
+    - name: Check code formatting
+      run: dotnet format --verify-no-changes --severity error
+
+    - name: Run tests
+      run: find . -name "*.Tests.csproj" -exec dotnet test {} \;
