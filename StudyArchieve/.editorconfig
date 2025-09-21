@@ -244,6 +244,17 @@ dotnet_naming_style.begins_with_i.required_prefix = I
 dotnet_naming_style.begins_with_i.required_suffix = 
 dotnet_naming_style.begins_with_i.word_separator = 
 dotnet_naming_style.begins_with_i.capitalization = pascal_case
+dotnet_diagnostic.SYSLIB1090.severity = warning
+dotnet_diagnostic.BL0001.severity = warning
+dotnet_diagnostic.BL0004.severity = warning
+dotnet_diagnostic.RS1035.severity = warning
+dotnet_diagnostic.CA1856.severity = warning
+dotnet_diagnostic.CA2252.severity = warning
+dotnet_diagnostic.SYSLIB1055.severity = error
+dotnet_diagnostic.SYSLIB1056.severity = error
+dotnet_diagnostic.SYSLIB1057.severity = error
+dotnet_diagnostic.SYSLIB1058.severity = error
+dotnet_diagnostic.SYSLIB1060.severity = error
 
 [*.{cs,vb}]
 dotnet_style_coalesce_expression = true:suggestion
@@ -280,3 +291,4 @@ dotnet_style_parentheses_in_other_binary_operators = always_for_clarity:silent
 dotnet_style_parentheses_in_relational_binary_operators = always_for_clarity:silent
 dotnet_style_parentheses_in_other_operators = never_if_unnecessary:silent
 dotnet_style_require_accessibility_modifiers = for_non_interface_members:silent
+dotnet_diagnostic.RS1009.severity = warning
