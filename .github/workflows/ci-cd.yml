@@ -1,4 +1,4 @@
-name: Build and Format Check
+name: Build, Format Check and Test
 
 on:
   push:
@@ -32,4 +32,4 @@ jobs:
         dotnet format StudyArchieve/StudyArchieveApi.sln --verify-no-changes --severity error
         
     - name: Run tests
-      run: dotnet test --configuration Release --no-restore --verbosity normal
+      run: dotnet test StudyArchieve/StudyArchieveApi.sln --configuration Release --no-restore --verbosity normal
