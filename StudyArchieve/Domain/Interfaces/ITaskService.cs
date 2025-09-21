@@ -12,11 +12,12 @@ namespace Domain.Interfaces
 {
     public interface ITaskService
     {
-        Task<List<TaskDto>> GetAll();
         Task<List<TaskDto>> GetByFilter(int? sublectId, int? academicYearId, int? typeId, int[]? authorIds, int[]? tagIds);
         Task<FullTaskDto> GetById(int id);
+        /*
+        Task<List<TaskDto>> GetAll();
         Task Create(Exercise model);
         Task Update(Exercise model);
-        Task Delete(int id);
+        Task Delete(int id);*/
     }
 }

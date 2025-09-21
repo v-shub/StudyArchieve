@@ -9,11 +9,11 @@ using Task = System.Threading.Tasks.Task;
 namespace Domain.Interfaces
 {
     public interface ISolutionService
-    {
+    {/*
         Task<List<Solution>> GetAll();
         Task<Solution> GetById(int id);
         Task Create(Solution model);
         Task Update(Solution model);
-        Task Delete(int id);
+        Task Delete(int id);*/
     }
 }

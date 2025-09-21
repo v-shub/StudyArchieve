@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{754FC069-D67B-A9D7-50A1-8D1CA196D8F1}|\u042D\u043B\u0435\u043C\u0435\u043D\u0442\u044B \u0440\u0435\u0448\u0435\u043D\u0438\u044F{754FC069-D67B-A9D7-50A1-8D1CA196D8F1}|C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\.editorconfig||{68B46364-D378-42F2-9E72-37D86C5F4468}",
-      "RelativeMoniker": "D:0:0:{754FC069-D67B-A9D7-50A1-8D1CA196D8F1}|\u042D\u043B\u0435\u043C\u0435\u043D\u0442\u044B \u0440\u0435\u0448\u0435\u043D\u0438\u044F{754FC069-D67B-A9D7-50A1-8D1CA196D8F1}|solutionrelative:.editorconfig||{68B46364-D378-42F2-9E72-37D86C5F4468}"
+      "AbsoluteMoniker": "D:0:0:{406CFA48-10FF-4FBA-BBF1-5ED3F541C389}|BusinessLogic\\BusinessLogic.csproj|c:\\users\\victo\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\modules\\studyarchieve\\studyarchieve\\businesslogic\\services\\academicyearservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{406CFA48-10FF-4FBA-BBF1-5ED3F541C389}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\services\\academicyearservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C1A065C-4CF2-478F-AD1D-80F4BA6CE5DD}|BusinessLogic.Tests\\BusinessLogic.Tests.csproj|c:\\users\\victo\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\modules\\studyarchieve\\studyarchieve\\businesslogic.tests\\taskservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C1A065C-4CF2-478F-AD1D-80F4BA6CE5DD}|BusinessLogic.Tests\\BusinessLogic.Tests.csproj|solutionrelative:businesslogic.tests\\taskservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{406CFA48-10FF-4FBA-BBF1-5ED3F541C389}|BusinessLogic\\BusinessLogic.csproj|c:\\users\\victo\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\modules\\studyarchieve\\studyarchieve\\businesslogic\\services\\taskservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{406CFA48-10FF-4FBA-BBF1-5ED3F541C389}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\services\\taskservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CCD607A-2C8E-4139-8D0E-FE6FB7072AA0}|Domain\\Domain.csproj|c:\\users\\victo\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\modules\\studyarchieve\\studyarchieve\\domain\\models\\task.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CCD607A-2C8E-4139-8D0E-FE6FB7072AA0}|Domain\\Domain.csproj|solutionrelative:domain\\models\\task.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,11 +26,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AcademicYearService.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\BusinessLogic\\Services\\AcademicYearService.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\Services\\AcademicYearService.cs",
+              "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\BusinessLogic\\Services\\AcademicYearService.cs",
+              "RelativeToolTip": "BusinessLogic\\Services\\AcademicYearService.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-21T19:41:55.987Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Task.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\Domain\\Models\\Task.cs",
+              "RelativeDocumentMoniker": "Domain\\Models\\Task.cs",
+              "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\Domain\\Models\\Task.cs",
+              "RelativeToolTip": "Domain\\Models\\Task.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAowCMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-21T19:00:43.159Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -34,14 +72,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": ".editorconfig",
-              "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\.editorconfig",
-              "RelativeDocumentMoniker": ".editorconfig",
-              "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\.editorconfig",
-              "RelativeToolTip": ".editorconfig",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-09-21T15:02:32.532Z",
+              "DocumentIndex": 2,
+              "Title": "TaskService.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\BusinessLogic\\Services\\TaskService.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\Services\\TaskService.cs",
+              "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\BusinessLogic\\Services\\TaskService.cs",
+              "RelativeToolTip": "BusinessLogic\\Services\\TaskService.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAAwD0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-21T17:29:52.124Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TaskServiceTest.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\BusinessLogic.Tests\\TaskServiceTest.cs",
+              "RelativeDocumentMoniker": "BusinessLogic.Tests\\TaskServiceTest.cs",
+              "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\BusinessLogic.Tests\\TaskServiceTest.cs",
+              "RelativeToolTip": "BusinessLogic.Tests\\TaskServiceTest.cs",
+              "ViewState": "AgIAAIcAAAAAAAAAAAAAAJEAAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-21T17:14:22.105Z",
               "EditorCaption": ""
             }
           ]

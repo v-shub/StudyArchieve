@@ -18,7 +18,7 @@ namespace BusinessLogic.Services
         {
             _repositoryWrapper = repositoryWrapper;
         }
-
+        /*
         public async Task<List<TaskFile>> GetAll()
         {
             return await _repositoryWrapper.TaskFile.FindAll();
@@ -50,6 +50,6 @@ namespace BusinessLogic.Services
 
             await _repositoryWrapper.TaskFile.Delete(that.First());
             await _repositoryWrapper.Save();
-        }
+        }*/
     }
 }

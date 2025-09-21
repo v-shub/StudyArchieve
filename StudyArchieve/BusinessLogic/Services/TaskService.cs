@@ -22,13 +22,6 @@ namespace BusinessLogic.Services
         {
             _repositoryWrapper = repositoryWrapper;
         }
-
-        public async Task<List<TaskDto>> GetAll()
-        {
-            var tasks = await _repositoryWrapper.Exercise
-                .GetTasksWithDetails();
-            return TaskMapper.ToDtoList(tasks);
-        }
         public async Task<List<TaskDto>> GetByFilter(int? subjectId = null, int? academicYearId = null, int? typeId = null, int[]? authorIds = null, int[]? tagIds = null)
         {
             var allTasks = await _repositoryWrapper.Exercise.GetTasksWithDetails();
@@ -70,9 +63,21 @@ namespace BusinessLogic.Services
 
         public async Task<FullTaskDto> GetById(int id)
         {
+            if (id <= 0)
+                throw new ArgumentException("id");
             var that = await _repositoryWrapper.Exercise
                 .GetOneTaskWithAllConnected(id);
+            if (that == null)
+                return null;
             return TaskMapper.ToFullDto(that);
+        }/*
+          
+        
+        public async Task<List<TaskDto>> GetAll()
+        {
+            var tasks = await _repositoryWrapper.Exercise
+                .GetTasksWithDetails();
+            return TaskMapper.ToDtoList(tasks);
         }
 
         public async Task Create(Exercise model)
@@ -94,6 +99,6 @@ namespace BusinessLogic.Services
 
             await _repositoryWrapper.Exercise.Delete(that.First());
             await _repositoryWrapper.Save();
-        }
+        }*/
     }
 }
