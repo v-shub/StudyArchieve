@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Interfaces
 {
-    public interface ISolutionFileRepository: IRepositoryBase<SolutionFile>
+    public interface ISolutionFileRepository : IRepositoryBase<SolutionFile>
     {
     }
 }

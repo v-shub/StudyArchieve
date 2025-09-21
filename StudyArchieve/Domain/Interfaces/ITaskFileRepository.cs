@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Interfaces
 {
-    public interface ITaskFileRepository: IRepositoryBase<TaskFile>
+    public interface ITaskFileRepository : IRepositoryBase<TaskFile>
     {
     }
 }

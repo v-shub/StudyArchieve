@@ -10,6 +10,6 @@ namespace DataAccess.Repositories
 {
     public class SubjectRepository : RepositoryBase<Subject>, ISubjectRepository
     {
-        public SubjectRepository(StudyArchieveContext repositoryContext): base(repositoryContext) { }
+        public SubjectRepository(StudyArchieveContext repositoryContext) : base(repositoryContext) { }
     }
 }
