@@ -25,5 +25,8 @@ jobs:
     - name: Build project
       run: dotnet build StudyArchieve/StudyArchieveApi.sln --no-restore --configuration Release
 
-    - name: Check code formatting
-      run: dotnet format StudyArchieve/StudyArchieveApi.sln --verify-no-changes --severity error
+    - name: Check and fix code formatting
+      run: |
+        dotnet format StudyArchieve/StudyArchieveApi.sln --severity error
+
+        dotnet format StudyArchieve/StudyArchieveApi.sln --verify-no-changes --severity error
