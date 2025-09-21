@@ -300,3 +300,4 @@ dotnet_style_parentheses_in_relational_binary_operators = always_for_clarity:sil
 dotnet_style_parentheses_in_other_operators = never_if_unnecessary:silent
 dotnet_style_require_accessibility_modifiers = for_non_interface_members:silent
 dotnet_diagnostic.RS1009.severity = warning
+end_of_line = crlf
