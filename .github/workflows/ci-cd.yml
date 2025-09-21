@@ -30,3 +30,6 @@ jobs:
         dotnet format StudyArchieve/StudyArchieveApi.sln --severity error
 
         dotnet format StudyArchieve/StudyArchieveApi.sln --verify-no-changes --severity error
+        
+    - name: Run tests
+      run: dotnet test --configuration Release --no-restore --verbosity normal
