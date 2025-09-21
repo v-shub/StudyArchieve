@@ -1,8 +1,9 @@
-using Domain.Interfaces;
 using BusinessLogic.Services;
 using DataAccess;
 using DataAccess.Wrapper;
+using Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 
 namespace StudyArchieveApi
 {
@@ -29,7 +30,29 @@ namespace StudyArchieveApi
 
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            builder.Services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "Архив заданий прошлых лет API",
+                    Description = "API для работы с архивом учебных заданий прошлых лет.<br/>" +
+                        "Предоставляет возможности поиска, фильтрации и управления заданиями " +
+                        "с поддержкой решений и файловых вложений.<br/><br/>" +
+                        "<b>Ключевые функции:</b><br/>" +
+                        "• Поиск по предметам, авторам, тегам<br/>" +
+                        "• Множественные решения к заданиям<br/>" +
+                        "• Система тегов и категорий<br/>" +
+                        "• Поддержка файловых вложений<br/>" +
+                        "• Фильтрация по учебным годам",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Поддержка StudyArchieve",
+                        Email = "victoriya.shubina.mex@gmail.com",
+                        Url = new Uri("https://github.com/v-shub")
+                    }
+                });
+            });
 
             var app = builder.Build();
 
