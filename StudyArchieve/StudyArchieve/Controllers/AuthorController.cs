@@ -15,6 +15,17 @@ namespace StudyArchieveApi.Controllers
             _authorService = authorService;
         }
 
+        /// <summary>
+        /// Получение списка всех авторов заданий
+        /// </summary>
+        /// <remarks>
+        /// Пример запроса:
+        ///
+        ///     GET /Todo
+        ///     {}
+        ///
+        /// </remarks>
+        /// <returns>Список всех авторов заданий</returns>
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {

@@ -14,7 +14,17 @@ namespace StudyArchieveApi.Controllers
         {
             _academicYearService = academicYearService;
         }
-
+        /// <summary>
+        /// Получение списка всех учебных лет
+        /// </summary>
+        /// <remarks>
+        /// Пример запроса:
+        ///
+        ///     GET /Todo
+        ///     {}
+        ///
+        /// </remarks>
+        /// <returns>Список всех учебных лет</returns>
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {

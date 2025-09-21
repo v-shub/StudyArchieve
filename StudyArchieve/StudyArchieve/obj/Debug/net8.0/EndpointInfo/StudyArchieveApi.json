@@ -4,7 +4,7 @@
     "title": "Архив заданий прошлых лет API",
     "description": "API для работы с архивом учебных заданий прошлых лет.<br/>Предоставляет возможности поиска, фильтрации и управления заданиями с поддержкой решений и файловых вложений.<br/><br/><b>Ключевые функции:</b><br/>• Поиск по предметам, авторам, тегам<br/>• Множественные решения к заданиям<br/>• Система тегов и категорий<br/>• Поддержка файловых вложений<br/>• Фильтрация по учебным годам",
     "contact": {
-      "name": "Поддержка",
+      "name": "Поддержка StudyArchieve",
       "url": "https://github.com/v-shub",
       "email": "victoriya.shubina.mex@gmail.com"
     },
@@ -16,6 +16,8 @@
         "tags": [
           "AcademicYear"
         ],
+        "summary": "Получение списка всех учебных лет",
+        "description": "Пример запроса:\r\n            \r\n    GET /Todo\r\n    {}",
         "responses": {
           "200": {
             "description": "OK"
@@ -28,6 +30,8 @@
         "tags": [
           "Author"
         ],
+        "summary": "Получение списка всех авторов заданий",
+        "description": "Пример запроса:\r\n            \r\n    GET /Todo\r\n    {}",
         "responses": {
           "200": {
             "description": "OK"
@@ -40,6 +44,8 @@
         "tags": [
           "Subject"
         ],
+        "summary": "Получение списка всех учебных дисциплин",
+        "description": "Пример запроса:\r\n            \r\n    GET /Todo\r\n    {}",
         "responses": {
           "200": {
             "description": "OK"
@@ -52,6 +58,8 @@
         "tags": [
           "Tag"
         ],
+        "summary": "Получение списка всех тэгов",
+        "description": "Пример запроса:\r\n            \r\n    GET /Todo\r\n    {}",
         "responses": {
           "200": {
             "description": "OK"
@@ -64,10 +72,13 @@
         "tags": [
           "Task"
         ],
+        "summary": "Получение списка заданий по условию",
+        "description": "Пример запроса:\r\n            \r\n    GET /Todo\r\n    {\r\n       \"subjectId\" : 3,\r\n       \"academicYearId\" : 2,\r\n       \"typeId\" : 1,\r\n       \"authorIds\" : [1, 2],\r\n       \"tagIds\" : [2, 4, 5]\r\n    }",
         "parameters": [
           {
             "name": "subjectId",
             "in": "query",
+            "description": "Id учебной дисциплины",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -76,6 +87,7 @@
           {
             "name": "academicYearId",
             "in": "query",
+            "description": "Id учебного года",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -84,6 +96,7 @@
           {
             "name": "typeId",
             "in": "query",
+            "description": "Id типа задания",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -92,6 +105,7 @@
           {
             "name": "authorIds",
             "in": "query",
+            "description": "Набор id авторов задания",
             "schema": {
               "type": "array",
               "items": {
@@ -103,6 +117,7 @@
           {
             "name": "tagIds",
             "in": "query",
+            "description": "Набор id тэгов",
             "schema": {
               "type": "array",
               "items": {
@@ -124,10 +139,13 @@
         "tags": [
           "Task"
         ],
+        "summary": "Получение задания со всеми его решениями и файлами по его id",
+        "description": "Пример запроса:\r\n            \r\n    GET /Todo\r\n    {\r\n       \"id\" : 3\r\n    }",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Id задания",
             "required": true,
             "schema": {
               "type": "integer",
@@ -147,6 +165,8 @@
         "tags": [
           "TaskType"
         ],
+        "summary": "Получение списка всех типов заданий",
+        "description": "Пример запроса:\r\n            \r\n    GET /Todo\r\n    {}",
         "responses": {
           "200": {
             "description": "OK"

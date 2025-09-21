@@ -4,6 +4,7 @@ using DataAccess.Wrapper;
 using Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using System.Reflection;
 
 namespace StudyArchieveApi
 {
@@ -52,6 +53,8 @@ namespace StudyArchieveApi
                         Url = new Uri("https://github.com/v-shub")
                     }
                 });
+                var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
             });
 
             var app = builder.Build();

@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>StudyArchieveApi</name>
+    </assembly>
+    <members>
+        <member name="M:StudyArchieveApi.Controllers.AcademicYearController.GetAll">
+             <summary>
+             Получение списка всех учебных лет
+             </summary>
+             <remarks>
+             Пример запроса:
+            
+                 GET /Todo
+                 {}
+            
+             </remarks>
+             <returns>Список всех учебных лет</returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.AuthorController.GetAll">
+             <summary>
+             Получение списка всех авторов заданий
+             </summary>
+             <remarks>
+             Пример запроса:
+            
+                 GET /Todo
+                 {}
+            
+             </remarks>
+             <returns>Список всех авторов заданий</returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.SubjectController.GetAll">
+             <summary>
+             Получение списка всех учебных дисциплин
+             </summary>
+             <remarks>
+             Пример запроса:
+            
+                 GET /Todo
+                 {}
+            
+             </remarks>
+             <returns>Список всех учебных дисциплин</returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.TagController.GetAll">
+             <summary>
+             Получение списка всех тэгов
+             </summary>
+             <remarks>
+             Пример запроса:
+            
+                 GET /Todo
+                 {}
+            
+             </remarks>
+             <returns>Список всех тэгов</returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.TaskController.GetByFilter(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Int32[],System.Int32[])">
+             <summary>
+             Получение списка заданий по условию
+             </summary>
+             <remarks>
+             Пример запроса:
+            
+                 GET /Todo
+                 {
+                    "subjectId" : 3,
+                    "academicYearId" : 2,
+                    "typeId" : 1,
+                    "authorIds" : [1, 2],
+                    "tagIds" : [2, 4, 5]
+                 }
+            
+             </remarks>
+             <param name="subjectId">Id учебной дисциплины</param>
+             <param name="academicYearId">Id учебного года</param>
+             <param name="typeId">Id типа задания</param>
+             <param name="authorIds">Набор id авторов задания</param>
+             <param name="tagIds">Набор id тэгов</param>
+             <returns>Список заданий, удовлетворяющих условию поиска</returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.TaskController.GetById(System.Int32)">
+             <summary>
+             Получение задания со всеми его решениями и файлами по его id
+             </summary>
+             <remarks>
+             Пример запроса:
+            
+                 GET /Todo
+                 {
+                    "id" : 3
+                 }
+            
+             </remarks>
+             <param name="id">Id задания</param>
+             <returns>Задание со всеми его решениями и файлами</returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.TaskTypeController.GetAll">
+             <summary>
+             Получение списка всех типов заданий
+             </summary>
+             <remarks>
+             Пример запроса:
+            
+                 GET /Todo
+                 {}
+            
+             </remarks>
+             <returns>Список всех типов заданий</returns>
+        </member>
+    </members>
+</doc>

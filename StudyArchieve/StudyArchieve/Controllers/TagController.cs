@@ -15,6 +15,17 @@ namespace StudyArchieveApi.Controllers
             _tagService = tagService;
         }
 
+        /// <summary>
+        /// Получение списка всех тэгов
+        /// </summary>
+        /// <remarks>
+        /// Пример запроса:
+        ///
+        ///     GET /Todo
+        ///     {}
+        ///
+        /// </remarks>
+        /// <returns>Список всех тэгов</returns>
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {

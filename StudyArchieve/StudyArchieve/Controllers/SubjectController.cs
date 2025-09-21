@@ -15,6 +15,17 @@ namespace StudyArchieveApi.Controllers
             _subjectService = subjectService;
         }
 
+        /// <summary>
+        /// Получение списка всех учебных дисциплин
+        /// </summary>
+        /// <remarks>
+        /// Пример запроса:
+        ///
+        ///     GET /Todo
+        ///     {}
+        ///
+        /// </remarks>
+        /// <returns>Список всех учебных дисциплин</returns>
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {

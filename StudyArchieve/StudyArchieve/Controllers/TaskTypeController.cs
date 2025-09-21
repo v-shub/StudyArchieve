@@ -15,6 +15,17 @@ namespace StudyArchieveApi.Controllers
             _taskTypeService = taskTypeService;
         }
 
+        /// <summary>
+        /// Получение списка всех типов заданий
+        /// </summary>
+        /// <remarks>
+        /// Пример запроса:
+        ///
+        ///     GET /Todo
+        ///     {}
+        ///
+        /// </remarks>
+        /// <returns>Список всех типов заданий</returns>
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
