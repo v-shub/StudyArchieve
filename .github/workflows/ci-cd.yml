@@ -20,10 +20,10 @@ jobs:
         dotnet-version: 8.0.400  # Укажите нужную версию .NET
 
     - name: Restore dependencies
-      run: dotnet restore StudyArchieveApi.sln  # Укажите точное имя вашего .sln файла
+      run: dotnet restore StudyArchieve/StudyArchieveApi.sln  # Укажите точное имя вашего .sln файла
 
     - name: Build project
-      run: dotnet build StudyArchieveApi.sln --no-restore --configuration Release
+      run: dotnet build StudyArchieve/StudyArchieveApi.sln --no-restore --configuration Release
 
     - name: Check code formatting
-      run: dotnet format StudyArchieveApi.sln --verify-no-changes --severity error
+      run: dotnet format StudyArchieve/StudyArchieveApi.sln --verify-no-changes --severity error
