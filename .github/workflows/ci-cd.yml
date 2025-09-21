@@ -19,31 +19,11 @@ jobs:
       with:
         dotnet-version: 8.0.400  # Укажите нужную версию .NET
 
-    - name: Find solution file
-      id: find-sln
-      run: |
-        # Ищем первый .sln файл в репозитории
-        SOLUTION_FILE=$(find . -name "*.sln" -type f | head -n 1)
-        if [ -z "$SOLUTION_FILE" ]; then
-          echo "No solution file found. Looking for csproj files..."
-          CSPROJ_FILE=$(find . -name "*.csproj" -type f | head -n 1)
-          if [ -z "$CSPROJ_FILE" ]; then
-            echo "::error::No .sln or .csproj files found"
-            exit 1
-          else
-            echo "PROJECT_FILE=$CSPROJ_FILE" >> $GITHUB_OUTPUT
-            echo "Using project file: $CSPROJ_FILE"
-          fi
-        else
-          echo "PROJECT_FILE=$SOLUTION_FILE" >> $GITHUB_OUTPUT
-          echo "Using solution file: $SOLUTION_FILE"
-        fi
-
     - name: Restore dependencies
-      run: dotnet restore ${{ steps.find-sln.outputs.PROJECT_FILE }}
+      run: dotnet restore StudyArchieveApi.sln  # Укажите точное имя вашего .sln файла
 
     - name: Build project
-      run: dotnet build ${{ steps.find-sln.outputs.PROJECT_FILE }} --no-restore --configuration Release
+      run: dotnet build StudyArchieveApi.sln --no-restore --configuration Release
 
     - name: Check code formatting
-      run: dotnet format ${{ steps.find-sln.outputs.PROJECT_FILE }} --verify-no-changes --severity error
+      run: dotnet format StudyArchieveApi.sln --verify-no-changes --severity error
