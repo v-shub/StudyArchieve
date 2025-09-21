@@ -1,4 +1,4 @@
-﻿using Domain.DTOs.Task;
+﻿using Domain.DTOs;
 using Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Exercise = Domain.Models.Task;
 
-namespace BusinessLogic.Services
+namespace BusinessLogic.Mappers
 {
 
     public static class TaskMapper
@@ -26,8 +26,9 @@ namespace BusinessLogic.Services
                 AcademicYearLabel = task.AcademicYear?.YearLabel,
                 TypeId = task.TypeId,
                 TypeName = task.Type?.Name ?? string.Empty,
-                Authors = task.Authors.Select(ToAuthorDto).ToList(),
-                Tags = task.Tags.Select(ToTagDto).ToList()
+
+                Authors = task.Authors.Select(AuthorMapper.ToDto).ToList(),
+                Tags = task.Tags.Select(TagMapper.ToDto).ToList()
             };
         }
 
@@ -45,53 +46,12 @@ namespace BusinessLogic.Services
                 AcademicYearLabel = task.AcademicYear?.YearLabel,
                 TypeId = task.TypeId,
                 TypeName = task.Type?.Name ?? string.Empty,
-                Authors = task.Authors.Select(ToAuthorDto).ToList(),
-                Tags = task.Tags.Select(ToTagDto).ToList(),
-                Solutions = task.Solutions?.Select(ToSolutionDto).ToList() ?? new(),
+                Authors = task.Authors.Select(AuthorMapper.ToDto).ToList(),
+                Tags = task.Tags.Select(TagMapper.ToDto).ToList(),
+                Solutions = task.Solutions?.Select(SolutionMapper.ToDto).ToList() ?? new(),
                 TaskFiles = task.TaskFiles?.Select(ToTaskFileDto).ToList() ?? new()
             };
         }
-
-        public static AuthorDto ToAuthorDto(Author author)
-        {
-            return new AuthorDto
-            {
-                Id = author.Id,
-                Name = author.Name
-            };
-        }
-
-        public static TagDto ToTagDto(Tag tag)
-        {
-            return new TagDto
-            {
-                Id = tag.Id,
-                Name = tag.Name
-            };
-        }
-
-        public static SolutionDto ToSolutionDto(Solution solution)
-        {
-            return new SolutionDto
-            {
-                Id = solution.Id,
-                SolutionText = solution.SolutionText,
-                DateAdded = solution.DateAdded,
-                IsOriginal = solution.IsOriginal,
-                SolutionFiles = solution.SolutionFiles?.Select(ToSolutionFileDto).ToList() ?? new()
-            };
-        }
-
-        public static SolutionFileDto ToSolutionFileDto(SolutionFile solutionFile)
-        {
-            return new SolutionFileDto
-            {
-                Id = solutionFile.Id,
-                FileName = solutionFile.FileName,
-                FilePath = solutionFile.FilePath
-            };
-        }
-
         public static TaskFileDto ToTaskFileDto(TaskFile taskFile)
         {
             return new TaskFileDto
@@ -101,10 +61,9 @@ namespace BusinessLogic.Services
                 FilePath = taskFile.FilePath
             };
         }
-
-        public static List<TaskDto> ToDtoList(List<Exercise> tasks)
+        public static List<TaskDto> ToDtoList(List<Exercise> list)
         {
-            return tasks.Select(ToDto).ToList();
+            return list.Select(ToDto).ToList();
         }
     }
 }

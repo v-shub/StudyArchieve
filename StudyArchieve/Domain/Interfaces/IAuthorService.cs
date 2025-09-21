@@ -1,4 +1,5 @@
-﻿using Domain.Models;
+﻿using Domain.DTOs;
+using Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +11,11 @@ namespace Domain.Interfaces
 {
     public interface IAuthorService
     {
-        Task<List<Author>> GetAll();
+        Task<List<AuthorDto>> GetAll();
+        /*
         Task<Author> GetById(int id);
         Task Create(Author model);
         Task Update(Author model);
-        Task Delete(int id);
+        Task Delete(int id);*/
     }
 }

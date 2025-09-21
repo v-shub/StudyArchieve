@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.DTOs.Task
+namespace Domain.DTOs
 {
-    public class TaskFileDto
+    public class SolutionFileDto
     {
         public int Id { get; set; }
         public string FileName { get; set; } = string.Empty;

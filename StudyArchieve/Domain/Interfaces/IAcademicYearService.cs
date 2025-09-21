@@ -1,4 +1,5 @@
-﻿using Domain.Models;
+﻿using Domain.DTOs;
+using Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +11,12 @@ namespace Domain.Interfaces
 {
     public interface IAcademicYearService
     {
-        Task<List<AcademicYear>> GetAll();
+        Task<List<AcademicYearDto>> GetAll();
+        /*
         Task<AcademicYear> GetById(int id);
         Task Create(AcademicYear model);
         Task Update(AcademicYear model);
         Task Delete(int id);
+        */
     }
 }

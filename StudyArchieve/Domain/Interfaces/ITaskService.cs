@@ -1,4 +1,4 @@
-﻿using Domain.DTOs.Task;
+﻿using Domain.DTOs;
 using Domain.Models;
 using System;
 using System.Collections.Generic;

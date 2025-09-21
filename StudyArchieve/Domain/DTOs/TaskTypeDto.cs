@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.DTOs.Task
+namespace Domain.DTOs
 {
-    public class TagDto
+    public class TaskTypeDto
     {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;

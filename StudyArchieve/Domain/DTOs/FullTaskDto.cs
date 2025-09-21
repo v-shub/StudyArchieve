@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.DTOs.Task
+namespace Domain.DTOs
 {
-    public class TaskDto
+    public class FullTaskDto
     {
         public int Id { get; set; }
         public string Title { get; set; } = string.Empty;
@@ -24,5 +24,7 @@ namespace Domain.DTOs.Task
 
         public List<AuthorDto> Authors { get; set; } = new();
         public List<TagDto> Tags { get; set; } = new();
+        public List<SolutionDto> Solutions { get; set; } = new();
+        public List<TaskFileDto> TaskFiles { get; set; } = new();
     }
 }

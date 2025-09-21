@@ -1,4 +1,6 @@
-﻿using Domain.Interfaces;
+﻿using BusinessLogic.Mappers;
+using Domain.DTOs;
+using Domain.Interfaces;
 using Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -19,11 +21,12 @@ namespace BusinessLogic.Services
             _repositoryWrapper = repositoryWrapper;
         }
 
-        public async Task<List<TaskType>> GetAll()
+        public async Task<List<TaskTypeDto>> GetAll()
         {
-            return await _repositoryWrapper.TaskType.FindAll();
+            var that = await _repositoryWrapper.TaskType.FindAll();
+            return TaskTypeMapper.ToDtoList(that);
         }
-
+        /*
         public async Task<TaskType> GetById(int id)
         {
             var that = await _repositoryWrapper.TaskType
@@ -50,6 +53,6 @@ namespace BusinessLogic.Services
 
             await _repositoryWrapper.TaskType.Delete(that.First());
             await _repositoryWrapper.Save();
-        }
+        }*/
     }
 }

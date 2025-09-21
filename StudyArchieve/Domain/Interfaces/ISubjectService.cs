@@ -1,4 +1,5 @@
-﻿using Domain.Models;
+﻿using Domain.DTOs;
+using Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +11,10 @@ namespace Domain.Interfaces
 {
     public interface ISubjectService
     {
-        Task<List<Subject>> GetAll();
+        Task<List<SubjectDto>> GetAll();/*
         Task<Subject> GetById(int id);
         Task Create(Subject model);
         Task Update(Subject model);
-        Task Delete(int id);
+        Task Delete(int id);*/
     }
 }
