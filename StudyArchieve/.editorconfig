@@ -250,11 +250,19 @@ dotnet_diagnostic.BL0004.severity = warning
 dotnet_diagnostic.RS1035.severity = warning
 dotnet_diagnostic.CA1856.severity = warning
 dotnet_diagnostic.CA2252.severity = warning
-dotnet_diagnostic.SYSLIB1055.severity = error
-dotnet_diagnostic.SYSLIB1056.severity = error
-dotnet_diagnostic.SYSLIB1057.severity = error
-dotnet_diagnostic.SYSLIB1058.severity = error
-dotnet_diagnostic.SYSLIB1060.severity = error
+dotnet_diagnostic.SYSLIB1055.severity = warning
+dotnet_diagnostic.SYSLIB1056.severity = warning
+dotnet_diagnostic.SYSLIB1057.severity = warning
+dotnet_diagnostic.SYSLIB1058.severity = warning
+dotnet_diagnostic.SYSLIB1060.severity = warning
+dotnet_diagnostic.SYSLIB1061.severity = warning
+dotnet_diagnostic.MVC1006.severity = warning
+dotnet_diagnostic.ASP0008.severity = warning
+dotnet_diagnostic.ASP0009.severity = warning
+dotnet_diagnostic.ASP0010.severity = warning
+dotnet_diagnostic.ASP0020.severity = warning
+dotnet_diagnostic.ASP0021.severity = warning
+dotnet_diagnostic.ASP0024.severity = warning
 
 [*.{cs,vb}]
 dotnet_style_coalesce_expression = true:suggestion
