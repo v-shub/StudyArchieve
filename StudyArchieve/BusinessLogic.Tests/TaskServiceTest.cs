@@ -25,6 +25,7 @@ namespace BusinessLogic.Tests
                 .Returns(taskRepositoryMoq.Object);
             service = new TaskService(repositoryWrapperMoq.Object);
         }
+        /*
         [Fact]
         public async Task GetById_ImpossibleId_ShouldThrowArgumentException()
         {
@@ -114,7 +115,110 @@ namespace BusinessLogic.Tests
             Assert.NotNull(result.TaskFiles);
             taskRepositoryMoq.Verify(x => x.GetOneTaskWithAllConnected(It.IsAny<int>()), Times.Once);
         }
+        */
+        [Fact]
+        public async Task GetById_ValidId_ReturnsFullTaskDto()
+        {
+            // Arrange
+            var taskId = 1;
+            var exercise = new Exercise
+            {
+                Id = taskId,
+                Title = "Test Task",
+                Subject = new Subject { Id = 1, Name = "Math" },
+                AcademicYear = new AcademicYear { Id = 1, YearLabel = "2023-2024" },
+                Type = new TaskType { Id = 1, Name = "Lab" },
+                Authors = new List<Author>(),
+                Tags = new List<Tag>(),
+                Solutions = new List<Solution>(),
+                TaskFiles = new List<TaskFile>()
+            };
 
+            taskRepositoryMoq.Setup(x => x.GetOneTaskWithAllConnected(taskId))
+                             .ReturnsAsync(exercise);
+
+            // Act
+            var result = await service.GetById(taskId);
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.Equal(taskId, result.Id);
+            Assert.Equal("Test Task", result.Title);
+            taskRepositoryMoq.Verify(x => x.GetOneTaskWithAllConnected(taskId), Times.Once);
+        }
+
+        [Fact]
+        public async Task GetById_NonExistingId_ReturnsNull()
+        {
+            // Arrange
+            var taskId = 999;
+
+            taskRepositoryMoq.Setup(x => x.GetOneTaskWithAllConnected(taskId))
+                             .ReturnsAsync((Exercise)null);
+
+            // Act
+            var result = await service.GetById(taskId);
+
+            // Assert
+            Assert.Null(result);
+            taskRepositoryMoq.Verify(x => x.GetOneTaskWithAllConnected(taskId), Times.Once);
+        }
+
+        [Theory]
+        [InlineData(0)]
+        [InlineData(-1)]
+        public async Task GetById_InvalidId_ThrowsArgumentException(int invalidId)
+        {
+            // Act & Assert
+            await Assert.ThrowsAsync<ArgumentException>(() => service.GetById(invalidId));
+            taskRepositoryMoq.Verify(x => x.GetOneTaskWithAllConnected(It.IsAny<int>()), Times.Never);
+        }
+
+        [Fact]
+        public async Task GetById_RepositoryThrowsException_ThrowsSameException()
+        {
+            // Arrange
+            var taskId = 1;
+            var expectedException = new Exception("Database error");
+
+            taskRepositoryMoq.Setup(x => x.GetOneTaskWithAllConnected(taskId))
+                             .ThrowsAsync(expectedException);
+
+            // Act & Assert
+            var exception = await Assert.ThrowsAsync<Exception>(() => service.GetById(taskId));
+            Assert.Equal("Database error", exception.Message);
+            taskRepositoryMoq.Verify(x => x.GetOneTaskWithAllConnected(taskId), Times.Once);
+        }
+
+        [Fact]
+        public async Task GetById_WithCollections_ReturnsDtoWithMappedCollections()
+        {
+            // Arrange
+            var taskId = 1;
+            var exercise = new Exercise
+            {
+                Id = taskId,
+                Title = "Test Task",
+                Authors = new List<Author> { new Author { Id = 1, Name = "Author 1" } },
+                Tags = new List<Tag> { new Tag { Id = 1, Name = "Tag 1" } },
+                Solutions = new List<Solution> { new Solution { Id = 1, SolutionText = "Solution 1" } },
+                TaskFiles = new List<TaskFile> { new TaskFile { Id = 1, FileName = "file.txt" } }
+            };
+
+            taskRepositoryMoq.Setup(x => x.GetOneTaskWithAllConnected(taskId))
+                             .ReturnsAsync(exercise);
+
+            // Act
+            var result = await service.GetById(taskId);
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.Single(result.Authors);
+            Assert.Single(result.Tags);
+            Assert.Single(result.Solutions);
+            Assert.Single(result.TaskFiles);
+            taskRepositoryMoq.Verify(x => x.GetOneTaskWithAllConnected(taskId), Times.Once);
+        }
 
         public static IEnumerable<object[]> FilterTestData()
         {

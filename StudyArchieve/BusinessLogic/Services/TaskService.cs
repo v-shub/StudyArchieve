@@ -67,9 +67,7 @@ namespace BusinessLogic.Services
                 throw new ArgumentException("id");
             var that = await _repositoryWrapper.Exercise
                 .GetOneTaskWithAllConnected(id);
-            if (that == null)
-                return null;
-            return TaskMapper.ToFullDto(that);
+            return that == null ? null : TaskMapper.ToFullDto(that);
         }/*
           
         

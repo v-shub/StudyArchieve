@@ -38,7 +38,7 @@ namespace DataAccess.Repositories
                 .Include(t => t.Type)
                 .Where(t => t.Id == id)
                 .AsNoTracking()
-                .FirstOrDefaultAsync(null);
+                .FirstAsync();
         }
     }
 }
