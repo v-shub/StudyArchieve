@@ -19,9 +19,6 @@ jobs:
       with:
         dotnet-version: 8.0.400  # Укажите нужную версию .NET
 
-    - name: Restore dependencies
-      run: dotnet restore
-
     - name: Build project
       run: dotnet build --no-restore --configuration Release
 
