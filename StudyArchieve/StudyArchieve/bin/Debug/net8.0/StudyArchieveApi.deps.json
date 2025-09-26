@@ -1100,6 +1100,7 @@
       "DataAccess/1.0.0": {
         "dependencies": {
           "Domain": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "9.0.9",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.9"
         },
         "runtime": {
@@ -1111,7 +1112,8 @@
       },
       "Domain/1.0.0": {
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "9.0.9"
+          "Microsoft.EntityFrameworkCore": "9.0.9",
+          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.9"
         },
         "runtime": {
           "Domain.dll": {

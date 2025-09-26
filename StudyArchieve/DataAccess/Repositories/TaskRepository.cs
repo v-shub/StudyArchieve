@@ -22,6 +22,7 @@ namespace DataAccess.Repositories
                 .Include(t => t.AcademicYear)
                 .Include(t => t.Subject)
                 .Include(t => t.Type)
+                .Include(t => t.UserAdded)
                 .AsNoTracking()
                 .ToListAsync();
         }
@@ -36,6 +37,7 @@ namespace DataAccess.Repositories
                 .Include(t => t.AcademicYear)
                 .Include(t => t.Subject)
                 .Include(t => t.Type)
+                .Include(t => t.UserAdded)
                 .Where(t => t.Id == id)
                 .AsNoTracking()
                 .FirstAsync();

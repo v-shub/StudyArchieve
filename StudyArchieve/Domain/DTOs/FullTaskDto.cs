@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,7 @@ namespace Domain.DTOs
 
         public int TypeId { get; set; }
         public string TypeName { get; set; } = string.Empty;
+        public User? UserAdded { get; set; }
 
         public List<AuthorDto> Authors { get; set; } = new();
         public List<TagDto> Tags { get; set; } = new();

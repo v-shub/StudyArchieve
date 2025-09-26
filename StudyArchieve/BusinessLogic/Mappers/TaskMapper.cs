@@ -21,11 +21,12 @@ namespace BusinessLogic.Mappers
                 ConditionText = task.ConditionText,
                 DateAdded = task.DateAdded,
                 SubjectId = task.SubjectId,
-                SubjectName = task.Subject?.Name ?? string.Empty,
+                SubjectName = task.Subject.Name,
                 AcademicYearId = task.AcademicYearId,
                 AcademicYearLabel = task.AcademicYear?.YearLabel,
                 TypeId = task.TypeId,
-                TypeName = task.Type?.Name ?? string.Empty,
+                TypeName = task.Type.Name,
+                UserAdded = task.UserAdded,
 
                 Authors = task.Authors.Select(AuthorMapper.ToDto).ToList(),
                 Tags = task.Tags.Select(TagMapper.ToDto).ToList()
@@ -41,15 +42,16 @@ namespace BusinessLogic.Mappers
                 ConditionText = task.ConditionText,
                 DateAdded = task.DateAdded,
                 SubjectId = task.SubjectId,
-                SubjectName = task.Subject?.Name ?? string.Empty,
+                SubjectName = task.Subject.Name,
                 AcademicYearId = task.AcademicYearId,
                 AcademicYearLabel = task.AcademicYear?.YearLabel,
                 TypeId = task.TypeId,
-                TypeName = task.Type?.Name ?? string.Empty,
+                TypeName = task.Type.Name,
+                UserAdded = task.UserAdded,
                 Authors = task.Authors.Select(AuthorMapper.ToDto).ToList(),
                 Tags = task.Tags.Select(TagMapper.ToDto).ToList(),
-                Solutions = task.Solutions?.Select(SolutionMapper.ToDto).ToList() ?? new(),
-                TaskFiles = task.TaskFiles?.Select(ToTaskFileDto).ToList() ?? new()
+                Solutions = task.Solutions.Select(SolutionMapper.ToDto).ToList(),
+                TaskFiles = task.TaskFiles.Select(ToTaskFileDto).ToList()
             };
         }
         public static TaskFileDto ToTaskFileDto(TaskFile taskFile)

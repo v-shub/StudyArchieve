@@ -22,6 +22,8 @@ namespace DataAccess.Wrapper
         private ISolutionRepository _solution;
         private ITaskFileRepository _taskFile;
         private ISolutionFileRepository _solutionFile;
+        private IRoleRepository _role;
+        private IUserRepository _user;
         public ISubjectRepository Subject
         {
             get
@@ -119,6 +121,28 @@ namespace DataAccess.Wrapper
                     _solutionFile = new SolutionFileRepository(_repoContext);
                 }
                 return _solutionFile;
+            }
+        }
+        public IRoleRepository Role
+        {
+            get
+            {
+                if (_role == null)
+                {
+                    _role = new RoleRepository(_repoContext);
+                }
+                return _role;
+            }
+        }
+        public IUserRepository User
+        {
+            get
+            {
+                if (_user == null)
+                {
+                    _user = new UserRepository(_repoContext);
+                }
+                return _user;
             }
         }
         public RepositoryWrapper(StudyArchieveContext repositoryContext)

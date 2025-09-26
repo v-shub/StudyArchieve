@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,7 @@ namespace Domain.DTOs
         public int Id { get; set; }
         public string SolutionText { get; set; } = string.Empty;
         public DateTime DateAdded { get; set; }
-        public bool IsOriginal { get; set; }
+        public User? UserAdded { get; set; }
         public List<SolutionFileDto> SolutionFiles { get; set; } = new();
     }
 }

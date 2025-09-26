@@ -17,8 +17,8 @@ namespace BusinessLogic.Mappers
                 Id = solution.Id,
                 SolutionText = solution.SolutionText,
                 DateAdded = solution.DateAdded,
-                IsOriginal = solution.IsOriginal,
-                SolutionFiles = solution.SolutionFiles?.Select(ToSolutionFileDto).ToList() ?? new()
+                UserAdded = solution.UserAdded,
+                SolutionFiles = solution.SolutionFiles.Select(ToSolutionFileDto).ToList()
             };
         }
         public static SolutionFileDto ToSolutionFileDto(SolutionFile solutionFile)

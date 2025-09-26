@@ -21,6 +21,8 @@ public partial class StudyArchieveContext : DbContext
 
     public virtual DbSet<Author> Authors { get; set; }
 
+    public virtual DbSet<Role> Roles { get; set; }
+
     public virtual DbSet<Solution> Solutions { get; set; }
 
     public virtual DbSet<SolutionFile> SolutionFiles { get; set; }
@@ -34,6 +36,8 @@ public partial class StudyArchieveContext : DbContext
     public virtual DbSet<TaskFile> TaskFiles { get; set; }
 
     public virtual DbSet<TaskType> TaskTypes { get; set; }
+
+    public virtual DbSet<User> Users { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -63,6 +67,18 @@ public partial class StudyArchieveContext : DbContext
                 .HasColumnName("name");
         });
 
+        modelBuilder.Entity<Role>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__roles__3213E83F0B07FD31");
+
+            entity.ToTable("roles");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.RoleName)
+                .HasMaxLength(50)
+                .HasColumnName("role_name");
+        });
+
         modelBuilder.Entity<Solution>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__solution__3213E83F48212A39");
@@ -73,15 +89,20 @@ public partial class StudyArchieveContext : DbContext
             entity.Property(e => e.DateAdded)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnName("date_added");
-            entity.Property(e => e.IsOriginal).HasColumnName("is_original");
             entity.Property(e => e.SolutionText)
                 .HasColumnType("text")
                 .HasColumnName("solution_text");
             entity.Property(e => e.TaskId).HasColumnName("task_id");
+            entity.Property(e => e.UserAddedId).HasColumnName("user_added_id");
 
             entity.HasOne(d => d.Task).WithMany(p => p.Solutions)
                 .HasForeignKey(d => d.TaskId)
                 .HasConstraintName("FK_Solutions_Task");
+
+            entity.HasOne(d => d.UserAdded).WithMany(p => p.Solutions)
+                .HasForeignKey(d => d.UserAddedId)
+                .OnDelete(DeleteBehavior.SetNull)
+                .HasConstraintName("fk_users_solutions");
         });
 
         modelBuilder.Entity<SolutionFile>(entity =>
@@ -140,9 +161,7 @@ public partial class StudyArchieveContext : DbContext
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.AcademicYearId).HasColumnName("academic_year_id");
-            entity.Property(e => e.ConditionText)
-                .HasColumnType("text")
-                .HasColumnName("condition_text");
+            entity.Property(e => e.ConditionText).HasColumnName("condition_text");
             entity.Property(e => e.DateAdded)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnName("date_added");
@@ -151,6 +170,7 @@ public partial class StudyArchieveContext : DbContext
                 .HasMaxLength(500)
                 .HasColumnName("title");
             entity.Property(e => e.TypeId).HasColumnName("type_id");
+            entity.Property(e => e.UserAddedId).HasColumnName("user_added_id");
 
             entity.HasOne(d => d.AcademicYear).WithMany(p => p.Tasks)
                 .HasForeignKey(d => d.AcademicYearId)
@@ -165,6 +185,11 @@ public partial class StudyArchieveContext : DbContext
                 .HasForeignKey(d => d.TypeId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Tasks_Type");
+
+            entity.HasOne(d => d.UserAdded).WithMany(p => p.Tasks)
+                .HasForeignKey(d => d.UserAddedId)
+                .OnDelete(DeleteBehavior.SetNull)
+                .HasConstraintName("fk_users_tasks");
 
             entity.HasMany(d => d.Authors).WithMany(p => p.Tasks)
                 .UsingEntity<Dictionary<string, object>>(
@@ -235,6 +260,27 @@ public partial class StudyArchieveContext : DbContext
             entity.Property(e => e.Name)
                 .HasMaxLength(100)
                 .HasColumnName("name");
+        });
+
+        modelBuilder.Entity<User>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__users__3213E83FB69E9D25");
+
+            entity.ToTable("users");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Email)
+                .HasMaxLength(255)
+                .HasColumnName("email");
+            entity.Property(e => e.RoleId).HasColumnName("role_id");
+            entity.Property(e => e.Username)
+                .HasMaxLength(50)
+                .HasColumnName("username");
+
+            entity.HasOne(d => d.Role).WithMany(p => p.Users)
+                .HasForeignKey(d => d.RoleId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_users_roles");
         });
 
         OnModelCreatingPartial(modelBuilder);

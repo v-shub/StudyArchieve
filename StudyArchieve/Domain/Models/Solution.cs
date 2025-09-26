@@ -13,9 +13,11 @@ public partial class Solution
 
     public DateTime DateAdded { get; set; }
 
-    public bool IsOriginal { get; set; }
+    public int? UserAddedId { get; set; }
 
     public virtual ICollection<SolutionFile> SolutionFiles { get; set; } = new List<SolutionFile>();
 
     public virtual Task Task { get; set; } = null!;
+
+    public virtual User? UserAdded { get; set; }
 }

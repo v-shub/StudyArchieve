@@ -9,7 +9,7 @@ public partial class Task
 
     public string Title { get; set; } = null!;
 
-    public string ConditionText { get; set; } = null!;
+    public string? ConditionText { get; set; }
 
     public int SubjectId { get; set; }
 
@@ -18,6 +18,8 @@ public partial class Task
     public int TypeId { get; set; }
 
     public DateTime DateAdded { get; set; }
+
+    public int? UserAddedId { get; set; }
 
     public virtual AcademicYear? AcademicYear { get; set; }
 
@@ -28,6 +30,8 @@ public partial class Task
     public virtual ICollection<TaskFile> TaskFiles { get; set; } = new List<TaskFile>();
 
     public virtual TaskType Type { get; set; } = null!;
+
+    public virtual User? UserAdded { get; set; }
 
     public virtual ICollection<Author> Authors { get; set; } = new List<Author>();
 

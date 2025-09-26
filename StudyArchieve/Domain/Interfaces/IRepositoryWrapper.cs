@@ -18,6 +18,8 @@ namespace Domain.Interfaces
         ISolutionRepository Solution { get; }
         ITaskFileRepository TaskFile { get; }
         ISolutionFileRepository SolutionFile { get; }
+        IRoleRepository Role { get; }
+        IUserRepository User { get; }
         Task Save();
     }
 }
