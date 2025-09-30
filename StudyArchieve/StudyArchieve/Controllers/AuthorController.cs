@@ -37,7 +37,7 @@ namespace StudyArchieveApi.Controllers
         {
             return Ok(await _authorService.GetById(id));
         }
-        /*
+        */
         [HttpPost]
         public async Task<IActionResult> Add(Author author)
         {
@@ -57,6 +57,6 @@ namespace StudyArchieveApi.Controllers
         {
             await _authorService.Delete(id);
             return Ok();
-        }*/
+        }
     }
 }

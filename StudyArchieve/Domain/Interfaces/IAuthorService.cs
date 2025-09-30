@@ -12,10 +12,9 @@ namespace Domain.Interfaces
     public interface IAuthorService
     {
         Task<List<AuthorDto>> GetAll();
-        /*
-        Task<Author> GetById(int id);
+        //Task<Author> GetById(int id);
         Task Create(Author model);
         Task Update(Author model);
-        Task Delete(int id);*/
+        Task Delete(int id);
     }
 }

@@ -38,3 +38,5 @@ C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\Domain\obj\Debug\ne
 C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\Domain\obj\Debug\net8.0\ref\Domain.dll
 C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\Domain\bin\Debug\net8.0\Domain.runtimeconfig.json
 C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\Domain\obj\Debug\net8.0\Domain.genruntimeconfig.cache
+C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\Domain\bin\Debug\net8.0\Domain.runtimeconfig.json
+C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\Domain\obj\Debug\net8.0\Domain.genruntimeconfig.cache

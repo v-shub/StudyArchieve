@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Task = System.Threading.Tasks.Task;
 
 namespace BusinessLogic.Services
 {
@@ -24,14 +25,14 @@ namespace BusinessLogic.Services
             var that = await _repositoryWrapper.User.FindAll();
             return UserMapper.ToDtoList(that);
         }
-        /*
-        public async Task<User> GetById(int id)
+        
+        public async Task<UserDto> GetById(int id)
         {
             var that = await _repositoryWrapper.User
                 .FindByCondition(x => x.Id == id);
-            return that.First();
+            return UserMapper.ToDto(that.First());
         }
-
+        
         public async Task Create(User model)
         {
             await _repositoryWrapper.User.Create(model);
@@ -51,6 +52,6 @@ namespace BusinessLogic.Services
 
             await _repositoryWrapper.User.Delete(that.First());
             await _repositoryWrapper.Save();
-        }*/
+        }
     }
 }

@@ -77,7 +77,7 @@ namespace BusinessLogic.Services
                 .GetTasksWithDetails();
             return TaskMapper.ToDtoList(tasks);
         }
-
+        */
         public async Task Create(Exercise model)
         {
             await _repositoryWrapper.Exercise.Create(model);
@@ -97,6 +97,6 @@ namespace BusinessLogic.Services
 
             await _repositoryWrapper.Exercise.Delete(that.First());
             await _repositoryWrapper.Save();
-        }*/
+        }
     }
 }

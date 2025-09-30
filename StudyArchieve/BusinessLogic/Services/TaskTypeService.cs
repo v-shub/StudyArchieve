@@ -33,7 +33,7 @@ namespace BusinessLogic.Services
                 .FindByCondition(x => x.Id == id);
             return that.First();
         }
-
+        */
         public async Task Create(TaskType model)
         {
             await _repositoryWrapper.TaskType.Create(model);
@@ -53,6 +53,6 @@ namespace BusinessLogic.Services
 
             await _repositoryWrapper.TaskType.Delete(that.First());
             await _repositoryWrapper.Save();
-        }*/
+        }
     }
 }

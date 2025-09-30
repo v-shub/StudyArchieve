@@ -11,10 +11,10 @@ namespace Domain.Interfaces
 {
     public interface ITagService
     {
-        Task<List<TagDto>> GetAll();/*
-        Task<Tag> GetById(int id);
+        Task<List<TagDto>> GetAll();
+        //Task<Tag> GetById(int id);
         Task Create(Tag model);
         Task Update(Tag model);
-        Task Delete(int id);*/
+        Task Delete(int id);
     }
 }

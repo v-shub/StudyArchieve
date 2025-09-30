@@ -37,7 +37,7 @@ namespace StudyArchieveApi.Controllers
         {
             return Ok(await _tagService.GetById(id));
         }
-        /*
+        */
         [HttpPost]
         public async Task<IActionResult> Add(Tag tag)
         {
@@ -57,6 +57,6 @@ namespace StudyArchieveApi.Controllers
         {
             await _tagService.Delete(id);
             return Ok();
-        }*/
+        }
     }
 }

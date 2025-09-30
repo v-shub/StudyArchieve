@@ -11,10 +11,10 @@ namespace Domain.Interfaces
 {
     public interface ITaskTypeService
     {
-        Task<List<TaskTypeDto>> GetAll();/*
-        Task<TaskType> GetById(int id);
+        Task<List<TaskTypeDto>> GetAll();
+        //Task<TaskType> GetById(int id);
         Task Create(TaskType model);
         Task Update(TaskType model);
-        Task Delete(int id);*/
+        Task Delete(int id);
     }
 }

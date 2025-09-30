@@ -32,7 +32,7 @@ namespace BusinessLogic.Services
             var that = await _repositoryWrapper.Author
                 .FindByCondition(x => x.Id == id);
             return that.First();
-        }
+        }*/
 
         public async Task Create(Author model)
         {
@@ -53,6 +53,6 @@ namespace BusinessLogic.Services
 
             await _repositoryWrapper.Author.Delete(that.First());
             await _repositoryWrapper.Save();
-        }*/
+        }
     }
 }

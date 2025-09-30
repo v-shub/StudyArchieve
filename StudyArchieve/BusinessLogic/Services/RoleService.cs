@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Task = System.Threading.Tasks.Task;
 
 namespace BusinessLogic.Services
 {
@@ -31,7 +32,7 @@ namespace BusinessLogic.Services
                 .FindByCondition(x => x.Id == id);
             return that.First();
         }
-
+        */
         public async Task Create(Role model)
         {
             await _repositoryWrapper.Role.Create(model);
@@ -51,6 +52,6 @@ namespace BusinessLogic.Services
 
             await _repositoryWrapper.Role.Delete(that.First());
             await _repositoryWrapper.Save();
-        }*/
+        }
     }
 }

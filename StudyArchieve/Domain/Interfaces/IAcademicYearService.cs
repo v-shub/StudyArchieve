@@ -12,11 +12,10 @@ namespace Domain.Interfaces
     public interface IAcademicYearService
     {
         Task<List<AcademicYearDto>> GetAll();
-        /*
-        Task<AcademicYear> GetById(int id);
+        //Task<AcademicYear> GetById(int id);
         Task Create(AcademicYear model);
         Task Update(AcademicYear model);
         Task Delete(int id);
-        */
+        
     }
 }
