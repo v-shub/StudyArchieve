@@ -1,6 +1,4 @@
 ﻿using Domain.Interfaces;
-using BusinessLogic.Mappers;
-using Domain.DTOs;
 using Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -21,10 +19,10 @@ namespace BusinessLogic.Services
             _repositoryWrapper = repositoryWrapper;
         }
 
-        public async Task<List<AuthorDto>> GetAll()
+        public async Task<List<Author>> GetAll()
         {
             var that = await _repositoryWrapper.Author.FindAll();
-            return AuthorMapper.ToDtoList(that);
+            return that;
         }
         /*
         public async Task<Author> GetById(int id)

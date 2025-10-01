@@ -1,6 +1,4 @@
-﻿using BusinessLogic.Mappers;
-using Domain.DTOs;
-using Domain.Interfaces;
+﻿using Domain.Interfaces;
 using Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -20,17 +18,17 @@ namespace BusinessLogic.Services
             _repositoryWrapper = repositoryWrapper;
         }
 
-        public async Task<List<UserDto>> GetAll()
+        public async Task<List<User>> GetAll()
         {
             var that = await _repositoryWrapper.User.FindAll();
-            return UserMapper.ToDtoList(that);
+            return that;
         }
         
-        public async Task<UserDto> GetById(int id)
+        public async Task<User> GetById(int id)
         {
             var that = await _repositoryWrapper.User
                 .FindByCondition(x => x.Id == id);
-            return UserMapper.ToDto(that.First());
+            return that.First();
         }
         
         public async Task Create(User model)

@@ -1,5 +1,4 @@
-﻿using Domain.DTOs;
-using Domain.Models;
+﻿using Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +10,8 @@ namespace Domain.Interfaces
 {
     public interface IUserService
     {
-        Task<List<UserDto>> GetAll();
-        Task<UserDto> GetById(int id);
+        Task<List<User>> GetAll();
+        Task<User> GetById(int id);
         Task Create(User model);
         Task Update(User model);
         Task Delete(int id);

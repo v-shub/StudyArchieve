@@ -1,5 +1,4 @@
-﻿using Domain.DTOs;
-using Domain.Models;
+﻿using Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +10,7 @@ namespace Domain.Interfaces
 {
     public interface ITaskTypeService
     {
-        Task<List<TaskTypeDto>> GetAll();
+        Task<List<TaskType>> GetAll();
         //Task<TaskType> GetById(int id);
         Task Create(TaskType model);
         Task Update(TaskType model);

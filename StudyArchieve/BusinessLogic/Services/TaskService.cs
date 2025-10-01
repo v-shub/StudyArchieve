@@ -1,6 +1,4 @@
-﻿using BusinessLogic.Mappers;
-using Domain.DTOs;
-using Domain.Interfaces;
+﻿using Domain.Interfaces;
 using Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -22,7 +20,7 @@ namespace BusinessLogic.Services
         {
             _repositoryWrapper = repositoryWrapper;
         }
-        public async Task<List<TaskDto>> GetByFilter(int? subjectId = null, int? academicYearId = null, int? typeId = null, int[]? authorIds = null, int[]? tagIds = null)
+        public async Task<List<Exercise>> GetByFilter(int? subjectId = null, int? academicYearId = null, int? typeId = null, int[]? authorIds = null, int[]? tagIds = null)
         {
             var allTasks = await _repositoryWrapper.Exercise.GetTasksWithDetails();
             var query = allTasks.AsQueryable();
@@ -58,16 +56,16 @@ namespace BusinessLogic.Services
             }
 
             var tasks = query.ToList();
-            return TaskMapper.ToDtoList(tasks);
+            return tasks;
         }
 
-        public async Task<FullTaskDto> GetById(int id)
+        public async Task<Exercise> GetById(int id)
         {
             if (id <= 0)
                 throw new ArgumentException("id");
             var that = await _repositoryWrapper.Exercise
                 .GetOneTaskWithAllConnected(id);
-            return that == null ? null : TaskMapper.ToFullDto(that);
+            return that ?? null;
         }/*
           
         

@@ -20,10 +20,10 @@ namespace BusinessLogic.Services
             _repositoryWrapper = repositoryWrapper;
         }
 
-        public async Task<List<RoleDto>> GetAll()
+        public async Task<List<Role>> GetAll()
         {
             var that = await _repositoryWrapper.Role.FindAll();
-            return RoleMapper.ToDtoList(that);
+            return that;
         }
         /*
         public async Task<Role> GetById(int id)
