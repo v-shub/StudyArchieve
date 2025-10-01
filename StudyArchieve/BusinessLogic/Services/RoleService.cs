@@ -1,6 +1,4 @@
-﻿using BusinessLogic.Mappers;
-using Domain.DTOs;
-using Domain.Interfaces;
+﻿using Domain.Interfaces;
 using Domain.Models;
 using System;
 using System.Collections.Generic;

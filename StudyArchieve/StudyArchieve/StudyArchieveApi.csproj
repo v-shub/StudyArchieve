@@ -23,4 +23,12 @@
 	<ItemGroup>
 		<EditorConfigFiles Remove="C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\StudyArchieve\.editorconfig" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Contracts\Solution\" />
+	  <Folder Include="Contracts\Subject\" />
+	  <Folder Include="Contracts\Tag\" />
+	  <Folder Include="Contracts\TaskType\" />
+	  <Folder Include="Contracts\Task\" />
+	</ItemGroup>
 </Project>
