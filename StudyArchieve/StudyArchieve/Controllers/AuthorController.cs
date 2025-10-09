@@ -64,7 +64,7 @@ namespace StudyArchieveApi.Controllers
         /// <remarks>
         /// Пример запроса:
         ///
-        ///     POST /Todo
+        ///     PUT /Todo
         ///     {
         ///         "id": 1,
         ///         "name": "Ларионов Дмитрий Ильич"

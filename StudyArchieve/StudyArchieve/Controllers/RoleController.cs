@@ -58,7 +58,7 @@ namespace StudyArchieveApi.Controllers
         /// <remarks>
         /// Пример запроса:
         ///
-        ///     POST /Todo
+        ///     PUT /Todo
         ///     {
         ///         "id": 1,
         ///         "roleName": "Модератор"
