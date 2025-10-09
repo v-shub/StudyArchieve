@@ -116,7 +116,6 @@
           "Author"
         ],
         "summary": "Получение списка всех авторов заданий",
-        "description": "Пример запроса:\r\n            \r\n    GET /Todo\r\n    {}",
         "responses": {
           "200": {
             "description": "OK"
@@ -127,21 +126,24 @@
         "tags": [
           "Author"
         ],
+        "summary": "Добавление нового автора заданий",
+        "description": "Пример запроса:\r\n            \r\n    POST /Todo\r\n    {\r\n        \"name\": \"Ларионов Дмитрий Ильич\"\r\n    }",
         "requestBody": {
+          "description": "Автор заданий",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Author"
+                "$ref": "#/components/schemas/CreateAuthorRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Author"
+                "$ref": "#/components/schemas/CreateAuthorRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Author"
+                "$ref": "#/components/schemas/CreateAuthorRequest"
               }
             }
           }
@@ -156,21 +158,24 @@
         "tags": [
           "Author"
         ],
+        "summary": "Изменение существующего автора заданий",
+        "description": "Пример запроса:\r\n            \r\n    POST /Todo\r\n    {\r\n        \"id\": 1,\r\n        \"name\": \"Ларионов Дмитрий Ильич\"\r\n    }",
         "requestBody": {
+          "description": "Автор заданий",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Author"
+                "$ref": "#/components/schemas/UpdateAuthorRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Author"
+                "$ref": "#/components/schemas/UpdateAuthorRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Author"
+                "$ref": "#/components/schemas/UpdateAuthorRequest"
               }
             }
           }
@@ -185,10 +190,12 @@
         "tags": [
           "Author"
         ],
+        "summary": "Удаление существующего автора заданий",
         "parameters": [
           {
             "name": "id",
             "in": "query",
+            "description": "Id автора заданий",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -207,6 +214,7 @@
         "tags": [
           "Role"
         ],
+        "summary": "Получение списка всех пользовательских ролей",
         "responses": {
           "200": {
             "description": "OK"
@@ -217,21 +225,24 @@
         "tags": [
           "Role"
         ],
+        "summary": "Добавление новой пользовательской роли",
+        "description": "Пример запроса:\r\n            \r\n    POST /Todo\r\n    {\r\n        \"roleName\": \"Модератор\"\r\n    }",
         "requestBody": {
+          "description": "Роль пользователей",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Role"
+                "$ref": "#/components/schemas/CreateRoleRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Role"
+                "$ref": "#/components/schemas/CreateRoleRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Role"
+                "$ref": "#/components/schemas/CreateRoleRequest"
               }
             }
           }
@@ -246,21 +257,24 @@
         "tags": [
           "Role"
         ],
+        "summary": "Изменение существующей пользовательской роли",
+        "description": "Пример запроса:\r\n            \r\n    POST /Todo\r\n    {\r\n        \"id\": 1,\r\n        \"roleName\": \"Модератор\"\r\n    }",
         "requestBody": {
+          "description": "Роль пользователей",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Role"
+                "$ref": "#/components/schemas/UpdateRoleRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Role"
+                "$ref": "#/components/schemas/UpdateRoleRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Role"
+                "$ref": "#/components/schemas/UpdateRoleRequest"
               }
             }
           }
@@ -275,10 +289,12 @@
         "tags": [
           "Role"
         ],
+        "summary": "Удаление существующей пользовательской роли",
         "parameters": [
           {
             "name": "id",
             "in": "query",
+            "description": "Id пользовательской роли",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -964,6 +980,26 @@
         },
         "additionalProperties": false
       },
+      "CreateAuthorRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateRoleRequest": {
+        "type": "object",
+        "properties": {
+          "roleName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "Role": {
         "type": "object",
         "properties": {
@@ -1226,6 +1262,34 @@
             "format": "int32"
           },
           "yearLabel": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateAuthorRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateRoleRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "roleName": {
             "type": "string",
             "nullable": true
           }

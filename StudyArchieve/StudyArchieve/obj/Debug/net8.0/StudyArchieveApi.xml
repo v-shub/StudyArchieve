@@ -51,17 +51,96 @@
             <returns></returns>
         </member>
         <member name="M:StudyArchieveApi.Controllers.AuthorController.GetAll">
+            <summary>
+            Получение списка всех авторов заданий
+            </summary>
+            <returns>Список всех авторов заданий</returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.AuthorController.Add(StudyArchieveApi.Contracts.Author.CreateAuthorRequest)">
              <summary>
-             Получение списка всех авторов заданий
+             Добавление нового автора заданий
              </summary>
              <remarks>
              Пример запроса:
             
-                 GET /Todo
-                 {}
+                 POST /Todo
+                 {
+                     "name": "Ларионов Дмитрий Ильич"
+                 }
             
              </remarks>
-             <returns>Список всех авторов заданий</returns>
+             <param name="author">Автор заданий</param>
+             <returns></returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.AuthorController.Update(StudyArchieveApi.Contracts.Author.UpdateAuthorRequest)">
+             <summary>
+             Изменение существующего автора заданий
+             </summary>
+             <remarks>
+             Пример запроса:
+            
+                 POST /Todo
+                 {
+                     "id": 1,
+                     "name": "Ларионов Дмитрий Ильич"
+                 }
+            
+             </remarks>
+             <param name="author">Автор заданий</param>
+             <returns></returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.AuthorController.Delete(System.Int32)">
+            <summary>
+            Удаление существующего автора заданий
+            </summary>
+            <param name="id">Id автора заданий</param>
+            <returns></returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.RoleController.GetAll">
+            <summary>
+            Получение списка всех пользовательских ролей
+            </summary>
+            <returns>Список всех пользовательских ролей</returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.RoleController.Add(StudyArchieveApi.Contracts.Role.CreateRoleRequest)">
+             <summary>
+             Добавление новой пользовательской роли
+             </summary>
+             <remarks>
+             Пример запроса:
+            
+                 POST /Todo
+                 {
+                     "roleName": "Модератор"
+                 }
+            
+             </remarks>
+             <param name="role">Роль пользователей</param>
+             <returns></returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.RoleController.Update(StudyArchieveApi.Contracts.Role.UpdateRoleRequest)">
+             <summary>
+             Изменение существующей пользовательской роли
+             </summary>
+             <remarks>
+             Пример запроса:
+            
+                 POST /Todo
+                 {
+                     "id": 1,
+                     "roleName": "Модератор"
+                 }
+            
+             </remarks>
+             <param name="role">Роль пользователей</param>
+             <returns></returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.RoleController.Delete(System.Int32)">
+            <summary>
+            Удаление существующей пользовательской роли
+            </summary>
+            <param name="id">Id пользовательской роли</param>
+            <returns></returns>
         </member>
         <member name="M:StudyArchieveApi.Controllers.SubjectController.GetAll">
              <summary>

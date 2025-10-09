@@ -77,7 +77,7 @@
     "Parameters": [
       {
         "Name": "author",
-        "Type": "Domain.Models.Author",
+        "Type": "StudyArchieveApi.Contracts.Author.CreateAuthorRequest",
         "IsRequired": true
       }
     ],
@@ -93,7 +93,7 @@
     "Parameters": [
       {
         "Name": "author",
-        "Type": "Domain.Models.Author",
+        "Type": "StudyArchieveApi.Contracts.Author.UpdateAuthorRequest",
         "IsRequired": true
       }
     ],
@@ -135,7 +135,7 @@
     "Parameters": [
       {
         "Name": "role",
-        "Type": "Domain.Models.Role",
+        "Type": "StudyArchieveApi.Contracts.Role.CreateRoleRequest",
         "IsRequired": true
       }
     ],
@@ -151,7 +151,7 @@
     "Parameters": [
       {
         "Name": "role",
-        "Type": "Domain.Models.Role",
+        "Type": "StudyArchieveApi.Contracts.Role.UpdateRoleRequest",
         "IsRequired": true
       }
     ],
