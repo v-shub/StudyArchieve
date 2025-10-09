@@ -13,6 +13,6 @@ namespace StudyArchieveApi.Contracts.User
 
         public int RoleId { get; set; }
 
-        public virtual Role Role { get; set; } = null!;
+        public virtual Domain.Models.Role Role { get; set; } = null!;
     }
 }

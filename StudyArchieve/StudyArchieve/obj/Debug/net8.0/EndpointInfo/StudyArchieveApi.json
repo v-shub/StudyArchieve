@@ -17,7 +17,6 @@
           "AcademicYear"
         ],
         "summary": "Получение списка всех учебных лет",
-        "description": "Пример запроса:\r\n            \r\n    GET /Todo\r\n    {}",
         "responses": {
           "200": {
             "description": "OK"
@@ -28,21 +27,24 @@
         "tags": [
           "AcademicYear"
         ],
+        "summary": "Добавление нового учебного года",
+        "description": "Пример запроса:\r\n            \r\n    POST /Todo\r\n    {\r\n        \"yearLabel\": \"2026-2027\"\r\n    }",
         "requestBody": {
+          "description": "Учебный год",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/AcademicYear"
+                "$ref": "#/components/schemas/CreateAcademicYearRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/AcademicYear"
+                "$ref": "#/components/schemas/CreateAcademicYearRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/AcademicYear"
+                "$ref": "#/components/schemas/CreateAcademicYearRequest"
               }
             }
           }
@@ -57,21 +59,24 @@
         "tags": [
           "AcademicYear"
         ],
+        "summary": "Изменение существующего учебного года",
+        "description": "Пример запроса:\r\n            \r\n    PUT /Todo\r\n    {\r\n        \"id\": 3,\r\n        \"yearLabel\": \"2026-2027\"\r\n    }",
         "requestBody": {
+          "description": "Учебный год",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/AcademicYear"
+                "$ref": "#/components/schemas/UpdateAcademicYearRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/AcademicYear"
+                "$ref": "#/components/schemas/UpdateAcademicYearRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/AcademicYear"
+                "$ref": "#/components/schemas/UpdateAcademicYearRequest"
               }
             }
           }
@@ -86,10 +91,12 @@
         "tags": [
           "AcademicYear"
         ],
+        "summary": "Удаление существующего учебного года",
         "parameters": [
           {
             "name": "id",
             "in": "query",
+            "description": "Id учебного года",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -947,6 +954,16 @@
         },
         "additionalProperties": false
       },
+      "CreateAcademicYearRequest": {
+        "type": "object",
+        "properties": {
+          "yearLabel": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "Role": {
         "type": "object",
         "properties": {
@@ -1201,6 +1218,20 @@
         },
         "additionalProperties": false
       },
+      "UpdateAcademicYearRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "yearLabel": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "User": {
         "type": "object",
         "properties": {
@@ -1213,6 +1244,10 @@
             "nullable": true
           },
           "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
             "type": "string",
             "nullable": true
           },

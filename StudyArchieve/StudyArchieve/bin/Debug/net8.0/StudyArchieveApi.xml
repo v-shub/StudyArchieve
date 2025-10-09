@@ -5,17 +5,50 @@
     </assembly>
     <members>
         <member name="M:StudyArchieveApi.Controllers.AcademicYearController.GetAll">
+            <summary>
+            Получение списка всех учебных лет
+            </summary>
+            <returns>Список всех учебных лет</returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.AcademicYearController.Add(StudyArchieveApi.Contracts.AcademicYear.CreateAcademicYearRequest)">
              <summary>
-             Получение списка всех учебных лет
+             Добавление нового учебного года
              </summary>
              <remarks>
              Пример запроса:
             
-                 GET /Todo
-                 {}
+                 POST /Todo
+                 {
+                     "yearLabel": "2026-2027"
+                 }
             
              </remarks>
-             <returns>Список всех учебных лет</returns>
+             <param name="academicYear">Учебный год</param>
+             <returns></returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.AcademicYearController.Update(StudyArchieveApi.Contracts.AcademicYear.UpdateAcademicYearRequest)">
+             <summary>
+             Изменение существующего учебного года
+             </summary>
+             <remarks>
+             Пример запроса:
+            
+                 PUT /Todo
+                 {
+                     "id": 3,
+                     "yearLabel": "2026-2027"
+                 }
+            
+             </remarks>
+             <param name="academicYear">Учебный год</param>
+             <returns></returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.AcademicYearController.Delete(System.Int32)">
+            <summary>
+            Удаление существующего учебного года
+            </summary>
+            <param name="id">Id учебного года</param>
+            <returns></returns>
         </member>
         <member name="M:StudyArchieveApi.Controllers.AuthorController.GetAll">
              <summary>

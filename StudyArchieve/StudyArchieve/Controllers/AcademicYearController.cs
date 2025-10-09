@@ -1,7 +1,9 @@
 ﻿using Domain.Interfaces;
 using Domain.Models;
+using Mapster;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using StudyArchieveApi.Contracts.AcademicYear;
 
 namespace StudyArchieveApi.Controllers
 {
@@ -17,18 +19,12 @@ namespace StudyArchieveApi.Controllers
         /// <summary>
         /// Получение списка всех учебных лет
         /// </summary>
-        /// <remarks>
-        /// Пример запроса:
-        ///
-        ///     GET /Todo
-        ///     {}
-        ///
-        /// </remarks>
         /// <returns>Список всех учебных лет</returns>
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            return Ok(await _academicYearService.GetAll());
+            var list = await _academicYearService.GetAll();
+            return Ok(list.Adapt<List<GetAcademicYearResponse>>());
         }
         /*
         [HttpGet("{id}")]
@@ -37,20 +33,58 @@ namespace StudyArchieveApi.Controllers
             return Ok(await _academicYearService.GetById(id));
         }
         */
+
+
+        /// <summary>
+        /// Добавление нового учебного года
+        /// </summary>
+        /// <remarks>
+        /// Пример запроса:
+        ///
+        ///     POST /Todo
+        ///     {
+        ///         "yearLabel": "2026-2027"
+        ///     }
+        ///
+        /// </remarks>
+        /// <param name="academicYear">Учебный год</param>
+        /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> Add(AcademicYear academicYear)
+        public async Task<IActionResult> Add(CreateAcademicYearRequest academicYear)
         {
-            await _academicYearService.Create(academicYear);
+            await _academicYearService.Create(academicYear.Adapt<AcademicYear>());
             return Ok();
         }
 
+
+        /// <summary>
+        /// Изменение существующего учебного года
+        /// </summary>
+        /// <remarks>
+        /// Пример запроса:
+        ///
+        ///     PUT /Todo
+        ///     {
+        ///         "id": 3,
+        ///         "yearLabel": "2026-2027"
+        ///     }
+        ///
+        /// </remarks>
+        /// <param name="academicYear">Учебный год</param>
+        /// <returns></returns>
         [HttpPut]
-        public async Task<IActionResult> Update(AcademicYear academicYear)
+        public async Task<IActionResult> Update(UpdateAcademicYearRequest academicYear)
         {
-            await _academicYearService.Update(academicYear);
+            await _academicYearService.Update(academicYear.Adapt<AcademicYear>());
             return Ok();
         }
 
+
+        /// <summary>
+        /// Удаление существующего учебного года
+        /// </summary>
+        /// <param name="id">Id учебного года</param>
+        /// <returns></returns>
         [HttpDelete]
         public async Task<IActionResult> Delete(int id)
         {

@@ -358,3 +358,5 @@ C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\StudyArchieve\obj\D
 C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\StudyArchieve\obj\Debug\net8.0\StudyArchieveApi.pdb
 C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\StudyArchieve\obj\Debug\net8.0\StudyArchieveApi.genruntimeconfig.cache
 C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\StudyArchieve\obj\Debug\net8.0\ref\StudyArchieveApi.dll
+C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\StudyArchieve\bin\Debug\net8.0\Mapster.dll
+C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\StudyArchieve\bin\Debug\net8.0\Mapster.Core.dll

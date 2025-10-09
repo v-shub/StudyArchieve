@@ -19,7 +19,7 @@
     "Parameters": [
       {
         "Name": "academicYear",
-        "Type": "Domain.Models.AcademicYear",
+        "Type": "StudyArchieveApi.Contracts.AcademicYear.CreateAcademicYearRequest",
         "IsRequired": true
       }
     ],
@@ -35,7 +35,7 @@
     "Parameters": [
       {
         "Name": "academicYear",
-        "Type": "Domain.Models.AcademicYear",
+        "Type": "StudyArchieveApi.Contracts.AcademicYear.UpdateAcademicYearRequest",
         "IsRequired": true
       }
     ],
