@@ -1,4 +1,11 @@
-﻿using Domain.Models;
+﻿using StudyArchieveApi.Contracts.AcademicYear;
+using StudyArchieveApi.Contracts.Solution;
+using StudyArchieveApi.Contracts.Subject;
+using StudyArchieveApi.Contracts.TaskType;
+using StudyArchieveApi.Contracts.User;
+using StudyArchieveApi.Contracts.Author;
+using StudyArchieveApi.Contracts.Tag;
+
 
 namespace StudyArchieveApi.Contracts.Task
 {
@@ -20,20 +27,20 @@ namespace StudyArchieveApi.Contracts.Task
 
         public int? UserAddedId { get; set; }
 
-        public virtual Domain.Models.AcademicYear? AcademicYear { get; set; }
+        public virtual GetAcademicYearResponse? AcademicYear { get; set; }
 
-        public virtual ICollection<Domain.Models.Solution> Solutions { get; set; } = new List<Domain.Models.Solution>();
+        public virtual ICollection<GetSolutionResponse> Solutions { get; set; } = new List<GetSolutionResponse>();
 
-        public virtual Domain.Models.Subject Subject { get; set; } = null!;
+        public virtual GetSubjectResponse Subject { get; set; } = null!;
 
         public virtual ICollection<Domain.Models.TaskFile> TaskFiles { get; set; } = new List<Domain.Models.TaskFile>();
 
-        public virtual Domain.Models.TaskType Type { get; set; } = null!;
+        public virtual GetTaskTypeResponse Type { get; set; } = null!;
 
-        public virtual Domain.Models.User? UserAdded { get; set; }
+        public virtual GetUserResponse UserAdded { get; set; }
 
-        public virtual ICollection<Domain.Models.Author> Authors { get; set; } = new List<Domain.Models.Author>();
+        public virtual ICollection<GetAuthorResponse> Authors { get; set; } = new List<GetAuthorResponse>();
 
-        public virtual ICollection<Domain.Models.Tag> Tags { get; set; } = new List<Domain.Models.Tag>();
+        public virtual ICollection<GetTagResponse> Tags { get; set; } = new List<GetTagResponse>();
     }
 }
