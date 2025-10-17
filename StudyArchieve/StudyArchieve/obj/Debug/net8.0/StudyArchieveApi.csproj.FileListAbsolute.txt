@@ -360,3 +360,6 @@ C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\StudyArchieve\obj\D
 C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\StudyArchieve\obj\Debug\net8.0\ref\StudyArchieveApi.dll
 C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\StudyArchieve\bin\Debug\net8.0\Mapster.dll
 C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\StudyArchieve\bin\Debug\net8.0\Mapster.Core.dll
+C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\StudyArchieve\bin\Debug\net8.0\AWSSDK.Core.dll
+C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\StudyArchieve\bin\Debug\net8.0\AWSSDK.Extensions.NETCore.Setup.dll
+C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\StudyArchieve\bin\Debug\net8.0\AWSSDK.S3.dll

@@ -9,5 +9,7 @@ namespace Domain.Interfaces
 {
     public interface ITaskFileRepository : IRepositoryBase<TaskFile>
     {
+        Task<List<TaskFile>> GetByTaskIdAsync(int taskId);
+        Task<TaskFile?> GetByIdAsync(int id);
     }
 }

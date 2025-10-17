@@ -1,4 +1,5 @@
 ﻿using Domain.Models;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,11 @@ using Task = System.Threading.Tasks.Task;
 namespace Domain.Interfaces
 {
     public interface ISolutionFileService
-    {/*
-        Task<List<SolutionFile>> GetAll();
-        Task<SolutionFile> GetById(int id);
-        Task Create(SolutionFile model);
-        Task Update(SolutionFile model);
-        Task Delete(int id);*/
+    {
+        Task<int> UploadFileAsync(int taskId, IFormFile file);
+        Task<List<SolutionFileInfo>> GetFilesBySolutionIdAsync(int solutionId);
+        Task<SolutionFileInfo?> GetFileByIdAsync(int id);
+        Task<bool> DeleteFileAsync(int id);
+        Task<FileDownloadResult> DownloadFileAsync(int id);
     }
 }

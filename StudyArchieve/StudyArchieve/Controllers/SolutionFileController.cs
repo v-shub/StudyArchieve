@@ -1,51 +1,104 @@
 ﻿using Domain.Interfaces;
-using Domain.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using StudyArchieveApi.Contracts.SolutionFile;
 
 namespace StudyArchieveApi.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class SolutionFileController : ControllerBase
     {
-        private ISolutionFileService _solutionFileService;
-        public SolutionFileController(ISolutionFileService solutionFileService)
+        private readonly ISolutionFileService _solutionFileService;
+        private readonly ILogger<SolutionFileController> _logger;
+
+        public SolutionFileController(ISolutionFileService solutionFileService, ILogger<SolutionFileController> logger)
         {
             _solutionFileService = solutionFileService;
+            _logger = logger;
         }
-        /*
-        [HttpGet]
-        public async Task<IActionResult> GetAll()
+
+        [HttpPost("upload")]
+        public async Task<ActionResult<UploadSolutionFileResponse>> UploadFile([FromForm] UploadSolutionFileRequest request)
         {
-            return Ok(await _solutionFileService.GetAll());
+            try
+            {
+                if (request.File == null || request.File.Length == 0)
+                    return BadRequest("File is required");
+
+                var result = await _solutionFileService.UploadFileAsync(request.SolutionId, request.File);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error uploading solution file");
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
+        [HttpGet("solution/{solutionId}")]
+        public async Task<ActionResult<List<SolutionFileResponse>>> GetFilesBySolution(int solutionId)
+        {
+            try
+            {
+                var files = await _solutionFileService.GetFilesBySolutionIdAsync(solutionId);
+                return Ok(files);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error getting files for solution {SolutionId}", solutionId);
+                return StatusCode(500, "Internal server error");
+            }
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(int id)
+        public async Task<ActionResult<SolutionFileResponse>> GetFile(int id)
         {
-            return Ok(await _solutionFileService.GetById(id));
-        }
-        /*
-        [HttpPost]
-        public async Task<IActionResult> Add(SolutionFile solutionFile)
-        {
-            await _solutionFileService.Create(solutionFile);
-            return Ok();
-        }
-
-        [HttpPut]
-        public async Task<IActionResult> Update(SolutionFile solutionFile)
-        {
-            await _solutionFileService.Update(solutionFile);
-            return Ok();
+            try
+            {
+                var file = await _solutionFileService.GetFileByIdAsync(id);
+                if (file == null) return NotFound();
+                return Ok(file);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error getting file with id {FileId}", id);
+                return StatusCode(500, "Internal server error");
+            }
         }
 
-        [HttpDelete]
-        public async Task<IActionResult> Delete(int id)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteFile(int id)
         {
-            await _solutionFileService.Delete(id);
-            return Ok();
-        }*/
+            try
+            {
+                var success = await _solutionFileService.DeleteFileAsync(id);
+                if (!success) return NotFound();
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error deleting file with id {FileId}", id);
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
+        [HttpGet("{id}/download")]
+        public async Task<IActionResult> DownloadFile(int id)
+        {
+            try
+            {
+                var downloadResult = await _solutionFileService.DownloadFileAsync(id);
+                return File(downloadResult.Content, downloadResult.ContentType, downloadResult.FileName);
+            }
+            catch (FileNotFoundException)
+            {
+                return NotFound();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error downloading file with id {FileId}", id);
+                return StatusCode(500, "Internal server error");
+            }
+        }
     }
 }

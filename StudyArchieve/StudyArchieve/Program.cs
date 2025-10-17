@@ -1,3 +1,5 @@
+using Amazon.Extensions.NETCore.Setup;
+using Amazon.S3;
 using BusinessLogic.Services;
 using DataAccess;
 using DataAccess.Wrapper;
@@ -15,8 +17,7 @@ namespace StudyArchieveApi
             var builder = WebApplication.CreateBuilder(args);
 
             builder.Services.AddDbContext<StudyArchieveContext>(
-                options => options.UseSqlServer(
-                    "Server= shubina.mssql.somee.com ;Database= shubina;User Id= v_shub_SQLLogin_1;Password= xLy-9UQ-nkT-8dW;TrustServerCertificate=True"));
+                options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             builder.Services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
             builder.Services.AddScoped<ISubjectService, SubjectService>();
@@ -29,7 +30,24 @@ namespace StudyArchieveApi
             builder.Services.AddScoped<ITaskFileService, TaskFileService>();
             builder.Services.AddScoped<ISolutionFileService, SolutionFileService>();
             builder.Services.AddScoped<IRoleService, RoleService>();
-            builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddScoped<IUserService, UserService>(); builder.Services.AddScoped<IBackblazeService, BackblazeService>();
+
+            // Backblaze B2 Configuration
+            builder.Services.AddSingleton<IAmazonS3>(provider =>
+            {
+                var config = new AmazonS3Config
+                {
+                    ServiceURL = builder.Configuration["Backblaze:ServiceURL"],
+                    ForcePathStyle = true // Рекомендуется для Backblaze B2
+                };
+
+                var awsCredentials = new Amazon.Runtime.BasicAWSCredentials(
+                    builder.Configuration["Backblaze:KeyId"],
+                    builder.Configuration["Backblaze:ApplicationKey"]
+                );
+
+                return new AmazonS3Client(awsCredentials, config);
+            });
 
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();

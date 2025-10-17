@@ -13,6 +13,6 @@ namespace StudyArchieveApi.Contracts.Solution
         public DateTime DateAdded { get; set; }
 
         public int? UserAddedId { get; set; }
-        public virtual ICollection<SolutionFile> SolutionFiles { get; set; } = new List<SolutionFile>();
+        public virtual ICollection<Domain.Models.SolutionFile> SolutionFiles { get; set; } = new List<Domain.Models.SolutionFile>();
     }
 }
