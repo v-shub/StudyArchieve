@@ -247,17 +247,50 @@
             <returns></returns>
         </member>
         <member name="M:StudyArchieveApi.Controllers.TagController.GetAll">
+            <summary>
+            Получение списка всех тэгов
+            </summary>
+            <returns>Список всех тэгов</returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.TagController.Add(StudyArchieveApi.Contracts.Tag.CreateTagRequest)">
              <summary>
-             Получение списка всех тэгов
+             Добавление нового тэга
              </summary>
              <remarks>
              Пример запроса:
             
-                 GET /Todo
-                 {}
+                 POST /Todo
+                 {
+                     "name": "MS SQL Server"
+                 }
             
              </remarks>
-             <returns>Список всех тэгов</returns>
+             <param name="tag">Тэг</param>
+             <returns></returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.TagController.Update(StudyArchieveApi.Contracts.Tag.UpdateTagRequest)">
+             <summary>
+             Изменение существующего тэга
+             </summary>
+             <remarks>
+             Пример запроса:
+            
+                 POST /Todo
+                 {
+                     "id": 3,
+                     "name": "Regex"
+                 }
+            
+             </remarks>
+             <param name="tag">Тэг</param>
+             <returns></returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.TagController.Delete(System.Int32)">
+            <summary>
+            Удаление существующего тэга
+            </summary>
+            <param name="id">Id тэга</param>
+            <returns></returns>
         </member>
         <member name="M:StudyArchieveApi.Controllers.TaskController.GetByFilter(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Int32[],System.Int32[])">
              <summary>

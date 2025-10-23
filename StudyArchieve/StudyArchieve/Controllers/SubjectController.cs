@@ -27,13 +27,6 @@ namespace StudyArchieveApi.Controllers
             var list = await _subjectService.GetAll();
             return Ok(list.Adapt<List<GetSubjectResponse>>());
         }
-        /*
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(int id)
-        {
-            return Ok(await _subjectService.GetById(id));
-        }
-        */
 
         /// <summary>
         /// Добавление новой учебной дисциплины
