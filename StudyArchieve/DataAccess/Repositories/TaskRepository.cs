@@ -26,14 +26,11 @@ namespace DataAccess.Repositories
                 .AsNoTracking()
                 .ToListAsync();
         }
-        public async Task<Exercise> GetOneTaskWithAllConnected(int id)
+        public async Task<Exercise> GetOneTaskWithDetails(int id)
         {
             return await RepositoryContext.Tasks
                 .Include(t => t.Authors)
                 .Include(t => t.Tags)
-                .Include(t => t.Solutions)
-                    .ThenInclude(s => s.SolutionFiles)
-                .Include(t => t.TaskFiles)
                 .Include(t => t.AcademicYear)
                 .Include(t => t.Subject)
                 .Include(t => t.Type)

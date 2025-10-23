@@ -5,6 +5,7 @@ using StudyArchieveApi.Contracts.TaskType;
 using StudyArchieveApi.Contracts.User;
 using StudyArchieveApi.Contracts.Author;
 using StudyArchieveApi.Contracts.Tag;
+using StudyArchieveApi.Contracts.TaskFile;
 
 
 namespace StudyArchieveApi.Contracts.Task
@@ -29,11 +30,7 @@ namespace StudyArchieveApi.Contracts.Task
 
         public virtual GetAcademicYearResponse? AcademicYear { get; set; }
 
-        public virtual ICollection<GetSolutionResponse> Solutions { get; set; } = new List<GetSolutionResponse>();
-
         public virtual GetSubjectResponse Subject { get; set; } = null!;
-
-        public virtual ICollection<Domain.Models.TaskFile> TaskFiles { get; set; } = new List<Domain.Models.TaskFile>();
 
         public virtual GetTaskTypeResponse Type { get; set; } = null!;
 

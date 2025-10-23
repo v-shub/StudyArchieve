@@ -194,7 +194,7 @@
         </member>
         <member name="M:StudyArchieveApi.Controllers.TaskController.GetById(System.Int32)">
              <summary>
-             Получение задания со всеми его решениями и файлами по его id
+             Получение задания по его id
              </summary>
              <remarks>
              Пример запроса:
@@ -206,7 +206,60 @@
             
              </remarks>
              <param name="id">Id задания</param>
-             <returns>Задание со всеми его решениями и файлами</returns>
+             <returns>Задание</returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.TaskController.Add(StudyArchieveApi.Contracts.Task.CreateTaskRequest)">
+             <summary>
+             Добавление нового задания
+             </summary>
+             <remarks>
+             Пример запроса:
+            
+                 POST /Todo
+                 {
+                     "title": "Новое задание",
+                     "conditionText": "Содержание задания",
+                     "subjectId" : 3,
+                     "academicYearId" : 2,
+                     "typeId" : 1,
+                     "userAddedId": 1,
+                     "authorIds" : [2,5],
+                     "tagIds": [1,3]
+                 }
+            
+             </remarks>
+             <param name="task">Задание</param>
+             <returns></returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.TaskController.Update(StudyArchieveApi.Contracts.Task.UpdateTaskRequest)">
+             <summary>
+             Изменение существующего задания
+             </summary>
+             <remarks>
+             Пример запроса:
+            
+                 PUT /Todo
+                 {
+                     "id": 1,
+                     "title": "Новое задание",
+                     "conditionText": "Содержание задания",
+                     "subjectId" : 3,
+                     "academicYearId" : 2,
+                     "typeId" : 1,
+                     "authorIds" : [2,5],
+                     "tagIds": [1,3]
+                 }
+            
+             </remarks>
+             <param name="task">Задание</param>
+             <returns></returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.TaskController.Delete(System.Int32)">
+            <summary>
+            Удаление существующего задания
+            </summary>
+            <param name="id">Id задания</param>
+            <returns></returns>
         </member>
         <member name="M:StudyArchieveApi.Controllers.TaskTypeController.GetAll">
              <summary>

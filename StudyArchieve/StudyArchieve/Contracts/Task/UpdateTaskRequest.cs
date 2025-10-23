@@ -1,4 +1,6 @@
 ﻿using Domain.Models;
+using StudyArchieveApi.Contracts.Author;
+using StudyArchieveApi.Contracts.Tag;
 
 namespace StudyArchieveApi.Contracts.Task
 {
@@ -15,8 +17,7 @@ namespace StudyArchieveApi.Contracts.Task
         public int? AcademicYearId { get; set; }
 
         public int TypeId { get; set; }
-        public virtual ICollection<Domain.Models.Author> Authors { get; set; } = new List<Domain.Models.Author>();
-
-        public virtual ICollection<Domain.Models.Tag> Tags { get; set; } = new List<Domain.Models.Tag>();
+        public List<int> AuthorIds { get; set; } = new List<int>();
+        public List<int> TagIds { get; set; } = new List<int>();
     }
 }

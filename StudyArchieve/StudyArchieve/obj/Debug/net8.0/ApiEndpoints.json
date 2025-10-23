@@ -498,7 +498,7 @@
     "Parameters": [
       {
         "Name": "task",
-        "Type": "Domain.Models.Task",
+        "Type": "StudyArchieveApi.Contracts.Task.CreateTaskRequest",
         "IsRequired": true
       }
     ],
@@ -514,7 +514,7 @@
     "Parameters": [
       {
         "Name": "task",
-        "Type": "Domain.Models.Task",
+        "Type": "StudyArchieveApi.Contracts.Task.UpdateTaskRequest",
         "IsRequired": true
       }
     ],

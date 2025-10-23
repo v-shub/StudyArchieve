@@ -64,7 +64,7 @@ namespace BusinessLogic.Services
             if (id <= 0)
                 throw new ArgumentException("id");
             var that = await _repositoryWrapper.Exercise
-                .GetOneTaskWithAllConnected(id);
+                .GetOneTaskWithDetails(id);
             return that ?? null;
         }/*
           
@@ -78,13 +78,85 @@ namespace BusinessLogic.Services
         */
         public async Task Create(Exercise model)
         {
+            // Обрабатываем авторов
+            if (model.Authors != null && model.Authors.Any())
+            {
+                var authorIds = model.Authors.Select(a => a.Id).ToList();
+                var existingAuthors = await _repositoryWrapper.Author.GetByIdsAsync(authorIds);
+
+                // Очищаем и добавляем прикрепленных авторов
+                model.Authors.Clear();
+                foreach (var author in existingAuthors)
+                {
+                    await _repositoryWrapper.Author.AttachAsync(author);
+                    model.Authors.Add(author);
+                }
+            }
+
+            // Обрабатываем теги
+            if (model.Tags != null && model.Tags.Any())
+            {
+                var tagIds = model.Tags.Select(t => t.Id).ToList();
+                var existingTags = await _repositoryWrapper.Tag.GetByIdsAsync(tagIds);
+
+                model.Tags.Clear();
+                foreach (var tag in existingTags)
+                {
+                    await _repositoryWrapper.Tag.AttachAsync(tag);
+                    model.Tags.Add(tag);
+                }
+            }
+
             await _repositoryWrapper.Exercise.Create(model);
             await _repositoryWrapper.Save();
         }
 
         public async Task Update(Exercise model)
         {
-            await _repositoryWrapper.Exercise.Update(model);
+            // Находим существующую задачу
+            var existingTasks = await _repositoryWrapper.Exercise.FindByCondition(t => t.Id == model.Id);
+            var existingTask = existingTasks.FirstOrDefault();
+
+            if (existingTask == null)
+                throw new ArgumentException("Task not found");
+
+            // Обновляем простые свойства
+            existingTask.Title = model.Title;
+            existingTask.ConditionText = model.ConditionText;
+            existingTask.SubjectId = model.SubjectId;
+            existingTask.AcademicYearId = model.AcademicYearId;
+            existingTask.TypeId = model.TypeId;
+            existingTask.UserAddedId = model.UserAddedId;
+
+            // Обновляем авторов
+            if (model.Authors != null)
+            {
+                var authorIds = model.Authors.Select(a => a.Id).ToList();
+                var existingAuthors = await _repositoryWrapper.Author.GetByIdsAsync(authorIds);
+
+                existingTask.Authors.Clear();
+                foreach (var author in existingAuthors)
+                {
+                    await _repositoryWrapper.Author.AttachAsync(author);
+                    existingTask.Authors.Add(author);
+                }
+            }
+
+            // Обновляем теги
+            if (model.Tags != null)
+            {
+                var tagIds = model.Tags.Select(t => t.Id).ToList();
+                var existingTags = await _repositoryWrapper.Tag.GetByIdsAsync(tagIds);
+
+                existingTask.Tags.Clear();
+                foreach (var tag in existingTags)
+                {
+                    await _repositoryWrapper.Tag.AttachAsync(tag);
+                    existingTask.Tags.Add(tag);
+                }
+            }
+
+            await _repositoryWrapper.Exercise.Update(existingTask);
             await _repositoryWrapper.Save();
         }
 
