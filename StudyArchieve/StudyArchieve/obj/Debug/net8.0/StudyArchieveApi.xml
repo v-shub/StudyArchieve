@@ -201,17 +201,50 @@
             <returns></returns>
         </member>
         <member name="M:StudyArchieveApi.Controllers.SubjectController.GetAll">
+            <summary>
+            Получение списка всех учебных дисциплин
+            </summary>
+            <returns>Список всех учебных дисциплин</returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.SubjectController.Add(StudyArchieveApi.Contracts.Subject.CreateSubjectRequest)">
              <summary>
-             Получение списка всех учебных дисциплин
+             Добавление новой учебной дисциплины
              </summary>
              <remarks>
              Пример запроса:
             
-                 GET /Todo
-                 {}
+                 POST /Todo
+                 {
+                     "name": "Дискретная математика"
+                 }
             
              </remarks>
-             <returns>Список всех учебных дисциплин</returns>
+             <param name="subject">Учебная дисциплина</param>
+             <returns></returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.SubjectController.Update(StudyArchieveApi.Contracts.Subject.UpdateSubjectRequest)">
+             <summary>
+             Изменение существующей учебной дисциплины
+             </summary>
+             <remarks>
+             Пример запроса:
+            
+                 PUT /Todo
+                 {
+                     "id": 1,
+                     "name": "Теория вероятностей"
+                 }
+            
+             </remarks>
+             <param name="subject">Учебная дисциплина</param>
+             <returns></returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.SubjectController.Delete(System.Int32)">
+            <summary>
+            Удаление существующей учебной дисциплины
+            </summary>
+            <param name="id">Id учебной дисциплины</param>
+            <returns></returns>
         </member>
         <member name="M:StudyArchieveApi.Controllers.TagController.GetAll">
              <summary>

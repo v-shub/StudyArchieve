@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\studyarchieve\\controllers\\subjectcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|solutionrelative:studyarchieve\\controllers\\subjectcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\studyarchieve\\controllers\\academicyearcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|solutionrelative:studyarchieve\\controllers\\academicyearcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\studyarchieve\\contracts\\solution\\getsolutionresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|solutionrelative:studyarchieve\\contracts\\solution\\getsolutionresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\studyarchieve\\controllers\\solutioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|solutionrelative:studyarchieve\\controllers\\solutioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\studyarchieve\\contracts\\solution\\createsolutionrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|solutionrelative:studyarchieve\\contracts\\solution\\createsolutionrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\studyarchieve\\contracts\\solution\\getsolutionresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|solutionrelative:studyarchieve\\contracts\\solution\\getsolutionresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\studyarchieve\\controllers\\taskcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -74,6 +82,32 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AcademicYearController.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Controllers\\AcademicYearController.cs",
+              "RelativeDocumentMoniker": "StudyArchieve\\Controllers\\AcademicYearController.cs",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Controllers\\AcademicYearController.cs",
+              "RelativeToolTip": "StudyArchieve\\Controllers\\AcademicYearController.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAowFIAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-23T08:00:15.261Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SubjectController.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Controllers\\SubjectController.cs",
+              "RelativeDocumentMoniker": "StudyArchieve\\Controllers\\SubjectController.cs",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Controllers\\SubjectController.cs",
+              "RelativeToolTip": "StudyArchieve\\Controllers\\SubjectController.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAowD4AAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-23T07:59:42.709Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
               "Title": "GetSolutionResponse.cs",
               "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Contracts\\Solution\\GetSolutionResponse.cs",
@@ -87,7 +121,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "UpdateSolutionRequest.cs",
               "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Contracts\\Solution\\UpdateSolutionRequest.cs",
               "RelativeDocumentMoniker": "StudyArchieve\\Contracts\\Solution\\UpdateSolutionRequest.cs",
@@ -95,12 +129,11 @@
               "RelativeToolTip": "StudyArchieve\\Contracts\\Solution\\UpdateSolutionRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-23T07:39:33.676Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-23T07:39:33.676Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "CreateSolutionRequest.cs",
               "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Contracts\\Solution\\CreateSolutionRequest.cs",
               "RelativeDocumentMoniker": "StudyArchieve\\Contracts\\Solution\\CreateSolutionRequest.cs",
@@ -108,25 +141,24 @@
               "RelativeToolTip": "StudyArchieve\\Contracts\\Solution\\CreateSolutionRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-23T07:36:50.082Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-23T07:36:50.082Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "SolutionController.cs",
               "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Controllers\\SolutionController.cs",
               "RelativeDocumentMoniker": "StudyArchieve\\Controllers\\SolutionController.cs",
               "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Controllers\\SolutionController.cs",
               "RelativeToolTip": "StudyArchieve\\Controllers\\SolutionController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-23T07:27:06.819Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "TaskController.cs",
               "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Controllers\\TaskController.cs",
               "RelativeDocumentMoniker": "StudyArchieve\\Controllers\\TaskController.cs",
@@ -134,12 +166,11 @@
               "RelativeToolTip": "StudyArchieve\\Controllers\\TaskController.cs",
               "ViewState": "AgIAAHgAAAAAAAAAAAAqwKMAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-23T05:12:55.664Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-23T05:12:55.664Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "SolutionService.cs",
               "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\BusinessLogic\\Services\\SolutionService.cs",
               "RelativeDocumentMoniker": "BusinessLogic\\Services\\SolutionService.cs",
@@ -147,12 +178,11 @@
               "RelativeToolTip": "BusinessLogic\\Services\\SolutionService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-23T07:22:34.593Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-23T07:22:34.593Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "SolutionRepository.cs",
               "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\DataAccess\\Repositories\\SolutionRepository.cs",
               "RelativeDocumentMoniker": "DataAccess\\Repositories\\SolutionRepository.cs",
@@ -160,12 +190,11 @@
               "RelativeToolTip": "DataAccess\\Repositories\\SolutionRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-23T07:18:21.024Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-23T07:18:21.024Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "TaskRepository.cs",
               "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\DataAccess\\Repositories\\TaskRepository.cs",
               "RelativeDocumentMoniker": "DataAccess\\Repositories\\TaskRepository.cs",
@@ -173,12 +202,11 @@
               "RelativeToolTip": "DataAccess\\Repositories\\TaskRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-23T07:18:18.403Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-23T07:18:18.403Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "Solution.cs",
               "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\Domain\\Models\\Solution.cs",
               "RelativeDocumentMoniker": "Domain\\Models\\Solution.cs",
@@ -186,12 +214,11 @@
               "RelativeToolTip": "Domain\\Models\\Solution.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-23T07:16:11.256Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-23T07:16:11.256Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "RepositoryBase.cs",
               "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\DataAccess\\Repositories\\RepositoryBase.cs",
               "RelativeDocumentMoniker": "DataAccess\\Repositories\\RepositoryBase.cs",
@@ -199,12 +226,11 @@
               "RelativeToolTip": "DataAccess\\Repositories\\RepositoryBase.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-23T07:15:15.752Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-23T07:15:15.752Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "ISolutionRepository.cs",
               "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\Domain\\Interfaces\\ISolutionRepository.cs",
               "RelativeDocumentMoniker": "Domain\\Interfaces\\ISolutionRepository.cs",
@@ -212,8 +238,7 @@
               "RelativeToolTip": "Domain\\Interfaces\\ISolutionRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-23T07:14:32.959Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-23T07:14:32.959Z"
             }
           ]
         }

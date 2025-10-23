@@ -372,7 +372,7 @@
     "Parameters": [
       {
         "Name": "subject",
-        "Type": "Domain.Models.Subject",
+        "Type": "StudyArchieveApi.Contracts.Subject.CreateSubjectRequest",
         "IsRequired": true
       }
     ],
@@ -388,7 +388,7 @@
     "Parameters": [
       {
         "Name": "subject",
-        "Type": "Domain.Models.Subject",
+        "Type": "StudyArchieveApi.Contracts.Subject.UpdateSubjectRequest",
         "IsRequired": true
       }
     ],
