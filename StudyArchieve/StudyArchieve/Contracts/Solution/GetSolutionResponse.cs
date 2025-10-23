@@ -1,5 +1,6 @@
 ﻿using Domain.Models;
 using StudyArchieveApi.Contracts.SolutionFile;
+using StudyArchieveApi.Contracts.User;
 
 namespace StudyArchieveApi.Contracts.Solution
 {
@@ -14,5 +15,6 @@ namespace StudyArchieveApi.Contracts.Solution
         public DateTime DateAdded { get; set; }
 
         public int? UserAddedId { get; set; }
+        public virtual GetUserResponse? UserAdded { get; set; }
     }
 }

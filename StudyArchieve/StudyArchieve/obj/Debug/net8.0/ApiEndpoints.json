@@ -183,7 +183,7 @@
     "Parameters": [
       {
         "Name": "solution",
-        "Type": "Domain.Models.Solution",
+        "Type": "StudyArchieveApi.Contracts.Solution.CreateSolutionRequest",
         "IsRequired": true
       }
     ],
@@ -199,7 +199,7 @@
     "Parameters": [
       {
         "Name": "solution",
-        "Type": "Domain.Models.Solution",
+        "Type": "StudyArchieveApi.Contracts.Solution.UpdateSolutionRequest",
         "IsRequired": true
       }
     ],
@@ -217,6 +217,22 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StudyArchieveApi.Controllers.SolutionController",
+    "Method": "GetByTaskId",
+    "RelativePath": "api/Solution/{taskId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "taskId",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

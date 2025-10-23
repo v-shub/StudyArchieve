@@ -18,19 +18,12 @@ namespace BusinessLogic.Services
         {
             _repositoryWrapper = repositoryWrapper;
         }
-        /*
-        public async Task<List<Solution>> GetAll()
+        public async Task<List<Solution>> GetByTaskId(int taskId)
         {
-            return await _repositoryWrapper.Solution.FindAll();
+            if (taskId <= 0)
+                throw new ArgumentException("taskId");
+            return await _repositoryWrapper.Solution.GetSolutionsByTaskId(taskId);
         }
-
-        public async Task<Solution> GetById(int id)
-        {
-            var that = await _repositoryWrapper.Solution
-                .FindByCondition(x => x.Id == id);
-            return that.First();
-        }
-        */
         public async Task Create(Solution model)
         {
             await _repositoryWrapper.Solution.Create(model);

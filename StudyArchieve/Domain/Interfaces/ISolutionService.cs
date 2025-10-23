@@ -9,9 +9,8 @@ using Task = System.Threading.Tasks.Task;
 namespace Domain.Interfaces
 {
     public interface ISolutionService
-    {/*
-        Task<List<Solution>> GetAll();
-        Task<Solution> GetById(int id);*/
+    {
+        Task<List<Solution>> GetByTaskId(int taskId);
         Task Create(Solution model);
         Task Update(Solution model);
         Task Delete(int id);

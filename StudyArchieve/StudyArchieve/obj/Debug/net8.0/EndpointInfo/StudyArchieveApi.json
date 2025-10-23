@@ -308,26 +308,55 @@
         }
       }
     },
+    "/api/Solution/{taskId}": {
+      "get": {
+        "tags": [
+          "Solution"
+        ],
+        "summary": "Получение списка решений по id задания",
+        "description": "Пример запроса:\r\n            \r\n    GET /Todo\r\n    {\r\n       \"taskId\" : 3\r\n    }",
+        "parameters": [
+          {
+            "name": "taskId",
+            "in": "path",
+            "description": "Id задания",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Solution": {
       "post": {
         "tags": [
           "Solution"
         ],
+        "summary": "Добавление нового решения",
+        "description": "Пример запроса:\r\n            \r\n    POST /Todo\r\n    {\r\n        \"taskId\": 2,\r\n        \"solutionText\": \"Решения нет, это задача-подвох\",\r\n        \"userAddedId\": 1\r\n    }",
         "requestBody": {
+          "description": "Решение",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Solution"
+                "$ref": "#/components/schemas/CreateSolutionRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Solution"
+                "$ref": "#/components/schemas/CreateSolutionRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Solution"
+                "$ref": "#/components/schemas/CreateSolutionRequest"
               }
             }
           }
@@ -342,21 +371,24 @@
         "tags": [
           "Solution"
         ],
+        "summary": "Изменение существующего решения",
+        "description": "Пример запроса:\r\n            \r\n    PUT /Todo\r\n    {\r\n        \"id\": 1,\r\n        \"solutionText\": \"Решения нет, это задача-подвох\"\r\n    }",
         "requestBody": {
+          "description": "Решение",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Solution"
+                "$ref": "#/components/schemas/UpdateSolutionRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Solution"
+                "$ref": "#/components/schemas/UpdateSolutionRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Solution"
+                "$ref": "#/components/schemas/UpdateSolutionRequest"
               }
             }
           }
@@ -371,10 +403,12 @@
         "tags": [
           "Solution"
         ],
+        "summary": "Удаление существующего решения",
         "parameters": [
           {
             "name": "id",
             "in": "query",
+            "description": "Id решения",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -1386,6 +1420,25 @@
         },
         "additionalProperties": false
       },
+      "CreateSolutionRequest": {
+        "type": "object",
+        "properties": {
+          "taskId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "solutionText": {
+            "type": "string",
+            "nullable": true
+          },
+          "userAddedId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "CreateTaskRequest": {
         "type": "object",
         "properties": {
@@ -1429,34 +1482,6 @@
               "type": "integer",
               "format": "int32"
             },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "GetAuthorResponse": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "GetTagResponse": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "name": {
-            "type": "string",
             "nullable": true
           }
         },
@@ -1810,6 +1835,20 @@
         },
         "additionalProperties": false
       },
+      "UpdateSolutionRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "solutionText": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "UpdateTaskRequest": {
         "type": "object",
         "properties": {
@@ -1838,17 +1877,19 @@
             "type": "integer",
             "format": "int32"
           },
-          "authors": {
+          "authorIds": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/GetAuthorResponse"
+              "type": "integer",
+              "format": "int32"
             },
             "nullable": true
           },
-          "tags": {
+          "tagIds": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/GetTagResponse"
+              "type": "integer",
+              "format": "int32"
             },
             "nullable": true
           }

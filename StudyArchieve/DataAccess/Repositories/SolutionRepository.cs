@@ -1,5 +1,6 @@
 ﻿using Domain.Interfaces;
 using Domain.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,13 @@ namespace DataAccess.Repositories
     public class SolutionRepository : RepositoryBase<Solution>, ISolutionRepository
     {
         public SolutionRepository(StudyArchieveContext repositoryContext) : base(repositoryContext) { }
+        public async Task<List<Solution>> GetSolutionsByTaskId(int taskId)
+        {
+            return await RepositoryContext.Solutions
+                .Include(t => t.UserAdded)
+                .Where(t => t.TaskId == taskId)
+                .AsNoTracking()
+                .ToListAsync();
+        }
     }
 }

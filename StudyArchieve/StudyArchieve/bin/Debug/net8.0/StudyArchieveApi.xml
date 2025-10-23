@@ -142,6 +142,64 @@
             <param name="id">Id пользовательской роли</param>
             <returns></returns>
         </member>
+        <member name="M:StudyArchieveApi.Controllers.SolutionController.GetByTaskId(System.Int32)">
+             <summary>
+             Получение списка решений по id задания
+             </summary>
+             <remarks>
+             Пример запроса:
+            
+                 GET /Todo
+                 {
+                    "taskId" : 3
+                 }
+            
+             </remarks>
+             <param name="taskId">Id задания</param>
+             <returns>Список решений задания</returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.SolutionController.Add(StudyArchieveApi.Contracts.Solution.CreateSolutionRequest)">
+             <summary>
+             Добавление нового решения
+             </summary>
+             <remarks>
+             Пример запроса:
+            
+                 POST /Todo
+                 {
+                     "taskId": 2,
+                     "solutionText": "Решения нет, это задача-подвох",
+                     "userAddedId": 1
+                 }
+            
+             </remarks>
+             <param name="solution">Решение</param>
+             <returns></returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.SolutionController.Update(StudyArchieveApi.Contracts.Solution.UpdateSolutionRequest)">
+             <summary>
+             Изменение существующего решения
+             </summary>
+             <remarks>
+             Пример запроса:
+            
+                 PUT /Todo
+                 {
+                     "id": 1,
+                     "solutionText": "Решения нет, это задача-подвох"
+                 }
+            
+             </remarks>
+             <param name="solution">Решение</param>
+             <returns></returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.SolutionController.Delete(System.Int32)">
+            <summary>
+            Удаление существующего решения
+            </summary>
+            <param name="id">Id решения</param>
+            <returns></returns>
+        </member>
         <member name="M:StudyArchieveApi.Controllers.SubjectController.GetAll">
              <summary>
              Получение списка всех учебных дисциплин
