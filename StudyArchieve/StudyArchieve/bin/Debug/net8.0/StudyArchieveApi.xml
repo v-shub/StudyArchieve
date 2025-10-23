@@ -386,17 +386,50 @@
             <returns></returns>
         </member>
         <member name="M:StudyArchieveApi.Controllers.TaskTypeController.GetAll">
+            <summary>
+            Получение списка всех типов заданий
+            </summary>
+            <returns>Список всех типов заданий</returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.TaskTypeController.Add(StudyArchieveApi.Contracts.TaskType.CreateTaskTypeRequest)">
              <summary>
-             Получение списка всех типов заданий
+             Добавление нового типа заданий
              </summary>
              <remarks>
              Пример запроса:
             
-                 GET /Todo
-                 {}
+                 POST /Todo
+                 {
+                     "name": "Домашнее задание"
+                 }
             
              </remarks>
-             <returns>Список всех типов заданий</returns>
+             <param name="taskType">Тип заданий</param>
+             <returns></returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.TaskTypeController.Update(StudyArchieveApi.Contracts.TaskType.UpdateTaskTypeRequest)">
+             <summary>
+             Добавление нового типа заданий
+             </summary>
+             <remarks>
+             Пример запроса:
+            
+                 PUT /Todo
+                 {
+                     "id": 3,
+                     "name": "Самостоятельная работа"
+                 }
+            
+             </remarks>
+             <param name="taskType">Тип заданий</param>
+             <returns></returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.TaskTypeController.Delete(System.Int32)">
+            <summary>
+            Удаление существующего типа заданий
+            </summary>
+            <param name="id">Id типа заданий</param>
+            <returns></returns>
         </member>
     </members>
 </doc>

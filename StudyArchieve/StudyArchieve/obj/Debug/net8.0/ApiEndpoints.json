@@ -703,7 +703,7 @@
     "Parameters": [
       {
         "Name": "taskType",
-        "Type": "Domain.Models.TaskType",
+        "Type": "StudyArchieveApi.Contracts.TaskType.CreateTaskTypeRequest",
         "IsRequired": true
       }
     ],
@@ -719,7 +719,7 @@
     "Parameters": [
       {
         "Name": "taskType",
-        "Type": "Domain.Models.TaskType",
+        "Type": "StudyArchieveApi.Contracts.TaskType.UpdateTaskTypeRequest",
         "IsRequired": true
       }
     ],
