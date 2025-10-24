@@ -18,6 +18,21 @@ namespace StudyArchieveApi.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// Выгрузка на сервер нового файла задания
+        /// </summary>
+        /// <remarks>
+        /// Пример запроса:
+        ///
+        ///     POST /Todo
+        ///     {
+        ///         "taskId": 1,
+        ///         "file": "[бинарные данные файла]"
+        ///     }
+        ///
+        /// </remarks>
+        /// <param name="request">Запрос</param>
+        /// <returns>Id файла задания</returns>
         [HttpPost("upload")]
         public async Task<ActionResult<UploadTaskFileResponse>> UploadFile([FromForm] UploadTaskFileRequest request)
         {
@@ -36,6 +51,11 @@ namespace StudyArchieveApi.Controllers
             }
         }
 
+        /// <summary>
+        /// Получение списка файлов по id задания
+        /// </summary>
+        /// <param name="taskId">Id задания</param>
+        /// <returns>Список файлов задания</returns>
         [HttpGet("task/{taskId}")]
         public async Task<ActionResult<List<TaskFileResponse>>> GetFilesByTask(int taskId)
         {
@@ -51,6 +71,11 @@ namespace StudyArchieveApi.Controllers
             }
         }
 
+        /// <summary>
+        /// Получение файла задания по его id
+        /// </summary>
+        /// <param name="id">Id файла задания</param>
+        /// <returns>Файл задания</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<TaskFileResponse>> GetFile(int id)
         {
@@ -67,6 +92,11 @@ namespace StudyArchieveApi.Controllers
             }
         }
 
+        /// <summary>
+        /// Удаление существующего файла задания по его id
+        /// </summary>
+        /// <param name="id">Id файла задания</param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteFile(int id)
         {
@@ -83,6 +113,11 @@ namespace StudyArchieveApi.Controllers
             }
         }
 
+        /// <summary>
+        /// Загрузка файла задания с сервера
+        /// </summary>
+        /// <param name="id">Id файла задания</param>
+        /// <returns>Файл задания</returns>
         [HttpGet("{id}/download")]
         public async Task<IActionResult> DownloadFile(int id)
         {

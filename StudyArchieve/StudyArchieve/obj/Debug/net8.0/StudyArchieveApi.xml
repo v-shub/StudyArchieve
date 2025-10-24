@@ -216,6 +216,51 @@
             <param name="id">Id решения</param>
             <returns></returns>
         </member>
+        <member name="M:StudyArchieveApi.Controllers.SolutionFileController.UploadFile(StudyArchieveApi.Contracts.SolutionFile.UploadSolutionFileRequest)">
+             <summary>
+             Выгрузка на сервер нового файла решения
+             </summary>
+             <remarks>
+             Пример запроса:
+            
+                 POST /Todo
+                 {
+                     "taskId": 1,
+                     "file": "[бинарные данные файла]"
+                 }
+            
+             </remarks>
+             <param name="request">Запрос</param>
+             <returns>Id файла решения</returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.SolutionFileController.GetFilesBySolution(System.Int32)">
+            <summary>
+            Получение списка файлов по id решения
+            </summary>
+            <param name="solutionId">Id решения</param>
+            <returns>Список файлов решения</returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.SolutionFileController.GetFile(System.Int32)">
+            <summary>
+            Получение файла решения по его id
+            </summary>
+            <param name="id">Id файла решения</param>
+            <returns>Файл решения</returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.SolutionFileController.DeleteFile(System.Int32)">
+            <summary>
+            Удаление существующего файла решения по его id
+            </summary>
+            <param name="id">Id файла решения</param>
+            <returns></returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.SolutionFileController.DownloadFile(System.Int32)">
+            <summary>
+            Загрузка файла решения с сервера
+            </summary>
+            <param name="id">Id файла решения</param>
+            <returns>Файл решения</returns>
+        </member>
         <member name="M:StudyArchieveApi.Controllers.SubjectController.GetAll">
             <summary>
             Получение списка всех учебных дисциплин
@@ -400,6 +445,51 @@
             </summary>
             <param name="id">Id задания</param>
             <returns></returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.TaskFileController.UploadFile(StudyArchieveApi.Contracts.TaskFile.UploadTaskFileRequest)">
+             <summary>
+             Выгрузка на сервер нового файла задания
+             </summary>
+             <remarks>
+             Пример запроса:
+            
+                 POST /Todo
+                 {
+                     "taskId": 1,
+                     "file": "[бинарные данные файла]"
+                 }
+            
+             </remarks>
+             <param name="request">Запрос</param>
+             <returns>Id файла задания</returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.TaskFileController.GetFilesByTask(System.Int32)">
+            <summary>
+            Получение списка файлов по id задания
+            </summary>
+            <param name="taskId">Id задания</param>
+            <returns>Список файлов задания</returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.TaskFileController.GetFile(System.Int32)">
+            <summary>
+            Получение файла задания по его id
+            </summary>
+            <param name="id">Id файла задания</param>
+            <returns>Файл задания</returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.TaskFileController.DeleteFile(System.Int32)">
+            <summary>
+            Удаление существующего файла задания по его id
+            </summary>
+            <param name="id">Id файла задания</param>
+            <returns></returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.TaskFileController.DownloadFile(System.Int32)">
+            <summary>
+            Загрузка файла задания с сервера
+            </summary>
+            <param name="id">Id файла задания</param>
+            <returns>Файл задания</returns>
         </member>
         <member name="M:StudyArchieveApi.Controllers.TaskTypeController.GetAll">
             <summary>

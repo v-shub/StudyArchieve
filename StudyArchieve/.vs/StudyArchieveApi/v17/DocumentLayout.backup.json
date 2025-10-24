@@ -3,32 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\studyarchieve\\controllers\\solutioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|solutionrelative:studyarchieve\\controllers\\solutioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\studyarchieve\\controllers\\solutionfilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|solutionrelative:studyarchieve\\controllers\\solutionfilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\studyarchieve\\controllers\\taskfilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|solutionrelative:studyarchieve\\controllers\\taskfilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\studyarchieve\\controllers\\taskcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|solutionrelative:studyarchieve\\controllers\\taskcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{406CFA48-10FF-4FBA-BBF1-5ED3F541C389}|BusinessLogic\\BusinessLogic.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\businesslogic\\services\\solutionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{406CFA48-10FF-4FBA-BBF1-5ED3F541C389}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\services\\solutionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0CCD607A-2C8E-4139-8D0E-FE6FB7072AA0}|Domain\\Domain.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\domain\\interfaces\\isolutionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0CCD607A-2C8E-4139-8D0E-FE6FB7072AA0}|Domain\\Domain.csproj|solutionrelative:domain\\interfaces\\isolutionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0CCD607A-2C8E-4139-8D0E-FE6FB7072AA0}|Domain\\Domain.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\domain\\interfaces\\isolutionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0CCD607A-2C8E-4139-8D0E-FE6FB7072AA0}|Domain\\Domain.csproj|solutionrelative:domain\\interfaces\\isolutionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{61159845-D8F8-441D-91F6-BF240F82EBC0}|DataAccess\\DataAccess.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\dataaccess\\repositories\\solutionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{61159845-D8F8-441D-91F6-BF240F82EBC0}|DataAccess\\DataAccess.csproj|solutionrelative:dataaccess\\repositories\\solutionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,93 +38,28 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SolutionFileController.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Controllers\\SolutionFileController.cs",
+              "RelativeDocumentMoniker": "StudyArchieve\\Controllers\\SolutionFileController.cs",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Controllers\\SolutionFileController.cs",
+              "RelativeToolTip": "StudyArchieve\\Controllers\\SolutionFileController.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAowF4AAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-24T06:20:18.255Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "TaskFileController.cs",
               "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Controllers\\TaskFileController.cs",
               "RelativeDocumentMoniker": "StudyArchieve\\Controllers\\TaskFileController.cs",
               "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Controllers\\TaskFileController.cs",
               "RelativeToolTip": "StudyArchieve\\Controllers\\TaskFileController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAIwHMAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-24T05:46:53.758Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "TaskController.cs",
-              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Controllers\\TaskController.cs",
-              "RelativeDocumentMoniker": "StudyArchieve\\Controllers\\TaskController.cs",
-              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Controllers\\TaskController.cs",
-              "RelativeToolTip": "StudyArchieve\\Controllers\\TaskController.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-24T05:46:40.562Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ISolutionService.cs",
-              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\Domain\\Interfaces\\ISolutionService.cs",
-              "RelativeDocumentMoniker": "Domain\\Interfaces\\ISolutionService.cs",
-              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\Domain\\Interfaces\\ISolutionService.cs",
-              "RelativeToolTip": "Domain\\Interfaces\\ISolutionService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-24T05:44:41.509Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ISolutionRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\Domain\\Interfaces\\ISolutionRepository.cs",
-              "RelativeDocumentMoniker": "Domain\\Interfaces\\ISolutionRepository.cs",
-              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\Domain\\Interfaces\\ISolutionRepository.cs",
-              "RelativeToolTip": "Domain\\Interfaces\\ISolutionRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-24T05:44:21.49Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "SolutionRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\DataAccess\\Repositories\\SolutionRepository.cs",
-              "RelativeDocumentMoniker": "DataAccess\\Repositories\\SolutionRepository.cs",
-              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\DataAccess\\Repositories\\SolutionRepository.cs",
-              "RelativeToolTip": "DataAccess\\Repositories\\SolutionRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-24T05:42:22.018Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SolutionService.cs",
-              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\BusinessLogic\\Services\\SolutionService.cs",
-              "RelativeDocumentMoniker": "BusinessLogic\\Services\\SolutionService.cs",
-              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\BusinessLogic\\Services\\SolutionService.cs",
-              "RelativeToolTip": "BusinessLogic\\Services\\SolutionService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-24T05:40:21.322Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "SolutionController.cs",
-              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Controllers\\SolutionController.cs",
-              "RelativeDocumentMoniker": "StudyArchieve\\Controllers\\SolutionController.cs",
-              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Controllers\\SolutionController.cs",
-              "RelativeToolTip": "StudyArchieve\\Controllers\\SolutionController.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAxwBkAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-24T05:35:58.266Z",
               "EditorCaption": ""
             }
           ]

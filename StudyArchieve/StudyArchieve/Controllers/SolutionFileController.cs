@@ -17,6 +17,21 @@ namespace StudyArchieveApi.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// Выгрузка на сервер нового файла решения
+        /// </summary>
+        /// <remarks>
+        /// Пример запроса:
+        ///
+        ///     POST /Todo
+        ///     {
+        ///         "taskId": 1,
+        ///         "file": "[бинарные данные файла]"
+        ///     }
+        ///
+        /// </remarks>
+        /// <param name="request">Запрос</param>
+        /// <returns>Id файла решения</returns>
         [HttpPost("upload")]
         public async Task<ActionResult<UploadSolutionFileResponse>> UploadFile([FromForm] UploadSolutionFileRequest request)
         {
@@ -35,6 +50,11 @@ namespace StudyArchieveApi.Controllers
             }
         }
 
+        /// <summary>
+        /// Получение списка файлов по id решения
+        /// </summary>
+        /// <param name="solutionId">Id решения</param>
+        /// <returns>Список файлов решения</returns>
         [HttpGet("solution/{solutionId}")]
         public async Task<ActionResult<List<SolutionFileResponse>>> GetFilesBySolution(int solutionId)
         {
@@ -50,6 +70,11 @@ namespace StudyArchieveApi.Controllers
             }
         }
 
+        /// <summary>
+        /// Получение файла решения по его id
+        /// </summary>
+        /// <param name="id">Id файла решения</param>
+        /// <returns>Файл решения</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<SolutionFileResponse>> GetFile(int id)
         {
@@ -66,6 +91,11 @@ namespace StudyArchieveApi.Controllers
             }
         }
 
+        /// <summary>
+        /// Удаление существующего файла решения по его id
+        /// </summary>
+        /// <param name="id">Id файла решения</param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteFile(int id)
         {
@@ -82,6 +112,11 @@ namespace StudyArchieveApi.Controllers
             }
         }
 
+        /// <summary>
+        /// Загрузка файла решения с сервера
+        /// </summary>
+        /// <param name="id">Id файла решения</param>
+        /// <returns>Файл решения</returns>
         [HttpGet("{id}/download")]
         public async Task<IActionResult> DownloadFile(int id)
         {

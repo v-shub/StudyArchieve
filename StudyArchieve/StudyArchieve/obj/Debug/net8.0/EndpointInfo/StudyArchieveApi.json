@@ -453,6 +453,8 @@
         "tags": [
           "SolutionFile"
         ],
+        "summary": "Выгрузка на сервер нового файла решения",
+        "description": "Пример запроса:\r\n            \r\n    POST /Todo\r\n    {\r\n        \"taskId\": 1,\r\n        \"file\": \"[бинарные данные файла]\"\r\n    }",
         "requestBody": {
           "content": {
             "multipart/form-data": {
@@ -509,10 +511,12 @@
         "tags": [
           "SolutionFile"
         ],
+        "summary": "Получение списка файлов по id решения",
         "parameters": [
           {
             "name": "solutionId",
             "in": "path",
+            "description": "Id решения",
             "required": true,
             "schema": {
               "type": "integer",
@@ -558,10 +562,12 @@
         "tags": [
           "SolutionFile"
         ],
+        "summary": "Получение файла решения по его id",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Id файла решения",
             "required": true,
             "schema": {
               "type": "integer",
@@ -596,10 +602,12 @@
         "tags": [
           "SolutionFile"
         ],
+        "summary": "Удаление существующего файла решения по его id",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Id файла решения",
             "required": true,
             "schema": {
               "type": "integer",
@@ -619,10 +627,12 @@
         "tags": [
           "SolutionFile"
         ],
+        "summary": "Загрузка файла решения с сервера",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Id файла решения",
             "required": true,
             "schema": {
               "type": "integer",
@@ -1019,6 +1029,8 @@
         "tags": [
           "TaskFile"
         ],
+        "summary": "Выгрузка на сервер нового файла задания",
+        "description": "Пример запроса:\r\n            \r\n    POST /Todo\r\n    {\r\n        \"taskId\": 1,\r\n        \"file\": \"[бинарные данные файла]\"\r\n    }",
         "requestBody": {
           "content": {
             "multipart/form-data": {
@@ -1075,10 +1087,12 @@
         "tags": [
           "TaskFile"
         ],
+        "summary": "Получение списка файлов по id задания",
         "parameters": [
           {
             "name": "taskId",
             "in": "path",
+            "description": "Id задания",
             "required": true,
             "schema": {
               "type": "integer",
@@ -1124,10 +1138,12 @@
         "tags": [
           "TaskFile"
         ],
+        "summary": "Получение файла задания по его id",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Id файла задания",
             "required": true,
             "schema": {
               "type": "integer",
@@ -1162,10 +1178,12 @@
         "tags": [
           "TaskFile"
         ],
+        "summary": "Удаление существующего файла задания по его id",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Id файла задания",
             "required": true,
             "schema": {
               "type": "integer",
@@ -1185,10 +1203,12 @@
         "tags": [
           "TaskFile"
         ],
+        "summary": "Загрузка файла задания с сервера",
         "parameters": [
           {
             "name": "id",
             "in": "path",
+            "description": "Id файла задания",
             "required": true,
             "schema": {
               "type": "integer",
