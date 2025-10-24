@@ -1225,7 +1225,7 @@
         "tags": [
           "TaskType"
         ],
-        "summary": "Добавление нового типа заданий",
+        "summary": "Изменение существующего типа заданий",
         "description": "Пример запроса:\r\n            \r\n    PUT /Todo\r\n    {\r\n        \"id\": 3,\r\n        \"name\": \"Самостоятельная работа\"\r\n    }",
         "requestBody": {
           "description": "Тип заданий",
@@ -1276,36 +1276,55 @@
         }
       }
     },
-    "/api/User": {
+    "/api/User/{id}": {
       "get": {
         "tags": [
           "User"
+        ],
+        "summary": "Получение пользователя по его id",
+        "description": "Пример запроса:\r\n            \r\n    GET /Todo\r\n    {\r\n       \"id\" : 3\r\n    }",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id пользователя",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
         ],
         "responses": {
           "200": {
             "description": "OK"
           }
         }
-      },
+      }
+    },
+    "/api/User": {
       "post": {
         "tags": [
           "User"
         ],
+        "summary": "Добавление нового пользователя",
+        "description": "Пример запроса:\r\n            \r\n    POST /Todo\r\n    {\r\n        \"userName\": \"newUser1234\",\r\n        \"email\": \"youremail@gmail.com\",\r\n        \"password\": \"password1234\",\r\n        \"roleId\": 3,\r\n    }",
         "requestBody": {
+          "description": "Пользователь",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/User"
+                "$ref": "#/components/schemas/CreateUserRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/User"
+                "$ref": "#/components/schemas/CreateUserRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/User"
+                "$ref": "#/components/schemas/CreateUserRequest"
               }
             }
           }
@@ -1320,21 +1339,24 @@
         "tags": [
           "User"
         ],
+        "summary": "Изменение существующего пользователя",
+        "description": "Пример запроса:\r\n            \r\n    PUT /Todo\r\n    {\r\n        \"id\": 2,\r\n        \"userName\": \"newUser1234\",\r\n        \"email\": \"youremail@gmail.com\",\r\n        \"password\": \"password1234\",\r\n        \"roleId\": 3,\r\n    }",
         "requestBody": {
+          "description": "Пользователь",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/User"
+                "$ref": "#/components/schemas/UpdateUserRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/User"
+                "$ref": "#/components/schemas/UpdateUserRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/User"
+                "$ref": "#/components/schemas/UpdateUserRequest"
               }
             }
           }
@@ -1349,10 +1371,12 @@
         "tags": [
           "User"
         ],
+        "summary": "Удаление существующего пользователя",
         "parameters": [
           {
             "name": "id",
             "in": "query",
+            "description": "Id пользователя",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -1369,48 +1393,6 @@
   },
   "components": {
     "schemas": {
-      "AcademicYear": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "yearLabel": {
-            "type": "string",
-            "nullable": true
-          },
-          "tasks": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Task"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Author": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "tasks": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Task"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "CreateAcademicYearRequest": {
         "type": "object",
         "properties": {
@@ -1538,88 +1520,24 @@
         },
         "additionalProperties": false
       },
-      "Role": {
+      "CreateUserRequest": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "roleName": {
+          "username": {
             "type": "string",
             "nullable": true
           },
-          "users": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/User"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Solution": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "taskId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "solutionText": {
+          "email": {
             "type": "string",
             "nullable": true
           },
-          "dateAdded": {
+          "password": {
             "type": "string",
-            "format": "date-time"
-          },
-          "userAddedId": {
-            "type": "integer",
-            "format": "int32",
             "nullable": true
           },
-          "solutionFiles": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SolutionFile"
-            },
-            "nullable": true
-          },
-          "task": {
-            "$ref": "#/components/schemas/Task"
-          },
-          "userAdded": {
-            "$ref": "#/components/schemas/User"
-          }
-        },
-        "additionalProperties": false
-      },
-      "SolutionFile": {
-        "type": "object",
-        "properties": {
-          "id": {
+          "roleId": {
             "type": "integer",
             "format": "int32"
-          },
-          "solutionId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "fileName": {
-            "type": "string",
-            "nullable": true
-          },
-          "filePath": {
-            "type": "string",
-            "nullable": true
-          },
-          "solution": {
-            "$ref": "#/components/schemas/Solution"
           }
         },
         "additionalProperties": false
@@ -1650,153 +1568,6 @@
         },
         "additionalProperties": false
       },
-      "Subject": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "tasks": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Task"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Tag": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "tasks": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Task"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Task": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "title": {
-            "type": "string",
-            "nullable": true
-          },
-          "conditionText": {
-            "type": "string",
-            "nullable": true
-          },
-          "subjectId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "academicYearId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "typeId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "dateAdded": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "userAddedId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "academicYear": {
-            "$ref": "#/components/schemas/AcademicYear"
-          },
-          "solutions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Solution"
-            },
-            "nullable": true
-          },
-          "subject": {
-            "$ref": "#/components/schemas/Subject"
-          },
-          "taskFiles": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/TaskFile"
-            },
-            "nullable": true
-          },
-          "type": {
-            "$ref": "#/components/schemas/TaskType"
-          },
-          "userAdded": {
-            "$ref": "#/components/schemas/User"
-          },
-          "authors": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Author"
-            },
-            "nullable": true
-          },
-          "tags": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Tag"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "TaskFile": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "taskId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "fileName": {
-            "type": "string",
-            "nullable": true
-          },
-          "filePath": {
-            "type": "string",
-            "nullable": true
-          },
-          "task": {
-            "$ref": "#/components/schemas/Task"
-          }
-        },
-        "additionalProperties": false
-      },
       "TaskFileResponse": {
         "type": "object",
         "properties": {
@@ -1819,27 +1590,6 @@
           "fileSize": {
             "type": "integer",
             "format": "int64"
-          }
-        },
-        "additionalProperties": false
-      },
-      "TaskType": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "tasks": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Task"
-            },
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1989,6 +1739,32 @@
         },
         "additionalProperties": false
       },
+      "UpdateUserRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "roleId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "UploadSolutionFileResponse": {
         "type": "object",
         "properties": {
@@ -2029,49 +1805,6 @@
           "fileSize": {
             "type": "integer",
             "format": "int64"
-          }
-        },
-        "additionalProperties": false
-      },
-      "User": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "username": {
-            "type": "string",
-            "nullable": true
-          },
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "password": {
-            "type": "string",
-            "nullable": true
-          },
-          "roleId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "role": {
-            "$ref": "#/components/schemas/Role"
-          },
-          "solutions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Solution"
-            },
-            "nullable": true
-          },
-          "tasks": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Task"
-            },
-            "nullable": true
           }
         },
         "additionalProperties": false

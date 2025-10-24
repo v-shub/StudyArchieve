@@ -409,7 +409,7 @@
         </member>
         <member name="M:StudyArchieveApi.Controllers.TaskTypeController.Update(StudyArchieveApi.Contracts.TaskType.UpdateTaskTypeRequest)">
              <summary>
-             Добавление нового типа заданий
+             Изменение существующего типа заданий
              </summary>
              <remarks>
              Пример запроса:
@@ -429,6 +429,68 @@
             Удаление существующего типа заданий
             </summary>
             <param name="id">Id типа заданий</param>
+            <returns></returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.UserController.GetById(System.Int32)">
+             <summary>
+             Получение пользователя по его id
+             </summary>
+             <remarks>
+             Пример запроса:
+            
+                 GET /Todo
+                 {
+                    "id" : 3
+                 }
+            
+             </remarks>
+             <param name="id">Id пользователя</param>
+             <returns>Пользователь</returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.UserController.Add(StudyArchieveApi.Contracts.User.CreateUserRequest)">
+             <summary>
+             Добавление нового пользователя
+             </summary>
+             <remarks>
+             Пример запроса:
+            
+                 POST /Todo
+                 {
+                     "userName": "newUser1234",
+                     "email": "youremail@gmail.com",
+                     "password": "password1234",
+                     "roleId": 3,
+                 }
+            
+             </remarks>
+             <param name="user">Пользователь</param>
+             <returns></returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.UserController.Update(StudyArchieveApi.Contracts.User.UpdateUserRequest)">
+             <summary>
+             Изменение существующего пользователя
+             </summary>
+             <remarks>
+             Пример запроса:
+            
+                 PUT /Todo
+                 {
+                     "id": 2,
+                     "userName": "newUser1234",
+                     "email": "youremail@gmail.com",
+                     "password": "password1234",
+                     "roleId": 3,
+                 }
+            
+             </remarks>
+             <param name="user">Пользователь</param>
+             <returns></returns>
+        </member>
+        <member name="M:StudyArchieveApi.Controllers.UserController.Delete(System.Int32)">
+            <summary>
+            Удаление существующего пользователя
+            </summary>
+            <param name="id">Id пользователя</param>
             <returns></returns>
         </member>
     </members>

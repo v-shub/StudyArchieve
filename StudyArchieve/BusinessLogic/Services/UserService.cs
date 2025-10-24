@@ -26,9 +26,8 @@ namespace BusinessLogic.Services
         
         public async Task<User> GetById(int id)
         {
-            var that = await _repositoryWrapper.User
-                .FindByCondition(x => x.Id == id);
-            return that.First();
+            var that = await _repositoryWrapper.User.GetById(id);
+            return that;
         }
         
         public async Task Create(User model)

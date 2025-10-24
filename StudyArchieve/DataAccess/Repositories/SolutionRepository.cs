@@ -16,6 +16,7 @@ namespace DataAccess.Repositories
         {
             return await RepositoryContext.Solutions
                 .Include(t => t.UserAdded)
+                .ThenInclude(u => u.Role)
                 .Where(t => t.TaskId == taskId)
                 .AsNoTracking()
                 .ToListAsync();

@@ -1,4 +1,5 @@
 ﻿using Domain.Models;
+using StudyArchieveApi.Contracts.Role;
 
 namespace StudyArchieveApi.Contracts.User
 {
@@ -13,6 +14,6 @@ namespace StudyArchieveApi.Contracts.User
 
         public int RoleId { get; set; }
 
-        public virtual Domain.Models.Role Role { get; set; } = null!;
+        public virtual GetRoleResponse Role { get; set; } = null!;
     }
 }
