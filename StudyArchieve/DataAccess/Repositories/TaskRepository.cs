@@ -23,6 +23,7 @@ namespace DataAccess.Repositories
                 .Include(t => t.Subject)
                 .Include(t => t.Type)
                 .Include(t => t.UserAdded)
+                    .ThenInclude(u => u.Role)
                 .AsNoTracking()
                 .ToListAsync();
         }
@@ -35,6 +36,7 @@ namespace DataAccess.Repositories
                 .Include(t => t.Subject)
                 .Include(t => t.Type)
                 .Include(t => t.UserAdded)
+                    .ThenInclude(u => u.Role)
                 .Where(t => t.Id == id)
                 .AsNoTracking()
                 .FirstAsync();
