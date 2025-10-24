@@ -10,5 +10,6 @@ namespace Domain.Interfaces
     public interface ISolutionRepository : IRepositoryBase<Solution>
     {
         Task<List<Solution>> GetSolutionsByTaskId(int taskId);
+        Task<Solution> GetById(int id);
     }
 }

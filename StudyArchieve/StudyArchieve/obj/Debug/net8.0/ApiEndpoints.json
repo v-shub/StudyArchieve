@@ -223,8 +223,24 @@
   },
   {
     "ContainingType": "StudyArchieveApi.Controllers.SolutionController",
+    "Method": "GetById",
+    "RelativePath": "api/Solution/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StudyArchieveApi.Controllers.SolutionController",
     "Method": "GetByTaskId",
-    "RelativePath": "api/Solution/{taskId}",
+    "RelativePath": "api/Solution/task/{taskId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

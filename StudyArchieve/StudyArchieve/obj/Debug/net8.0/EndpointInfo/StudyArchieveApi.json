@@ -308,7 +308,7 @@
         }
       }
     },
-    "/api/Solution/{taskId}": {
+    "/api/Solution/task/{taskId}": {
       "get": {
         "tags": [
           "Solution"
@@ -320,6 +320,32 @@
             "name": "taskId",
             "in": "path",
             "description": "Id задания",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Solution/{id}": {
+      "get": {
+        "tags": [
+          "Solution"
+        ],
+        "summary": "Получение решения по его id",
+        "description": "Пример запроса:\r\n            \r\n    GET /Todo\r\n    {\r\n       \"id\" : 3\r\n    }",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id решения",
             "required": true,
             "schema": {
               "type": "integer",

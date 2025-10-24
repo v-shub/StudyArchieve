@@ -16,10 +16,19 @@ namespace DataAccess.Repositories
         {
             return await RepositoryContext.Solutions
                 .Include(t => t.UserAdded)
-                .ThenInclude(u => u.Role)
+                    .ThenInclude(u => u.Role)
                 .Where(t => t.TaskId == taskId)
                 .AsNoTracking()
                 .ToListAsync();
+        }
+        public async Task<Solution> GetById(int id)
+        {
+            return await RepositoryContext.Solutions
+                .Include(t => t.UserAdded)
+                .ThenInclude(u => u.Role)
+                .Where(t => t.Id == id)
+                .AsNoTracking()
+                .FirstAsync();
         }
     }
 }

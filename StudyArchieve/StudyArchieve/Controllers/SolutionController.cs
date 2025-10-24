@@ -31,11 +31,32 @@ namespace StudyArchieveApi.Controllers
         /// </remarks>
         /// <param name="taskId">Id задания</param>
         /// <returns>Список решений задания</returns>
-        [HttpGet("{taskId}")]
+        [HttpGet("task/{taskId}")]
         public async Task<IActionResult> GetByTaskId(int taskId)
         {
             var list = await _solutionService.GetByTaskId(taskId);
             return Ok(list.Adapt<List<GetSolutionResponse>>());
+        }
+
+        /// <summary>
+        /// Получение решения по его id
+        /// </summary>
+        /// <remarks>
+        /// Пример запроса:
+        ///
+        ///     GET /Todo
+        ///     {
+        ///        "id" : 3
+        ///     }
+        ///
+        /// </remarks>
+        /// <param name="id">Id решения</param>
+        /// <returns>Решение</returns>
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var that = await _solutionService.GetById(id);
+            return Ok(that.Adapt<GetSolutionResponse>());
         }
 
         /// <summary>

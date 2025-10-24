@@ -11,6 +11,7 @@ namespace Domain.Interfaces
     public interface ISolutionService
     {
         Task<List<Solution>> GetByTaskId(int taskId);
+        Task<Solution> GetById(int id);
         Task Create(Solution model);
         Task Update(Solution model);
         Task Delete(int id);

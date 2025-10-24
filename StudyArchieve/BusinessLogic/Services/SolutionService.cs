@@ -24,6 +24,12 @@ namespace BusinessLogic.Services
                 throw new ArgumentException("taskId");
             return await _repositoryWrapper.Solution.GetSolutionsByTaskId(taskId);
         }
+        public async Task<Solution> GetById(int id)
+        {
+            if (id <= 0)
+                throw new ArgumentException("id");
+            return await _repositoryWrapper.Solution.GetById(id);
+        }
         public async Task Create(Solution model)
         {
             await _repositoryWrapper.Solution.Create(model);
