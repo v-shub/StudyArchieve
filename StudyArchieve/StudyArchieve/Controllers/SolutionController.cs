@@ -20,15 +20,6 @@ namespace StudyArchieveApi.Controllers
         /// <summary>
         /// Получение списка решений по id задания
         /// </summary>
-        /// <remarks>
-        /// Пример запроса:
-        ///
-        ///     GET /Todo
-        ///     {
-        ///        "taskId" : 3
-        ///     }
-        ///
-        /// </remarks>
         /// <param name="taskId">Id задания</param>
         /// <returns>Список решений задания</returns>
         [HttpGet("task/{taskId}")]
@@ -41,15 +32,6 @@ namespace StudyArchieveApi.Controllers
         /// <summary>
         /// Получение решения по его id
         /// </summary>
-        /// <remarks>
-        /// Пример запроса:
-        ///
-        ///     GET /Todo
-        ///     {
-        ///        "id" : 3
-        ///     }
-        ///
-        /// </remarks>
         /// <param name="id">Id решения</param>
         /// <returns>Решение</returns>
         [HttpGet("{id}")]

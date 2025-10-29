@@ -33,15 +33,6 @@ namespace StudyArchieveApi.Controllers
         /// <summary>
         /// Получение пользователя по его id
         /// </summary>
-        /// <remarks>
-        /// Пример запроса:
-        ///
-        ///     GET /Todo
-        ///     {
-        ///        "id" : 3
-        ///     }
-        ///
-        /// </remarks>
         /// <param name="id">Id пользователя</param>
         /// <returns>Пользователь</returns>
         [HttpGet("{id}")]

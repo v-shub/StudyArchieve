@@ -60,15 +60,6 @@ namespace StudyArchieveApi.Controllers
         /// <summary>
         /// Получение задания по его id
         /// </summary>
-        /// <remarks>
-        /// Пример запроса:
-        ///
-        ///     GET /Todo
-        ///     {
-        ///        "id" : 3
-        ///     }
-        ///
-        /// </remarks>
         /// <param name="id">Id задания</param>
         /// <returns>Задание</returns>
         [HttpGet("{id}")]
