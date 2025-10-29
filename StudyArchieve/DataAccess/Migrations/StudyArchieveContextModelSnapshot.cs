@@ -22,6 +22,66 @@ namespace DataAccess.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Domain.Entity.RefreshToken", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AccountId")
+                        .HasColumnType("int")
+                        .HasColumnName("account_id");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created");
+
+                    b.Property<string>("CreatedByIP")
+                        .IsRequired()
+                        .HasMaxLength(45)
+                        .HasColumnType("nvarchar(45)")
+                        .HasColumnName("created_by_ip");
+
+                    b.Property<DateTime>("Expires")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("expires");
+
+                    b.Property<string>("ReasonRevoked")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)")
+                        .HasColumnName("reason_revoked");
+
+                    b.Property<string>("ReplacedByToken")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)")
+                        .HasColumnName("replaced_by_token");
+
+                    b.Property<DateTime?>("Revoked")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("revoked");
+
+                    b.Property<string>("RevokedByIP")
+                        .HasMaxLength(45)
+                        .HasColumnType("nvarchar(45)")
+                        .HasColumnName("revoked_by_ip");
+
+                    b.Property<string>("Token")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)")
+                        .HasColumnName("token");
+
+                    b.HasKey("Id")
+                        .HasName("PK_refresh_tokens");
+
+                    b.HasIndex("AccountId");
+
+                    b.ToTable("refresh_tokens", (string)null);
+                });
+
             modelBuilder.Entity("Domain.Models.AcademicYear", b =>
                 {
                     b.Property<int>("Id")
@@ -328,6 +388,10 @@ namespace DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(255)
@@ -340,15 +404,41 @@ namespace DataAccess.Migrations
                         .HasColumnType("nvarchar(100)")
                         .HasColumnName("password");
 
+                    b.Property<DateTime?>("PasswordReset")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("password_reset");
+
+                    b.Property<string>("ResetToken")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)")
+                        .HasColumnName("reset_token");
+
+                    b.Property<DateTime?>("ResetTokenExpires")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("reset_token_expires");
+
                     b.Property<int>("RoleId")
                         .HasColumnType("int")
                         .HasColumnName("role_id");
+
+                    b.Property<DateTime?>("Updated")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("updated");
 
                     b.Property<string>("Username")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)")
                         .HasColumnName("username");
+
+                    b.Property<string>("VerificationToken")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)")
+                        .HasColumnName("verification_token");
+
+                    b.Property<DateTime?>("Verified")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("verified");
 
                     b.HasKey("Id")
                         .HasName("PK__users__3213E83FB69E9D25");
@@ -392,6 +482,18 @@ namespace DataAccess.Migrations
                     b.HasIndex("TagId");
 
                     b.ToTable("task_tags", (string)null);
+                });
+
+            modelBuilder.Entity("Domain.Entity.RefreshToken", b =>
+                {
+                    b.HasOne("Domain.Models.User", "Account")
+                        .WithMany("RefreshTokens")
+                        .HasForeignKey("AccountId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_RefreshTokens_User");
+
+                    b.Navigation("Account");
                 });
 
             modelBuilder.Entity("Domain.Models.Solution", b =>
@@ -549,6 +651,8 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("Domain.Models.User", b =>
                 {
+                    b.Navigation("RefreshTokens");
+
                     b.Navigation("Solutions");
 
                     b.Navigation("Tasks");

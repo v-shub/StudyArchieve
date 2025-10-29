@@ -1,4 +1,5 @@
-﻿using Domain.Interfaces;
+﻿using BusinessLogic.Models.Files;
+using Domain.Interfaces;
 using Domain.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;

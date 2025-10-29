@@ -143,36 +143,18 @@
             <returns></returns>
         </member>
         <member name="M:StudyArchieveApi.Controllers.SolutionController.GetByTaskId(System.Int32)">
-             <summary>
-             Получение списка решений по id задания
-             </summary>
-             <remarks>
-             Пример запроса:
-            
-                 GET /Todo
-                 {
-                    "taskId" : 3
-                 }
-            
-             </remarks>
-             <param name="taskId">Id задания</param>
-             <returns>Список решений задания</returns>
+            <summary>
+            Получение списка решений по id задания
+            </summary>
+            <param name="taskId">Id задания</param>
+            <returns>Список решений задания</returns>
         </member>
         <member name="M:StudyArchieveApi.Controllers.SolutionController.GetById(System.Int32)">
-             <summary>
-             Получение решения по его id
-             </summary>
-             <remarks>
-             Пример запроса:
-            
-                 GET /Todo
-                 {
-                    "id" : 3
-                 }
-            
-             </remarks>
-             <param name="id">Id решения</param>
-             <returns>Решение</returns>
+            <summary>
+            Получение решения по его id
+            </summary>
+            <param name="id">Id решения</param>
+            <returns>Решение</returns>
         </member>
         <member name="M:StudyArchieveApi.Controllers.SolutionController.Add(StudyArchieveApi.Contracts.Solution.CreateSolutionRequest)">
              <summary>
@@ -378,20 +360,11 @@
              <returns>Список заданий, удовлетворяющих условию поиска</returns>
         </member>
         <member name="M:StudyArchieveApi.Controllers.TaskController.GetById(System.Int32)">
-             <summary>
-             Получение задания по его id
-             </summary>
-             <remarks>
-             Пример запроса:
-            
-                 GET /Todo
-                 {
-                    "id" : 3
-                 }
-            
-             </remarks>
-             <param name="id">Id задания</param>
-             <returns>Задание</returns>
+            <summary>
+            Получение задания по его id
+            </summary>
+            <param name="id">Id задания</param>
+            <returns>Задание</returns>
         </member>
         <member name="M:StudyArchieveApi.Controllers.TaskController.Add(StudyArchieveApi.Contracts.Task.CreateTaskRequest)">
              <summary>
@@ -538,20 +511,11 @@
             <returns></returns>
         </member>
         <member name="M:StudyArchieveApi.Controllers.UserController.GetById(System.Int32)">
-             <summary>
-             Получение пользователя по его id
-             </summary>
-             <remarks>
-             Пример запроса:
-            
-                 GET /Todo
-                 {
-                    "id" : 3
-                 }
-            
-             </remarks>
-             <param name="id">Id пользователя</param>
-             <returns>Пользователь</returns>
+            <summary>
+            Получение пользователя по его id
+            </summary>
+            <param name="id">Id пользователя</param>
+            <returns>Пользователь</returns>
         </member>
         <member name="M:StudyArchieveApi.Controllers.UserController.Add(StudyArchieveApi.Contracts.User.CreateUserRequest)">
              <summary>

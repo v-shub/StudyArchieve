@@ -9,6 +9,7 @@ namespace Domain.Interfaces
 {
     public interface IUserRepository : IRepositoryBase<User>
     {
-        Task<User> GetById(int id);
+        Task<User> GetByIdWithToken(int id);
+        Task<User> GetByEmailWithToken(string email);
     }
 }

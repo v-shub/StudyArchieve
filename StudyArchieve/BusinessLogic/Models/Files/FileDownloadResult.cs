@@ -1,4 +1,4 @@
-﻿namespace Domain.Models
+﻿namespace BusinessLogic.Models.Files
 {
     public class FileDownloadResult
     {

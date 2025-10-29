@@ -1,7 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+﻿using Domain.Entity;
 using Domain.Models;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
 using Task = Domain.Models.Task;
 
 namespace DataAccess;
@@ -38,6 +39,7 @@ public partial class StudyArchieveContext : DbContext
     public virtual DbSet<TaskType> TaskTypes { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
+    public virtual DbSet<RefreshToken> RefreshTokens { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -77,6 +79,45 @@ public partial class StudyArchieveContext : DbContext
             entity.Property(e => e.RoleName)
                 .HasMaxLength(50)
                 .HasColumnName("role_name");
+        });
+        modelBuilder.Entity<RefreshToken>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK_refresh_tokens");
+
+            entity.ToTable("refresh_tokens");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Token)
+                .IsRequired()
+                .HasMaxLength(500)
+                .HasColumnName("token");
+            entity.Property(e => e.Expires)
+                .HasColumnName("expires");
+            entity.Property(e => e.Created)
+                .HasColumnName("created");
+            entity.Property(e => e.CreatedByIP)
+                .HasMaxLength(45)
+                .HasColumnName("created_by_ip");
+            entity.Property(e => e.Revoked)
+                .HasColumnName("revoked");
+            entity.Property(e => e.RevokedByIP)
+                .HasMaxLength(45)
+                .HasColumnName("revoked_by_ip");
+            entity.Property(e => e.ReplacedByToken)
+                .HasMaxLength(500)
+                .HasColumnName("replaced_by_token");
+            entity.Property(e => e.ReasonRevoked)
+                .HasMaxLength(200)
+                .HasColumnName("reason_revoked");
+            entity.Property(e => e.AccountId)
+                .HasColumnName("account_id");
+
+            // Связь с User
+            entity.HasOne(rt => rt.Account)
+                .WithMany(u => u.RefreshTokens)
+                .HasForeignKey(rt => rt.AccountId)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("FK_RefreshTokens_User");
         });
 
         modelBuilder.Entity<Solution>(entity =>
@@ -284,6 +325,23 @@ public partial class StudyArchieveContext : DbContext
                 .HasForeignKey(d => d.RoleId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_users_roles");
+
+            entity.Property(e => e.VerificationToken)
+                .HasMaxLength(500)
+                .HasColumnName("verification_token");
+            entity.Property(e => e.Verified)
+                .HasColumnName("verified");
+            entity.Property(e => e.ResetToken)
+                .HasMaxLength(500)
+                .HasColumnName("reset_token");
+            entity.Property(e => e.ResetTokenExpires)
+                .HasColumnName("reset_token_expires");
+            entity.Property(e => e.PasswordReset)
+                .HasColumnName("password_reset");
+            entity.Property(e => e.Created)
+                .HasColumnName("created");
+            entity.Property(e => e.Updated)
+                .HasColumnName("updated");
         });
 
         OnModelCreatingPartial(modelBuilder);
