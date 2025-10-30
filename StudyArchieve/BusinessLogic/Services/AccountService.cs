@@ -11,7 +11,7 @@ using Task = System.Threading.Tasks.Task;
 
 namespace BusinessLogic.Services
 {
-    public class AccountsService : IAccountService
+    public class AccountService : IAccountService
     {
         private readonly IRepositoryWrapper _repositoryWrapper;
         private readonly IJwtUtils _jwtUtils;
@@ -19,7 +19,7 @@ namespace BusinessLogic.Services
         private readonly AppSettings _appSettings;
         private readonly IEmailService _emailService;
 
-        public AccountsService(
+        public AccountService(
             IRepositoryWrapper repositoryWrapper,
             IJwtUtils jwtUtils,
             IMapper mapper,

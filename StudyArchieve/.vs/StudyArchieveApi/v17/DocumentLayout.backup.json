@@ -3,6 +3,46 @@
   "WorkspaceRootPath": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\studyarchieve\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|solutionrelative:studyarchieve\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\studyarchieve\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|solutionrelative:studyarchieve\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{406CFA48-10FF-4FBA-BBF1-5ED3F541C389}|BusinessLogic\\BusinessLogic.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\businesslogic\\services\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{406CFA48-10FF-4FBA-BBF1-5ED3F541C389}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\services\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\studyarchieve\\controllers\\accountscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|solutionrelative:studyarchieve\\controllers\\accountscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\studyarchieve\\controllers\\basecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|solutionrelative:studyarchieve\\controllers\\basecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\studyarchieve\\authorization\\authorizeattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|solutionrelative:studyarchieve\\authorization\\authorizeattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\studyarchieve\\helpers\\errorhandlermiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|solutionrelative:studyarchieve\\helpers\\errorhandlermiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\studyarchieve\\authorization\\allowanonymousattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|solutionrelative:studyarchieve\\authorization\\allowanonymousattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\studyarchieve\\authorization\\jwtmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|solutionrelative:studyarchieve\\authorization\\jwtmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\studyarchieve\\authorization\\jwtutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|StudyArchieve\\StudyArchieveApi.csproj|solutionrelative:studyarchieve\\authorization\\jwtutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0CCD607A-2C8E-4139-8D0E-FE6FB7072AA0}|Domain\\Domain.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\domain\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0CCD607A-2C8E-4139-8D0E-FE6FB7072AA0}|Domain\\Domain.csproj|solutionrelative:domain\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -35,6 +75,136 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\appsettings.json",
+              "RelativeDocumentMoniker": "StudyArchieve\\appsettings.json",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\appsettings.json",
+              "RelativeToolTip": "StudyArchieve\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-30T14:43:18.444Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AccountService.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\BusinessLogic\\Services\\AccountService.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\Services\\AccountService.cs",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\BusinessLogic\\Services\\AccountService.cs",
+              "RelativeToolTip": "BusinessLogic\\Services\\AccountService.cs",
+              "ViewState": "AgIAAOgAAAAAAAAAAAAQwE8AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T14:36:43.423Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Program.cs",
+              "RelativeDocumentMoniker": "StudyArchieve\\Program.cs",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Program.cs",
+              "RelativeToolTip": "StudyArchieve\\Program.cs",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAQwIwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T14:35:39.073Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AccountsController.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Controllers\\AccountsController.cs",
+              "RelativeDocumentMoniker": "StudyArchieve\\Controllers\\AccountsController.cs",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Controllers\\AccountsController.cs",
+              "RelativeToolTip": "StudyArchieve\\Controllers\\AccountsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T14:26:23.533Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BaseController.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Controllers\\BaseController.cs",
+              "RelativeDocumentMoniker": "StudyArchieve\\Controllers\\BaseController.cs",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Controllers\\BaseController.cs",
+              "RelativeToolTip": "StudyArchieve\\Controllers\\BaseController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T14:16:11.224Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "JwtUtils.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Authorization\\JwtUtils.cs",
+              "RelativeDocumentMoniker": "StudyArchieve\\Authorization\\JwtUtils.cs",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Authorization\\JwtUtils.cs",
+              "RelativeToolTip": "StudyArchieve\\Authorization\\JwtUtils.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAUwE4AAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T14:05:05.636Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "JwtMiddleware.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Authorization\\JwtMiddleware.cs",
+              "RelativeDocumentMoniker": "StudyArchieve\\Authorization\\JwtMiddleware.cs",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Authorization\\JwtMiddleware.cs",
+              "RelativeToolTip": "StudyArchieve\\Authorization\\JwtMiddleware.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T14:04:47.256Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AuthorizeAttribute.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Authorization\\AuthorizeAttribute.cs",
+              "RelativeDocumentMoniker": "StudyArchieve\\Authorization\\AuthorizeAttribute.cs",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Authorization\\AuthorizeAttribute.cs",
+              "RelativeToolTip": "StudyArchieve\\Authorization\\AuthorizeAttribute.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T14:04:09.951Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AllowAnonymousAttribute.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Authorization\\AllowAnonymousAttribute.cs",
+              "RelativeDocumentMoniker": "StudyArchieve\\Authorization\\AllowAnonymousAttribute.cs",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Authorization\\AllowAnonymousAttribute.cs",
+              "RelativeToolTip": "StudyArchieve\\Authorization\\AllowAnonymousAttribute.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T14:03:27.956Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ErrorHandlerMiddleware.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Helpers\\ErrorHandlerMiddleware.cs",
+              "RelativeDocumentMoniker": "StudyArchieve\\Helpers\\ErrorHandlerMiddleware.cs",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\StudyArchieve\\Helpers\\ErrorHandlerMiddleware.cs",
+              "RelativeToolTip": "StudyArchieve\\Helpers\\ErrorHandlerMiddleware.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T14:00:22.276Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\Domain\\Models\\User.cs",
               "RelativeDocumentMoniker": "Domain\\Models\\User.cs",
