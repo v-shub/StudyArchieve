@@ -1,7 +1,44 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{406CFA48-10FF-4FBA-BBF1-5ED3F541C389}|BusinessLogic\\BusinessLogic.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\businesslogic\\services\\subjectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{406CFA48-10FF-4FBA-BBF1-5ED3F541C389}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\services\\subjectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C1A065C-4CF2-478F-AD1D-80F4BA6CE5DD}|BusinessLogic.Tests\\BusinessLogic.Tests.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\businesslogic.tests\\subjectservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C1A065C-4CF2-478F-AD1D-80F4BA6CE5DD}|BusinessLogic.Tests\\BusinessLogic.Tests.csproj|solutionrelative:businesslogic.tests\\subjectservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CCD607A-2C8E-4139-8D0E-FE6FB7072AA0}|Domain\\Domain.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\domain\\models\\subject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CCD607A-2C8E-4139-8D0E-FE6FB7072AA0}|Domain\\Domain.csproj|solutionrelative:domain\\models\\subject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{406CFA48-10FF-4FBA-BBF1-5ED3F541C389}|BusinessLogic\\BusinessLogic.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\businesslogic\\services\\blackblazeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{406CFA48-10FF-4FBA-BBF1-5ED3F541C389}|BusinessLogic\\BusinessLogic.csproj|solutionrelative:businesslogic\\services\\blackblazeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C1A065C-4CF2-478F-AD1D-80F4BA6CE5DD}|BusinessLogic.Tests\\BusinessLogic.Tests.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\businesslogic.tests\\authorservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C1A065C-4CF2-478F-AD1D-80F4BA6CE5DD}|BusinessLogic.Tests\\BusinessLogic.Tests.csproj|solutionrelative:businesslogic.tests\\authorservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C1A065C-4CF2-478F-AD1D-80F4BA6CE5DD}|BusinessLogic.Tests\\BusinessLogic.Tests.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\businesslogic.tests\\academicyearservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C1A065C-4CF2-478F-AD1D-80F4BA6CE5DD}|BusinessLogic.Tests\\BusinessLogic.Tests.csproj|solutionrelative:businesslogic.tests\\academicyearservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C1A065C-4CF2-478F-AD1D-80F4BA6CE5DD}|BusinessLogic.Tests\\BusinessLogic.Tests.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\businesslogic.tests\\tasktypeservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C1A065C-4CF2-478F-AD1D-80F4BA6CE5DD}|BusinessLogic.Tests\\BusinessLogic.Tests.csproj|solutionrelative:businesslogic.tests\\tasktypeservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C1A065C-4CF2-478F-AD1D-80F4BA6CE5DD}|BusinessLogic.Tests\\BusinessLogic.Tests.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\businesslogic.tests\\taskservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C1A065C-4CF2-478F-AD1D-80F4BA6CE5DD}|BusinessLogic.Tests\\BusinessLogic.Tests.csproj|solutionrelative:businesslogic.tests\\taskservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C1A065C-4CF2-478F-AD1D-80F4BA6CE5DD}|BusinessLogic.Tests\\BusinessLogic.Tests.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\businesslogic.tests\\tagservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C1A065C-4CF2-478F-AD1D-80F4BA6CE5DD}|BusinessLogic.Tests\\BusinessLogic.Tests.csproj|solutionrelative:businesslogic.tests\\tagservicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,6 +63,123 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Subject.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\Domain\\Models\\Subject.cs",
+              "RelativeDocumentMoniker": "Domain\\Models\\Subject.cs",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\Domain\\Models\\Subject.cs",
+              "RelativeToolTip": "Domain\\Models\\Subject.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T10:35:49.153Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SubjectService.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\BusinessLogic\\Services\\SubjectService.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\Services\\SubjectService.cs",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\BusinessLogic\\Services\\SubjectService.cs",
+              "RelativeToolTip": "BusinessLogic\\Services\\SubjectService.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwEMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T10:35:35.36Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BlackBlazeService.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\BusinessLogic\\Services\\BlackBlazeService.cs",
+              "RelativeDocumentMoniker": "BusinessLogic\\Services\\BlackBlazeService.cs",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\BusinessLogic\\Services\\BlackBlazeService.cs",
+              "RelativeToolTip": "BusinessLogic\\Services\\BlackBlazeService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T10:35:30.55Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TaskTypeServiceTest.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\BusinessLogic.Tests\\TaskTypeServiceTest.cs",
+              "RelativeDocumentMoniker": "BusinessLogic.Tests\\TaskTypeServiceTest.cs",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\BusinessLogic.Tests\\TaskTypeServiceTest.cs",
+              "RelativeToolTip": "BusinessLogic.Tests\\TaskTypeServiceTest.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAAAF8AAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T10:25:57.592Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TaskServiceTest.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\BusinessLogic.Tests\\TaskServiceTest.cs",
+              "RelativeDocumentMoniker": "BusinessLogic.Tests\\TaskServiceTest.cs",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\BusinessLogic.Tests\\TaskServiceTest.cs",
+              "RelativeToolTip": "BusinessLogic.Tests\\TaskServiceTest.cs",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAAAHYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T10:25:29.015Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "TagServiceTest.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\BusinessLogic.Tests\\TagServiceTest.cs",
+              "RelativeDocumentMoniker": "BusinessLogic.Tests\\TagServiceTest.cs",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\BusinessLogic.Tests\\TagServiceTest.cs",
+              "RelativeToolTip": "BusinessLogic.Tests\\TagServiceTest.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAAAF8AAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T10:25:23.227Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SubjectServiceTest.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\BusinessLogic.Tests\\SubjectServiceTest.cs",
+              "RelativeDocumentMoniker": "BusinessLogic.Tests\\SubjectServiceTest.cs",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\BusinessLogic.Tests\\SubjectServiceTest.cs",
+              "RelativeToolTip": "BusinessLogic.Tests\\SubjectServiceTest.cs",
+              "ViewState": "AgIAAOgAAAAAAAAAAAAgwPoAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T10:25:17.408Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AuthorServiceTest.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\BusinessLogic.Tests\\AuthorServiceTest.cs",
+              "RelativeDocumentMoniker": "BusinessLogic.Tests\\AuthorServiceTest.cs",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\BusinessLogic.Tests\\AuthorServiceTest.cs",
+              "RelativeToolTip": "BusinessLogic.Tests\\AuthorServiceTest.cs",
+              "ViewState": "AgIAALoAAAAAAAAAAAAQwMkAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T10:25:05.533Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AcademicYearServiceTest.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\BusinessLogic.Tests\\AcademicYearServiceTest.cs",
+              "RelativeDocumentMoniker": "BusinessLogic.Tests\\AcademicYearServiceTest.cs",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\BusinessLogic.Tests\\AcademicYearServiceTest.cs",
+              "RelativeToolTip": "BusinessLogic.Tests\\AcademicYearServiceTest.cs",
+              "ViewState": "AgIAAMoAAAAAAAAAAAAQwOEAAABlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T10:17:14.885Z",
+              "EditorCaption": ""
             }
           ]
         }

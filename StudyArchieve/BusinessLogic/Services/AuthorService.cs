@@ -16,7 +16,7 @@ namespace BusinessLogic.Services
 
         public AuthorService(IRepositoryWrapper repositoryWrapper)
         {
-            _repositoryWrapper = repositoryWrapper;
+            _repositoryWrapper = repositoryWrapper ?? throw new ArgumentNullException(nameof(repositoryWrapper));
         }
 
         public async Task<List<Author>> GetAll()
@@ -34,20 +34,32 @@ namespace BusinessLogic.Services
 
         public async Task Create(Author model)
         {
+            if (model == null)
+                throw new ArgumentNullException(nameof(model));
+
             await _repositoryWrapper.Author.Create(model);
             await _repositoryWrapper.Save();
         }
 
         public async Task Update(Author model)
         {
+            if (model == null)
+                throw new ArgumentNullException(nameof(model));
+
             await _repositoryWrapper.Author.Update(model);
             await _repositoryWrapper.Save();
         }
 
         public async Task Delete(int id)
         {
+            if (id <= 0)
+                throw new ArgumentException("Id must be greater than zero", nameof(id));
+
             var that = await _repositoryWrapper.Author
                 .FindByCondition(x => x.Id == id);
+
+            if (that == null || !that.Any())
+                throw new InvalidOperationException($"Author with id {id} not found");
 
             await _repositoryWrapper.Author.Delete(that.First());
             await _repositoryWrapper.Save();

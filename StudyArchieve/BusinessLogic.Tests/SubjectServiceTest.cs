@@ -1,95 +1,281 @@
-﻿using BusinessLogic.Services;
-using Domain.Interfaces;
+﻿using Domain.Interfaces;
 using Domain.Models;
 using Moq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Xunit;
 using Task = System.Threading.Tasks.Task;
 
-namespace BusinessLogic.Tests
+namespace BusinessLogic.Services.Tests
 {
-    public class SubjectServiceTest
+    public class SubjectServiceTests
     {
-        private readonly SubjectService _service;
-        private readonly Mock<IRepositoryWrapper> _repositoryWrapperMoq;
-        private readonly Mock<ISubjectRepository> _subjectRepositoryMoq;
+        private readonly Mock<IRepositoryWrapper> _mockRepositoryWrapper;
+        private readonly Mock<ISubjectRepository> _mockSubjectRepository;
+        private readonly SubjectService _subjectService;
 
-        public SubjectServiceTest()
+        public SubjectServiceTests()
         {
-            _repositoryWrapperMoq = new Mock<IRepositoryWrapper>();
-            _subjectRepositoryMoq = new Mock<ISubjectRepository>();
+            _mockRepositoryWrapper = new Mock<IRepositoryWrapper>();
+            _mockSubjectRepository = new Mock<ISubjectRepository>();
 
-            _repositoryWrapperMoq.Setup(x => x.Subject)
-                                .Returns(_subjectRepositoryMoq.Object);
+            _mockRepositoryWrapper
+                .Setup(x => x.Subject)
+                .Returns(_mockSubjectRepository.Object);
 
-            _service = new SubjectService(_repositoryWrapperMoq.Object);
+            _subjectService = new SubjectService(_mockRepositoryWrapper.Object);
         }
 
         [Fact]
-        public async Task GetAll_ReturnsAllSubjects()
+        public async Task GetAll_ShouldReturnAllSubjects()
         {
             // Arrange
-            var subjects = new List<Subject>
-        {
-            new Subject { Id = 1, Name = "Mathematics" },
-            new Subject { Id = 2, Name = "Physics" },
-            new Subject { Id = 3, Name = "Programming" }
-        };
+            var expectedSubjects = new List<Subject>
+            {
+                new Subject { Id = 1, Name = "Mathematics" },
+                new Subject { Id = 2, Name = "Physics" }
+            };
 
-            _subjectRepositoryMoq.Setup(x => x.FindAll())
-                                .ReturnsAsync(subjects);
+            _mockSubjectRepository
+                .Setup(x => x.FindAll())
+                .ReturnsAsync(expectedSubjects);
 
             // Act
-            var result = await _service.GetAll();
+            var result = await _subjectService.GetAll();
 
             // Assert
             Assert.NotNull(result);
-            Assert.Equal(3, result.Count);
-
-            Assert.Equal(1, result[0].Id);
-            Assert.Equal("Mathematics", result[0].Name);
-
-            Assert.Equal(2, result[1].Id);
-            Assert.Equal("Physics", result[1].Name);
-
-            Assert.Equal(3, result[2].Id);
-            Assert.Equal("Programming", result[2].Name);
-
-            _subjectRepositoryMoq.Verify(x => x.FindAll(), Times.Once);
+            Assert.Equal(2, result.Count);
+            Assert.Equal(expectedSubjects, result);
+            _mockSubjectRepository.Verify(x => x.FindAll(), Times.Once);
         }
 
         [Fact]
-        public async Task GetAll_EmptyRepository_ReturnsEmptyList()
+        public async Task GetAll_WhenRepositoryReturnsEmpty_ShouldReturnEmptyList()
         {
             // Arrange
-            _subjectRepositoryMoq.Setup(x => x.FindAll())
-                                .ReturnsAsync(new List<Subject>());
+            var emptyList = new List<Subject>();
+
+            _mockSubjectRepository
+                .Setup(x => x.FindAll())
+                .ReturnsAsync(emptyList);
 
             // Act
-            var result = await _service.GetAll();
+            var result = await _subjectService.GetAll();
 
             // Assert
             Assert.NotNull(result);
             Assert.Empty(result);
-            _subjectRepositoryMoq.Verify(x => x.FindAll(), Times.Once);
+            _mockSubjectRepository.Verify(x => x.FindAll(), Times.Once);
         }
 
         [Fact]
-        public async Task GetAll_RepositoryThrowsException_ThrowsSameException()
+        public async Task GetAll_WhenRepositoryThrowsException_ShouldPropagateException()
         {
             // Arrange
-            var expectedException = new Exception("Database error");
-            _subjectRepositoryMoq.Setup(x => x.FindAll())
-                                .ThrowsAsync(expectedException);
+            _mockSubjectRepository
+                .Setup(x => x.FindAll())
+                .ThrowsAsync(new InvalidOperationException("Database error"));
 
             // Act & Assert
-            var exception = await Assert.ThrowsAsync<Exception>(() => _service.GetAll());
-            Assert.Equal("Database error", exception.Message);
+            await Assert.ThrowsAsync<InvalidOperationException>(() => _subjectService.GetAll());
+        }
 
-            _subjectRepositoryMoq.Verify(x => x.FindAll(), Times.Once);
+        [Fact]
+        public async Task Create_ShouldCallRepositoryCreateAndSave()
+        {
+            // Arrange
+            var subject = new Subject { Id = 1, Name = "Chemistry" };
+
+            _mockSubjectRepository
+                .Setup(x => x.Create(subject))
+                .Returns(Task.CompletedTask);
+
+            _mockRepositoryWrapper
+                .Setup(x => x.Save())
+                .Returns(Task.CompletedTask);
+
+            // Act
+            await _subjectService.Create(subject);
+
+            // Assert
+            _mockSubjectRepository.Verify(x => x.Create(subject), Times.Once);
+            _mockRepositoryWrapper.Verify(x => x.Save(), Times.Once);
+        }
+
+        [Fact]
+        public async Task Create_WithNullModel_ShouldThrowArgumentNullException()
+        {
+            // Arrange & Act & Assert
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _subjectService.Create(null));
+
+            _mockSubjectRepository.Verify(x => x.Create(It.IsAny<Subject>()), Times.Never);
+            _mockRepositoryWrapper.Verify(x => x.Save(), Times.Never);
+        }
+
+        [Fact]
+        public async Task Create_WhenSaveFails_ShouldNotCallCreate()
+        {
+            // Arrange
+            var subject = new Subject { Id = 1, Name = "Chemistry" };
+
+            _mockRepositoryWrapper
+                .Setup(x => x.Save())
+                .ThrowsAsync(new Exception("Save failed"));
+
+            // Act & Assert
+            await Assert.ThrowsAsync<Exception>(() => _subjectService.Create(subject));
+
+            _mockSubjectRepository.Verify(x => x.Create(subject), Times.Once);
+        }
+
+        [Fact]
+        public async Task Update_ShouldCallRepositoryUpdateAndSave()
+        {
+            // Arrange
+            var subject = new Subject { Id = 1, Name = "Updated Subject" };
+
+            _mockSubjectRepository
+                .Setup(x => x.Update(subject))
+                .Returns(Task.CompletedTask);
+
+            _mockRepositoryWrapper
+                .Setup(x => x.Save())
+                .Returns(Task.CompletedTask);
+
+            // Act
+            await _subjectService.Update(subject);
+
+            // Assert
+            _mockSubjectRepository.Verify(x => x.Update(subject), Times.Once);
+            _mockRepositoryWrapper.Verify(x => x.Save(), Times.Once);
+        }
+
+        [Fact]
+        public async Task Update_WithNullModel_ShouldThrowArgumentNullException()
+        {
+            // Arrange & Act & Assert
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _subjectService.Update(null));
+
+            _mockSubjectRepository.Verify(x => x.Update(It.IsAny<Subject>()), Times.Never);
+            _mockRepositoryWrapper.Verify(x => x.Save(), Times.Never);
+        }
+
+        [Fact]
+        public async Task Delete_WithValidId_ShouldCallRepositoryDeleteAndSave()
+        {
+            // Arrange
+            var subjectId = 1;
+            var subject = new Subject { Id = subjectId, Name = "Mathematics" };
+            var subjects = new List<Subject> { subject };
+
+            _mockSubjectRepository
+                .Setup(x => x.FindByCondition(It.IsAny<Expression<Func<Subject, bool>>>()))
+                .ReturnsAsync(subjects);
+
+            _mockSubjectRepository
+                .Setup(x => x.Delete(subject))
+                .Returns(Task.CompletedTask);
+
+            _mockRepositoryWrapper
+                .Setup(x => x.Save())
+                .Returns(Task.CompletedTask);
+
+            // Act
+            await _subjectService.Delete(subjectId);
+
+            // Assert
+            _mockSubjectRepository.Verify(
+                x => x.FindByCondition(It.IsAny<Expression<Func<Subject, bool>>>()),
+                Times.Once);
+            _mockSubjectRepository.Verify(x => x.Delete(subject), Times.Once);
+            _mockRepositoryWrapper.Verify(x => x.Save(), Times.Once);
+        }
+
+        [Fact]
+        public async Task Delete_WithNonExistingId_ShouldThrowInvalidOperationException()
+        {
+            // Arrange
+            var nonExistingId = 999;
+            var emptyList = new List<Subject>();
+
+            _mockSubjectRepository
+                .Setup(x => x.FindByCondition(It.IsAny<Expression<Func<Subject, bool>>>()))
+                .ReturnsAsync(emptyList);
+
+            // Act & Assert
+            await Assert.ThrowsAsync<InvalidOperationException>(() => _subjectService.Delete(nonExistingId));
+
+            _mockSubjectRepository.Verify(x => x.Delete(It.IsAny<Subject>()), Times.Never);
+            _mockRepositoryWrapper.Verify(x => x.Save(), Times.Never);
+        }
+
+        [Fact]
+        public async Task Delete_WithInvalidId_ShouldThrowArgumentException()
+        {
+            // Arrange
+            var invalidId = 0;
+
+            // Act & Assert
+            await Assert.ThrowsAsync<ArgumentException>(() => _subjectService.Delete(invalidId));
+
+            _mockSubjectRepository.Verify(x => x.FindByCondition(It.IsAny<Expression<Func<Subject, bool>>>()), Times.Never);
+            _mockSubjectRepository.Verify(x => x.Delete(It.IsAny<Subject>()), Times.Never);
+            _mockRepositoryWrapper.Verify(x => x.Save(), Times.Never);
+        }
+
+        [Fact]
+        public async Task Delete_WhenMultipleRecordsFound_ShouldDeleteFirstOne()
+        {
+            // Arrange
+            var subjectId = 1;
+            var subjects = new List<Subject>
+            {
+                new Subject { Id = subjectId, Name = "First" },
+                new Subject { Id = subjectId, Name = "Second" }
+            };
+
+            _mockSubjectRepository
+                .Setup(x => x.FindByCondition(It.IsAny<Expression<Func<Subject, bool>>>()))
+                .ReturnsAsync(subjects);
+
+            _mockSubjectRepository
+                .Setup(x => x.Delete(It.IsAny<Subject>()))
+                .Returns(Task.CompletedTask);
+
+            _mockRepositoryWrapper
+                .Setup(x => x.Save())
+                .Returns(Task.CompletedTask);
+
+            // Act
+            await _subjectService.Delete(subjectId);
+
+            // Assert
+            _mockSubjectRepository.Verify(x => x.Delete(subjects.First()), Times.Once);
+            _mockRepositoryWrapper.Verify(x => x.Save(), Times.Once);
+        }
+
+        [Fact]
+        public void Constructor_WithNullRepositoryWrapper_ShouldThrowArgumentNullException()
+        {
+            // Arrange & Act & Assert
+            Assert.Throws<ArgumentNullException>(() => new SubjectService(null));
+        }
+
+        [Fact]
+        public void Constructor_WithValidRepositoryWrapper_ShouldInitializeService()
+        {
+            // Arrange
+            var mockRepositoryWrapper = new Mock<IRepositoryWrapper>();
+
+            // Act
+            var service = new SubjectService(mockRepositoryWrapper.Object);
+
+            // Assert
+            Assert.NotNull(service);
         }
     }
 }

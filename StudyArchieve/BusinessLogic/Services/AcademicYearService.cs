@@ -16,7 +16,7 @@ namespace BusinessLogic.Services
 
         public AcademicYearService(IRepositoryWrapper repositoryWrapper)
         {
-            _repositoryWrapper = repositoryWrapper;
+            _repositoryWrapper = repositoryWrapper ?? throw new ArgumentNullException(nameof(repositoryWrapper));
         }
 
         public async Task<List<AcademicYear>> GetAll()
@@ -35,20 +35,32 @@ namespace BusinessLogic.Services
 
         public async Task Create(AcademicYear model)
         {
+            if (model == null)
+                throw new ArgumentNullException(nameof(model));
+
             await _repositoryWrapper.AcademicYear.Create(model);
             await _repositoryWrapper.Save();
         }
 
         public async Task Update(AcademicYear model)
         {
+            if (model == null)
+                throw new ArgumentNullException(nameof(model));
+
             await _repositoryWrapper.AcademicYear.Update(model);
             await _repositoryWrapper.Save();
         }
 
         public async Task Delete(int id)
         {
+            if (id <= 0)
+                throw new ArgumentException("Id must be greater than zero", nameof(id));
+
             var that = await _repositoryWrapper.AcademicYear
                 .FindByCondition(x => x.Id == id);
+
+            if (that == null || !that.Any())
+                throw new InvalidOperationException($"Academic year with id {id} not found");
 
             await _repositoryWrapper.AcademicYear.Delete(that.First());
             await _repositoryWrapper.Save();
