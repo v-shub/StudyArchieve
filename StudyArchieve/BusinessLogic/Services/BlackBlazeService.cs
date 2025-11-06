@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Amazon.S3.Model;
-using BusinessLogic.Models.Files;
+using Domain.Models.Files;
 
 namespace BusinessLogic.Services
 {

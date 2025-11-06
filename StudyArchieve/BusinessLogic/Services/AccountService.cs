@@ -77,7 +77,7 @@ namespace BusinessLogic.Services
             account.Verified = DateTime.UtcNow;
 
             // hash password
-            account.PasswordHash = BCrypt.Net.BCrypt.HashPassword(model.Password);
+            account.Password = BCrypt.Net.BCrypt.HashPassword(model.Password);
 
             // save account
             await _repositoryWrapper.User.Update(account);
@@ -103,7 +103,7 @@ namespace BusinessLogic.Services
 
             // hash password if it was entered
             if (!string.IsNullOrEmpty(model.Password))
-                account.PasswordHash = BCrypt.Net.BCrypt.HashPassword(model.Password);
+                account.Password = BCrypt.Net.BCrypt.HashPassword(model.Password);
 
             // copy model to account and save
             _mapper.Map(model, account);
@@ -165,7 +165,7 @@ namespace BusinessLogic.Services
 
         private RefreshToken rotateRefreshToken(RefreshToken refreshToken, string ipAddress)
         {
-            var newRefreshToken = _jwtUtils.GenerateRefreshToken(ipAddress);
+            var newRefreshToken = _jwtUtils.GenerateRefreshToken(ipAddress).Result;
             revokeRefreshToken(refreshToken, ipAddress, "Replaced by new token", newRefreshToken.Token);
             return newRefreshToken;
         }

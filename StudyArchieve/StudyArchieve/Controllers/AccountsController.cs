@@ -60,14 +60,13 @@ namespace StudyArchieveApi.Controllers
         [HttpPost("revoke-token")]
         public async Task<IActionResult> RevokeToken(RevokeTokenRequest model)
         {
-            // accept token from request body or cookie
             var token = model.Token ?? Request.Cookies["refreshToken"];
 
             if (string.IsNullOrEmpty(token))
                 return BadRequest(new { message = "Token is required" });
 
-            // users can revoke their own tokens and admins can revoke any tokens
-            if (!User.OwnsToken(token) && User.Role != Role.Admin)
+            // Исправленная строка:
+            if (!User.OwnsToken(token) && User.Role.RoleName != "Admin" && User.Role.RoleName != "Administrator")
                 return Unauthorized(new { message = "Unauthorized" });
 
             await _accountService.RevokeToken(token, ipAddress());

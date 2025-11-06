@@ -1,5 +1,147 @@
 [
   {
+    "ContainingType": "StudyArchieveApi.Controllers.AccountsController",
+    "Method": "Authenticate",
+    "RelativePath": "Accounts/authenticate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "BusinessLogic.Models.Accounts.AuthenticateRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "BusinessLogic.Models.Accounts.AuthenticateResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "StudyArchieveApi.Controllers.AccountsController",
+    "Method": "ForgotPassword",
+    "RelativePath": "Accounts/forgot-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "BusinessLogic.Models.Accounts.ForgotPasswordRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StudyArchieveApi.Controllers.AccountsController",
+    "Method": "RefreshToken",
+    "RelativePath": "Accounts/refresh-token",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "BusinessLogic.Models.Accounts.AuthenticateResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "StudyArchieveApi.Controllers.AccountsController",
+    "Method": "Register",
+    "RelativePath": "Accounts/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "BusinessLogic.Models.Accounts.RegisterRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StudyArchieveApi.Controllers.AccountsController",
+    "Method": "ResetPassword",
+    "RelativePath": "Accounts/reset-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "BusinessLogic.Models.Accounts.ResetPasswordRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StudyArchieveApi.Controllers.AccountsController",
+    "Method": "RevokeToken",
+    "RelativePath": "Accounts/revoke-token",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "BusinessLogic.Models.Accounts.RevokeTokenRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StudyArchieveApi.Controllers.AccountsController",
+    "Method": "ValidateResetToken",
+    "RelativePath": "Accounts/validate-reset-token",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "BusinessLogic.Models.Accounts.ValidateResetTokenRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "StudyArchieveApi.Controllers.AccountsController",
+    "Method": "VerifyEmail",
+    "RelativePath": "Accounts/verify-email",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "BusinessLogic.Models.Accounts.VerifyEmailRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "StudyArchieveApi.Controllers.AcademicYearController",
     "Method": "GetAll",
     "RelativePath": "api/AcademicYear",

@@ -1,4 +1,4 @@
-﻿using Domain.Models;
+﻿using Domain.Models.Files;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
