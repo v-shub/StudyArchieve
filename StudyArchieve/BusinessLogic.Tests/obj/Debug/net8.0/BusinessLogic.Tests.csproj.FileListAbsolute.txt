@@ -283,8 +283,3 @@ C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\BusinessLogic.Tests
 C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\BusinessLogic.Tests\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\BusinessLogic.Tests\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\BusinessLogic.Tests\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
-C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\BusinessLogic.Tests\bin\Debug\net8.0\AWSSDK.Core.dll
-C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\BusinessLogic.Tests\bin\Debug\net8.0\AWSSDK.S3.dll
-C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\BusinessLogic.Tests\bin\Debug\net8.0\Mapster.dll
-C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\BusinessLogic.Tests\bin\Debug\net8.0\Mapster.Core.dll
-C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\BusinessLogic.Tests\bin\Debug\net8.0\Microsoft.AspNetCore.Http.Features.dll

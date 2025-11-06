@@ -339,6 +339,7 @@ C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\StudyArchieve\obj\D
 C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\StudyArchieve\obj\Debug\net8.0\StudyArchieveApi.AssemblyInfoInputs.cache
 C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\StudyArchieve\obj\Debug\net8.0\StudyArchieveApi.AssemblyInfo.cs
 C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\StudyArchieve\obj\Debug\net8.0\StudyArchieveApi.csproj.CoreCompileInputs.cache
+C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\StudyArchieve\obj\Debug\net8.0\StudyArchieveApi.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\StudyArchieve\obj\Debug\net8.0\StudyArchieveApi.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\StudyArchieve\obj\Debug\net8.0\StudyArchieveApi.sourcelink.json
 C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\StudyArchieve\obj\Debug\net8.0\rjimswa.dswa.cache.json
@@ -362,10 +363,3 @@ C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\StudyArchieve\bin\D
 C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\StudyArchieve\bin\Debug\net8.0\AWSSDK.Core.dll
 C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\StudyArchieve\bin\Debug\net8.0\AWSSDK.Extensions.NETCore.Setup.dll
 C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\StudyArchieve\bin\Debug\net8.0\AWSSDK.S3.dll
-C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\StudyArchieve\bin\Debug\net8.0\BCrypt.Net-Next.dll
-C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\StudyArchieve\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
-C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\StudyArchieve\bin\Debug\net8.0\MailKit.dll
-C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\StudyArchieve\bin\Debug\net8.0\Mapster.DependencyInjection.dll
-C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\StudyArchieve\bin\Debug\net8.0\MimeKit.dll
-C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\StudyArchieve\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
-C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\StudyArchieve\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll

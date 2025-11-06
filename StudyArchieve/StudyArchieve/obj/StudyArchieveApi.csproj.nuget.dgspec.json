@@ -58,29 +58,13 @@
               "target": "Package",
               "version": "[4.0.7.11, )"
             },
-            "BCrypt.Net-Next": {
-              "target": "Package",
-              "version": "[4.0.3, )"
-            },
-            "MailKit": {
-              "target": "Package",
-              "version": "[4.14.1, )"
-            },
             "Mapster": {
               "target": "Package",
               "version": "[7.4.0, )"
             },
-            "Mapster.DependencyInjection": {
-              "target": "Package",
-              "version": "[1.0.1, )"
-            },
             "Microsoft.AspNetCore.Http.Features": {
               "target": "Package",
               "version": "[5.0.17, )"
-            },
-            "System.IdentityModel.Tokens.Jwt": {
-              "target": "Package",
-              "version": "[8.14.0, )"
             }
           },
           "imports": [
@@ -158,12 +142,6 @@
               "version": "[7.4.0, )"
             },
             "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[9.0.9, )"
-            },
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
               "target": "Package",
               "version": "[9.0.9, )"
             },
@@ -351,12 +329,6 @@
             "Mapster": {
               "target": "Package",
               "version": "[7.4.0, )"
-            },
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[9.0.9, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",

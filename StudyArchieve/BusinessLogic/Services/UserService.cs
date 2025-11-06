@@ -26,7 +26,7 @@ namespace BusinessLogic.Services
         
         public async Task<User> GetById(int id)
         {
-            var that = await _repositoryWrapper.User.GetByIdWithToken(id);
+            var that = await _repositoryWrapper.User.GetById(id);
             return that;
         }
         
