@@ -16,7 +16,7 @@ namespace BusinessLogic.Services
 
         public TaskTypeService(IRepositoryWrapper repositoryWrapper)
         {
-            _repositoryWrapper = repositoryWrapper;
+            _repositoryWrapper = repositoryWrapper ?? throw new ArgumentNullException(nameof(repositoryWrapper));
         }
 
         public async Task<List<TaskType>> GetAll()
@@ -34,20 +34,32 @@ namespace BusinessLogic.Services
         */
         public async Task Create(TaskType model)
         {
+            if (model == null)
+                throw new ArgumentNullException(nameof(model));
+
             await _repositoryWrapper.TaskType.Create(model);
             await _repositoryWrapper.Save();
         }
 
         public async Task Update(TaskType model)
         {
+            if (model == null)
+                throw new ArgumentNullException(nameof(model));
+
             await _repositoryWrapper.TaskType.Update(model);
             await _repositoryWrapper.Save();
         }
 
         public async Task Delete(int id)
         {
+            if (id <= 0)
+                throw new ArgumentException("Id must be greater than zero", nameof(id));
+
             var that = await _repositoryWrapper.TaskType
                 .FindByCondition(x => x.Id == id);
+
+            if (that == null || !that.Any())
+                throw new InvalidOperationException($"TaskType with id {id} not found");
 
             await _repositoryWrapper.TaskType.Delete(that.First());
             await _repositoryWrapper.Save();

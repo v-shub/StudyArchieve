@@ -15,7 +15,7 @@ namespace BusinessLogic.Services
 
         public UserService(IRepositoryWrapper repositoryWrapper)
         {
-            _repositoryWrapper = repositoryWrapper;
+            _repositoryWrapper = repositoryWrapper ?? throw new ArgumentNullException(nameof(repositoryWrapper));
         }
 
         public async Task<List<User>> GetAll()
@@ -23,29 +23,44 @@ namespace BusinessLogic.Services
             var that = await _repositoryWrapper.User.FindAll();
             return that;
         }
-        
+
         public async Task<User> GetById(int id)
         {
+            if (id <= 0)
+                throw new ArgumentException("Id must be greater than zero", nameof(id));
+
             var that = await _repositoryWrapper.User.GetById(id);
             return that;
         }
-        
+
         public async Task Create(User model)
         {
+            if (model == null)
+                throw new ArgumentNullException(nameof(model));
+
             await _repositoryWrapper.User.Create(model);
             await _repositoryWrapper.Save();
         }
 
         public async Task Update(User model)
         {
+            if (model == null)
+                throw new ArgumentNullException(nameof(model));
+
             await _repositoryWrapper.User.Update(model);
             await _repositoryWrapper.Save();
         }
 
         public async Task Delete(int id)
         {
+            if (id <= 0)
+                throw new ArgumentException("Id must be greater than zero", nameof(id));
+
             var that = await _repositoryWrapper.User
                 .FindByCondition(x => x.Id == id);
+
+            if (that == null || !that.Any())
+                throw new InvalidOperationException($"User with id {id} not found");
 
             await _repositoryWrapper.User.Delete(that.First());
             await _repositoryWrapper.Save();

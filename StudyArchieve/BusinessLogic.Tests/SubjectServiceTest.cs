@@ -277,5 +277,23 @@ namespace BusinessLogic.Services.Tests
             // Assert
             Assert.NotNull(service);
         }
+
+        [Fact]
+        public async Task Delete_WhenFindByConditionReturnsNull_ShouldThrowInvalidOperationException()
+        {
+            // Arrange
+            var subjectId = 1;
+            List<Subject> nullList = null;
+
+            _mockSubjectRepository
+                .Setup(x => x.FindByCondition(It.IsAny<Expression<Func<Subject, bool>>>()))
+                .ReturnsAsync(nullList);
+
+            // Act & Assert
+            await Assert.ThrowsAsync<InvalidOperationException>(() => _subjectService.Delete(subjectId));
+
+            _mockSubjectRepository.Verify(x => x.Delete(It.IsAny<Subject>()), Times.Never);
+            _mockRepositoryWrapper.Verify(x => x.Save(), Times.Never);
+        }
     }
 }

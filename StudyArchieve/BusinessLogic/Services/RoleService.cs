@@ -15,7 +15,7 @@ namespace BusinessLogic.Services
 
         public RoleService(IRepositoryWrapper repositoryWrapper)
         {
-            _repositoryWrapper = repositoryWrapper;
+            _repositoryWrapper = repositoryWrapper ?? throw new ArgumentNullException(nameof(repositoryWrapper));
         }
 
         public async Task<List<Role>> GetAll()
@@ -33,20 +33,32 @@ namespace BusinessLogic.Services
         */
         public async Task Create(Role model)
         {
+            if (model == null)
+                throw new ArgumentNullException(nameof(model));
+
             await _repositoryWrapper.Role.Create(model);
             await _repositoryWrapper.Save();
         }
 
         public async Task Update(Role model)
         {
+            if (model == null)
+                throw new ArgumentNullException(nameof(model));
+
             await _repositoryWrapper.Role.Update(model);
             await _repositoryWrapper.Save();
         }
 
         public async Task Delete(int id)
         {
+            if (id <= 0)
+                throw new ArgumentException("Id must be greater than zero", nameof(id));
+
             var that = await _repositoryWrapper.Role
                 .FindByCondition(x => x.Id == id);
+
+            if (that == null || !that.Any())
+                throw new InvalidOperationException($"Role with id {id} not found");
 
             await _repositoryWrapper.Role.Delete(that.First());
             await _repositoryWrapper.Save();

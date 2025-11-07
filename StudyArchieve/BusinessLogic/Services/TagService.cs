@@ -16,8 +16,9 @@ namespace BusinessLogic.Services
 
         public TagService(IRepositoryWrapper repositoryWrapper)
         {
-            _repositoryWrapper = repositoryWrapper;
+            _repositoryWrapper = repositoryWrapper ?? throw new ArgumentNullException(nameof(repositoryWrapper));
         }
+
         public async Task<List<Tag>> GetAll()
         {
             var that = await _repositoryWrapper.Tag.FindAll();
@@ -33,20 +34,32 @@ namespace BusinessLogic.Services
         */
         public async Task Create(Tag model)
         {
+            if (model == null)
+                throw new ArgumentNullException(nameof(model));
+
             await _repositoryWrapper.Tag.Create(model);
             await _repositoryWrapper.Save();
         }
 
         public async Task Update(Tag model)
         {
+            if (model == null)
+                throw new ArgumentNullException(nameof(model));
+
             await _repositoryWrapper.Tag.Update(model);
             await _repositoryWrapper.Save();
         }
 
         public async Task Delete(int id)
         {
+            if (id <= 0)
+                throw new ArgumentException("Id must be greater than zero", nameof(id));
+
             var that = await _repositoryWrapper.Tag
                 .FindByCondition(x => x.Id == id);
+
+            if (that == null || !that.Any())
+                throw new InvalidOperationException($"Tag with id {id} not found");
 
             await _repositoryWrapper.Tag.Delete(that.First());
             await _repositoryWrapper.Save();

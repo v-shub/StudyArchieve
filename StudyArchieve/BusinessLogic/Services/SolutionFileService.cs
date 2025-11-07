@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,6 @@ using Task = System.Threading.Tasks.Task;
 
 namespace BusinessLogic.Services
 {
-    // BusinessLogic/Services/TaskFileService.cs
     public class SolutionFileService : ISolutionFileService
     {
         private readonly IRepositoryWrapper _repositoryWrapper;
@@ -24,13 +24,16 @@ namespace BusinessLogic.Services
             IBackblazeService backblazeService,
             ILogger<SolutionFileService> logger)
         {
-            _repositoryWrapper = repositoryWrapper;
-            _backblazeService = backblazeService;
-            _logger = logger;
+            _repositoryWrapper = repositoryWrapper ?? throw new ArgumentNullException(nameof(repositoryWrapper));
+            _backblazeService = backblazeService ?? throw new ArgumentNullException(nameof(backblazeService));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public async Task<int> UploadFileAsync(int solutionId, IFormFile file)
         {
+            if (file == null)
+                throw new ArgumentNullException(nameof(file));
+
             try
             {
                 var uploadResult = await _backblazeService.UploadFileAsync(file, "solutionFiles");
@@ -49,7 +52,7 @@ namespace BusinessLogic.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error uploading task file for task {TaskId}", solutionId);
+                _logger.LogError(ex, "Error uploading solution file for solution {SolutionId}", solutionId);
                 throw;
             }
         }
@@ -101,6 +104,7 @@ namespace BusinessLogic.Services
                 if (!deleteSuccess)
                 {
                     _logger.LogWarning("Failed to delete file from Backblaze B2: {FileKey}", solutionFile.FilePath);
+                    // Continue with database deletion even if Backblaze fails
                 }
 
                 await _repositoryWrapper.SolutionFile.Delete(solutionFile);
@@ -110,7 +114,7 @@ namespace BusinessLogic.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error deleting task file with id {FileId}", id);
+                _logger.LogError(ex, "Error deleting solution file with id {FileId}", id);
                 return false;
             }
         }
@@ -119,7 +123,7 @@ namespace BusinessLogic.Services
         {
             var solutionFile = await _repositoryWrapper.SolutionFile.GetByIdAsync(id);
             if (solutionFile == null)
-                throw new FileNotFoundException($"Task file with id {id} not found");
+                throw new FileNotFoundException($"Solution file with id {id} not found");
 
             var downloadResult = await _backblazeService.DownloadFileAsync(solutionFile.FilePath);
 
@@ -127,7 +131,7 @@ namespace BusinessLogic.Services
             {
                 Content = downloadResult.Content,
                 ContentType = downloadResult.ContentType,
-                FileName = solutionFile.FileName
+                FileName = solutionFile.FileName // Use the filename from database, not from Backblaze
             };
         }
     }
