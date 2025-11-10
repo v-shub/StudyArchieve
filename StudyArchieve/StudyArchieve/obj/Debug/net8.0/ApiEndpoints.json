@@ -44,7 +44,7 @@
   {
     "ContainingType": "StudyArchieveApi.Controllers.AcademicYearController",
     "Method": "Delete",
-    "RelativePath": "api/AcademicYear",
+    "RelativePath": "api/AcademicYear/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -52,7 +52,7 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -102,7 +102,7 @@
   {
     "ContainingType": "StudyArchieveApi.Controllers.AuthorController",
     "Method": "Delete",
-    "RelativePath": "api/Author",
+    "RelativePath": "api/Author/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -110,7 +110,7 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -160,7 +160,7 @@
   {
     "ContainingType": "StudyArchieveApi.Controllers.RoleController",
     "Method": "Delete",
-    "RelativePath": "api/Role",
+    "RelativePath": "api/Role/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -168,7 +168,7 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -207,25 +207,25 @@
   },
   {
     "ContainingType": "StudyArchieveApi.Controllers.SolutionController",
-    "Method": "Delete",
-    "RelativePath": "api/Solution",
-    "HttpMethod": "DELETE",
+    "Method": "GetById",
+    "RelativePath": "api/Solution/{id}",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
     "ContainingType": "StudyArchieveApi.Controllers.SolutionController",
-    "Method": "GetById",
+    "Method": "Delete",
     "RelativePath": "api/Solution/{id}",
-    "HttpMethod": "GET",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -413,7 +413,7 @@
   {
     "ContainingType": "StudyArchieveApi.Controllers.SubjectController",
     "Method": "Delete",
-    "RelativePath": "api/Subject",
+    "RelativePath": "api/Subject/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -421,7 +421,7 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -471,7 +471,7 @@
   {
     "ContainingType": "StudyArchieveApi.Controllers.TagController",
     "Method": "Delete",
-    "RelativePath": "api/Tag",
+    "RelativePath": "api/Tag/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -479,7 +479,7 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -554,25 +554,25 @@
   },
   {
     "ContainingType": "StudyArchieveApi.Controllers.TaskController",
-    "Method": "Delete",
-    "RelativePath": "api/Task",
-    "HttpMethod": "DELETE",
+    "Method": "GetById",
+    "RelativePath": "api/Task/{id}",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
     "ContainingType": "StudyArchieveApi.Controllers.TaskController",
-    "Method": "GetById",
+    "Method": "Delete",
     "RelativePath": "api/Task/{id}",
-    "HttpMethod": "GET",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -744,7 +744,7 @@
   {
     "ContainingType": "StudyArchieveApi.Controllers.TaskTypeController",
     "Method": "Delete",
-    "RelativePath": "api/TaskType",
+    "RelativePath": "api/TaskType/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -752,7 +752,7 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -791,25 +791,25 @@
   },
   {
     "ContainingType": "StudyArchieveApi.Controllers.UserController",
-    "Method": "Delete",
-    "RelativePath": "api/User",
-    "HttpMethod": "DELETE",
+    "Method": "GetById",
+    "RelativePath": "api/User/{id}",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
     "ContainingType": "StudyArchieveApi.Controllers.UserController",
-    "Method": "GetById",
+    "Method": "Delete",
     "RelativePath": "api/User/{id}",
-    "HttpMethod": "GET",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
