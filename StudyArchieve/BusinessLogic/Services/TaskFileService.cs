@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,6 @@ using Task = System.Threading.Tasks.Task;
 
 namespace BusinessLogic.Services
 {
-    // BusinessLogic/Services/TaskFileService.cs
     public class TaskFileService : ITaskFileService
     {
         private readonly IRepositoryWrapper _repositoryWrapper;
@@ -24,13 +24,16 @@ namespace BusinessLogic.Services
             IBackblazeService backblazeService,
             ILogger<TaskFileService> logger)
         {
-            _repositoryWrapper = repositoryWrapper;
-            _backblazeService = backblazeService;
-            _logger = logger;
+            _repositoryWrapper = repositoryWrapper ?? throw new ArgumentNullException(nameof(repositoryWrapper));
+            _backblazeService = backblazeService ?? throw new ArgumentNullException(nameof(backblazeService));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public async Task<int> UploadFileAsync(int taskId, IFormFile file)
         {
+            if (file == null)
+                throw new ArgumentNullException(nameof(file));
+
             try
             {
                 var uploadResult = await _backblazeService.UploadFileAsync(file, "taskFiles");

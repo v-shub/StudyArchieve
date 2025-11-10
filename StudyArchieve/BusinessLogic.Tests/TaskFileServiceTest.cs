@@ -14,26 +14,26 @@ using Task = System.Threading.Tasks.Task;
 
 namespace BusinessLogic.Services.Tests
 {
-    public class SolutionFileServiceTests
+    public class TaskFileServiceTests
     {
         private readonly Mock<IRepositoryWrapper> _mockRepositoryWrapper;
         private readonly Mock<IBackblazeService> _mockBackblazeService;
-        private readonly Mock<ILogger<SolutionFileService>> _mockLogger;
-        private readonly Mock<ISolutionFileRepository> _mockSolutionFileRepository;
-        private readonly SolutionFileService _solutionFileService;
+        private readonly Mock<ILogger<TaskFileService>> _mockLogger;
+        private readonly Mock<ITaskFileRepository> _mockTaskFileRepository;
+        private readonly TaskFileService _taskFileService;
 
-        public SolutionFileServiceTests()
+        public TaskFileServiceTests()
         {
             _mockRepositoryWrapper = new Mock<IRepositoryWrapper>();
             _mockBackblazeService = new Mock<IBackblazeService>();
-            _mockLogger = new Mock<ILogger<SolutionFileService>>();
-            _mockSolutionFileRepository = new Mock<ISolutionFileRepository>();
+            _mockLogger = new Mock<ILogger<TaskFileService>>();
+            _mockTaskFileRepository = new Mock<ITaskFileRepository>();
 
             _mockRepositoryWrapper
-                .Setup(x => x.SolutionFile)
-                .Returns(_mockSolutionFileRepository.Object);
+                .Setup(x => x.TaskFile)
+                .Returns(_mockTaskFileRepository.Object);
 
-            _solutionFileService = new SolutionFileService(
+            _taskFileService = new TaskFileService(
                 _mockRepositoryWrapper.Object,
                 _mockBackblazeService.Object,
                 _mockLogger.Object);
@@ -43,7 +43,7 @@ namespace BusinessLogic.Services.Tests
         public async Task UploadFileAsync_WithValidFile_ShouldUploadAndCreateRecord()
         {
             // Arrange
-            var solutionId = 1;
+            var taskId = 1;
             var fileMock = new Mock<IFormFile>();
             var fileName = "test.pdf";
             var fileContent = "test content";
@@ -56,20 +56,20 @@ namespace BusinessLogic.Services.Tests
 
             var uploadResult = new FileUploadResult
             {
-                FileKey = "solutionFiles/guid_test.pdf",
-                FileUrl = "https://bucket.s3.url/solutionFiles/guid_test.pdf",
+                FileKey = "taskFiles/guid_test.pdf",
+                FileUrl = "https://bucket.s3.url/taskFiles/guid_test.pdf",
                 FileSize = ms.Length
             };
 
-            var createdSolutionFileId = 123; // Simulated ID from database
+            var createdTaskFileId = 123;
 
             _mockBackblazeService
-                .Setup(x => x.UploadFileAsync(It.IsAny<IFormFile>(), "solutionFiles"))
+                .Setup(x => x.UploadFileAsync(It.IsAny<IFormFile>(), "taskFiles"))
                 .ReturnsAsync(uploadResult);
 
-            _mockSolutionFileRepository
-                .Setup(x => x.Create(It.IsAny<SolutionFile>()))
-                .Callback<SolutionFile>(sf => sf.Id = createdSolutionFileId) // Simulate ID assignment
+            _mockTaskFileRepository
+                .Setup(x => x.Create(It.IsAny<TaskFile>()))
+                .Callback<TaskFile>(tf => tf.Id = createdTaskFileId)
                 .Returns(Task.CompletedTask);
 
             _mockRepositoryWrapper
@@ -77,15 +77,15 @@ namespace BusinessLogic.Services.Tests
                 .Returns(Task.CompletedTask);
 
             // Act
-            var result = await _solutionFileService.UploadFileAsync(solutionId, fileMock.Object);
+            var result = await _taskFileService.UploadFileAsync(taskId, fileMock.Object);
 
             // Assert
-            Assert.Equal(createdSolutionFileId, result); // Should return the assigned ID
-            _mockBackblazeService.Verify(x => x.UploadFileAsync(fileMock.Object, "solutionFiles"), Times.Once);
-            _mockSolutionFileRepository.Verify(x => x.Create(It.Is<SolutionFile>(sf =>
-                sf.SolutionId == solutionId &&
-                sf.FileName == fileName &&
-                sf.FilePath == uploadResult.FileKey)), Times.Once);
+            Assert.Equal(createdTaskFileId, result);
+            _mockBackblazeService.Verify(x => x.UploadFileAsync(fileMock.Object, "taskFiles"), Times.Once);
+            _mockTaskFileRepository.Verify(x => x.Create(It.Is<TaskFile>(tf =>
+                tf.TaskId == taskId &&
+                tf.FileName == fileName &&
+                tf.FilePath == uploadResult.FileKey)), Times.Once);
             _mockRepositoryWrapper.Verify(x => x.Save(), Times.Once);
         }
 
@@ -93,7 +93,7 @@ namespace BusinessLogic.Services.Tests
         public async Task UploadFileAsync_WhenBackblazeFails_ShouldThrowException()
         {
             // Arrange
-            var solutionId = 1;
+            var taskId = 1;
             var fileMock = new Mock<IFormFile>();
             var ms = new MemoryStream(Encoding.UTF8.GetBytes("test content"));
 
@@ -102,13 +102,13 @@ namespace BusinessLogic.Services.Tests
             fileMock.Setup(f => f.OpenReadStream()).Returns(ms);
 
             _mockBackblazeService
-                .Setup(x => x.UploadFileAsync(It.IsAny<IFormFile>(), "solutionFiles"))
+                .Setup(x => x.UploadFileAsync(It.IsAny<IFormFile>(), "taskFiles"))
                 .ThrowsAsync(new Exception("Upload failed"));
 
             // Act & Assert
-            await Assert.ThrowsAsync<Exception>(() => _solutionFileService.UploadFileAsync(solutionId, fileMock.Object));
+            await Assert.ThrowsAsync<Exception>(() => _taskFileService.UploadFileAsync(taskId, fileMock.Object));
 
-            _mockSolutionFileRepository.Verify(x => x.Create(It.IsAny<SolutionFile>()), Times.Never);
+            _mockTaskFileRepository.Verify(x => x.Create(It.IsAny<TaskFile>()), Times.Never);
             _mockRepositoryWrapper.Verify(x => x.Save(), Times.Never);
         }
 
@@ -116,23 +116,23 @@ namespace BusinessLogic.Services.Tests
         public async Task UploadFileAsync_WithNullFile_ShouldThrowArgumentNullException()
         {
             // Arrange & Act & Assert
-            await Assert.ThrowsAsync<ArgumentNullException>(() => _solutionFileService.UploadFileAsync(1, null));
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _taskFileService.UploadFileAsync(1, null));
         }
 
         [Fact]
-        public async Task GetFilesBySolutionIdAsync_ShouldReturnFileInfosWithUrls()
+        public async Task GetFilesByTaskIdAsync_ShouldReturnFileInfosWithUrls()
         {
             // Arrange
-            var solutionId = 1;
-            var solutionFiles = new List<SolutionFile>
+            var taskId = 1;
+            var taskFiles = new List<TaskFile>
             {
-                new SolutionFile { Id = 1, SolutionId = solutionId, FileName = "file1.pdf", FilePath = "path1" },
-                new SolutionFile { Id = 2, SolutionId = solutionId, FileName = "file2.pdf", FilePath = "path2" }
+                new TaskFile { Id = 1, TaskId = taskId, FileName = "file1.pdf", FilePath = "path1" },
+                new TaskFile { Id = 2, TaskId = taskId, FileName = "file2.pdf", FilePath = "path2" }
             };
 
-            _mockSolutionFileRepository
-                .Setup(x => x.GetBySolutionIdAsync(solutionId))
-                .ReturnsAsync(solutionFiles);
+            _mockTaskFileRepository
+                .Setup(x => x.GetByTaskIdAsync(taskId))
+                .ReturnsAsync(taskFiles);
 
             _mockBackblazeService
                 .Setup(x => x.GetFileUrlAsync("path1"))
@@ -142,7 +142,7 @@ namespace BusinessLogic.Services.Tests
                 .ReturnsAsync("https://url2.com");
 
             // Act
-            var result = await _solutionFileService.GetFilesBySolutionIdAsync(solutionId);
+            var result = await _taskFileService.GetFilesByTaskIdAsync(taskId);
 
             // Assert
             Assert.NotNull(result);
@@ -154,18 +154,18 @@ namespace BusinessLogic.Services.Tests
         }
 
         [Fact]
-        public async Task GetFilesBySolutionIdAsync_WhenNoFiles_ShouldReturnEmptyList()
+        public async Task GetFilesByTaskIdAsync_WhenNoFiles_ShouldReturnEmptyList()
         {
             // Arrange
-            var solutionId = 1;
-            var emptyList = new List<SolutionFile>();
+            var taskId = 1;
+            var emptyList = new List<TaskFile>();
 
-            _mockSolutionFileRepository
-                .Setup(x => x.GetBySolutionIdAsync(solutionId))
+            _mockTaskFileRepository
+                .Setup(x => x.GetByTaskIdAsync(taskId))
                 .ReturnsAsync(emptyList);
 
             // Act
-            var result = await _solutionFileService.GetFilesBySolutionIdAsync(solutionId);
+            var result = await _taskFileService.GetFilesByTaskIdAsync(taskId);
 
             // Assert
             Assert.NotNull(result);
@@ -178,18 +178,18 @@ namespace BusinessLogic.Services.Tests
         {
             // Arrange
             var fileId = 1;
-            var solutionFile = new SolutionFile { Id = fileId, SolutionId = 1, FileName = "test.pdf", FilePath = "filePath" };
+            var taskFile = new TaskFile { Id = fileId, TaskId = 1, FileName = "test.pdf", FilePath = "filePath" };
 
-            _mockSolutionFileRepository
+            _mockTaskFileRepository
                 .Setup(x => x.GetByIdAsync(fileId))
-                .ReturnsAsync(solutionFile);
+                .ReturnsAsync(taskFile);
 
             _mockBackblazeService
                 .Setup(x => x.GetFileUrlAsync("filePath"))
                 .ReturnsAsync("https://url.com");
 
             // Act
-            var result = await _solutionFileService.GetFileByIdAsync(fileId);
+            var result = await _taskFileService.GetFileByIdAsync(fileId);
 
             // Assert
             Assert.NotNull(result);
@@ -204,12 +204,12 @@ namespace BusinessLogic.Services.Tests
             // Arrange
             var fileId = 999;
 
-            _mockSolutionFileRepository
+            _mockTaskFileRepository
                 .Setup(x => x.GetByIdAsync(fileId))
-                .ReturnsAsync((SolutionFile)null);
+                .ReturnsAsync((TaskFile)null);
 
             // Act
-            var result = await _solutionFileService.GetFileByIdAsync(fileId);
+            var result = await _taskFileService.GetFileByIdAsync(fileId);
 
             // Assert
             Assert.Null(result);
@@ -221,18 +221,18 @@ namespace BusinessLogic.Services.Tests
         {
             // Arrange
             var fileId = 1;
-            var solutionFile = new SolutionFile { Id = fileId, FilePath = "filePath" };
+            var taskFile = new TaskFile { Id = fileId, FilePath = "filePath" };
 
-            _mockSolutionFileRepository
+            _mockTaskFileRepository
                 .Setup(x => x.GetByIdAsync(fileId))
-                .ReturnsAsync(solutionFile);
+                .ReturnsAsync(taskFile);
 
             _mockBackblazeService
                 .Setup(x => x.DeleteFileAsync("filePath"))
                 .ReturnsAsync(true);
 
-            _mockSolutionFileRepository
-                .Setup(x => x.Delete(solutionFile))
+            _mockTaskFileRepository
+                .Setup(x => x.Delete(taskFile))
                 .Returns(Task.CompletedTask);
 
             _mockRepositoryWrapper
@@ -240,12 +240,12 @@ namespace BusinessLogic.Services.Tests
                 .Returns(Task.CompletedTask);
 
             // Act
-            var result = await _solutionFileService.DeleteFileAsync(fileId);
+            var result = await _taskFileService.DeleteFileAsync(fileId);
 
             // Assert
             Assert.True(result);
             _mockBackblazeService.Verify(x => x.DeleteFileAsync("filePath"), Times.Once);
-            _mockSolutionFileRepository.Verify(x => x.Delete(solutionFile), Times.Once);
+            _mockTaskFileRepository.Verify(x => x.Delete(taskFile), Times.Once);
             _mockRepositoryWrapper.Verify(x => x.Save(), Times.Once);
         }
 
@@ -255,17 +255,17 @@ namespace BusinessLogic.Services.Tests
             // Arrange
             var fileId = 999;
 
-            _mockSolutionFileRepository
+            _mockTaskFileRepository
                 .Setup(x => x.GetByIdAsync(fileId))
-                .ReturnsAsync((SolutionFile)null);
+                .ReturnsAsync((TaskFile)null);
 
             // Act
-            var result = await _solutionFileService.DeleteFileAsync(fileId);
+            var result = await _taskFileService.DeleteFileAsync(fileId);
 
             // Assert
             Assert.False(result);
             _mockBackblazeService.Verify(x => x.DeleteFileAsync(It.IsAny<string>()), Times.Never);
-            _mockSolutionFileRepository.Verify(x => x.Delete(It.IsAny<SolutionFile>()), Times.Never);
+            _mockTaskFileRepository.Verify(x => x.Delete(It.IsAny<TaskFile>()), Times.Never);
             _mockRepositoryWrapper.Verify(x => x.Save(), Times.Never);
         }
 
@@ -274,18 +274,18 @@ namespace BusinessLogic.Services.Tests
         {
             // Arrange
             var fileId = 1;
-            var solutionFile = new SolutionFile { Id = fileId, FilePath = "filePath" };
+            var taskFile = new TaskFile { Id = fileId, FilePath = "filePath" };
 
-            _mockSolutionFileRepository
+            _mockTaskFileRepository
                 .Setup(x => x.GetByIdAsync(fileId))
-                .ReturnsAsync(solutionFile);
+                .ReturnsAsync(taskFile);
 
             _mockBackblazeService
                 .Setup(x => x.DeleteFileAsync("filePath"))
-                .ReturnsAsync(false); // Backblaze delete fails
+                .ReturnsAsync(false);
 
-            _mockSolutionFileRepository
-                .Setup(x => x.Delete(solutionFile))
+            _mockTaskFileRepository
+                .Setup(x => x.Delete(taskFile))
                 .Returns(Task.CompletedTask);
 
             _mockRepositoryWrapper
@@ -293,12 +293,12 @@ namespace BusinessLogic.Services.Tests
                 .Returns(Task.CompletedTask);
 
             // Act
-            var result = await _solutionFileService.DeleteFileAsync(fileId);
+            var result = await _taskFileService.DeleteFileAsync(fileId);
 
             // Assert
-            Assert.True(result); // Still returns true even if Backblaze fails
+            Assert.True(result);
             _mockBackblazeService.Verify(x => x.DeleteFileAsync("filePath"), Times.Once);
-            _mockSolutionFileRepository.Verify(x => x.Delete(solutionFile), Times.Once);
+            _mockTaskFileRepository.Verify(x => x.Delete(taskFile), Times.Once);
             _mockRepositoryWrapper.Verify(x => x.Save(), Times.Once);
         }
 
@@ -307,18 +307,18 @@ namespace BusinessLogic.Services.Tests
         {
             // Arrange
             var fileId = 1;
-            var solutionFile = new SolutionFile { Id = fileId, FilePath = "filePath" };
+            var taskFile = new TaskFile { Id = fileId, FilePath = "filePath" };
 
-            _mockSolutionFileRepository
+            _mockTaskFileRepository
                 .Setup(x => x.GetByIdAsync(fileId))
-                .ReturnsAsync(solutionFile);
+                .ReturnsAsync(taskFile);
 
             _mockBackblazeService
                 .Setup(x => x.DeleteFileAsync("filePath"))
                 .ReturnsAsync(true);
 
-            _mockSolutionFileRepository
-                .Setup(x => x.Delete(solutionFile))
+            _mockTaskFileRepository
+                .Setup(x => x.Delete(taskFile))
                 .Returns(Task.CompletedTask);
 
             _mockRepositoryWrapper
@@ -326,7 +326,7 @@ namespace BusinessLogic.Services.Tests
                 .ThrowsAsync(new Exception("Database error"));
 
             // Act
-            var result = await _solutionFileService.DeleteFileAsync(fileId);
+            var result = await _taskFileService.DeleteFileAsync(fileId);
 
             // Assert
             Assert.False(result);
@@ -337,7 +337,7 @@ namespace BusinessLogic.Services.Tests
         {
             // Arrange
             var fileId = 1;
-            var solutionFile = new SolutionFile { Id = fileId, FileName = "test.pdf", FilePath = "filePath" };
+            var taskFile = new TaskFile { Id = fileId, FileName = "test.pdf", FilePath = "filePath" };
             var downloadResult = new FileDownloadResult
             {
                 Content = new MemoryStream(Encoding.UTF8.GetBytes("content")),
@@ -345,22 +345,22 @@ namespace BusinessLogic.Services.Tests
                 FileName = "original.pdf"
             };
 
-            _mockSolutionFileRepository
+            _mockTaskFileRepository
                 .Setup(x => x.GetByIdAsync(fileId))
-                .ReturnsAsync(solutionFile);
+                .ReturnsAsync(taskFile);
 
             _mockBackblazeService
                 .Setup(x => x.DownloadFileAsync("filePath"))
                 .ReturnsAsync(downloadResult);
 
             // Act
-            var result = await _solutionFileService.DownloadFileAsync(fileId);
+            var result = await _taskFileService.DownloadFileAsync(fileId);
 
             // Assert
             Assert.NotNull(result);
             Assert.Equal(downloadResult.Content, result.Content);
             Assert.Equal(downloadResult.ContentType, result.ContentType);
-            Assert.Equal("test.pdf", result.FileName); // Should use database filename, not original
+            Assert.Equal("test.pdf", result.FileName);
         }
 
         [Fact]
@@ -369,12 +369,12 @@ namespace BusinessLogic.Services.Tests
             // Arrange
             var fileId = 999;
 
-            _mockSolutionFileRepository
+            _mockTaskFileRepository
                 .Setup(x => x.GetByIdAsync(fileId))
-                .ReturnsAsync((SolutionFile)null);
+                .ReturnsAsync((TaskFile)null);
 
             // Act & Assert
-            await Assert.ThrowsAsync<FileNotFoundException>(() => _solutionFileService.DownloadFileAsync(fileId));
+            await Assert.ThrowsAsync<FileNotFoundException>(() => _taskFileService.DownloadFileAsync(fileId));
 
             _mockBackblazeService.Verify(x => x.DownloadFileAsync(It.IsAny<string>()), Times.Never);
         }
@@ -384,18 +384,18 @@ namespace BusinessLogic.Services.Tests
         {
             // Arrange
             var fileId = 1;
-            var solutionFile = new SolutionFile { Id = fileId, FilePath = "filePath" };
+            var taskFile = new TaskFile { Id = fileId, FilePath = "filePath" };
 
-            _mockSolutionFileRepository
+            _mockTaskFileRepository
                 .Setup(x => x.GetByIdAsync(fileId))
-                .ReturnsAsync(solutionFile);
+                .ReturnsAsync(taskFile);
 
             _mockBackblazeService
                 .Setup(x => x.DownloadFileAsync("filePath"))
                 .ThrowsAsync(new Exception("Download failed"));
 
             // Act & Assert
-            await Assert.ThrowsAsync<Exception>(() => _solutionFileService.DownloadFileAsync(fileId));
+            await Assert.ThrowsAsync<Exception>(() => _taskFileService.DownloadFileAsync(fileId));
         }
 
         [Fact]
@@ -404,12 +404,12 @@ namespace BusinessLogic.Services.Tests
             // Arrange
             var repositoryWrapper = new Mock<IRepositoryWrapper>();
             var backblazeService = new Mock<IBackblazeService>();
-            var logger = new Mock<ILogger<SolutionFileService>>();
+            var logger = new Mock<ILogger<TaskFileService>>();
 
             // Act & Assert
-            Assert.Throws<ArgumentNullException>(() => new SolutionFileService(null, backblazeService.Object, logger.Object));
-            Assert.Throws<ArgumentNullException>(() => new SolutionFileService(repositoryWrapper.Object, null, logger.Object));
-            Assert.Throws<ArgumentNullException>(() => new SolutionFileService(repositoryWrapper.Object, backblazeService.Object, null));
+            Assert.Throws<ArgumentNullException>(() => new TaskFileService(null, backblazeService.Object, logger.Object));
+            Assert.Throws<ArgumentNullException>(() => new TaskFileService(repositoryWrapper.Object, null, logger.Object));
+            Assert.Throws<ArgumentNullException>(() => new TaskFileService(repositoryWrapper.Object, backblazeService.Object, null));
         }
     }
 }

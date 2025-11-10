@@ -82,7 +82,15 @@ namespace StudyArchieveApi.Controllers
         [HttpPut]
         public async Task<IActionResult> Update(UpdateSolutionRequest solution)
         {
-            await _solutionService.Update(solution.Adapt<Solution>());
+            // Получаем существующее решение
+            var existingSolution = await _solutionService.GetById(solution.Id);
+            if (existingSolution == null)
+                return NotFound();
+
+            // Обновляем только нужные поля
+            existingSolution.SolutionText = solution.SolutionText;
+
+            await _solutionService.Update(existingSolution);
             return Ok();
         }
 

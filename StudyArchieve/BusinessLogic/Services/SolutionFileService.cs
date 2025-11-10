@@ -131,7 +131,7 @@ namespace BusinessLogic.Services
             {
                 Content = downloadResult.Content,
                 ContentType = downloadResult.ContentType,
-                FileName = solutionFile.FileName // Use the filename from database, not from Backblaze
+                FileName = solutionFile.FileName
             };
         }
     }

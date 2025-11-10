@@ -1,416 +1,565 @@
-﻿/*using BusinessLogic.Services;
-using Domain.Interfaces;
+﻿using Domain.Interfaces;
 using Domain.Models;
 using Moq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Xunit;
 using Exercise = Domain.Models.Task;
 using Task = System.Threading.Tasks.Task;
 
-namespace BusinessLogic.Tests
+namespace BusinessLogic.Services.Tests
 {
-    public class TaskServiceTest
+    public class TaskServiceTests
     {
-        private readonly TaskService service;
-        private readonly Mock<ITaskRepository> taskRepositoryMoq;
-        public TaskServiceTest()
-        {
-            var repositoryWrapperMoq = new Mock<IRepositoryWrapper>();
-            taskRepositoryMoq = new Mock<ITaskRepository>();
-            repositoryWrapperMoq.Setup(x => x.Exercise)
-                .Returns(taskRepositoryMoq.Object);
-            service = new TaskService(repositoryWrapperMoq.Object);
-        }
-        /*
-        [Fact]
-        public async Task GetById_ImpossibleId_ShouldThrowArgumentException()
-        {
-            var ex1 = await Assert.ThrowsAnyAsync<ArgumentException>(() => service.GetById(0));
-            var ex2 = await Assert.ThrowsAnyAsync<ArgumentException>(() => service.GetById(-3));
+        private readonly Mock<IRepositoryWrapper> _mockRepositoryWrapper;
+        private readonly Mock<ITaskRepository> _mockTaskRepository;
+        private readonly Mock<IAuthorRepository> _mockAuthorRepository;
+        private readonly Mock<ITagRepository> _mockTagRepository;
+        private readonly TaskService _taskService;
 
-            Assert.IsType<ArgumentException>(ex1);
-            Assert.IsType<ArgumentException>(ex2);
-            taskRepositoryMoq.Verify(x => x.GetOneTaskWithAllConnected(It.IsAny<int>()), Times.Never);
+        public TaskServiceTests()
+        {
+            _mockRepositoryWrapper = new Mock<IRepositoryWrapper>();
+            _mockTaskRepository = new Mock<ITaskRepository>();
+            _mockAuthorRepository = new Mock<IAuthorRepository>();
+            _mockTagRepository = new Mock<ITagRepository>();
+
+            _mockRepositoryWrapper
+                .Setup(x => x.Exercise)
+                .Returns(_mockTaskRepository.Object);
+            _mockRepositoryWrapper
+                .Setup(x => x.Author)
+                .Returns(_mockAuthorRepository.Object);
+            _mockRepositoryWrapper
+                .Setup(x => x.Tag)
+                .Returns(_mockTagRepository.Object);
+
+            _taskService = new TaskService(_mockRepositoryWrapper.Object);
         }
 
         [Fact]
-        public async Task GetById_WrongId_ShouldReturnNull()
+        public async Task GetByFilter_WithNoFilters_ShouldReturnAllTasks()
         {
-            var res = await service.GetById(100000000);
-
-            Assert.Null(res);
-            taskRepositoryMoq.Verify(x => x.GetOneTaskWithAllConnected(It.IsAny<int>()), Times.Once);
-        }
-        [Fact]
-        public async Task GetById_CorrectId_ShouldReturnFullTaskDto()
-        {
-            var taskId = 1;
-            var subject = new Subject();
-            subject.Id = 2;
-            subject.Name = "subject";
-            var acYear = new AcademicYear();
-            acYear.Id = 3;
-            acYear.YearLabel = "2020-2021";
-            var taskType = new TaskType();
-            taskType.Id = 4;
-            taskType.Name = "type";
-            var exercise = new Exercise
+            // Arrange
+            var expectedTasks = new List<Exercise>
             {
-                Id = taskId,
-                Title = "Test Task",
-                ConditionText = "Test condition",
-                SubjectId = subject.Id,
-                Subject = subject,
-                AcademicYearId = acYear.Id,
-                AcademicYear = acYear,
-                TypeId = taskType.Id,
-                Type = taskType,
-                DateAdded = DateTime.Today,
-                Authors = new List<Author>(),
-                Tags = new List<Tag>(),
-                Solutions = new List<Solution>(),
-                TaskFiles = new List<TaskFile>()
+                new Exercise { Id = 1, Title = "Task 1", SubjectId = 1, AcademicYearId = 1, TypeId = 1 },
+                new Exercise { Id = 2, Title = "Task 2", SubjectId = 2, AcademicYearId = 2, TypeId = 2 }
             };
 
-            var expectedDto = new FullTaskDto
-            {
-                Id = taskId,
-                Title = exercise.Title,
-                ConditionText = exercise.ConditionText,
-                SubjectId = exercise.SubjectId,
-                SubjectName = exercise.Subject.Name,
-                AcademicYearId = exercise.AcademicYearId,
-                AcademicYearLabel = exercise.AcademicYear.YearLabel,
-                TypeId = exercise.TypeId,
-                TypeName = exercise.Type.Name,
-                DateAdded = DateTime.Today,
-                Authors = new List<AuthorDto>(),
-                Tags = new List<TagDto>(),
-                Solutions = new List<SolutionDto>(),
-                TaskFiles = new List<TaskFileDto>()
-            };
-            taskRepositoryMoq.Setup(x => x.GetOneTaskWithAllConnected(taskId))
-                    .ReturnsAsync(exercise);
+            _mockTaskRepository
+                .Setup(x => x.GetTasksWithDetails())
+                .ReturnsAsync(expectedTasks);
 
-            var result = await service.GetById(taskId);
+            // Act
+            var result = await _taskService.GetByFilter();
 
+            // Assert
             Assert.NotNull(result);
-            Assert.Equal(taskId, result.Id);
-            Assert.Equal("Test Task", result.Title);
-            Assert.Equal("Test condition", result.ConditionText);
-            Assert.Equal(subject.Id, result.SubjectId);
-            Assert.Equal(subject.Name, result.SubjectName);
-            Assert.Equal(acYear.Id, result.AcademicYearId);
-            Assert.Equal(acYear.YearLabel, result.AcademicYearLabel);
-            Assert.Equal(taskType.Id, result.TypeId);
-            Assert.Equal(taskType.Name, result.TypeName);
-            Assert.Equal(DateTime.Today, result.DateAdded);
-            Assert.NotNull(result.Authors);
-            Assert.NotNull(result.Tags);
-            Assert.NotNull(result.Solutions);
-            Assert.NotNull(result.TaskFiles);
-            taskRepositoryMoq.Verify(x => x.GetOneTaskWithAllConnected(It.IsAny<int>()), Times.Once);
+            Assert.Equal(2, result.Count);
+            _mockTaskRepository.Verify(x => x.GetTasksWithDetails(), Times.Once);
         }
 
+        [Fact]
+        public async Task GetByFilter_WithSubjectFilter_ShouldReturnFilteredTasks()
+        {
+            // Arrange
+            var subjectId = 1;
+            var tasks = new List<Exercise>
+            {
+                new Exercise { Id = 1, Title = "Task 1", SubjectId = 1 },
+                new Exercise { Id = 2, Title = "Task 2", SubjectId = 2 }
+            };
 
+            _mockTaskRepository
+                .Setup(x => x.GetTasksWithDetails())
+                .ReturnsAsync(tasks);
+
+            // Act
+            var result = await _taskService.GetByFilter(subjectId: subjectId);
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.Single(result);
+            Assert.Equal(subjectId, result[0].SubjectId);
+        }
 
         [Fact]
-        public async Task GetById_ValidId_ReturnsFullTaskDto()
+        public async Task GetByFilter_WithAcademicYearFilter_ShouldReturnFilteredTasks()
+        {
+            // Arrange
+            var academicYearId = 1;
+            var tasks = new List<Exercise>
+            {
+                new Exercise { Id = 1, Title = "Task 1", AcademicYearId = 1 },
+                new Exercise { Id = 2, Title = "Task 2", AcademicYearId = 2 }
+            };
+
+            _mockTaskRepository
+                .Setup(x => x.GetTasksWithDetails())
+                .ReturnsAsync(tasks);
+
+            // Act
+            var result = await _taskService.GetByFilter(academicYearId: academicYearId);
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.Single(result);
+            Assert.Equal(academicYearId, result[0].AcademicYearId);
+        }
+
+        [Fact]
+        public async Task GetByFilter_WithTypeFilter_ShouldReturnFilteredTasks()
+        {
+            // Arrange
+            var typeId = 1;
+            var tasks = new List<Exercise>
+            {
+                new Exercise { Id = 1, Title = "Task 1", TypeId = 1 },
+                new Exercise { Id = 2, Title = "Task 2", TypeId = 2 }
+            };
+
+            _mockTaskRepository
+                .Setup(x => x.GetTasksWithDetails())
+                .ReturnsAsync(tasks);
+
+            // Act
+            var result = await _taskService.GetByFilter(typeId: typeId);
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.Single(result);
+            Assert.Equal(typeId, result[0].TypeId);
+        }
+
+        [Fact]
+        public async Task GetByFilter_WithAuthorFilter_ShouldReturnTasksWithAllAuthors()
+        {
+            // Arrange
+            var authorIds = new[] { 1, 2 };
+            var tasks = new List<Exercise>
+            {
+                new Exercise
+                {
+                    Id = 1,
+                    Title = "Task 1",
+                    Authors = new List<Author>
+                    {
+                        new Author { Id = 1 },
+                        new Author { Id = 2 }
+                    }
+                },
+                new Exercise
+                {
+                    Id = 2,
+                    Title = "Task 2",
+                    Authors = new List<Author>
+                    {
+                        new Author { Id = 1 }
+                    }
+                }
+            };
+
+            _mockTaskRepository
+                .Setup(x => x.GetTasksWithDetails())
+                .ReturnsAsync(tasks);
+
+            // Act
+            var result = await _taskService.GetByFilter(authorIds: authorIds);
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.Single(result);
+            Assert.Equal(1, result[0].Id);
+        }
+
+        [Fact]
+        public async Task GetByFilter_WithTagFilter_ShouldReturnTasksWithAllTags()
+        {
+            // Arrange
+            var tagIds = new[] { 1, 2 };
+            var tasks = new List<Exercise>
+            {
+                new Exercise
+                {
+                    Id = 1,
+                    Title = "Task 1",
+                    Tags = new List<Tag>
+                    {
+                        new Tag { Id = 1 },
+                        new Tag { Id = 2 }
+                    }
+                },
+                new Exercise
+                {
+                    Id = 2,
+                    Title = "Task 2",
+                    Tags = new List<Tag>
+                    {
+                        new Tag { Id = 1 }
+                    }
+                }
+            };
+
+            _mockTaskRepository
+                .Setup(x => x.GetTasksWithDetails())
+                .ReturnsAsync(tasks);
+
+            // Act
+            var result = await _taskService.GetByFilter(tagIds: tagIds);
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.Single(result);
+            Assert.Equal(1, result[0].Id);
+        }
+
+        [Fact]
+        public async Task GetByFilter_WithMultipleFilters_ShouldReturnCorrectlyFilteredTasks()
+        {
+            // Arrange
+            var subjectId = 1;
+            var academicYearId = 1;
+            var tasks = new List<Exercise>
+            {
+                new Exercise { Id = 1, Title = "Task 1", SubjectId = 1, AcademicYearId = 1 },
+                new Exercise { Id = 2, Title = "Task 2", SubjectId = 1, AcademicYearId = 2 },
+                new Exercise { Id = 3, Title = "Task 3", SubjectId = 2, AcademicYearId = 1 }
+            };
+
+            _mockTaskRepository
+                .Setup(x => x.GetTasksWithDetails())
+                .ReturnsAsync(tasks);
+
+            // Act
+            var result = await _taskService.GetByFilter(subjectId: subjectId, academicYearId: academicYearId);
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.Single(result);
+            Assert.Equal(1, result[0].Id);
+        }
+
+        [Fact]
+        public async Task GetById_WithValidId_ShouldReturnTask()
         {
             // Arrange
             var taskId = 1;
-            var exercise = new Exercise
+            var expectedTask = new Exercise
             {
                 Id = taskId,
                 Title = "Test Task",
                 Subject = new Subject { Id = 1, Name = "Math" },
-                AcademicYear = new AcademicYear { Id = 1, YearLabel = "2023-2024" },
-                Type = new TaskType { Id = 1, Name = "Lab" },
-                Authors = new List<Author>(),
-                Tags = new List<Tag>(),
-                Solutions = new List<Solution>(),
-                TaskFiles = new List<TaskFile>()
+                Type = new TaskType { Id = 1, Name = "Homework" },
+                UserAdded = new User { Id = 1, Username = "user1", Role = new Role { Id = 1, RoleName = "User" } }
             };
 
-            taskRepositoryMoq.Setup(x => x.GetOneTaskWithAllConnected(taskId))
-                             .ReturnsAsync(exercise);
+            _mockTaskRepository
+                .Setup(x => x.GetOneTaskWithDetails(taskId))
+                .ReturnsAsync(expectedTask);
 
             // Act
-            var result = await service.GetById(taskId);
+            var result = await _taskService.GetById(taskId);
 
             // Assert
             Assert.NotNull(result);
-            Assert.Equal(taskId, result.Id);
-            Assert.Equal("Test Task", result.Title);
-            taskRepositoryMoq.Verify(x => x.GetOneTaskWithAllConnected(taskId), Times.Once);
+            Assert.Equal(expectedTask, result);
+            _mockTaskRepository.Verify(x => x.GetOneTaskWithDetails(taskId), Times.Once);
         }
 
         [Fact]
-        public async Task GetById_NonExistingId_ReturnsNull()
+        public async Task GetById_WithInvalidId_ShouldThrowArgumentException()
+        {
+            // Arrange
+            var invalidId = 0;
+
+            // Act & Assert
+            await Assert.ThrowsAsync<ArgumentException>(() => _taskService.GetById(invalidId));
+
+            _mockTaskRepository.Verify(x => x.GetOneTaskWithDetails(It.IsAny<int>()), Times.Never);
+        }
+
+        [Fact]
+        public async Task GetById_WithNegativeId_ShouldThrowArgumentException()
+        {
+            // Arrange
+            var negativeId = -1;
+
+            // Act & Assert
+            await Assert.ThrowsAsync<ArgumentException>(() => _taskService.GetById(negativeId));
+
+            _mockTaskRepository.Verify(x => x.GetOneTaskWithDetails(It.IsAny<int>()), Times.Never);
+        }
+
+        [Fact]
+        public async Task GetById_WhenTaskNotFound_ShouldReturnNull()
         {
             // Arrange
             var taskId = 999;
 
-            taskRepositoryMoq.Setup(x => x.GetOneTaskWithAllConnected(taskId))
-                             .ReturnsAsync((Exercise)null);
+            _mockTaskRepository
+                .Setup(x => x.GetOneTaskWithDetails(taskId))
+                .ReturnsAsync((Exercise)null);
 
             // Act
-            var result = await service.GetById(taskId);
+            var result = await _taskService.GetById(taskId);
 
             // Assert
             Assert.Null(result);
-            taskRepositoryMoq.Verify(x => x.GetOneTaskWithAllConnected(taskId), Times.Once);
-        }
-
-        [Theory]
-        [InlineData(0)]
-        [InlineData(-1)]
-        public async Task GetById_InvalidId_ThrowsArgumentException(int invalidId)
-        {
-            // Act & Assert
-            await Assert.ThrowsAsync<ArgumentException>(() => service.GetById(invalidId));
-            taskRepositoryMoq.Verify(x => x.GetOneTaskWithAllConnected(It.IsAny<int>()), Times.Never);
         }
 
         [Fact]
-        public async Task GetById_RepositoryThrowsException_ThrowsSameException()
+        public async Task Create_WithAuthorsAndTags_ShouldCreateTaskWithRelations()
         {
             // Arrange
-            var taskId = 1;
-            var expectedException = new Exception("Database error");
-
-            taskRepositoryMoq.Setup(x => x.GetOneTaskWithAllConnected(taskId))
-                             .ThrowsAsync(expectedException);
-
-            // Act & Assert
-            var exception = await Assert.ThrowsAsync<Exception>(() => service.GetById(taskId));
-            Assert.Equal("Database error", exception.Message);
-            taskRepositoryMoq.Verify(x => x.GetOneTaskWithAllConnected(taskId), Times.Once);
-        }
-
-        [Fact]
-        public async Task GetById_WithCollections_ReturnsDtoWithMappedCollections()
-        {
-            // Arrange
-            var taskId = 1;
-            var exercise = new Exercise
+            var task = new Exercise
             {
-                Id = taskId,
-                Title = "Test Task",
-                Authors = new List<Author> { new Author { Id = 1, Name = "Author 1" } },
-                Tags = new List<Tag> { new Tag { Id = 1, Name = "Tag 1" } },
-                Solutions = new List<Solution> { new Solution { Id = 1, SolutionText = "Solution 1" } },
-                TaskFiles = new List<TaskFile> { new TaskFile { Id = 1, FileName = "file.txt" } }
-            };
-
-            taskRepositoryMoq.Setup(x => x.GetOneTaskWithAllConnected(taskId))
-                             .ReturnsAsync(exercise);
-
-            // Act
-            var result = await service.GetById(taskId);
-
-            // Assert
-            Assert.NotNull(result);
-            Assert.Single(result.Authors);
-            Assert.Single(result.Tags);
-            Assert.Single(result.Solutions);
-            Assert.Single(result.TaskFiles);
-            taskRepositoryMoq.Verify(x => x.GetOneTaskWithAllConnected(taskId), Times.Once);
-        }
-
-        public static IEnumerable<object[]> FilterTestData()
-        {
-            // Все задачи
-            yield return new object[] { null, null, null, null, null, 3 };
-
-            // Фильтр по subjectId
-            yield return new object[] { 1, null, null, null, null, 2 };
-            yield return new object[] { 2, null, null, null, null, 1 };
-
-            // Фильтр по academicYearId
-            yield return new object[] { null, 3, null, null, null, 2 };
-            yield return new object[] { null, 4, null, null, null, 1 };
-
-            // Фильтр по typeId
-            yield return new object[] { null, null, 1, null, null, 2 };
-            yield return new object[] { null, null, 2, null, null, 1 };
-
-            // Комбинированные фильтры
-            yield return new object[] { 1, 3, 1, null, null, 1 };
-        }
-
-        public static IEnumerable<object[]> AuthorFilterTestData()
-        {
-            // Фильтр по authorIds
-            yield return new object[] { new int[] { 1 }, 2 }; // Задачи где есть автор 1
-            yield return new object[] { new int[] { 2 }, 1 }; // Задачи где есть автор 2
-            yield return new object[] { new int[] { 1, 2 }, 1 }; // Задачи где есть оба автора
-            yield return new object[] { new int[] { 300 }, 0 }; // Несуществующий автор
-        }
-
-        public static IEnumerable<object[]> TagFilterTestData()
-        {
-            // Фильтр по tagIds
-            yield return new object[] { new int[] { 1 }, 2 }; // Задачи где есть тег 1
-            yield return new object[] { new int[] { 2 }, 1 }; // Задачи где есть тег 2
-            yield return new object[] { new int[] { 1, 2 }, 1 }; // Задачи где есть оба тега
-            yield return new object[] { new int[] { 300 }, 0 }; // Несуществующий тег
-        }
-
-        private List<Exercise> GetTestTasks()
-        {
-            return new List<Exercise>
-        {
-            new Exercise
-            {
-                Id = 1,
-                Title = "Task 1",
-                SubjectId = 1,
-                AcademicYearId = 3,
-                TypeId = 1,
+                Title = "New Task",
                 Authors = new List<Author> { new Author { Id = 1 }, new Author { Id = 2 } },
                 Tags = new List<Tag> { new Tag { Id = 1 }, new Tag { Id = 2 } }
-            },
-            new Exercise
+            };
+
+            var existingAuthors = new List<Author> { new Author { Id = 1 }, new Author { Id = 2 } };
+            var existingTags = new List<Tag> { new Tag { Id = 1 }, new Tag { Id = 2 } };
+
+            _mockAuthorRepository
+                .Setup(x => x.GetByIdsAsync(It.IsAny<List<int>>()))
+                .ReturnsAsync(existingAuthors);
+
+            _mockTagRepository
+                .Setup(x => x.GetByIdsAsync(It.IsAny<List<int>>()))
+                .ReturnsAsync(existingTags);
+
+            _mockAuthorRepository
+                .Setup(x => x.AttachAsync(It.IsAny<Author>()))
+                .Returns(Task.CompletedTask);
+
+            _mockTagRepository
+                .Setup(x => x.AttachAsync(It.IsAny<Tag>()))
+                .Returns(Task.CompletedTask);
+
+            _mockTaskRepository
+                .Setup(x => x.Create(It.IsAny<Exercise>()))
+                .Returns(Task.CompletedTask);
+
+            _mockRepositoryWrapper
+                .Setup(x => x.Save())
+                .Returns(Task.CompletedTask);
+
+            // Act
+            await _taskService.Create(task);
+
+            // Assert
+            _mockAuthorRepository.Verify(x => x.GetByIdsAsync(It.IsAny<List<int>>()), Times.Once);
+            _mockTagRepository.Verify(x => x.GetByIdsAsync(It.IsAny<List<int>>()), Times.Once);
+            _mockTaskRepository.Verify(x => x.Create(It.IsAny<Exercise>()), Times.Once);
+            _mockRepositoryWrapper.Verify(x => x.Save(), Times.Once);
+        }
+
+        [Fact]
+        public async Task Create_WithNullModel_ShouldThrowArgumentNullException()
+        {
+            // Arrange & Act & Assert
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _taskService.Create(null));
+
+            _mockTaskRepository.Verify(x => x.Create(It.IsAny<Exercise>()), Times.Never);
+            _mockRepositoryWrapper.Verify(x => x.Save(), Times.Never);
+        }
+
+        [Fact]
+        public async Task Create_WithoutAuthorsAndTags_ShouldCreateTask()
+        {
+            // Arrange
+            var task = new Exercise { Title = "New Task" };
+
+            _mockTaskRepository
+                .Setup(x => x.Create(It.IsAny<Exercise>()))
+                .Returns(Task.CompletedTask);
+
+            _mockRepositoryWrapper
+                .Setup(x => x.Save())
+                .Returns(Task.CompletedTask);
+
+            // Act
+            await _taskService.Create(task);
+
+            // Assert
+            _mockAuthorRepository.Verify(x => x.GetByIdsAsync(It.IsAny<List<int>>()), Times.Never);
+            _mockTagRepository.Verify(x => x.GetByIdsAsync(It.IsAny<List<int>>()), Times.Never);
+            _mockTaskRepository.Verify(x => x.Create(It.IsAny<Exercise>()), Times.Once);
+            _mockRepositoryWrapper.Verify(x => x.Save(), Times.Once);
+        }
+
+        [Fact]
+        public async Task Update_WithValidTask_ShouldUpdateTaskAndRelations()
+        {
+            // Arrange
+            var taskId = 1;
+            var existingTask = new Exercise
             {
-                Id = 2,
-                Title = "Task 2",
-                SubjectId = 1,
-                AcademicYearId = 3,
-                TypeId = 2,
+                Id = taskId,
+                Title = "Old Title",
+                Authors = new List<Author>(),
+                Tags = new List<Tag>()
+            };
+
+            var updatedTask = new Exercise
+            {
+                Id = taskId,
+                Title = "Updated Title",
                 Authors = new List<Author> { new Author { Id = 1 } },
                 Tags = new List<Tag> { new Tag { Id = 1 } }
-            },
-            new Exercise
-            {
-                Id = 3,
-                Title = "Task 3",
-                SubjectId = 2,
-                AcademicYearId = 4,
-                TypeId = 1,
-                Authors = new List<Author> { new Author { Id = 3 } },
-                Tags = new List<Tag> { new Tag { Id = 3 } }
-            }
-        };
-        }
+            };
 
-        [Theory]
-        [MemberData(nameof(FilterTestData))]
-        public async Task GetByFilter_VariousFilters_ReturnsCorrectCount(
-            int? subjectId, int? academicYearId, int? typeId, int[] authorIds, int[] tagIds, int expectedCount)
-        {
-            // Arrange
-            var tasks = GetTestTasks();
-            taskRepositoryMoq.Setup(x => x.GetTasksWithDetails()).ReturnsAsync(tasks);
+            var existingAuthors = new List<Author> { new Author { Id = 1 } };
+            var existingTags = new List<Tag> { new Tag { Id = 1 } };
 
-            // Act
-            var result = await service.GetByFilter(subjectId, academicYearId, typeId, authorIds, tagIds);
+            _mockTaskRepository
+                .Setup(x => x.FindByCondition(It.IsAny<Expression<Func<Exercise, bool>>>()))
+                .ReturnsAsync(new List<Exercise> { existingTask });
 
-            // Assert
-            Assert.NotNull(result);
-            Assert.Equal(expectedCount, result.Count);
-            taskRepositoryMoq.Verify(x => x.GetTasksWithDetails(), Times.Once);
-        }
+            _mockAuthorRepository
+                .Setup(x => x.GetByIdsAsync(It.IsAny<List<int>>()))
+                .ReturnsAsync(existingAuthors);
 
-        [Theory]
-        [MemberData(nameof(AuthorFilterTestData))]
-        public async Task GetByFilter_AuthorIdsFilter_ReturnsCorrectTasks(int[] authorIds, int expectedCount)
-        {
-            // Arrange
-            var tasks = GetTestTasks();
-            taskRepositoryMoq.Setup(x => x.GetTasksWithDetails()).ReturnsAsync(tasks);
+            _mockTagRepository
+                .Setup(x => x.GetByIdsAsync(It.IsAny<List<int>>()))
+                .ReturnsAsync(existingTags);
+
+            _mockAuthorRepository
+                .Setup(x => x.AttachAsync(It.IsAny<Author>()))
+                .Returns(Task.CompletedTask);
+
+            _mockTagRepository
+                .Setup(x => x.AttachAsync(It.IsAny<Tag>()))
+                .Returns(Task.CompletedTask);
+
+            _mockTaskRepository
+                .Setup(x => x.Update(It.IsAny<Exercise>()))
+                .Returns(Task.CompletedTask);
+
+            _mockRepositoryWrapper
+                .Setup(x => x.Save())
+                .Returns(Task.CompletedTask);
 
             // Act
-            var result = await service.GetByFilter(authorIds: authorIds);
+            await _taskService.Update(updatedTask);
 
             // Assert
-            Assert.NotNull(result);
-            Assert.Equal(expectedCount, result.Count);
-
-            if (expectedCount > 0)
-            {
-                Assert.All(result, taskDto =>
-                {
-                    var task = tasks.First(t => t.Id == taskDto.Id);
-                    Assert.True(authorIds.All(id => task.Authors.Any(a => a.Id == id)));
-                });
-            }
-        }
-
-        [Theory]
-        [MemberData(nameof(TagFilterTestData))]
-        public async Task GetByFilter_TagIdsFilter_ReturnsCorrectTasks(int[] tagIds, int expectedCount)
-        {
-            // Arrange
-            var tasks = GetTestTasks();
-            taskRepositoryMoq.Setup(x => x.GetTasksWithDetails()).ReturnsAsync(tasks);
-
-            // Act
-            var result = await service.GetByFilter(tagIds: tagIds);
-
-            // Assert
-            Assert.NotNull(result);
-            Assert.Equal(expectedCount, result.Count);
-
-            if (expectedCount > 0)
-            {
-                Assert.All(result, taskDto =>
-                {
-                    var task = tasks.First(t => t.Id == taskDto.Id);
-                    Assert.True(tagIds.All(id => task.Tags.Any(t => t.Id == id)));
-                });
-            }
+            Assert.Equal("Updated Title", existingTask.Title);
+            _mockTaskRepository.Verify(x => x.Update(existingTask), Times.Once);
+            _mockRepositoryWrapper.Verify(x => x.Save(), Times.Once);
         }
 
         [Fact]
-        public async Task GetByFilter_EmptyRepository_ReturnsEmptyList()
+        public async Task Update_WithNonExistingTask_ShouldThrowArgumentException()
         {
             // Arrange
-            taskRepositoryMoq.Setup(x => x.GetTasksWithDetails()).ReturnsAsync(new List<Exercise>());
+            var task = new Exercise { Id = 999 };
 
-            // Act
-            var result = await service.GetByFilter();
+            _mockTaskRepository
+                .Setup(x => x.FindByCondition(It.IsAny<Expression<Func<Exercise, bool>>>()))
+                .ReturnsAsync(new List<Exercise>());
 
-            // Assert
-            Assert.NotNull(result);
-            Assert.Empty(result);
-            taskRepositoryMoq.Verify(x => x.GetTasksWithDetails(), Times.Once);
+            // Act & Assert
+            await Assert.ThrowsAsync<ArgumentException>(() => _taskService.Update(task));
+
+            _mockTaskRepository.Verify(x => x.Update(It.IsAny<Exercise>()), Times.Never);
+            _mockRepositoryWrapper.Verify(x => x.Save(), Times.Never);
         }
 
         [Fact]
-        public async Task GetByFilter_NullArrays_DoesNotThrow()
+        public async Task Update_WithNullModel_ShouldThrowArgumentNullException()
         {
-            // Arrange
-            var tasks = GetTestTasks();
-            taskRepositoryMoq.Setup(x => x.GetTasksWithDetails()).ReturnsAsync(tasks);
+            // Arrange & Act & Assert
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _taskService.Update(null));
 
-            // Act
-            var result = await service.GetByFilter(authorIds: null, tagIds: null);
-
-            // Assert
-            Assert.NotNull(result);
-            Assert.Equal(3, result.Count);
-            taskRepositoryMoq.Verify(x => x.GetTasksWithDetails(), Times.Once);
+            _mockTaskRepository.Verify(x => x.Update(It.IsAny<Exercise>()), Times.Never);
+            _mockRepositoryWrapper.Verify(x => x.Save(), Times.Never);
         }
 
         [Fact]
-        public async Task GetByFilter_EmptyArrays_ReturnsAllTasks()
+        public async Task Delete_WithValidId_ShouldCallRepositoryDeleteAndSave()
         {
             // Arrange
-            var tasks = GetTestTasks();
-            taskRepositoryMoq.Setup(x => x.GetTasksWithDetails()).ReturnsAsync(tasks);
+            var taskId = 1;
+            var task = new Exercise { Id = taskId, Title = "Task" };
+            var tasks = new List<Exercise> { task };
+
+            _mockTaskRepository
+                .Setup(x => x.FindByCondition(It.IsAny<Expression<Func<Exercise, bool>>>()))
+                .ReturnsAsync(tasks);
+
+            _mockTaskRepository
+                .Setup(x => x.Delete(task))
+                .Returns(Task.CompletedTask);
+
+            _mockRepositoryWrapper
+                .Setup(x => x.Save())
+                .Returns(Task.CompletedTask);
 
             // Act
-            var result = await service.GetByFilter(authorIds: new int[0], tagIds: new int[0]);
+            await _taskService.Delete(taskId);
 
             // Assert
-            Assert.NotNull(result);
-            Assert.Equal(3, result.Count);
-            taskRepositoryMoq.Verify(x => x.GetTasksWithDetails(), Times.Once);
+            _mockTaskRepository.Verify(x => x.FindByCondition(It.IsAny<Expression<Func<Exercise, bool>>>()), Times.Once);
+            _mockTaskRepository.Verify(x => x.Delete(task), Times.Once);
+            _mockRepositoryWrapper.Verify(x => x.Save(), Times.Once);
+        }
+
+        [Fact]
+        public async Task Delete_WithNonExistingId_ShouldThrowInvalidOperationException()
+        {
+            // Arrange
+            var nonExistingId = 999;
+            var emptyList = new List<Exercise>();
+
+            _mockTaskRepository
+                .Setup(x => x.FindByCondition(It.IsAny<Expression<Func<Exercise, bool>>>()))
+                .ReturnsAsync(emptyList);
+
+            // Act & Assert
+            await Assert.ThrowsAsync<InvalidOperationException>(() => _taskService.Delete(nonExistingId));
+
+            _mockTaskRepository.Verify(x => x.Delete(It.IsAny<Exercise>()), Times.Never);
+            _mockRepositoryWrapper.Verify(x => x.Save(), Times.Never);
+        }
+
+        [Fact]
+        public async Task Delete_WithInvalidId_ShouldThrowArgumentException()
+        {
+            // Arrange
+            var invalidId = 0;
+
+            // Act & Assert
+            await Assert.ThrowsAsync<ArgumentException>(() => _taskService.Delete(invalidId));
+
+            _mockTaskRepository.Verify(x => x.FindByCondition(It.IsAny<Expression<Func<Exercise, bool>>>()), Times.Never);
+            _mockTaskRepository.Verify(x => x.Delete(It.IsAny<Exercise>()), Times.Never);
+            _mockRepositoryWrapper.Verify(x => x.Save(), Times.Never);
+        }
+
+        [Fact]
+        public void Constructor_WithNullRepositoryWrapper_ShouldThrowArgumentNullException()
+        {
+            // Arrange & Act & Assert
+            Assert.Throws<ArgumentNullException>(() => new TaskService(null));
+        }
+
+        [Fact]
+        public void Constructor_WithValidRepositoryWrapper_ShouldInitializeService()
+        {
+            // Arrange
+            var mockRepositoryWrapper = new Mock<IRepositoryWrapper>();
+
+            // Act
+            var service = new TaskService(mockRepositoryWrapper.Object);
+
+            // Assert
+            Assert.NotNull(service);
         }
     }
 }
-*/

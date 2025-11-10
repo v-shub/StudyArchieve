@@ -18,73 +18,61 @@ namespace BusinessLogic.Services
 
         public TaskService(IRepositoryWrapper repositoryWrapper)
         {
-            _repositoryWrapper = repositoryWrapper;
+            _repositoryWrapper = repositoryWrapper ?? throw new ArgumentNullException(nameof(repositoryWrapper));
         }
+
         public async Task<List<Exercise>> GetByFilter(int? subjectId = null, int? academicYearId = null, int? typeId = null, int[]? authorIds = null, int[]? tagIds = null)
         {
             var allTasks = await _repositoryWrapper.Exercise.GetTasksWithDetails();
             var query = allTasks.AsQueryable();
 
-            // Фильтрация по subjectId (если передан)
             if (subjectId.HasValue)
             {
                 query = query.Where(x => x.SubjectId == subjectId.Value);
             }
 
-            // Фильтрация по academicYearId (если передан)
             if (academicYearId.HasValue)
             {
                 query = query.Where(x => x.AcademicYearId == academicYearId.Value);
             }
 
-            // Фильтрация по typeId (если передан)
             if (typeId.HasValue)
             {
                 query = query.Where(x => x.TypeId == typeId.Value);
             }
 
-            // Фильтр по авторам: должны присутствовать ВСЕ указанные authorIds (если передан массив)
             if (authorIds != null && authorIds.Length > 0)
             {
                 query = query.Where(x => authorIds.All(id => x.Authors.Any(a => a.Id == id)));
             }
 
-            // Фильтр по тегам: должны присутствовать ВСЕ указанные tagIds (если передан массив)
             if (tagIds != null && tagIds.Length > 0)
             {
                 query = query.Where(x => tagIds.All(id => x.Tags.Any(t => t.Id == id)));
             }
 
-            var tasks = query.ToList();
-            return tasks;
+            return query.ToList();
         }
 
         public async Task<Exercise> GetById(int id)
         {
             if (id <= 0)
-                throw new ArgumentException("id");
-            var that = await _repositoryWrapper.Exercise
-                .GetOneTaskWithDetails(id);
-            return that ?? null;
-        }/*
-          
-        
-        public async Task<List<TaskDto>> GetAll()
-        {
-            var tasks = await _repositoryWrapper.Exercise
-                .GetTasksWithDetails();
-            return TaskMapper.ToDtoList(tasks);
+                throw new ArgumentException("ID must be greater than zero", nameof(id));
+
+            var that = await _repositoryWrapper.Exercise.GetOneTaskWithDetails(id);
+            return that;
         }
-        */
+
         public async Task Create(Exercise model)
         {
-            // Обрабатываем авторов
+            if (model == null)
+                throw new ArgumentNullException(nameof(model));
+
             if (model.Authors != null && model.Authors.Any())
             {
                 var authorIds = model.Authors.Select(a => a.Id).ToList();
                 var existingAuthors = await _repositoryWrapper.Author.GetByIdsAsync(authorIds);
 
-                // Очищаем и добавляем прикрепленных авторов
                 model.Authors.Clear();
                 foreach (var author in existingAuthors)
                 {
@@ -93,7 +81,6 @@ namespace BusinessLogic.Services
                 }
             }
 
-            // Обрабатываем теги
             if (model.Tags != null && model.Tags.Any())
             {
                 var tagIds = model.Tags.Select(t => t.Id).ToList();
@@ -113,14 +100,15 @@ namespace BusinessLogic.Services
 
         public async Task Update(Exercise model)
         {
-            // Находим существующую задачу
+            if (model == null)
+                throw new ArgumentNullException(nameof(model));
+
             var existingTasks = await _repositoryWrapper.Exercise.FindByCondition(t => t.Id == model.Id);
             var existingTask = existingTasks.FirstOrDefault();
 
             if (existingTask == null)
                 throw new ArgumentException("Task not found");
 
-            // Обновляем простые свойства
             existingTask.Title = model.Title;
             existingTask.ConditionText = model.ConditionText;
             existingTask.SubjectId = model.SubjectId;
@@ -128,7 +116,6 @@ namespace BusinessLogic.Services
             existingTask.TypeId = model.TypeId;
             existingTask.UserAddedId = model.UserAddedId;
 
-            // Обновляем авторов
             if (model.Authors != null)
             {
                 var authorIds = model.Authors.Select(a => a.Id).ToList();
@@ -142,7 +129,6 @@ namespace BusinessLogic.Services
                 }
             }
 
-            // Обновляем теги
             if (model.Tags != null)
             {
                 var tagIds = model.Tags.Select(t => t.Id).ToList();
@@ -162,8 +148,13 @@ namespace BusinessLogic.Services
 
         public async Task Delete(int id)
         {
-            var that = await _repositoryWrapper.Exercise
-                .FindByCondition(x => x.Id == id);
+            if (id <= 0)
+                throw new ArgumentException("ID must be greater than zero", nameof(id));
+
+            var that = await _repositoryWrapper.Exercise.FindByCondition(x => x.Id == id);
+
+            if (that == null || !that.Any())
+                throw new InvalidOperationException($"Task with id {id} not found");
 
             await _repositoryWrapper.Exercise.Delete(that.First());
             await _repositoryWrapper.Save();

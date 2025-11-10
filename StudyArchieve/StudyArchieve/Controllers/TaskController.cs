@@ -65,8 +65,8 @@ namespace StudyArchieveApi.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var list = await _taskService.GetById(id);
-            return Ok(list.Adapt<List<GetTaskResponse>>());
+            var that = await _taskService.GetById(id);
+            return Ok(that.Adapt<GetTaskResponse>());
         }
 
         /// <summary>
