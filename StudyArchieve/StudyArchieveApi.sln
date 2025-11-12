@@ -3,20 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36414.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudyArchieveApi", "StudyArchieve\StudyArchieveApi.csproj", "{B5FB74D5-B785-4DA7-980A-AE1B3060F870}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudyArchieveApi", "src\StudyArchieve\StudyArchieveApi.csproj", "{B5FB74D5-B785-4DA7-980A-AE1B3060F870}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{61159845-D8F8-441D-91F6-BF240F82EBC0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "src\DataAccess\DataAccess.csproj", "{61159845-D8F8-441D-91F6-BF240F82EBC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{0CCD607A-2C8E-4139-8D0E-FE6FB7072AA0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "src\Domain\Domain.csproj", "{0CCD607A-2C8E-4139-8D0E-FE6FB7072AA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{406CFA48-10FF-4FBA-BBF1-5ED3F541C389}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "src\BusinessLogic\BusinessLogic.csproj", "{406CFA48-10FF-4FBA-BBF1-5ED3F541C389}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{754FC069-D67B-A9D7-50A1-8D1CA196D8F1}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic.Tests", "BusinessLogic.Tests\BusinessLogic.Tests.csproj", "{8C1A065C-4CF2-478F-AD1D-80F4BA6CE5DD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic.Tests", "test\BusinessLogic.Tests\BusinessLogic.Tests.csproj", "{8C1A065C-4CF2-478F-AD1D-80F4BA6CE5DD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}"
 EndProject

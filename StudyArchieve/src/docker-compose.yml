@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+  webapi:
+    image: ${DOCKER_REGISTRY:-}webapi
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      - ASPNETCORE_URLs=http://+:80
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionString=Server= shubina.mssql.somee.com ;Database= shubina;User Id= v_shub_SQLLogin_1;Password= xLy-9UQ-nkT-8dW;TrustServerCertificate=True
+    ports:
+      - "5000:80"
+    depends_on:
+      - db
+
+  db:
+    image: "mcr.microsoft.com/mssql/server"
+    environment:
+      - "SA_PASSWORD=Your_password123"
+      - "ACCEPT_EULA=Y"
+    container_name: mssql
