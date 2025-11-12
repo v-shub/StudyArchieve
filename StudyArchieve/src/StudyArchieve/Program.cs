@@ -38,7 +38,7 @@ namespace StudyArchieveApi
                 var config = new AmazonS3Config
                 {
                     ServiceURL = builder.Configuration["Backblaze:ServiceURL"],
-                    ForcePathStyle = true // ������������� ��� Backblaze B2
+                    ForcePathStyle = true
                 };
 
                 var awsCredentials = new Amazon.Runtime.BasicAWSCredentials(
@@ -56,18 +56,18 @@ namespace StudyArchieveApi
                 options.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
-                    Title = "����� ������� ������� ��� API",
-                    Description = "API ��� ������ � ������� ������� ������� ������� ���.<br/>" +
-                        "������������� ����������� ������, ���������� � ���������� ��������� " +
-                        "� ���������� ������� � �������� ��������.<br/><br/>" +
-                        "<b>�������� �������:</b><br/>" +
-                        "� ����� �� ���������, �������, �����, ������� �����<br/>" +
-                        "� ������������� ������� � ��������<br/>" +
-                        "� ������� ����� � ���������<br/>" +
-                        "� ��������� �������� ��������<br/>",
+                    Title = "StudyArchieve API",
+                    Description = "API для управления учебным архивом заданий и решений.<br/>" +
+                        "Обеспечивает хранение, поиск и управление учебными материалами " +
+                        "и связанными метаданными.<br/><br/>" +
+                        "<b>Основные возможности:</b><br/>" +
+                        "• Управление заданиями, предметами, авторами, тегами<br/>" +
+                        "• Загрузка решений и файлов<br/>" +
+                        "• Поиск и фильтрация заданий<br/>" +
+                        "• Управление пользователями и ролями<br/>",
                     Contact = new OpenApiContact
                     {
-                        Name = "��������� StudyArchieve",
+                        Name = "StudyArchieve Team",
                         Email = "victoriya.shubina.mex@gmail.com",
                         Url = new Uri("https://github.com/v-shub")
                     }

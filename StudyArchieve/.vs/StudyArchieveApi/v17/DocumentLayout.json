@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|src\\StudyArchieve\\StudyArchieveApi.csproj|c:\\users\\victo\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\modules\\studyarchieve\\studyarchieve\\src\\studyarchieve\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|src\\StudyArchieve\\StudyArchieveApi.csproj|solutionrelative:src\\studyarchieve\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8C1A065C-4CF2-478F-AD1D-80F4BA6CE5DD}|test\\BusinessLogic.Tests\\BusinessLogic.Tests.csproj|c:\\users\\victo\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\modules\\studyarchieve\\studyarchieve\\test\\businesslogic.tests\\businesslogic.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{8C1A065C-4CF2-478F-AD1D-80F4BA6CE5DD}|test\\BusinessLogic.Tests\\BusinessLogic.Tests.csproj|solutionrelative:test\\businesslogic.tests\\businesslogic.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
@@ -43,7 +47,20 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "BusinessLogic.Tests",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\StudyArchieve\\Program.cs",
+              "RelativeDocumentMoniker": "src\\StudyArchieve\\Program.cs",
+              "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\StudyArchieve\\Program.cs",
+              "RelativeToolTip": "src\\StudyArchieve\\Program.cs",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAAAGUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T19:22:56.086Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BusinessLogic.Tests.csproj",
               "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\test\\BusinessLogic.Tests\\BusinessLogic.Tests.csproj",
               "RelativeDocumentMoniker": "test\\BusinessLogic.Tests\\BusinessLogic.Tests.csproj",
               "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\test\\BusinessLogic.Tests\\BusinessLogic.Tests.csproj",
@@ -55,8 +72,8 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "StudyArchieveApi",
+              "DocumentIndex": 2,
+              "Title": "StudyArchieveApi.csproj",
               "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\StudyArchieve\\StudyArchieveApi.csproj",
               "RelativeDocumentMoniker": "src\\StudyArchieve\\StudyArchieveApi.csproj",
               "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\StudyArchieve\\StudyArchieveApi.csproj",
@@ -68,8 +85,8 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "BusinessLogic",
+              "DocumentIndex": 3,
+              "Title": "BusinessLogic.csproj",
               "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\BusinessLogic\\BusinessLogic.csproj",
               "RelativeDocumentMoniker": "src\\BusinessLogic\\BusinessLogic.csproj",
               "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\BusinessLogic\\BusinessLogic.csproj",
@@ -81,8 +98,8 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DataAccess",
+              "DocumentIndex": 4,
+              "Title": "DataAccess.csproj",
               "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\DataAccess\\DataAccess.csproj",
               "RelativeDocumentMoniker": "src\\DataAccess\\DataAccess.csproj",
               "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\DataAccess\\DataAccess.csproj",
