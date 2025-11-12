@@ -91,6 +91,10 @@ namespace StudyArchieveApi
                 app.UseSwaggerUI();
             }
 
+            app.UseCors(builder => builder.WithOrigins(new[] { "http://localhost:7029" })
+                .AllowAnyHeader()
+                .AllowAnyMethod());
+
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
