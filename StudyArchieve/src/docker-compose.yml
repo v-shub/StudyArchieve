@@ -9,6 +9,6 @@ services:
     environment:
       - ASPNETCORE_URLs=http://+:80
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__DefaultConnection=Server=shubina.mssql.somee.com;Database=shubina;User Id=v_shub_SQLLogin_1;Password=xLy-9UQ-nkT-8dW;TrustServerCertificate=True
+      - ConnectionStrings__DefaultConnection=Server=shubina.mssql.somee.com;Database=shubina;User Id=v_shub_SQLLogin_1;Password=xLy-9UQ-nkT-8dW;TrustServerCertificate=True;MultipleActiveResultSets=true;Encrypt=False;Charset=utf8
     ports:
       - "5000:80"
