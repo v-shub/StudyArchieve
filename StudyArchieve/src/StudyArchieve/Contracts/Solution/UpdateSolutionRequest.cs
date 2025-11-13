@@ -6,6 +6,6 @@ namespace StudyArchieveApi.Contracts.Solution
     {
         public int Id { get; set; }
 
-        public string SolutionText { get; set; } = null!;
+        public string SolutionText { get; set; } = string.Empty;
     }
 }
