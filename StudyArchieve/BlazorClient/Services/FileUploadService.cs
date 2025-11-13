@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Components.Forms;
+﻿using BlazorClient.Services.Contracts.TaskFile;
+using BlazorClient.Services.Contracts.SolutionFile;
+using Microsoft.AspNetCore.Components.Forms;
+using System.Net.Http.Headers;
 
 public class FileUploadService
 {
@@ -7,48 +10,69 @@ public class FileUploadService
     public FileUploadService(HttpClient httpClient)
     {
         _httpClient = httpClient;
+        _httpClient.BaseAddress = new Uri("https://studyarchieve.onrender.com");
     }
 
+    // Загрузка файла задания
     public async Task<bool> UploadTaskFileAsync(int taskId, IBrowserFile file)
     {
         try
         {
-            var formData = new MultipartFormDataContent();
-            formData.Add(new StringContent(taskId.ToString()), "TaskId");
+            using var content = new MultipartFormDataContent();
+            using var fileContent = new StreamContent(file.OpenReadStream(maxAllowedSize: 104857600)); // 100MB
 
-            var fileContent = new StreamContent(file.OpenReadStream(maxAllowedSize: 10 * 1024 * 1024));
-            fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(file.ContentType);
-            formData.Add(fileContent, "File", file.Name);
+            fileContent.Headers.ContentType = new MediaTypeHeaderValue(file.ContentType);
+            content.Add(fileContent, "File", file.Name);
+            content.Add(new StringContent(taskId.ToString()), "TaskId");
 
-            var response = await _httpClient.PostAsync("api/TaskFile/upload", formData);
+            var response = await _httpClient.PostAsync("api/TaskFile/upload", content);
             return response.IsSuccessStatusCode;
         }
-        catch
+        catch (Exception ex)
         {
+            Console.WriteLine($"Ошибка загрузки файла задания: {ex.Message}");
             return false;
         }
     }
 
+    // Загрузка файла решения
     public async Task<bool> UploadSolutionFileAsync(int solutionId, IBrowserFile file)
     {
         try
         {
-            var formData = new MultipartFormDataContent();
-            formData.Add(new StringContent(solutionId.ToString()), "SolutionId");
+            using var content = new MultipartFormDataContent();
+            using var fileContent = new StreamContent(file.OpenReadStream(maxAllowedSize: 104857600)); // 100MB
 
-            var fileContent = new StreamContent(file.OpenReadStream(maxAllowedSize: 10 * 1024 * 1024));
-            fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(file.ContentType);
-            formData.Add(fileContent, "File", file.Name);
+            fileContent.Headers.ContentType = new MediaTypeHeaderValue(file.ContentType);
+            content.Add(fileContent, "File", file.Name);
+            content.Add(new StringContent(solutionId.ToString()), "SolutionId");
 
-            var response = await _httpClient.PostAsync("api/SolutionFile/upload", formData);
+            var response = await _httpClient.PostAsync("api/SolutionFile/upload", content);
             return response.IsSuccessStatusCode;
         }
-        catch
+        catch (Exception ex)
         {
+            Console.WriteLine($"Ошибка загрузки файла решения: {ex.Message}");
             return false;
         }
     }
 
+    // Удаление файла задания
+    public async Task<bool> DeleteTaskFileAsync(int fileId)
+    {
+        try
+        {
+            var response = await _httpClient.DeleteAsync($"api/TaskFile/{fileId}");
+            return response.IsSuccessStatusCode;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Ошибка удаления файла задания: {ex.Message}");
+            return false;
+        }
+    }
+
+    // Удаление файла решения
     public async Task<bool> DeleteSolutionFileAsync(int fileId)
     {
         try
@@ -56,8 +80,9 @@ public class FileUploadService
             var response = await _httpClient.DeleteAsync($"api/SolutionFile/{fileId}");
             return response.IsSuccessStatusCode;
         }
-        catch
+        catch (Exception ex)
         {
+            Console.WriteLine($"Ошибка удаления файла решения: {ex.Message}");
             return false;
         }
     }

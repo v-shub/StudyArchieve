@@ -21,17 +21,14 @@
             <NavLink class="nav-link" href="tasks">
                 <span class="bi bi-search me-2" aria-hidden="true"></span>Поиск заданий
             </NavLink>
+            <NavLink class="nav-link" href="task/create">
+                <span class="bi bi-plus me-2" aria-hidden="true"></span>Создать задание
+            </NavLink>
         </div>
 
         <!-- Административный раздел -->
         <div class="nav-item px-3 mt-3">
             <div class="nav-category small text-muted text-uppercase fw-bold mt-2 mb-1">Администрирование</div>
-
-            <!-- Группа академических настроек -->
-            <div class="nav-group mb-2">
-                <div class="nav-group-header small text-muted ps-2 mb-1">
-                    <i class="bi bi-mortarboard me-1"></i>Академические настройки
-                </div>
                 <NavLink class="nav-link" href="admin/academic-years">
                     <span class="bi bi-calendar3 me-2" aria-hidden="true"></span>Учебные годы
                 </NavLink>
@@ -41,30 +38,15 @@
                 <NavLink class="nav-link" href="admin/task-types">
                     <span class="bi bi-list-check me-2" aria-hidden="true"></span>Типы заданий
                 </NavLink>
-            </div>
-
-            <!-- Группа меток и классификации -->
-            <div class="nav-group mb-2">
-                <div class="nav-group-header small text-muted ps-2 mb-1">
-                    <i class="bi bi-tags me-1"></i>Классификация
-                </div>
                 <NavLink class="nav-link" href="admin/tags">
                     <span class="bi bi-tag me-2" aria-hidden="true"></span>Теги
                 </NavLink>
                 <NavLink class="nav-link" href="admin/authors">
                     <span class="bi bi-person-badge me-2" aria-hidden="true"></span>Авторы заданий
                 </NavLink>
-            </div>
-
-            <!-- Группа пользователей -->
-            <div class="nav-group">
-                <div class="nav-group-header small text-muted ps-2 mb-1">
-                    <i class="bi bi-people me-1"></i>Пользователи
-                </div>
                 <NavLink class="nav-link" href="admin/roles">
                     <span class="bi bi-shield-check me-2" aria-hidden="true"></span>Роли пользователей
                 </NavLink>
-            </div>
         </div>
     </nav>
 </div>

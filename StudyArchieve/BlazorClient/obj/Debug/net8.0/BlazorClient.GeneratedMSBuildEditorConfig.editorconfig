@@ -44,6 +44,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9sZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Student/Desktop/Shubina/StudyArchieve/StudyArchieve/BlazorClient/Pages/SolutionEdit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU29sdXRpb25FZGl0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Student/Desktop/Shubina/StudyArchieve/StudyArchieve/BlazorClient/Pages/Subject.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3ViamVjdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -52,8 +56,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGFnLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Student/Desktop/Shubina/StudyArchieve/StudyArchieve/BlazorClient/Pages/TaskCreate.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGFza0NyZWF0ZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Student/Desktop/Shubina/StudyArchieve/StudyArchieve/BlazorClient/Pages/TaskDetails.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGFza0RldGFpbHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Student/Desktop/Shubina/StudyArchieve/StudyArchieve/BlazorClient/Pages/TaskEdit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGFza0VkaXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Student/Desktop/Shubina/StudyArchieve/StudyArchieve/BlazorClient/Pages/Tasks.razor]

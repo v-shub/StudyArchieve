@@ -1,0 +1,413 @@
+﻿@page "/task/create"
+@using BlazorClient.Services.Contracts.Task
+@using BlazorClient.Services.Contracts.Subject
+@using BlazorClient.Services.Contracts.AcademicYear
+@using BlazorClient.Services.Contracts.TaskType
+@using BlazorClient.Services.Contracts.Author
+@using BlazorClient.Services.Contracts.Tag
+@inject ApiService ApiService
+@inject NavigationManager Navigation
+@inject ILogger<TaskCreate> Logger
+
+<PageTitle>Добавление задания - Архив</PageTitle>
+
+<div class="container">
+    <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Главная</a></li>
+            <li class="breadcrumb-item active">Добавление задания</li>
+        </ol>
+    </nav>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card shadow-sm">
+                <div class="card-header bg-success text-white">
+                    <h4 class="mb-0">
+                        <i class="bi bi-plus-circle me-2"></i>
+                        Добавление нового задания
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <EditForm Model="createTask" OnValidSubmit="CreateTask">
+                        <!-- Основная информация -->
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Название задания: <span class="text-danger">*</span></label>
+                            <InputText @bind-Value="createTask.Title" class="form-control" placeholder="Введите название задания" />
+                            <ValidationMessage For="@(() => createTask.Title)" />
+                            @if (string.IsNullOrEmpty(createTask.Title))
+                            {
+                                <small class="text-danger">Название задания обязательно</small>
+                            }
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Условие задания:</label>
+                            <InputTextArea @bind-Value="createTask.ConditionText" class="form-control" rows="6" placeholder="Введите условие задания..." />
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-md-4">
+                                <label class="form-label fw-semibold">Дисциплина: <span class="text-danger">*</span></label>
+                                <select @bind="createTask.SubjectId" class="form-select">
+                                    <option value="0">Выберите дисциплину</option>
+                                    @foreach (var subject in subjects)
+                                    {
+                                        <option value="@subject.Id">@subject.Name</option>
+                                    }
+                                </select>
+                                @if (createTask.SubjectId == 0)
+                                {
+                                    <small class="text-danger">Выберите дисциплину</small>
+                                }
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="form-label fw-semibold">Тип задания: <span class="text-danger">*</span></label>
+                                <select @bind="createTask.TypeId" class="form-select">
+                                    <option value="0">Выберите тип</option>
+                                    @foreach (var type in taskTypes)
+                                    {
+                                        <option value="@type.Id">@type.Name</option>
+                                    }
+                                </select>
+                                @if (createTask.TypeId == 0)
+                                {
+                                    <small class="text-danger">Выберите тип задания</small>
+                                }
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="form-label fw-semibold">Учебный год:</label>
+                                <select @bind="createTask.AcademicYearId" class="form-select">
+                                    <option value="">Не указан</option>
+                                    @foreach (var year in academicYears)
+                                    {
+                                        <option value="@year.Id">@year.YearLabel</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Авторы -->
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold">Авторы:</label>
+                            <div class="border rounded p-3 bg-light">
+                                @if (authors.Any())
+                                {
+                                    <div class="row">
+                                        @foreach (var author in authors)
+                                        {
+                                            <div class="col-md-6 col-lg-4 mb-2">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           id="author-@author.Id"
+                                                           checked="@(createTask.AuthorIds.Contains(author.Id))"
+                                                           @onchange="@((e) => ToggleAuthor(author.Id, (bool)e.Value))" />
+                                                    <label class="form-check-label" for="author-@author.Id">
+                                                        @author.Name
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                }
+                                else
+                                {
+                                    <p class="text-muted text-center mb-0">Авторы не загружены</p>
+                                }
+                                <div class="mt-2">
+                                    <small class="text-muted">Выбрано авторов: @createTask.AuthorIds.Count</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Тэги -->
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold">Тэги:</label>
+                            <div class="border rounded p-3 bg-light">
+                                @if (tags.Any())
+                                {
+                                    <div class="row">
+                                        @foreach (var tag in tags)
+                                        {
+                                            <div class="col-md-6 col-lg-4 mb-2">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox"
+                                                           id="tag-@tag.Id"
+                                                           checked="@(createTask.TagIds.Contains(tag.Id))"
+                                                           @onchange="@((e) => ToggleTag(tag.Id, (bool)e.Value))" />
+                                                    <label class="form-check-label" for="tag-@tag.Id">
+                                                        @tag.Name
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                }
+                                else
+                                {
+                                    <p class="text-muted text-center mb-0">Тэги не загружены</p>
+                                }
+                                <div class="mt-2">
+                                    <small class="text-muted">Выбрано тэгов: @createTask.TagIds.Count</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Кнопки действий -->
+                        <div class="d-flex gap-2 mt-4 pt-3 border-top">
+                            <button type="submit" class="btn btn-success" disabled="@isCreating">
+                                @if (isCreating)
+                                {
+                                    <span class="spinner-border spinner-border-sm me-2"></span>
+                                }
+                                <i class="bi bi-check-lg me-2"></i>Создать задание
+                            </button>
+                            <button type="button" class="btn btn-secondary" @onclick="CancelCreate">
+                                <i class="bi bi-x-lg me-2"></i>Отмена
+                            </button>
+                        </div>
+                    </EditForm>
+                </div>
+            </div>
+
+            <!-- Предварительный просмотр -->
+            <div class="card shadow-sm mt-4">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">
+                        <i class="bi bi-eye me-2"></i>Предварительный просмотр
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <h6 class="text-primary">@(string.IsNullOrEmpty(createTask.Title) ? "Название задания" : createTask.Title)</h6>
+
+                    @if (!string.IsNullOrEmpty(createTask.ConditionText))
+                    {
+                        <div class="mb-3">
+                            <strong>Условие:</strong>
+                            <div class="mt-1 p-2 bg-light rounded">
+                                @createTask.ConditionText
+                            </div>
+                        </div>
+                    }
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <strong>Дисциплина:</strong>
+                            <span class="ms-1">@(subjects.FirstOrDefault(s => s.Id == createTask.SubjectId)?.Name ?? "Не выбрана")</span>
+                        </div>
+                        <div class="col-md-6">
+                            <strong>Тип задания:</strong>
+                            <span class="ms-1">@(taskTypes.FirstOrDefault(t => t.Id == createTask.TypeId)?.Name ?? "Не выбран")</span>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <strong>Учебный год:</strong>
+                            <span class="ms-1">@(academicYears.FirstOrDefault(y => y.Id == createTask.AcademicYearId)?.YearLabel ?? "Не указан")</span>
+                        </div>
+                    </div>
+
+                    @if (createTask.AuthorIds.Any())
+                    {
+                        <div class="mb-3">
+                            <strong>Авторы:</strong>
+                            <div class="mt-1">
+                                @foreach (var authorId in createTask.AuthorIds)
+                                {
+                                    var author = authors.FirstOrDefault(a => a.Id == authorId);
+                                    if (author != null)
+                                    {
+                                        <span class="badge bg-secondary me-1">@author.Name</span>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    }
+
+                    @if (createTask.TagIds.Any())
+                    {
+                        <div class="mb-3">
+                            <strong>Тэги:</strong>
+                            <div class="mt-1">
+                                @foreach (var tagId in createTask.TagIds)
+                                {
+                                    var tag = tags.FirstOrDefault(t => t.Id == tagId);
+                                    if (tag != null)
+                                    {
+                                        <span class="badge bg-success me-1">@tag.Name</span>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .form-check-input:checked {
+        background-color: #198754;
+        border-color: #198754;
+    }
+
+    .card {
+        border: 1px solid #e9ecef;
+    }
+
+    .badge {
+        font-size: 0.75em;
+    }
+
+    .border-top {
+        border-top: 2px solid #e9ecef !important;
+    }
+
+    .form-select:focus, .form-control:focus {
+        border-color: #86b7fe;
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    }
+
+    .text-danger {
+        font-size: 0.875em;
+    }
+</style>
+
+@code {
+    private CreateTaskRequest createTask = new();
+    private List<GetSubjectResponse> subjects = new();
+    private List<GetAcademicYearResponse> academicYears = new();
+    private List<GetTaskTypeResponse> taskTypes = new();
+    private List<GetAuthorResponse> authors = new();
+    private List<GetTagResponse> tags = new();
+
+    private bool isLoading = true;
+    private bool isCreating = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadFilterData();
+        isLoading = false;
+        StateHasChanged();
+    }
+
+    private async Task LoadFilterData()
+    {
+        try
+        {
+            // Загружаем данные последовательно
+            subjects = await ApiService.GetListFromJsonAsync<GetSubjectResponse>("api/Subject");
+            academicYears = await ApiService.GetListFromJsonAsync<GetAcademicYearResponse>("api/AcademicYear");
+            taskTypes = await ApiService.GetListFromJsonAsync<GetTaskTypeResponse>("api/TaskType");
+            authors = await ApiService.GetListFromJsonAsync<GetAuthorResponse>("api/Author");
+            tags = await ApiService.GetListFromJsonAsync<GetTagResponse>("api/Tag");
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError(ex, "Ошибка загрузки данных для фильтров");
+
+            // Инициализируем пустые списки в случае ошибки
+            subjects ??= new List<GetSubjectResponse>();
+            academicYears ??= new List<GetAcademicYearResponse>();
+            taskTypes ??= new List<GetTaskTypeResponse>();
+            authors ??= new List<GetAuthorResponse>();
+            tags ??= new List<GetTagResponse>();
+        }
+    }
+
+    private void ToggleAuthor(int authorId, bool isSelected)
+    {
+        if (isSelected)
+        {
+            if (!createTask.AuthorIds.Contains(authorId))
+            {
+                createTask.AuthorIds.Add(authorId);
+            }
+        }
+        else
+        {
+            createTask.AuthorIds.Remove(authorId);
+        }
+        StateHasChanged();
+    }
+
+    private void ToggleTag(int tagId, bool isSelected)
+    {
+        if (isSelected)
+        {
+            if (!createTask.TagIds.Contains(tagId))
+            {
+                createTask.TagIds.Add(tagId);
+            }
+        }
+        else
+        {
+            createTask.TagIds.Remove(tagId);
+        }
+        StateHasChanged();
+    }
+
+    private async Task CreateTask()
+    {
+        // Валидация
+        if (string.IsNullOrWhiteSpace(createTask.Title))
+        {
+            // TODO: Показать сообщение об ошибке
+            return;
+        }
+
+        if (createTask.SubjectId == 0)
+        {
+            // TODO: Показать сообщение об ошибке
+            return;
+        }
+
+        if (createTask.TypeId == 0)
+        {
+            // TODO: Показать сообщение об ошибке
+            return;
+        }
+
+        isCreating = true;
+        StateHasChanged();
+
+        try
+        {
+            // TODO: Заменить на ID текущего пользователя
+            createTask.UserAddedId = 1;
+
+            var response = await ApiService.PostAsJsonAsync("api/Task", createTask);
+            if (response.IsSuccessStatusCode)
+            {
+                // Получаем ID созданного задания из ответа
+                var responseContent = await response.Content.ReadAsStringAsync();
+                // TODO: Парсить ID из ответа или перенаправлять на страницу списка
+                Navigation.NavigateTo("/tasks");
+            }
+            else
+            {
+                var errorMessage = await response.Content.ReadAsStringAsync();
+                Logger.LogWarning("Ошибка создания задания: {StatusCode} - {ErrorMessage}", response.StatusCode, errorMessage);
+                // TODO: Показать сообщение об ошибке
+            }
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError(ex, "Ошибка создания задания");
+            // TODO: Показать сообщение об ошибке
+        }
+        finally
+        {
+            isCreating = false;
+            StateHasChanged();
+        }
+    }
+
+    private void CancelCreate()
+    {
+        Navigation.NavigateTo("/tasks");
+    }
+}

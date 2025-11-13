@@ -9,6 +9,7 @@
 @inject HttpClient Http
 @inject NavigationManager Navigation
 @inject FileUploadService FileUploadService
+@inject FileDownloadService FileDownloadService
 
 <PageTitle>Задание @(task?.Title ?? "") - Архив</PageTitle>
 
@@ -55,113 +56,91 @@ else
                                     <i class="bi bi-person me-1"></i>@task.UserAdded.Username
                                 </button>
                             }
-                            <button class="btn btn-sm btn-light me-2" @onclick="ToggleEditMode">
+                            <a href="/task/edit/@TaskId" class="btn btn-sm btn-light me-2">
                                 <i class="bi bi-pencil"></i>
-                            </button>
+                            </a>
                             <button class="btn btn-sm btn-danger" @onclick="ShowDeleteModal">
                                 <i class="bi bi-trash"></i>
                             </button>
                         </div>
                     </div>
-
-                    @if (isEditing)
-                    {
-                        <div class="card-body">
-                            <div class="mb-3">
-                                <label class="form-label fw-semibold">Название задания:</label>
-                                <input @bind="editTask.Title" class="form-control" />
+                    <div class="card-body">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <strong>Дисциплина:</strong> @task.Subject?.Name
                             </div>
-                            <div class="mb-3">
-                                <label class="form-label fw-semibold">Условие задания:</label>
-                                <textarea @bind="editTask.ConditionText" class="form-control" rows="6"></textarea>
-                            </div>
-                            <div class="d-flex gap-2">
-                                <button @onclick="SaveTask" class="btn btn-success" disabled="@isSaving">
-                                    @if (isSaving)
-                                    {
-                                        <span class="spinner-border spinner-border-sm me-2"></span>
-                                    }
-                                    Сохранить
-                                </button>
-                                <button @onclick="CancelEdit" class="btn btn-secondary">Отмена</button>
+                            <div class="col-md-6">
+                                <strong>Тип задания:</strong> @task.Type?.Name
                             </div>
                         </div>
-                    }
-                    else
-                    {
-                        <div class="card-body">
-                            <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <strong>Дисциплина:</strong> @task.Subject?.Name
-                                </div>
-                                <div class="col-md-6">
-                                    <strong>Тип задания:</strong> @task.Type?.Name
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <strong>Учебный год:</strong> @(task.AcademicYear?.YearLabel ?? "Не указан")
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Дата добавления:</strong> @task.DateAdded.ToString("dd.MM.yyyy")
+                                @if (task.UserAdded != null)
+                                {
+                                    <span>
+                                        пользователем
+                                        <button class="btn btn-link p-0" @onclick="() => NavigateToUser(task.UserAdded.Id)">
+                                            @task.UserAdded.Username
+                                        </button>
+                                    </span>
+                                }
+                            </div>
+                        </div>
+
+                        @if (!string.IsNullOrEmpty(task.ConditionText))
+                        {
+                            <div class="mb-3">
+                                <strong>Условие:</strong>
+                                <div class="mt-2 p-3 bg-light rounded">
+                                    @task.ConditionText
                                 </div>
                             </div>
-                            <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <strong>Учебный год:</strong> @(task.AcademicYear?.YearLabel ?? "Не указан")
-                                </div>
-                                <div class="col-md-6">
-                                    <strong>Дата добавления:</strong> @task.DateAdded.ToString("dd.MM.yyyy")
-                                    @if (task.UserAdded != null)
+                        }
+
+                        @if (task.Authors?.Any() == true)
+                        {
+                            <div class="mb-3">
+                                <strong>Авторы:</strong>
+                                <div class="mt-1">
+                                    @foreach (var author in task.Authors)
                                     {
-                                        <span>
-                                            пользователем
-                                            <button class="btn btn-link p-0" @onclick="() => NavigateToUser(task.UserAdded.Id)">
-                                                @task.UserAdded.Username
-                                            </button>
-                                        </span>
+                                        <span class="badge bg-secondary me-1">@author.Name</span>
                                     }
                                 </div>
                             </div>
+                        }
 
-                            @if (!string.IsNullOrEmpty(task.ConditionText))
-                            {
-                                <div class="mb-3">
-                                    <strong>Условие:</strong>
-                                    <div class="mt-2 p-3 bg-light rounded">
-                                        @task.ConditionText
-                                    </div>
+                        @if (task.Tags?.Any() == true)
+                        {
+                            <div class="mb-3">
+                                <strong>Тэги:</strong>
+                                <div class="mt-1">
+                                    @foreach (var tag in task.Tags)
+                                    {
+                                        <span class="badge bg-success me-1">@tag.Name</span>
+                                    }
                                 </div>
-                            }
-
-                            @if (task.Authors?.Any() == true)
-                            {
-                                <div class="mb-3">
-                                    <strong>Авторы:</strong>
-                                    <div class="mt-1">
-                                        @foreach (var author in task.Authors)
-                                        {
-                                            <span class="badge bg-secondary me-1">@author.Name</span>
-                                        }
-                                    </div>
-                                </div>
-                            }
-
-                            @if (task.Tags?.Any() == true)
-                            {
-                                <div class="mb-3">
-                                    <strong>Тэги:</strong>
-                                    <div class="mt-1">
-                                        @foreach (var tag in task.Tags)
-                                        {
-                                            <span class="badge bg-success me-1">@tag.Name</span>
-                                        }
-                                    </div>
-                                </div>
-                            }
-                        </div>
-                    }
+                            </div>
+                        }
+                    </div>
                 </div>
 
+                <!-- Файлы задания -->
                 <div class="card shadow-sm mb-4">
                     <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
                         <h5 class="mb-0">
                             <i class="bi bi-file-earmark me-2"></i>Файлы задания
+                            @if (taskFiles?.Any() == true)
+                            {
+                                <span class="badge bg-light text-dark ms-2">@taskFiles.Count</span>
+                            }
                         </h5>
                         <button class="btn btn-sm btn-light" @onclick="ShowUploadTaskFileModal">
-                            <i class="bi bi-plus-lg"></i> Добавить файл
+                            <i class="bi bi-plus-lg me-1"></i>Добавить файл
                         </button>
                     </div>
                     <div class="card-body">
@@ -177,13 +156,22 @@ else
                                             <small class="text-muted ms-2">(@FormatFileSize(file.FileSize))</small>
                                         </div>
                                         <div>
-                                            <a href="@($"/api/TaskFile/{file.Id}/download")"
-                                               class="btn btn-sm btn-outline-primary me-2"
-                                               target="_blank">
-                                                <i class="bi bi-download"></i>
-                                            </a>
+                                            <button class="btn btn-sm btn-outline-primary me-2"
+                                                    @onclick="() => DownloadTaskFile(file.Id, file.FileName)"
+                                                    title="Скачать файл"
+                                                    disabled="@(isDownloading && currentDownloadingFileId == file.Id)">
+                                                @if (isDownloading && currentDownloadingFileId == file.Id)
+                                                {
+                                                    <span class="spinner-border spinner-border-sm"></span>
+                                                }
+                                                else
+                                                {
+                                                    <i class="bi bi-download"></i>
+                                                }
+                                            </button>
                                             <button class="btn btn-sm btn-outline-danger"
-                                                    @onclick="() => DeleteTaskFile(file.Id)">
+                                                    @onclick="() => DeleteTaskFile(file.Id)"
+                                                    title="Удалить файл">
                                                 <i class="bi bi-trash"></i>
                                             </button>
                                         </div>
@@ -193,7 +181,11 @@ else
                         }
                         else
                         {
-                            <p class="text-muted text-center mb-0">Файлы задания отсутствуют</p>
+                            <div class="text-center py-3">
+                                <i class="bi bi-file-earmark-x display-4 text-muted mb-2"></i>
+                                <p class="text-muted mb-0">Файлы задания отсутствуют</p>
+                                <small class="text-muted">Добавьте первый файл к заданию</small>
+                            </div>
                         }
                     </div>
                 </div>
@@ -245,79 +237,79 @@ else
                                                     }
                                                 </div>
                                                 <div>
-                                                    <button class="btn btn-sm btn-outline-warning me-1"
-                                                            @onclick="() => StartEditSolution(solution)">
+                                                    <a href="/solution/edit/@solution.Id" class="btn btn-sm btn-outline-warning me-1" title="Редактировать решение">
                                                         <i class="bi bi-pencil"></i>
-                                                    </button>
+                                                    </a>
                                                     <button class="btn btn-sm btn-outline-danger"
-                                                            @onclick="() => DeleteSolution(solution.Id)">
+                                                            @onclick="() => DeleteSolution(solution.Id)"
+                                                            title="Удалить решение">
                                                         <i class="bi bi-trash"></i>
                                                     </button>
                                                 </div>
                                             </div>
                                             <div class="card-body">
-                                                @if (editingSolutionId == solution.Id)
-                                                {
-                                                    <textarea @bind="editSolutionText" class="form-control mb-2" rows="4"></textarea>
-                                                    <div class="d-flex gap-2">
-                                                        <button @onclick="() => SaveSolution(solution.Id)"
-                                                                class="btn btn-success btn-sm">
-                                                            Сохранить
-                                                        </button>
-                                                        <button @onclick="CancelEditSolution"
-                                                                class="btn btn-secondary btn-sm">
-                                                            Отмена
+                                                <p class="card-text">@solution.SolutionText</p>
+
+                                                <!-- Файлы решения -->
+                                                <div class="mt-3">
+                                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                                        <h6 class="mb-0">
+                                                            <i class="bi bi-files me-1"></i>
+                                                            Файлы решения
+                                                            @if (solutionFiles.ContainsKey(solution.Id) && solutionFiles[solution.Id].Any())
+                                                            {
+                                                                <span class="badge bg-primary ms-1">@solutionFiles[solution.Id].Count</span>
+                                                            }
+                                                        </h6>
+                                                        <button class="btn btn-sm btn-outline-primary"
+                                                                @onclick="() => ShowUploadSolutionFileModal(solution.Id)"
+                                                                title="Добавить файл к решению">
+                                                            <i class="bi bi-plus"></i> Добавить файл
                                                         </button>
                                                     </div>
-                                                }
-                                                else
-                                                {
-                                                    <p class="card-text">@solution.SolutionText</p>
 
                                                     @if (solutionFiles.ContainsKey(solution.Id) && solutionFiles[solution.Id].Any())
                                                     {
-                                                        <div class="mt-3">
-                                                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                                                <small class="text-muted fw-semibold">Файлы решения:</small>
-                                                                <button class="btn btn-sm btn-outline-primary"
-                                                                        @onclick="() => ShowUploadSolutionFileModal(solution.Id)">
-                                                                    <i class="bi bi-plus"></i> Добавить файл
-                                                                </button>
-                                                            </div>
-                                                            <div class="list-group">
-                                                                @foreach (var file in solutionFiles[solution.Id])
-                                                                {
-                                                                    <div class="list-group-item d-flex justify-content-between align-items-center">
-                                                                        <small>
-                                                                            <i class="bi bi-file-earmark me-1"></i>
-                                                                            @file.FileName
-                                                                        </small>
-                                                                        <div>
-                                                                            <a href="@($"/api/SolutionFile/{file.Id}/download")"
-                                                                               class="btn btn-sm btn-outline-primary me-1"
-                                                                               target="_blank">
-                                                                                <i class="bi bi-download"></i>
-                                                                            </a>
-                                                                            <button class="btn btn-sm btn-outline-danger"
-                                                                                    @onclick="() => DeleteSolutionFile(file.Id)">
-                                                                                <i class="bi bi-trash"></i>
-                                                                            </button>
-                                                                        </div>
+                                                        <div class="list-group">
+                                                            @foreach (var file in solutionFiles[solution.Id])
+                                                            {
+                                                                <div class="list-group-item d-flex justify-content-between align-items-center">
+                                                                    <div>
+                                                                        <i class="bi bi-file-earmark me-2"></i>
+                                                                        <small>@file.FileName</small>
+                                                                        <small class="text-muted ms-2">(@FormatFileSize(file.FileSize))</small>
                                                                     </div>
-                                                                }
-                                                            </div>
+                                                                    <div>
+                                                                        <button class="btn btn-sm btn-outline-primary me-1"
+                                                                                @onclick="() => DownloadSolutionFile(file.Id, file.FileName)"
+                                                                                title="Скачать файл"
+                                                                                disabled="@(isDownloading && currentDownloadingFileId == file.Id)">
+                                                                            @if (isDownloading && currentDownloadingFileId == file.Id)
+                                                                            {
+                                                                                <span class="spinner-border spinner-border-sm"></span>
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                <i class="bi bi-download"></i>
+                                                                            }
+                                                                        </button>
+                                                                        <button class="btn btn-sm btn-outline-danger"
+                                                                                @onclick="() => DeleteSolutionFile(file.Id)"
+                                                                                title="Удалить файл">
+                                                                            <i class="bi bi-trash"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            }
                                                         </div>
                                                     }
                                                     else
                                                     {
-                                                        <div class="text-center">
-                                                            <button class="btn btn-sm btn-outline-primary"
-                                                                    @onclick="() => ShowUploadSolutionFileModal(solution.Id)">
-                                                                <i class="bi bi-plus me-1"></i>Добавить файлы к решению
-                                                            </button>
+                                                        <div class="text-center py-2">
+                                                            <small class="text-muted">Файлы решения отсутствуют</small>
                                                         </div>
                                                     }
-                                                }
+                                                </div>
                                             </div>
                                         </div>
                                     }
@@ -325,7 +317,11 @@ else
                             }
                             else
                             {
-                                <p class="text-muted text-center mb-0">Решения отсутствуют</p>
+                                <div class="text-center py-4">
+                                    <i class="bi bi-inbox display-4 text-muted mb-2"></i>
+                                    <p class="text-muted mb-0">Решения отсутствуют</p>
+                                    <small class="text-muted">Добавьте первое решение для этого задания</small>
+                                </div>
                             }
                         </div>
                     }
@@ -377,8 +373,19 @@ else
                     <button type="button" class="btn-close" @onclick="CloseUploadTaskFileModal"></button>
                 </div>
                 <div class="modal-body">
-                    <InputFile @ref="taskFileInput" OnChange="HandleTaskFileSelected" class="form-control"
-                               accept=".pdf,.doc,.docx,.txt,.jpg,.jpeg,.png,.zip" />
+                    <div class="mb-3">
+                        <label class="form-label">Выберите файл:</label>
+                        <InputFile OnChange="HandleTaskFileSelected" class="form-control"
+                                   accept=".pdf,.doc,.docx,.txt,.jpg,.jpeg,.png,.zip,.rar,.7z" />
+                        @if (selectedTaskFile != null)
+                        {
+                            <div class="mt-2">
+                                <small class="text-muted">Выбранный файл: @selectedTaskFile.Name</small>
+                                <br>
+                                <small class="text-muted">Размер: @FormatFileSize(selectedTaskFile.Size)</small>
+                            </div>
+                        }
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" @onclick="CloseUploadTaskFileModal">Отмена</button>
@@ -387,7 +394,7 @@ else
                         {
                             <span class="spinner-border spinner-border-sm me-2"></span>
                         }
-                        Загрузить
+                        Загрузить файл
                     </button>
                 </div>
             </div>
@@ -406,8 +413,19 @@ else
                     <button type="button" class="btn-close" @onclick="CloseUploadSolutionFileModal"></button>
                 </div>
                 <div class="modal-body">
-                    <InputFile @ref="solutionFileInput" OnChange="HandleSolutionFileSelected" class="form-control"
-                               accept=".pdf,.doc,.docx,.txt,.jpg,.jpeg,.png,.zip" />
+                    <div class="mb-3">
+                        <label class="form-label">Выберите файл:</label>
+                        <InputFile OnChange="HandleSolutionFileSelected" class="form-control"
+                                   accept=".pdf,.doc,.docx,.txt,.jpg,.jpeg,.png,.zip,.rar,.7z" />
+                        @if (selectedSolutionFile != null)
+                        {
+                            <div class="mt-2">
+                                <small class="text-muted">Выбранный файл: @selectedSolutionFile.Name</small>
+                                <br>
+                                <small class="text-muted">Размер: @FormatFileSize(selectedSolutionFile.Size)</small>
+                            </div>
+                        }
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" @onclick="CloseUploadSolutionFileModal">Отмена</button>
@@ -416,7 +434,7 @@ else
                         {
                             <span class="spinner-border spinner-border-sm me-2"></span>
                         }
-                        Загрузить
+                        Загрузить файл
                     </button>
                 </div>
             </div>
@@ -507,28 +525,22 @@ else
 
     private bool isLoading = true;
     private bool showSolutions = true;
-    private bool isEditing = false;
     private bool showAddSolutionModal = false;
     private bool showUploadTaskFileModal = false;
     private bool showUploadSolutionFileModal = false;
     private bool showDeleteModal = false;
-    private bool isSaving = false;
     private bool isSavingSolution = false;
     private bool isUploadingTaskFile = false;
     private bool isUploadingSolutionFile = false;
     private bool isDeleting = false;
+    private bool isDownloading = false;
+    private int? currentDownloadingFileId = null;
 
     private string newSolutionText = string.Empty;
-    private int? editingSolutionId = null;
-    private string editSolutionText = string.Empty;
     private int? currentSolutionIdForFileUpload = null;
 
-    private InputFile? taskFileInput;
-    private InputFile? solutionFileInput;
     private IBrowserFile? selectedTaskFile;
     private IBrowserFile? selectedSolutionFile;
-
-    private UpdateTaskRequest editTask = new();
 
     protected override async Task OnParametersSetAsync()
     {
@@ -552,6 +564,7 @@ else
                 solutions = await ApiService.GetListFromJsonAsync<GetSolutionResponse>($"api/Solution/task/{TaskId}");
                 taskFiles = await ApiService.GetListFromJsonAsync<TaskFileResponse>($"api/TaskFile/task/{TaskId}");
 
+                solutionFiles.Clear();
                 foreach (var solution in solutions)
                 {
                     var files = await ApiService.GetListFromJsonAsync<SolutionFileResponse>($"api/SolutionFile/solution/{solution.Id}");
@@ -578,60 +591,6 @@ else
     private void ToggleSolutions()
     {
         showSolutions = !showSolutions;
-    }
-
-    private void ToggleEditMode()
-    {
-        if (isEditing)
-        {
-            CancelEdit();
-        }
-        else
-        {
-            editTask = new UpdateTaskRequest
-            {
-                Id = task!.Id,
-                Title = task.Title,
-                ConditionText = task.ConditionText ?? "",
-                SubjectId = task.SubjectId,
-                AcademicYearId = task.AcademicYearId,
-                TypeId = task.TypeId,
-                AuthorIds = task.Authors?.Select(a => a.Id).ToList() ?? new List<int>(),
-                TagIds = task.Tags?.Select(t => t.Id).ToList() ?? new List<int>(),
-            };
-            isEditing = true;
-        }
-    }
-
-    private async Task SaveTask()
-    {
-        isSaving = true;
-        StateHasChanged();
-
-        try
-        {
-            var response = await ApiService.PutAsJsonAsync("api/Task", editTask);
-            if (response.IsSuccessStatusCode)
-            {
-                await LoadTaskData();
-                isEditing = false;
-            }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Ошибка сохранения задания: {ex.Message}");
-        }
-        finally
-        {
-            isSaving = false;
-            StateHasChanged();
-        }
-    }
-
-    private void CancelEdit()
-    {
-        isEditing = false;
-        editTask = new UpdateTaskRequest();
     }
 
     private void ShowAddSolutionModal()
@@ -679,47 +638,11 @@ else
         }
     }
 
-    private void StartEditSolution(GetSolutionResponse solution)
-    {
-        editingSolutionId = solution.Id;
-        editSolutionText = solution.SolutionText;
-    }
-
-    private async Task SaveSolution(int solutionId)
-    {
-        try
-        {
-            var solution = new UpdateSolutionRequest
-            {
-                Id = solutionId,
-                SolutionText = editSolutionText
-            };
-
-            var response = await ApiService.PutAsJsonAsync("api/Solution", solution);
-            if (response.IsSuccessStatusCode)
-            {
-                editingSolutionId = null;
-                editSolutionText = string.Empty;
-                await LoadTaskData();
-            }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Ошибка сохранения решения: {ex.Message}");
-        }
-    }
-
-    private void CancelEditSolution()
-    {
-        editingSolutionId = null;
-        editSolutionText = string.Empty;
-    }
-
     private async Task DeleteSolution(int solutionId)
     {
         try
         {
-            var response = await Http.DeleteAsync($"api/Solution/{solutionId}");
+            var response = await ApiService.DeleteAsync($"api/Solution/{solutionId}");
             if (response.IsSuccessStatusCode)
             {
                 await LoadTaskData();
@@ -734,6 +657,7 @@ else
     private void ShowUploadTaskFileModal()
     {
         showUploadTaskFileModal = true;
+        selectedTaskFile = null;
     }
 
     private void CloseUploadTaskFileModal()
@@ -745,6 +669,7 @@ else
     private void HandleTaskFileSelected(InputFileChangeEventArgs e)
     {
         selectedTaskFile = e.File;
+        StateHasChanged();
     }
 
     private async Task UploadTaskFile()
@@ -779,18 +704,20 @@ else
     {
         showUploadSolutionFileModal = true;
         currentSolutionIdForFileUpload = solutionId;
+        selectedSolutionFile = null;
     }
 
     private void CloseUploadSolutionFileModal()
     {
         showUploadSolutionFileModal = false;
-        selectedSolutionFile = null;
         currentSolutionIdForFileUpload = null;
+        selectedSolutionFile = null;
     }
 
     private void HandleSolutionFileSelected(InputFileChangeEventArgs e)
     {
         selectedSolutionFile = e.File;
+        StateHasChanged();
     }
 
     private async Task UploadSolutionFile()
@@ -822,6 +749,38 @@ else
         }
     }
 
+    private async Task DownloadTaskFile(int fileId, string fileName)
+    {
+        await DownloadFileAsync(() => FileDownloadService.DownloadTaskFileAsync(fileId, fileName), fileId);
+    }
+
+    private async Task DownloadSolutionFile(int fileId, string fileName)
+    {
+        await DownloadFileAsync(() => FileDownloadService.DownloadSolutionFileAsync(fileId, fileName), fileId);
+    }
+
+    private async Task DownloadFileAsync(Func<Task> downloadAction, int fileId)
+    {
+        isDownloading = true;
+        currentDownloadingFileId = fileId;
+        StateHasChanged();
+
+        try
+        {
+            await downloadAction();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Ошибка скачивания файла: {ex.Message}");
+        }
+        finally
+        {
+            isDownloading = false;
+            currentDownloadingFileId = null;
+            StateHasChanged();
+        }
+    }
+
     private async Task DeleteSolutionFile(int fileId)
     {
         try
@@ -842,15 +801,15 @@ else
     {
         try
         {
-            var response = await Http.DeleteAsync($"api/TaskFile/{fileId}");
-            if (response.IsSuccessStatusCode)
+            var success = await FileUploadService.DeleteTaskFileAsync(fileId);
+            if (success)
             {
                 await LoadTaskData();
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Ошибка удаления файла: {ex.Message}");
+            Console.WriteLine($"Ошибка удаления файла задания: {ex.Message}");
         }
     }
 
@@ -871,7 +830,7 @@ else
 
         try
         {
-            var response = await Http.DeleteAsync($"api/Task/{TaskId}");
+            var response = await ApiService.DeleteAsync($"api/Task/{TaskId}");
             if (response.IsSuccessStatusCode)
             {
                 Navigation.NavigateTo("/tasks");
