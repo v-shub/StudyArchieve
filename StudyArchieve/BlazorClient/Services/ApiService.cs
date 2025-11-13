@@ -9,7 +9,7 @@ public class ApiService
     public ApiService(HttpClient httpClient)
     {
         _httpClient = httpClient;
-        _httpClient.BaseAddress = new Uri("https://studyarchieve.onrender.com/");
+        _httpClient.BaseAddress = new Uri("https://studyarchieve.onrender.com");
     }
 
     public async Task<List<T>> GetListFromJsonAsync<T>(string url)

@@ -112,7 +112,7 @@ namespace StudyArchieveApi
             {
                 options.AddDefaultPolicy(policy =>
                 {
-                    policy.WithOrigins("https://studyarchieveclient.onrender.com/")
+                    policy.WithOrigins("https://studyarchieveclient.onrender.com")
                           .AllowAnyHeader()
                           .AllowAnyMethod()
                           .AllowCredentials();
@@ -132,6 +132,7 @@ namespace StudyArchieveApi
                 });
             }
 
+            app.UseRouting();
             app.UseCors();
             app.UseHttpsRedirection();
             app.UseAuthorization();

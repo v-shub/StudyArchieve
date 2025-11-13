@@ -21,8 +21,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A6B04F3C-3294-4942-BBF9-B1EAD403BEBD}"
+	ProjectSection(SolutionItems) = preProject
+		src\docker-compose.yml = src\docker-compose.yml
+		src\Dockerfile = src\Dockerfile
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorClient", "src\BlazorClient\BlazorClient.csproj", "{E10C3815-7078-4B18-970D-66A35C82F86B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorClient", "BlazorClient\BlazorClient.csproj", "{E10C3815-7078-4B18-970D-66A35C82F86B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StudyArchieveApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7ffd529ba6de53b4a0df8eda9a28fa1bc496e06d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b38b76dcb9daf9501f94bf0cdf0bad12c53f036d")]
 [assembly: System.Reflection.AssemblyProductAttribute("StudyArchieveApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StudyArchieveApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
