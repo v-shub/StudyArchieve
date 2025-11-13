@@ -85,7 +85,6 @@ namespace StudyArchieveApi
                     ServiceURL = builder.Configuration["Backblaze:ServiceURL"],
                     ForcePathStyle = true,
                     Timeout = TimeSpan.FromMinutes(5),
-                    ReadWriteTimeout = TimeSpan.FromMinutes(5)
                 };
 
                 var awsCredentials = new Amazon.Runtime.BasicAWSCredentials(
