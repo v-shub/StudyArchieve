@@ -112,7 +112,7 @@ namespace StudyArchieveApi
             {
                 options.AddDefaultPolicy(policy =>
                 {
-                    policy.WithOrigins("https://localhost:7029")
+                    policy.WithOrigins("https://studyarchieveclient.onrender.com/")
                           .AllowAnyHeader()
                           .AllowAnyMethod()
                           .AllowCredentials();
