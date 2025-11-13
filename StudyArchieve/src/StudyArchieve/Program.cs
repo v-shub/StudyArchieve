@@ -23,14 +23,7 @@ namespace StudyArchieveApi
 
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddControllers()
-                .AddJsonOptions(options =>
-                {
-                    options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
-                    options.JsonSerializerOptions.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
-                    options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
-                    options.JsonSerializerOptions.WriteIndented = true;
-                });
+            builder.Services.AddControllers();
 
             // Настройка Entity Framework с поддержкой Unicode
             builder.Services.AddDbContext<StudyArchieveContext>(options =>
@@ -40,8 +33,6 @@ namespace StudyArchieveApi
                     sqlOptions =>
                     {
                         sqlOptions.CommandTimeout(60);
-                        // Добавьте это для поддержки Unicode
-                        sqlOptions.UseUnicode(true);
                     });
             });
 
