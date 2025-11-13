@@ -13,69 +13,69 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = browser
 build_property.RootNamespace = BlazorClient
 build_property.RootNamespace = BlazorClient
-build_property.ProjectDir = C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\src\BlazorClient\
+build_property.ProjectDir = C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\BlazorClient\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = false
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\src\BlazorClient
+build_property.MSBuildProjectDirectory = C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\BlazorClient
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/victo/OneDrive/Рабочий стол/Modules/StudyArchieve/StudyArchieve/src/BlazorClient/App.razor]
+[C:/Users/Student/Desktop/Shubina/StudyArchieve/StudyArchieve/BlazorClient/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Рабочий стол/Modules/StudyArchieve/StudyArchieve/src/BlazorClient/Pages/AcademicYears.razor]
+[C:/Users/Student/Desktop/Shubina/StudyArchieve/StudyArchieve/BlazorClient/Pages/AcademicYears.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNhZGVtaWNZZWFycy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Рабочий стол/Modules/StudyArchieve/StudyArchieve/src/BlazorClient/Pages/Author.razor]
+[C:/Users/Student/Desktop/Shubina/StudyArchieve/StudyArchieve/BlazorClient/Pages/Author.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aG9yLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Рабочий стол/Modules/StudyArchieve/StudyArchieve/src/BlazorClient/Pages/Index.razor]
+[C:/Users/Student/Desktop/Shubina/StudyArchieve/StudyArchieve/BlazorClient/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Рабочий стол/Modules/StudyArchieve/StudyArchieve/src/BlazorClient/Pages/Role.razor]
+[C:/Users/Student/Desktop/Shubina/StudyArchieve/StudyArchieve/BlazorClient/Pages/Role.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9sZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Рабочий стол/Modules/StudyArchieve/StudyArchieve/src/BlazorClient/Pages/Subject.razor]
+[C:/Users/Student/Desktop/Shubina/StudyArchieve/StudyArchieve/BlazorClient/Pages/Subject.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3ViamVjdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Рабочий стол/Modules/StudyArchieve/StudyArchieve/src/BlazorClient/Pages/Tag.razor]
+[C:/Users/Student/Desktop/Shubina/StudyArchieve/StudyArchieve/BlazorClient/Pages/Tag.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGFnLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Рабочий стол/Modules/StudyArchieve/StudyArchieve/src/BlazorClient/Pages/TaskDetails.razor]
+[C:/Users/Student/Desktop/Shubina/StudyArchieve/StudyArchieve/BlazorClient/Pages/TaskDetails.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGFza0RldGFpbHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Рабочий стол/Modules/StudyArchieve/StudyArchieve/src/BlazorClient/Pages/Tasks.razor]
+[C:/Users/Student/Desktop/Shubina/StudyArchieve/StudyArchieve/BlazorClient/Pages/Tasks.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGFza3MucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Рабочий стол/Modules/StudyArchieve/StudyArchieve/src/BlazorClient/Pages/TaskType.razor]
+[C:/Users/Student/Desktop/Shubina/StudyArchieve/StudyArchieve/BlazorClient/Pages/TaskType.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGFza1R5cGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Рабочий стол/Modules/StudyArchieve/StudyArchieve/src/BlazorClient/Pages/User.razor]
+[C:/Users/Student/Desktop/Shubina/StudyArchieve/StudyArchieve/BlazorClient/Pages/User.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Рабочий стол/Modules/StudyArchieve/StudyArchieve/src/BlazorClient/_Imports.razor]
+[C:/Users/Student/Desktop/Shubina/StudyArchieve/StudyArchieve/BlazorClient/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/victo/OneDrive/Рабочий стол/Modules/StudyArchieve/StudyArchieve/src/BlazorClient/Layout/MainLayout.razor]
+[C:/Users/Student/Desktop/Shubina/StudyArchieve/StudyArchieve/BlazorClient/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-aa2zzlyc8p
 
-[C:/Users/victo/OneDrive/Рабочий стол/Modules/StudyArchieve/StudyArchieve/src/BlazorClient/Layout/NavMenu.razor]
+[C:/Users/Student/Desktop/Shubina/StudyArchieve/StudyArchieve/BlazorClient/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-p3l1yp9o1y

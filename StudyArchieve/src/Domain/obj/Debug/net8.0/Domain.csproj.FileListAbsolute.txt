@@ -55,3 +55,18 @@ C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchi
 C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\src\Domain\obj\Debug\net8.0\Domain.pdb
 C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\src\Domain\obj\Debug\net8.0\Domain.genruntimeconfig.cache
 C:\Users\victo\OneDrive\Рабочий стол\Modules\StudyArchieve\StudyArchieve\src\Domain\obj\Debug\net8.0\ref\Domain.dll
+C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\src\Domain\bin\Debug\net8.0\Domain.deps.json
+C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\src\Domain\bin\Debug\net8.0\Domain.runtimeconfig.json
+C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\src\Domain\bin\Debug\net8.0\Domain.dll
+C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\src\Domain\bin\Debug\net8.0\Domain.pdb
+C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\src\Domain\obj\Debug\net8.0\Domain.csproj.AssemblyReference.cache
+C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\src\Domain\obj\Debug\net8.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\src\Domain\obj\Debug\net8.0\Domain.AssemblyInfoInputs.cache
+C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\src\Domain\obj\Debug\net8.0\Domain.AssemblyInfo.cs
+C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\src\Domain\obj\Debug\net8.0\Domain.csproj.CoreCompileInputs.cache
+C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\src\Domain\obj\Debug\net8.0\Domain.sourcelink.json
+C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\src\Domain\obj\Debug\net8.0\Domain.dll
+C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\src\Domain\obj\Debug\net8.0\refint\Domain.dll
+C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\src\Domain\obj\Debug\net8.0\Domain.pdb
+C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\src\Domain\obj\Debug\net8.0\Domain.genruntimeconfig.cache
+C:\Users\Student\Desktop\Shubina\StudyArchieve\StudyArchieve\src\Domain\obj\Debug\net8.0\ref\Domain.dll

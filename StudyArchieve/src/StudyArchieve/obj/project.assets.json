@@ -5440,23 +5440,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\victo\\.nuget\\packages\\": {},
+    "C:\\Users\\Student\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\victo\\OneDrive\\Рабочий стол\\Modules\\StudyArchieve\\StudyArchieve\\src\\StudyArchieve\\StudyArchieveApi.csproj",
+      "projectUniqueName": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\src\\StudyArchieve\\StudyArchieveApi.csproj",
       "projectName": "StudyArchieveApi",
-      "projectPath": "C:\\Users\\victo\\OneDrive\\Рабочий стол\\Modules\\StudyArchieve\\StudyArchieve\\src\\StudyArchieve\\StudyArchieveApi.csproj",
-      "packagesPath": "C:\\Users\\victo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\victo\\OneDrive\\Рабочий стол\\Modules\\StudyArchieve\\StudyArchieve\\src\\StudyArchieve\\obj\\",
+      "projectPath": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\src\\StudyArchieve\\StudyArchieveApi.csproj",
+      "packagesPath": "C:\\Users\\Student\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\src\\StudyArchieve\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\victo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Student\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -5465,19 +5465,17 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://pkgs.dev.azure.com/tgbots/Telegram.Bot/_packaging/release/nuget/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\victo\\OneDrive\\Рабочий стол\\Modules\\StudyArchieve\\StudyArchieve\\src\\BusinessLogic\\BusinessLogic.csproj": {
-              "projectPath": "C:\\Users\\victo\\OneDrive\\Рабочий стол\\Modules\\StudyArchieve\\StudyArchieve\\src\\BusinessLogic\\BusinessLogic.csproj"
+            "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\src\\BusinessLogic\\BusinessLogic.csproj": {
+              "projectPath": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\src\\BusinessLogic\\BusinessLogic.csproj"
             },
-            "C:\\Users\\victo\\OneDrive\\Рабочий стол\\Modules\\StudyArchieve\\StudyArchieve\\src\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "C:\\Users\\victo\\OneDrive\\Рабочий стол\\Modules\\StudyArchieve\\StudyArchieve\\src\\DataAccess\\DataAccess.csproj"
+            "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\src\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\src\\DataAccess\\DataAccess.csproj"
             }
           }
         }
@@ -5540,7 +5538,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

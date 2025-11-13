@@ -318,7 +318,7 @@
              <remarks>
              Пример запроса:
             
-                 PUT /Todo
+                 POST /Todo
                  {
                      "id": 3,
                      "name": "Regex"

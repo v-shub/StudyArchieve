@@ -86,9 +86,7 @@
             "description": "OK"
           }
         }
-      }
-    },
-    "/api/AcademicYear/{id}": {
+      },
       "delete": {
         "tags": [
           "AcademicYear"
@@ -97,9 +95,8 @@
         "parameters": [
           {
             "name": "id",
-            "in": "path",
+            "in": "query",
             "description": "Id учебного года",
-            "required": true,
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -188,9 +185,7 @@
             "description": "OK"
           }
         }
-      }
-    },
-    "/api/Author/{id}": {
+      },
       "delete": {
         "tags": [
           "Author"
@@ -199,9 +194,8 @@
         "parameters": [
           {
             "name": "id",
-            "in": "path",
+            "in": "query",
             "description": "Id автора заданий",
-            "required": true,
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -290,9 +284,7 @@
             "description": "OK"
           }
         }
-      }
-    },
-    "/api/Role/{id}": {
+      },
       "delete": {
         "tags": [
           "Role"
@@ -301,9 +293,8 @@
         "parameters": [
           {
             "name": "id",
-            "in": "path",
+            "in": "query",
             "description": "Id пользовательской роли",
-            "required": true,
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -348,29 +339,6 @@
           "Solution"
         ],
         "summary": "Получение решения по его id",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Id решения",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Solution"
-        ],
-        "summary": "Удаление существующего решения",
         "parameters": [
           {
             "name": "id",
@@ -449,6 +417,28 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Solution"
+        ],
+        "summary": "Удаление существующего решения",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Id решения",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -730,9 +720,7 @@
             "description": "OK"
           }
         }
-      }
-    },
-    "/api/Subject/{id}": {
+      },
       "delete": {
         "tags": [
           "Subject"
@@ -741,9 +729,8 @@
         "parameters": [
           {
             "name": "id",
-            "in": "path",
+            "in": "query",
             "description": "Id учебной дисциплины",
-            "required": true,
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -806,7 +793,7 @@
           "Tag"
         ],
         "summary": "Изменение существующего тэга",
-        "description": "Пример запроса:\r\n            \r\n    PUT /Todo\r\n    {\r\n        \"id\": 3,\r\n        \"name\": \"Regex\"\r\n    }",
+        "description": "Пример запроса:\r\n            \r\n    POST /Todo\r\n    {\r\n        \"id\": 3,\r\n        \"name\": \"Regex\"\r\n    }",
         "requestBody": {
           "description": "Тэг",
           "content": {
@@ -832,9 +819,7 @@
             "description": "OK"
           }
         }
-      }
-    },
-    "/api/Tag/{id}": {
+      },
       "delete": {
         "tags": [
           "Tag"
@@ -843,9 +828,8 @@
         "parameters": [
           {
             "name": "id",
-            "in": "path",
+            "in": "query",
             "description": "Id тэга",
-            "required": true,
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -988,20 +972,17 @@
             "description": "OK"
           }
         }
-      }
-    },
-    "/api/Task/{id}": {
-      "get": {
+      },
+      "delete": {
         "tags": [
           "Task"
         ],
-        "summary": "Получение задания по его id",
+        "summary": "Удаление существующего задания",
         "parameters": [
           {
             "name": "id",
-            "in": "path",
+            "in": "query",
             "description": "Id задания",
-            "required": true,
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -1013,12 +994,14 @@
             "description": "OK"
           }
         }
-      },
-      "delete": {
+      }
+    },
+    "/api/Task/{id}": {
+      "get": {
         "tags": [
           "Task"
         ],
-        "summary": "Удаление существующего задания",
+        "summary": "Получение задания по его id",
         "parameters": [
           {
             "name": "id",
@@ -1312,9 +1295,7 @@
             "description": "OK"
           }
         }
-      }
-    },
-    "/api/TaskType/{id}": {
+      },
       "delete": {
         "tags": [
           "TaskType"
@@ -1323,9 +1304,8 @@
         "parameters": [
           {
             "name": "id",
-            "in": "path",
+            "in": "query",
             "description": "Id типа заданий",
-            "required": true,
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -1345,29 +1325,6 @@
           "User"
         ],
         "summary": "Получение пользователя по его id",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Id пользователя",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "User"
-        ],
-        "summary": "Удаление существующего пользователя",
         "parameters": [
           {
             "name": "id",
@@ -1446,6 +1403,28 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Удаление существующего пользователя",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Id пользователя",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
