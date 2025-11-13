@@ -29,6 +29,7 @@ namespace StudyArchieveApi
                     options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
                     options.JsonSerializerOptions.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
                     options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+                    options.JsonSerializerOptions.WriteIndented = true;
                 });
 
             // Настройка Entity Framework с поддержкой Unicode
@@ -39,6 +40,8 @@ namespace StudyArchieveApi
                     sqlOptions =>
                     {
                         sqlOptions.CommandTimeout(60);
+                        // Добавьте это для поддержки Unicode
+                        sqlOptions.UseUnicode(true);
                     });
             });
 
