@@ -10,7 +10,7 @@ namespace StudyArchieveApi.Contracts.Solution
 
         public int TaskId { get; set; }
 
-        public string SolutionText { get; set; } = null!;
+        public string SolutionText { get; set; } = string.Empty;
 
         public DateTime DateAdded { get; set; }
 
