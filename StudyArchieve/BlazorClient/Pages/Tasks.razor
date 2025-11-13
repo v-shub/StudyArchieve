@@ -1,4 +1,4 @@
-﻿@page "/tasks"
+@page "/tasks"
 @using BlazorClient.Services.Contracts.AcademicYear
 @using BlazorClient.Services.Contracts.Subject
 @using BlazorClient.Services.Contracts.TaskType
@@ -18,11 +18,14 @@
                 <h2 class="text-primary">
                     <i class="bi bi-journal-text me-2"></i>Поиск заданий
                 </h2>
-                <div class="text-muted">
+                <div class="d-flex align-items-center">
                     @if (searched)
                     {
-                        <span class="badge bg-info fs-6">Найдено: @tasks.Count</span>
+                        <span class="badge bg-info fs-6 me-3">Найдено: @(tasks?.Count ?? 0)</span>
                     }
+                    <a href="/task/create" class="btn btn-success">
+                        <i class="bi bi-plus-circle me-2"></i>Добавить задание
+                    </a>
                 </div>
             </div>
 
@@ -41,70 +44,72 @@
                     @foreach (var task in tasks)
                     {
                         <div class="col-lg-6 col-xl-4">
-                            <div class="card task-card h-100 shadow-sm" @onclick="() => NavigateToTask(task.Id)" style="cursor: pointer;">
-                                <div class="card-header bg-light d-flex justify-content-between align-items-center">
-                                    <span class="badge bg-primary">@task.Type?.Name</span>
-                                    <small class="text-muted">@task.DateAdded.ToString("dd.MM.yyyy")</small>
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title text-truncate" title="@task.Title">@task.Title</h5>
-
-                                    <div class="mb-2">
-                                        <span class="fw-semibold text-muted">Дисциплина:</span>
-                                        <span class="ms-1">@task.Subject?.Name</span>
+                            <a href="/task/@(task?.Id ?? 0)" class="text-decoration-none">
+                                <div class="card task-card h-100 shadow-sm">
+                                    <div class="card-header bg-light d-flex justify-content-between align-items-center">
+                                        <span class="badge bg-primary">@(task?.Type?.Name ?? "Неизвестный тип")</span>
+                                        <small class="text-muted">@(task?.DateAdded.ToString("dd.MM.yyyy") ?? "")</small>
                                     </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title text-truncate text-dark" title="@task?.Title">@(task?.Title ?? "Без названия")</h5>
 
-                                    @if (!string.IsNullOrEmpty(task.ConditionText))
-                                    {
                                         <div class="mb-2">
-                                            <span class="fw-semibold text-muted">Условие:</span>
-                                            <p class="card-text task-condition">@GetShortCondition(task.ConditionText)</p>
+                                            <span class="fw-semibold text-muted">Дисциплина:</span>
+                                            <span class="ms-1 text-dark">@(task?.Subject?.Name ?? "Не указана")</span>
                                         </div>
-                                    }
 
-                                    @if (task.Authors?.Any() == true)
-                                    {
-                                        <div class="mb-2">
-                                            <span class="fw-semibold text-muted">Авторы:</span>
-                                            <div class="mt-1">
-                                                @foreach (var author in task.Authors.Take(2))
-                                                {
-                                                    <span class="badge bg-secondary me-1 mb-1">@author.Name</span>
-                                                }
-                                                @if (task.Authors.Count > 2)
-                                                {
-                                                    <span class="badge bg-light text-dark">+@(task.Authors.Count - 2)</span>
-                                                }
+                                        @if (!string.IsNullOrEmpty(task?.ConditionText))
+                                        {
+                                            <div class="mb-2">
+                                                <span class="fw-semibold text-muted">Условие:</span>
+                                                <p class="card-text task-condition text-dark">@GetShortCondition(task.ConditionText)</p>
                                             </div>
-                                        </div>
-                                    }
+                                        }
 
-                                    @if (task.Tags?.Any() == true)
-                                    {
-                                        <div class="mb-3">
-                                            <span class="fw-semibold text-muted">Тэги:</span>
-                                            <div class="mt-1">
-                                                @foreach (var tag in task.Tags.Take(3))
-                                                {
-                                                    <span class="badge bg-success me-1 mb-1">@tag.Name</span>
-                                                }
-                                                @if (task.Tags.Count > 3)
-                                                {
-                                                    <span class="badge bg-light text-dark">+@(task.Tags.Count - 3)</span>
-                                                }
+                                        @if (task?.Authors?.Any() == true)
+                                        {
+                                            <div class="mb-2">
+                                                <span class="fw-semibold text-muted">Авторы:</span>
+                                                <div class="mt-1">
+                                                    @foreach (var author in task.Authors.Take(2))
+                                                    {
+                                                        <span class="badge bg-secondary me-1 mb-1">@(author?.Name ?? "Неизвестный автор")</span>
+                                                    }
+                                                    @if (task.Authors.Count > 2)
+                                                    {
+                                                        <span class="badge bg-light text-dark">+@(task.Authors.Count - 2)</span>
+                                                    }
+                                                </div>
                                             </div>
+                                        }
+
+                                        @if (task?.Tags?.Any() == true)
+                                        {
+                                            <div class="mb-3">
+                                                <span class="fw-semibold text-muted">Тэги:</span>
+                                                <div class="mt-1">
+                                                    @foreach (var tag in task.Tags.Take(3))
+                                                    {
+                                                        <span class="badge bg-success me-1 mb-1">@(tag?.Name ?? "Неизвестный тэг")</span>
+                                                    }
+                                                    @if (task.Tags.Count > 3)
+                                                    {
+                                                        <span class="badge bg-light text-dark">+@(task.Tags.Count - 3)</span>
+                                                    }
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                    <div class="card-footer bg-transparent">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <small class="text-muted">
+                                                <i class="bi bi-eye me-1"></i>Подробнее
+                                            </small>
+                                            <i class="bi bi-arrow-right text-primary"></i>
                                         </div>
-                                    }
-                                </div>
-                                <div class="card-footer bg-transparent">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <small class="text-muted">
-                                            <i class="bi bi-eye me-1"></i>Подробнее
-                                        </small>
-                                        <i class="bi bi-arrow-right text-primary"></i>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     }
                 </div>
@@ -143,9 +148,12 @@
                         <label class="form-label fw-semibold">Дисциплина:</label>
                         <select @bind="selectedSubjectId" class="form-select">
                             <option value="">Все дисциплины</option>
-                            @foreach (var subject in subjects)
+                            @if (subjects?.Any() == true)
                             {
-                                <option value="@subject.Id">@subject.Name</option>
+                                @foreach (var subject in subjects)
+                                {
+                                    <option value="@subject?.Id">@(subject?.Name ?? "Неизвестная дисциплина")</option>
+                                }
                             }
                         </select>
                     </div>
@@ -154,9 +162,12 @@
                         <label class="form-label fw-semibold">Учебный год:</label>
                         <select @bind="selectedAcademicYearId" class="form-select">
                             <option value="">Все годы</option>
-                            @foreach (var year in academicYears)
+                            @if (academicYears?.Any() == true)
                             {
-                                <option value="@year.Id">@year.YearLabel</option>
+                                @foreach (var year in academicYears)
+                                {
+                                    <option value="@year?.Id">@(year?.YearLabel ?? "Неизвестный год")</option>
+                                }
                             }
                         </select>
                     </div>
@@ -165,9 +176,12 @@
                         <label class="form-label fw-semibold">Тип задания:</label>
                         <select @bind="selectedTypeId" class="form-select">
                             <option value="">Все типы</option>
-                            @foreach (var type in taskTypes)
+                            @if (taskTypes?.Any() == true)
                             {
-                                <option value="@type.Id">@type.Name</option>
+                                @foreach (var type in taskTypes)
+                                {
+                                    <option value="@type?.Id">@(type?.Name ?? "Неизвестный тип")</option>
+                                }
                             }
                         </select>
                     </div>
@@ -175,9 +189,12 @@
                     <div class="mb-3">
                         <label class="form-label fw-semibold">Авторы:</label>
                         <select @bind="selectedAuthorIds" multiple class="form-select" size="4">
-                            @foreach (var author in authors)
+                            @if (authors?.Any() == true)
                             {
-                                <option value="@author.Id">@author.Name</option>
+                                @foreach (var author in authors)
+                                {
+                                    <option value="@author?.Id">@(author?.Name ?? "Неизвестный автор")</option>
+                                }
                             }
                         </select>
                         <small class="text-muted">Ctrl+Click для выбора нескольких</small>
@@ -186,9 +203,12 @@
                     <div class="mb-4">
                         <label class="form-label fw-semibold">Тэги:</label>
                         <select @bind="selectedTagIds" multiple class="form-select" size="4">
-                            @foreach (var tag in tags)
+                            @if (tags?.Any() == true)
                             {
-                                <option value="@tag.Id">@tag.Name</option>
+                                @foreach (var tag in tags)
+                                {
+                                    <option value="@tag?.Id">@(tag?.Name ?? "Неизвестный тэг")</option>
+                                }
                             }
                         </select>
                     </div>
@@ -281,25 +301,50 @@
     private int[] selectedTagIds = Array.Empty<int>();
     private bool isLoading = false;
     private bool searched = false;
+    private bool hasError = false;
+    private string errorMessage = string.Empty;
 
     protected override async Task OnInitializedAsync()
     {
-        await LoadFilterData();
+        try
+        {
+            await LoadFilterData();
+        }
+        catch (Exception ex)
+        {
+            hasError = true;
+            errorMessage = $"Ошибка инициализации: {ex.Message}";
+            Console.WriteLine(errorMessage);
+        }
     }
 
     private async Task LoadFilterData()
     {
         try
         {
-            subjects = await ApiService.GetListFromJsonAsync<GetSubjectResponse>("api/Subject");
-            academicYears = await ApiService.GetListFromJsonAsync<GetAcademicYearResponse>("api/AcademicYear");
-            taskTypes = await ApiService.GetListFromJsonAsync<GetTaskTypeResponse>("api/TaskType");
-            authors = await ApiService.GetListFromJsonAsync<GetAuthorResponse>("api/Author");
-            tags = await ApiService.GetListFromJsonAsync<GetTagResponse>("api/Tag");
+            var subjectsTask = ApiService.GetListFromJsonAsync<GetSubjectResponse>("api/Subject");
+            var academicYearsTask = ApiService.GetListFromJsonAsync<GetAcademicYearResponse>("api/AcademicYear");
+            var taskTypesTask = ApiService.GetListFromJsonAsync<GetTaskTypeResponse>("api/TaskType");
+            var authorsTask = ApiService.GetListFromJsonAsync<GetAuthorResponse>("api/Author");
+            var tagsTask = ApiService.GetListFromJsonAsync<GetTagResponse>("api/Tag");
+
+            await Task.WhenAll(subjectsTask, academicYearsTask, taskTypesTask, authorsTask, tagsTask);
+
+            subjects = await subjectsTask ?? new List<GetSubjectResponse>();
+            academicYears = await academicYearsTask ?? new List<GetAcademicYearResponse>();
+            taskTypes = await taskTypesTask ?? new List<GetTaskTypeResponse>();
+            authors = await authorsTask ?? new List<GetAuthorResponse>();
+            tags = await tagsTask ?? new List<GetTagResponse>();
         }
         catch (Exception ex)
         {
             Console.WriteLine($"Ошибка загрузки данных фильтров: {ex.Message}");
+            // Инициализируем пустые списки в случае ошибки
+            subjects ??= new List<GetSubjectResponse>();
+            academicYears ??= new List<GetAcademicYearResponse>();
+            taskTypes ??= new List<GetTaskTypeResponse>();
+            authors ??= new List<GetAuthorResponse>();
+            tags ??= new List<GetTagResponse>();
         }
     }
 
@@ -307,6 +352,7 @@
     {
         isLoading = true;
         searched = true;
+        hasError = false;
         StateHasChanged();
 
         try
@@ -317,16 +363,20 @@
                 selectedTypeId,
                 selectedAuthorIds,
                 selectedTagIds
-            );
+            ) ?? new List<GetTaskResponse>();
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Ошибка поиска заданий: {ex.Message}");
-            tasks = new();
+            hasError = true;
+            errorMessage = $"Ошибка поиска заданий: {ex.Message}";
+            Console.WriteLine(errorMessage);
+            tasks = new List<GetTaskResponse>();
         }
-
-        isLoading = false;
-        StateHasChanged();
+        finally
+        {
+            isLoading = false;
+            StateHasChanged();
+        }
     }
 
     private void ClearFilters()
@@ -338,11 +388,8 @@
         selectedTagIds = Array.Empty<int>();
         tasks = new();
         searched = false;
-    }
-
-    private void NavigateToTask(int taskId)
-    {
-        Navigation.NavigateTo($"/task/{taskId}");
+        hasError = false;
+        StateHasChanged();
     }
 
     private string GetShortCondition(string condition)
