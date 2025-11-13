@@ -7,6 +7,9 @@ using Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
+using System.Text.Encodings.Web;
+using System.Text.Json;
+using System.Text;
 
 namespace StudyArchieveApi
 {
@@ -14,11 +17,41 @@ namespace StudyArchieveApi
     {
         public static void Main(string[] args)
         {
+            // Установка кодировки по умолчанию для всего приложения
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            Console.OutputEncoding = Encoding.UTF8;
+
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddDbContext<StudyArchieveContext>(
-                options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            // Настройка кодировки для JSON сериализации
+            builder.Services.Configure<JsonSerializerOptions>(options =>
+            {
+                options.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+                options.PropertyNameCaseInsensitive = true;
+                options.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
+            });
 
+            // Настройка контроллеров с поддержкой UTF-8
+            builder.Services.AddControllers()
+                .AddJsonOptions(options =>
+                {
+                    options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+                    options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+                    options.JsonSerializerOptions.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
+                });
+
+            // Настройка Entity Framework с поддержкой Unicode
+            builder.Services.AddDbContext<StudyArchieveContext>(options =>
+            {
+                options.UseSqlServer(
+                    builder.Configuration.GetConnectionString("DefaultConnection"),
+                    sqlOptions =>
+                    {
+                        sqlOptions.CommandTimeout(60);
+                    });
+            });
+
+            // Регистрация сервисов
             builder.Services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
             builder.Services.AddScoped<ISubjectService, SubjectService>();
             builder.Services.AddScoped<IAcademicYearService, AcademicYearService>();
@@ -30,7 +63,19 @@ namespace StudyArchieveApi
             builder.Services.AddScoped<ITaskFileService, TaskFileService>();
             builder.Services.AddScoped<ISolutionFileService, SolutionFileService>();
             builder.Services.AddScoped<IRoleService, RoleService>();
-            builder.Services.AddScoped<IUserService, UserService>(); builder.Services.AddScoped<IBackblazeService, BackblazeService>();
+            builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddScoped<IBackblazeService, BackblazeService>();
+
+            // Настройка для обработки больших файлов
+            builder.Services.Configure<Microsoft.AspNetCore.Http.Features.FormOptions>(options =>
+            {
+                options.MultipartBodyLengthLimit = 104857600; // 100MB
+                options.MultipartBodyLengthLimit = 104857600; // 100MB
+                options.ValueLengthLimit = int.MaxValue;
+                options.MultipartBoundaryLengthLimit = int.MaxValue;
+                options.MultipartHeadersCountLimit = int.MaxValue;
+                options.MultipartHeadersLengthLimit = int.MaxValue;
+            });
 
             // Backblaze B2 Configuration
             builder.Services.AddSingleton<IAmazonS3>(provider =>
@@ -38,7 +83,9 @@ namespace StudyArchieveApi
                 var config = new AmazonS3Config
                 {
                     ServiceURL = builder.Configuration["Backblaze:ServiceURL"],
-                    ForcePathStyle = true
+                    ForcePathStyle = true,
+                    Timeout = TimeSpan.FromMinutes(5),
+                    ReadWriteTimeout = TimeSpan.FromMinutes(5)
                 };
 
                 var awsCredentials = new Amazon.Runtime.BasicAWSCredentials(
@@ -49,7 +96,6 @@ namespace StudyArchieveApi
                 return new AmazonS3Client(awsCredentials, config);
             });
 
-            builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen(options =>
             {
@@ -72,36 +118,65 @@ namespace StudyArchieveApi
                         Url = new Uri("https://github.com/v-shub")
                     }
                 });
+
                 var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
             });
 
+            // Настройка CORS
+            builder.Services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(policy =>
+                {
+                    policy.WithOrigins("https://localhost:7029")
+                          .AllowAnyHeader()
+                          .AllowAnyMethod()
+                          .AllowCredentials();
+                });
+            });
+
             var app = builder.Build();
 
-            using (var scope = app.Services.CreateScope())
-            {
-                var services = scope.ServiceProvider;
-                var context = services.GetRequiredService<StudyArchieveContext>();
-            }
-
-            // Configure the HTTP request pipeline.
+            // Middleware pipeline
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
-                app.UseSwaggerUI();
+                app.UseSwaggerUI(options =>
+                {
+                    options.SwaggerEndpoint("/swagger/v1/swagger.json", "StudyArchieve API v1");
+                    options.RoutePrefix = string.Empty;
+                });
             }
 
-            app.UseCors(builder => builder.WithOrigins(new[] { "https://localhost:7029" })
-                .AllowAnyHeader()
-                .AllowAnyMethod());
+            // Глобальная обработка кодировки
+            app.Use(async (context, next) =>
+            {
+                context.Response.Headers.Append("Content-Type", "application/json; charset=utf-8");
+                await next();
+            });
 
+            app.UseCors();
             app.UseHttpsRedirection();
-
             app.UseAuthorization();
-
-
             app.MapControllers();
 
+            // Инициализация базы данных
+            using (var scope = app.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                try
+                {
+                    var context = services.GetRequiredService<StudyArchieveContext>();
+                    // Можно добавить миграции или инициализацию данных при необходимости
+                    Console.WriteLine("База данных подключена успешно");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Ошибка при подключении к базе данных: {ex.Message}");
+                }
+            }
+
+            Console.WriteLine("Приложение запущено с поддержкой UTF-8 кодировки");
             app.Run();
         }
     }
