@@ -23,22 +23,7 @@ namespace StudyArchieveApi
 
             var builder = WebApplication.CreateBuilder(args);
 
-            // Настройка кодировки для JSON сериализации
-            builder.Services.Configure<JsonSerializerOptions>(options =>
-            {
-                options.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
-                options.PropertyNameCaseInsensitive = true;
-                options.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
-            });
-
-            // Настройка контроллеров с поддержкой UTF-8
-            builder.Services.AddControllers()
-                .AddJsonOptions(options =>
-                {
-                    options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
-                    options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
-                    options.JsonSerializerOptions.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
-                });
+            builder.Services.AddControllers();
 
             // Настройка Entity Framework с поддержкой Unicode
             builder.Services.AddDbContext<StudyArchieveContext>(options =>
@@ -147,13 +132,6 @@ namespace StudyArchieveApi
                 });
             }
 
-            // Глобальная обработка кодировки
-            app.Use(async (context, next) =>
-            {
-                context.Response.Headers.Append("Content-Type", "application/json; charset=utf-8");
-                await next();
-            });
-
             app.UseCors();
             app.UseHttpsRedirection();
             app.UseAuthorization();
@@ -175,7 +153,7 @@ namespace StudyArchieveApi
                 }
             }
 
-            Console.WriteLine("Приложение запущено с поддержкой UTF-8 кодировки");
+            Console.WriteLine("Приложение запущено");
             app.Run();
         }
     }
