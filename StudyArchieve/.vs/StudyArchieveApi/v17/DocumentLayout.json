@@ -3,32 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|src\\StudyArchieve\\StudyArchieveApi.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\src\\studyarchieve\\controllers\\academicyearcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|src\\StudyArchieve\\StudyArchieveApi.csproj|solutionrelative:src\\studyarchieve\\controllers\\academicyearcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E10C3815-7078-4B18-970D-66A35C82F86B}|BlazorClient\\BlazorClient.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\blazorclient\\services\\apiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E10C3815-7078-4B18-970D-66A35C82F86B}|BlazorClient\\BlazorClient.csproj|solutionrelative:blazorclient\\services\\apiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|src\\StudyArchieve\\StudyArchieveApi.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\src\\studyarchieve\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|src\\StudyArchieve\\StudyArchieveApi.csproj|solutionrelative:src\\studyarchieve\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|src\\StudyArchieve\\StudyArchieveApi.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\src\\studyarchieve\\contracts\\solution\\updatesolutionrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|src\\StudyArchieve\\StudyArchieveApi.csproj|solutionrelative:src\\studyarchieve\\contracts\\solution\\updatesolutionrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A6B04F3C-3294-4942-BBF9-B1EAD403BEBD}|src{A6B04F3C-3294-4942-BBF9-B1EAD403BEBD}|C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\src\\docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A6B04F3C-3294-4942-BBF9-B1EAD403BEBD}|src{A6B04F3C-3294-4942-BBF9-B1EAD403BEBD}|solutionrelative:src\\docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|src\\StudyArchieve\\StudyArchieveApi.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\src\\studyarchieve\\contracts\\solution\\getsolutionresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|src\\StudyArchieve\\StudyArchieveApi.csproj|solutionrelative:src\\studyarchieve\\contracts\\solution\\getsolutionresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A6B04F3C-3294-4942-BBF9-B1EAD403BEBD}|src{A6B04F3C-3294-4942-BBF9-B1EAD403BEBD}|C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\src\\Dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A6B04F3C-3294-4942-BBF9-B1EAD403BEBD}|src{A6B04F3C-3294-4942-BBF9-B1EAD403BEBD}|solutionrelative:src\\Dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|src\\StudyArchieve\\StudyArchieveApi.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\src\\studyarchieve\\contracts\\solution\\createsolutionrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|src\\StudyArchieve\\StudyArchieveApi.csproj|solutionrelative:src\\studyarchieve\\contracts\\solution\\createsolutionrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E10C3815-7078-4B18-970D-66A35C82F86B}|BlazorClient\\BlazorClient.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\blazorclient\\nginx.conf||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{E10C3815-7078-4B18-970D-66A35C82F86B}|BlazorClient\\BlazorClient.csproj|solutionrelative:blazorclient\\nginx.conf||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0CCD607A-2C8E-4139-8D0E-FE6FB7072AA0}|src\\Domain\\Domain.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\src\\domain\\models\\author.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0CCD607A-2C8E-4139-8D0E-FE6FB7072AA0}|src\\Domain\\Domain.csproj|solutionrelative:src\\domain\\models\\author.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E10C3815-7078-4B18-970D-66A35C82F86B}|BlazorClient\\BlazorClient.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\blazorclient\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{E10C3815-7078-4B18-970D-66A35C82F86B}|BlazorClient\\BlazorClient.csproj|solutionrelative:blazorclient\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0CCD607A-2C8E-4139-8D0E-FE6FB7072AA0}|src\\Domain\\Domain.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\src\\domain\\models\\solution.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0CCD607A-2C8E-4139-8D0E-FE6FB7072AA0}|src\\Domain\\Domain.csproj|solutionrelative:src\\domain\\models\\solution.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E10C3815-7078-4B18-970D-66A35C82F86B}|BlazorClient\\BlazorClient.csproj|c:\\users\\student\\desktop\\shubina\\studyarchieve\\studyarchieve\\blazorclient\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E10C3815-7078-4B18-970D-66A35C82F86B}|BlazorClient\\BlazorClient.csproj|solutionrelative:blazorclient\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,15 +54,80 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\src\\Dockerfile",
+              "RelativeDocumentMoniker": "src\\Dockerfile",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\src\\Dockerfile",
+              "RelativeToolTip": "src\\Dockerfile",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-11-13T12:06:52.882Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "docker-compose.yml",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\src\\docker-compose.yml",
+              "RelativeDocumentMoniker": "src\\docker-compose.yml",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\src\\docker-compose.yml",
+              "RelativeToolTip": "src\\docker-compose.yml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
+              "WhenOpened": "2025-11-13T12:06:48.906Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AcademicYearController.cs",
-              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\src\\StudyArchieve\\Controllers\\AcademicYearController.cs",
-              "RelativeDocumentMoniker": "src\\StudyArchieve\\Controllers\\AcademicYearController.cs",
-              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\src\\StudyArchieve\\Controllers\\AcademicYearController.cs",
-              "RelativeToolTip": "src\\StudyArchieve\\Controllers\\AcademicYearController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFQAAAAWAAAAAAAAAA==",
+              "Title": "ApiService.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\BlazorClient\\Services\\ApiService.cs",
+              "RelativeDocumentMoniker": "BlazorClient\\Services\\ApiService.cs",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\BlazorClient\\Services\\ApiService.cs",
+              "RelativeToolTip": "BlazorClient\\Services\\ApiService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-13T11:31:56.346Z",
+              "WhenOpened": "2025-11-13T11:58:56.974Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\BlazorClient\\Program.cs",
+              "RelativeDocumentMoniker": "BlazorClient\\Program.cs",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\BlazorClient\\Program.cs",
+              "RelativeToolTip": "BlazorClient\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T11:58:38.692Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "nginx.conf",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\BlazorClient\\nginx.conf",
+              "RelativeDocumentMoniker": "BlazorClient\\nginx.conf",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\BlazorClient\\nginx.conf",
+              "RelativeToolTip": "BlazorClient\\nginx.conf",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-11-13T11:57:40.935Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\BlazorClient\\Dockerfile",
+              "RelativeDocumentMoniker": "BlazorClient\\Dockerfile",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\BlazorClient\\Dockerfile",
+              "RelativeToolTip": "BlazorClient\\Dockerfile",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-11-13T11:57:25.743Z",
               "EditorCaption": ""
             },
             {
@@ -73,70 +138,10 @@
               "RelativeDocumentMoniker": "src\\StudyArchieve\\Program.cs",
               "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\src\\StudyArchieve\\Program.cs",
               "RelativeToolTip": "src\\StudyArchieve\\Program.cs",
-              "ViewState": "AgIAAH8AAAAAAAAAAAAgwAsAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAGsAAAAAAAAAAAAAwHIAAABQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-13T11:11:12.053Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UpdateSolutionRequest.cs",
-              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\src\\StudyArchieve\\Contracts\\Solution\\UpdateSolutionRequest.cs",
-              "RelativeDocumentMoniker": "src\\StudyArchieve\\Contracts\\Solution\\UpdateSolutionRequest.cs",
-              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\src\\StudyArchieve\\Contracts\\Solution\\UpdateSolutionRequest.cs",
-              "RelativeToolTip": "src\\StudyArchieve\\Contracts\\Solution\\UpdateSolutionRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-13T11:10:01.467Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "GetSolutionResponse.cs",
-              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\src\\StudyArchieve\\Contracts\\Solution\\GetSolutionResponse.cs",
-              "RelativeDocumentMoniker": "src\\StudyArchieve\\Contracts\\Solution\\GetSolutionResponse.cs",
-              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\src\\StudyArchieve\\Contracts\\Solution\\GetSolutionResponse.cs",
-              "RelativeToolTip": "src\\StudyArchieve\\Contracts\\Solution\\GetSolutionResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-13T11:09:55.997Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CreateSolutionRequest.cs",
-              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\src\\StudyArchieve\\Contracts\\Solution\\CreateSolutionRequest.cs",
-              "RelativeDocumentMoniker": "src\\StudyArchieve\\Contracts\\Solution\\CreateSolutionRequest.cs",
-              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\src\\StudyArchieve\\Contracts\\Solution\\CreateSolutionRequest.cs",
-              "RelativeToolTip": "src\\StudyArchieve\\Contracts\\Solution\\CreateSolutionRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-13T11:09:39.735Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Author.cs",
-              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\src\\Domain\\Models\\Author.cs",
-              "RelativeDocumentMoniker": "src\\Domain\\Models\\Author.cs",
-              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\src\\Domain\\Models\\Author.cs",
-              "RelativeToolTip": "src\\Domain\\Models\\Author.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-13T11:08:21.282Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Solution.cs",
-              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\src\\Domain\\Models\\Solution.cs",
-              "RelativeDocumentMoniker": "src\\Domain\\Models\\Solution.cs",
-              "ToolTip": "C:\\Users\\Student\\Desktop\\Shubina\\StudyArchieve\\StudyArchieve\\src\\Domain\\Models\\Solution.cs",
-              "RelativeToolTip": "src\\Domain\\Models\\Solution.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-13T11:08:01.722Z"
             }
           ]
         }
