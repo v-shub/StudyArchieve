@@ -1,0 +1,368 @@
+﻿@page "/"
+@using BlazorClient.Services.Contracts.Subject
+@using BlazorClient.Services.Contracts.AcademicYear
+@using BlazorClient.Services.Contracts.Task
+@using BlazorClient.Services.Contracts.Author
+@inject ApiService ApiService
+
+<PageTitle>Архив заданий - Главная</PageTitle>
+
+@if (isLoading)
+{
+    <div class="text-center py-5">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Загрузка...</span>
+        </div>
+        <p class="mt-2">Загрузка данных...</p>
+    </div>
+}
+else
+{
+    <div class="welcome-page">
+        <div class="hero-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h1 class="display-4 fw-bold text-primary mb-4">
+                            Архив заданий прошлых лет
+                        </h1>
+                        <p class="lead mb-4">
+                            Электронная база учебных материалов и заданий для подготовки студентов колледжа.
+                            Здесь вы найдете задания по различным дисциплинам, которые помогут в освоении
+                            учебной программы и подготовке к экзаменам.
+                        </p>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                            <a href="/tasks" class="btn btn-primary btn-lg px-4 me-md-2">
+                                <i class="bi bi-search me-2"></i>Найти задания
+                            </a>
+                            <a href="#features" class="btn btn-outline-secondary btn-lg px-4">
+                                <i class="bi bi-info-circle me-2"></i>Подробнее
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-center">
+                        <div class="hero-image">
+                            <i class="bi bi-archive-fill display-1 text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="features" class="features-section py-5">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold">Возможности архива</h2>
+                    <p class="text-muted">Все что нужно для эффективной подготовки</p>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="feature-card text-center p-4">
+                            <div class="feature-icon mb-3">
+                                <i class="bi bi-folder2-open display-4 text-primary"></i>
+                            </div>
+                            <h4>Упорядоченная база</h4>
+                            <p class="text-muted">
+                                Задания систематизированы по дисциплинам, учебным годам и типам работ
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="feature-card text-center p-4">
+                            <div class="feature-icon mb-3">
+                                <i class="bi bi-search display-4 text-success"></i>
+                            </div>
+                            <h4>Удобный поиск</h4>
+                            <p class="text-muted">
+                                Фильтрация по авторам, тегам, дисциплинам и другим параметрам
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="feature-card text-center p-4">
+                            <div class="feature-icon mb-3">
+                                <i class="bi bi-clock-history display-4 text-warning"></i>
+                            </div>
+                            <h4>Материалы прошлых лет</h4>
+                            <p class="text-muted">
+                                Доступ к заданиям и решениям предыдущих учебных периодов
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="subjects-section py-5 bg-light">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold">Доступные дисциплины</h2>
+                    <p class="text-muted">Широкий спектр учебных предметов</p>
+                </div>
+
+                @if (subjects?.Any() == true)
+                {
+                    <div class="row g-3">
+                        @foreach (var subject in subjects.Take(8))
+                        {
+                            <div class="col-md-3 col-6">
+                                <div class="subject-item text-center p-3">
+                                    @switch (subject.Name.ToLower())
+                                    {
+                                        case var s when s.Contains("математ") || s.Contains("math"):
+                                            <i class="bi bi-calculator display-6 text-primary mb-2"></i>
+                                            break;
+                                        case var s when s.Contains("информат") || s.Contains("програм") || s.Contains("computer"):
+                                            <i class="bi bi-cpu display-6 text-success mb-2"></i>
+                                            break;
+                                        case var s when s.Contains("англий") || s.Contains("english") || s.Contains("язык"):
+                                            <i class="bi bi-translate display-6 text-info mb-2"></i>
+                                            break;
+                                        case var s when s.Contains("физик") || s.Contains("physics"):
+                                            <i class="bi bi-atom display-6 text-warning mb-2"></i>
+                                            break;
+                                        case var s when s.Contains("хими") || s.Contains("chemistry"):
+                                            <i class="bi bi-flask display-6 text-danger mb-2"></i>
+                                            break;
+                                        case var s when s.Contains("истор") || s.Contains("history"):
+                                            <i class="bi bi-clock-history display-6 text-secondary mb-2"></i>
+                                            break;
+                                        case var s when s.Contains("технич") || s.Contains("технолог") || s.Contains("technical"):
+                                            <i class="bi bi-gear display-6 text-warning mb-2"></i>
+                                            break;
+                                        default:
+                                            <i class="bi bi-book display-6 text-primary mb-2"></i>
+                                            break;
+                                    }
+                                    <h6 class="mb-0">@subject.Name</h6>
+                                </div>
+                            </div>
+                        }
+                        @if (subjects.Count > 8)
+                        {
+                            <div class="col-12 text-center mt-4">
+                                <a href="/subjects" class="btn btn-outline-primary">
+                                    <i class="bi bi-arrow-right me-2"></i>Все дисциплины (@subjects.Count)
+                                </a>
+                            </div>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <div class="text-center">
+                        <p class="text-muted">Дисциплины загружаются...</p>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="stats-section py-5">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-3">
+                        <div class="stat-item">
+                            <h3 class="fw-bold text-primary">@totalTasks</h3>
+                            <p class="text-muted">Заданий в архиве</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-item">
+                            <h3 class="fw-bold text-success">@totalSubjects</h3>
+                            <p class="text-muted">Учебных дисциплин</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-item">
+                            <h3 class="fw-bold text-warning">@totalAuthors</h3>
+                            <p class="text-muted">Преподавателей-авторов</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-item">
+                            <h3 class="fw-bold text-info">@totalAcademicYears</h3>
+                            <p class="text-muted">Учебных годов в архиве</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section py-5 bg-primary text-white">
+            <div class="container text-center">
+                <h2 class="fw-bold mb-3">Начните подготовку сегодня!</h2>
+                <p class="mb-4">Используйте архив заданий для улучшения успеваемости и качественной подготовки к экзаменам</p>
+                <a href="/tasks" class="btn btn-light btn-lg">
+                    <i class="bi bi-arrow-right me-2"></i>Перейти к поиску заданий
+                </a>
+            </div>
+        </div>
+    </div>
+}
+
+<style>
+    .hero-section {
+        padding: 100px 0;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    }
+
+    .hero-image {
+        padding: 40px;
+    }
+
+    .feature-card {
+        border-radius: 15px;
+        border: 1px solid #e9ecef;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 100%;
+    }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+    .feature-icon {
+        opacity: 0.8;
+    }
+
+    .subject-item {
+        border-radius: 10px;
+        border: 1px solid #dee2e6;
+        transition: all 0.3s ease;
+        background: white;
+        height: 120px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .subject-item:hover {
+            background: #f8f9fa;
+            border-color: #007bff;
+            transform: translateY(-2px);
+        }
+
+    .stat-item {
+        padding: 20px;
+    }
+
+    .cta-section {
+        border-radius: 15px;
+        margin: 20px;
+    }
+
+    @@media (max-width: 768px) {
+        .hero-section {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .display-4 {
+            font-size: 2.5rem;
+        }
+
+        .subject-item {
+            height: 100px;
+        }
+
+            .subject-item h6 {
+                font-size: 0.9rem;
+            }
+    }
+</style>
+
+@code {
+    private List<GetSubjectResponse> subjects = new();
+    private List<GetTaskResponse> tasks = new();
+    private List<GetAuthorResponse> authors = new();
+    private List<GetAcademicYearResponse> academicYears = new();
+    private bool isLoading = true;
+
+    private int totalTasks => tasks?.Count ?? 0;
+    private int totalSubjects => subjects?.Count ?? 0;
+    private int totalAuthors => authors?.Count ?? 0;
+    private int totalAcademicYears => academicYears?.Count ?? 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadData();
+    }
+
+    private async Task LoadData()
+    {
+        try
+        {
+            var tasks = new List<Task>
+            {
+                LoadSubjects(),
+                LoadTasks(),
+                LoadAuthors(),
+                LoadAcademicYears()
+            };
+
+            await Task.WhenAll(tasks);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Ошибка загрузки данных: {ex.Message}");
+        }
+        finally
+        {
+            isLoading = false;
+            StateHasChanged();
+        }
+    }
+
+    private async Task LoadSubjects()
+    {
+        try
+        {
+            subjects = await ApiService.GetListFromJsonAsync<GetSubjectResponse>("api/Subject");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Ошибка загрузки дисциплин: {ex.Message}");
+        }
+    }
+
+    private async Task LoadTasks()
+    {
+        try
+        {
+            tasks = await ApiService.GetListFromJsonAsync<GetTaskResponse>("api/Task");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Ошибка загрузки заданий: {ex.Message}");
+        }
+    }
+
+    private async Task LoadAuthors()
+    {
+        try
+        {
+            authors = await ApiService.GetListFromJsonAsync<GetAuthorResponse>("api/Author");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Ошибка загрузки авторов: {ex.Message}");
+        }
+    }
+
+    private async Task LoadAcademicYears()
+    {
+        try
+        {
+            academicYears = await ApiService.GetListFromJsonAsync<GetAcademicYearResponse>("api/AcademicYear");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Ошибка загрузки учебных годов: {ex.Message}");
+        }
+    }
+}

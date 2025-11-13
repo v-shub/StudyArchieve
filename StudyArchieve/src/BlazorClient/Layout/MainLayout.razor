@@ -1,0 +1,91 @@
+﻿<!-- MainLayout.razor -->
+@inherits LayoutComponentBase
+
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main>
+        <div class="top-row px-4 bg-light">
+            <div class="d-flex justify-content-between w-100">
+                <div class="d-flex align-items-center">
+                    <small class="text-muted">
+                        <i class="bi bi-database me-1"></i>Архив учебных материалов
+                    </small>
+                </div>
+                <div class="d-flex align-items-center">
+                    <a href="https://learn.microsoft.com/aspnet/core/" target="_blank" class="text-decoration-none me-3">
+                        <i class="bi bi-book me-1"></i>Документация
+                    </a>
+                    <a href="https://github.com/v-shub" class="text-decoration-none">
+                        <i class="bi bi-headset me-1"></i>Поддержка
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <article class="content px-4 py-3">
+            @Body
+        </article>
+    </main>
+</div>
+
+<style>
+    .sidebar {
+        background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+    }
+
+    .top-row {
+        background-color: #f7f7f7;
+        border-bottom: 1px solid #d6d5d5;
+        height: 3.5rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar-brand {
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+
+    .nav-scrollable {
+        max-height: calc(100vh - 3.5rem);
+        overflow-y: auto;
+    }
+
+    .nav-link {
+        color: #d7d7d7;
+        border-radius: 4px;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        line-height: 3rem;
+        transition: all 0.3s ease;
+    }
+
+        .nav-link:hover {
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+        .nav-link.active {
+            background-color: rgba(255,255,255,0.25);
+            color: white;
+        }
+
+    .bi {
+        width: 2rem;
+        font-size: 1.1rem;
+    }
+
+    @@media (max-width: 768px) {
+        .top-row {
+            justify-content: space-between;
+        }
+
+            .top-row a {
+                font-size: 0.9rem;
+            }
+    }
+</style>

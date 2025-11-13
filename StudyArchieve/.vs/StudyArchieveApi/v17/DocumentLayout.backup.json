@@ -3,24 +3,60 @@
   "WorkspaceRootPath": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|src\\StudyArchieve\\StudyArchieveApi.csproj|c:\\users\\victo\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\modules\\studyarchieve\\studyarchieve\\src\\studyarchieve\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|src\\StudyArchieve\\StudyArchieveApi.csproj|solutionrelative:src\\studyarchieve\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E10C3815-7078-4B18-970D-66A35C82F86B}|src\\BlazorClient\\BlazorClient.csproj|c:\\users\\victo\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\modules\\studyarchieve\\studyarchieve\\src\\blazorclient\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E10C3815-7078-4B18-970D-66A35C82F86B}|src\\BlazorClient\\BlazorClient.csproj|solutionrelative:src\\blazorclient\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8C1A065C-4CF2-478F-AD1D-80F4BA6CE5DD}|test\\BusinessLogic.Tests\\BusinessLogic.Tests.csproj|c:\\users\\victo\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\modules\\studyarchieve\\studyarchieve\\test\\businesslogic.tests\\businesslogic.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{8C1A065C-4CF2-478F-AD1D-80F4BA6CE5DD}|test\\BusinessLogic.Tests\\BusinessLogic.Tests.csproj|solutionrelative:test\\businesslogic.tests\\businesslogic.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{E10C3815-7078-4B18-970D-66A35C82F86B}|src\\BlazorClient\\BlazorClient.csproj|c:\\users\\victo\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\modules\\studyarchieve\\studyarchieve\\src\\blazorclient\\pages\\user.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E10C3815-7078-4B18-970D-66A35C82F86B}|src\\BlazorClient\\BlazorClient.csproj|solutionrelative:src\\blazorclient\\pages\\user.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|src\\StudyArchieve\\StudyArchieveApi.csproj|c:\\users\\victo\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\modules\\studyarchieve\\studyarchieve\\src\\studyarchieve\\studyarchieveapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{B5FB74D5-B785-4DA7-980A-AE1B3060F870}|src\\StudyArchieve\\StudyArchieveApi.csproj|solutionrelative:src\\studyarchieve\\studyarchieveapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{E10C3815-7078-4B18-970D-66A35C82F86B}|src\\BlazorClient\\BlazorClient.csproj|c:\\users\\victo\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\modules\\studyarchieve\\studyarchieve\\src\\blazorclient\\pages\\taskdetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E10C3815-7078-4B18-970D-66A35C82F86B}|src\\BlazorClient\\BlazorClient.csproj|solutionrelative:src\\blazorclient\\pages\\taskdetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{406CFA48-10FF-4FBA-BBF1-5ED3F541C389}|src\\BusinessLogic\\BusinessLogic.csproj|c:\\users\\victo\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\modules\\studyarchieve\\studyarchieve\\src\\businesslogic\\businesslogic.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{406CFA48-10FF-4FBA-BBF1-5ED3F541C389}|src\\BusinessLogic\\BusinessLogic.csproj|solutionrelative:src\\businesslogic\\businesslogic.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{E10C3815-7078-4B18-970D-66A35C82F86B}|src\\BlazorClient\\BlazorClient.csproj|c:\\users\\victo\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\modules\\studyarchieve\\studyarchieve\\src\\blazorclient\\pages\\author.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E10C3815-7078-4B18-970D-66A35C82F86B}|src\\BlazorClient\\BlazorClient.csproj|solutionrelative:src\\blazorclient\\pages\\author.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{61159845-D8F8-441D-91F6-BF240F82EBC0}|src\\DataAccess\\DataAccess.csproj|c:\\users\\victo\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\modules\\studyarchieve\\studyarchieve\\src\\dataaccess\\dataaccess.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{61159845-D8F8-441D-91F6-BF240F82EBC0}|src\\DataAccess\\DataAccess.csproj|solutionrelative:src\\dataaccess\\dataaccess.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{E10C3815-7078-4B18-970D-66A35C82F86B}|src\\BlazorClient\\BlazorClient.csproj|c:\\users\\victo\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\modules\\studyarchieve\\studyarchieve\\src\\blazorclient\\pages\\role.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E10C3815-7078-4B18-970D-66A35C82F86B}|src\\BlazorClient\\BlazorClient.csproj|solutionrelative:src\\blazorclient\\pages\\role.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E10C3815-7078-4B18-970D-66A35C82F86B}|src\\BlazorClient\\BlazorClient.csproj|c:\\users\\victo\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\modules\\studyarchieve\\studyarchieve\\src\\blazorclient\\pages\\tasktype.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E10C3815-7078-4B18-970D-66A35C82F86B}|src\\BlazorClient\\BlazorClient.csproj|solutionrelative:src\\blazorclient\\pages\\tasktype.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E10C3815-7078-4B18-970D-66A35C82F86B}|src\\BlazorClient\\BlazorClient.csproj|c:\\users\\victo\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\modules\\studyarchieve\\studyarchieve\\src\\blazorclient\\pages\\tag.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E10C3815-7078-4B18-970D-66A35C82F86B}|src\\BlazorClient\\BlazorClient.csproj|solutionrelative:src\\blazorclient\\pages\\tag.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E10C3815-7078-4B18-970D-66A35C82F86B}|src\\BlazorClient\\BlazorClient.csproj|c:\\users\\victo\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\modules\\studyarchieve\\studyarchieve\\src\\blazorclient\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E10C3815-7078-4B18-970D-66A35C82F86B}|src\\BlazorClient\\BlazorClient.csproj|solutionrelative:src\\blazorclient\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E10C3815-7078-4B18-970D-66A35C82F86B}|src\\BlazorClient\\BlazorClient.csproj|c:\\users\\victo\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\modules\\studyarchieve\\studyarchieve\\src\\blazorclient\\pages\\academicyears.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E10C3815-7078-4B18-970D-66A35C82F86B}|src\\BlazorClient\\BlazorClient.csproj|solutionrelative:src\\blazorclient\\pages\\academicyears.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E10C3815-7078-4B18-970D-66A35C82F86B}|src\\BlazorClient\\BlazorClient.csproj|c:\\users\\victo\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\modules\\studyarchieve\\studyarchieve\\src\\blazorclient\\pages\\subject.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E10C3815-7078-4B18-970D-66A35C82F86B}|src\\BlazorClient\\BlazorClient.csproj|solutionrelative:src\\blazorclient\\pages\\subject.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E10C3815-7078-4B18-970D-66A35C82F86B}|src\\BlazorClient\\BlazorClient.csproj|c:\\users\\victo\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\modules\\studyarchieve\\studyarchieve\\src\\blazorclient\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E10C3815-7078-4B18-970D-66A35C82F86B}|src\\BlazorClient\\BlazorClient.csproj|solutionrelative:src\\blazorclient\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E10C3815-7078-4B18-970D-66A35C82F86B}|src\\BlazorClient\\BlazorClient.csproj|c:\\users\\victo\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\modules\\studyarchieve\\studyarchieve\\src\\blazorclient\\pages\\tasks.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E10C3815-7078-4B18-970D-66A35C82F86B}|src\\BlazorClient\\BlazorClient.csproj|solutionrelative:src\\blazorclient\\pages\\tasks.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E10C3815-7078-4B18-970D-66A35C82F86B}|src\\BlazorClient\\BlazorClient.csproj|c:\\users\\victo\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\modules\\studyarchieve\\studyarchieve\\src\\blazorclient\\services\\apiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E10C3815-7078-4B18-970D-66A35C82F86B}|src\\BlazorClient\\BlazorClient.csproj|solutionrelative:src\\blazorclient\\services\\apiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E10C3815-7078-4B18-970D-66A35C82F86B}|src\\BlazorClient\\BlazorClient.csproj|c:\\users\\victo\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\modules\\studyarchieve\\studyarchieve\\src\\blazorclient\\wwwroot\\css\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{E10C3815-7078-4B18-970D-66A35C82F86B}|src\\BlazorClient\\BlazorClient.csproj|solutionrelative:src\\blazorclient\\wwwroot\\css\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -47,66 +83,183 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\StudyArchieve\\Program.cs",
-              "RelativeDocumentMoniker": "src\\StudyArchieve\\Program.cs",
-              "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\StudyArchieve\\Program.cs",
-              "RelativeToolTip": "src\\StudyArchieve\\Program.cs",
-              "ViewState": "AgIAAFkAAAAAAAAAAAAAAGUAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-12T19:22:56.086Z",
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\BlazorClient\\wwwroot\\index.html",
+              "RelativeDocumentMoniker": "src\\BlazorClient\\wwwroot\\index.html",
+              "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\BlazorClient\\wwwroot\\index.html",
+              "RelativeToolTip": "src\\BlazorClient\\wwwroot\\index.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-11-13T05:24:05.141Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "BusinessLogic.Tests.csproj",
-              "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\test\\BusinessLogic.Tests\\BusinessLogic.Tests.csproj",
-              "RelativeDocumentMoniker": "test\\BusinessLogic.Tests\\BusinessLogic.Tests.csproj",
-              "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\test\\BusinessLogic.Tests\\BusinessLogic.Tests.csproj",
-              "RelativeToolTip": "test\\BusinessLogic.Tests\\BusinessLogic.Tests.csproj",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwBIAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-11-12T15:51:13.074Z",
+              "DocumentIndex": 11,
+              "Title": "Tasks.razor",
+              "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\BlazorClient\\Pages\\Tasks.razor",
+              "RelativeDocumentMoniker": "src\\BlazorClient\\Pages\\Tasks.razor",
+              "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\BlazorClient\\Pages\\Tasks.razor",
+              "RelativeToolTip": "src\\BlazorClient\\Pages\\Tasks.razor",
+              "ViewState": "AgIAABcBAAAAAAAAAAAvwCkBAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-13T04:57:27.756Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "StudyArchieveApi.csproj",
-              "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\StudyArchieve\\StudyArchieveApi.csproj",
-              "RelativeDocumentMoniker": "src\\StudyArchieve\\StudyArchieveApi.csproj",
-              "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\StudyArchieve\\StudyArchieveApi.csproj",
-              "RelativeToolTip": "src\\StudyArchieve\\StudyArchieveApi.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwBYAAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-11-12T15:45:52.085Z",
+              "Title": "TaskDetails.razor",
+              "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\BlazorClient\\Pages\\TaskDetails.razor",
+              "RelativeDocumentMoniker": "src\\BlazorClient\\Pages\\TaskDetails.razor",
+              "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\BlazorClient\\Pages\\TaskDetails.razor",
+              "RelativeToolTip": "src\\BlazorClient\\Pages\\TaskDetails.razor",
+              "ViewState": "AgIAADMCAAAAAAAAAAAswD4CAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-13T04:56:53.56Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "BusinessLogic.csproj",
-              "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\BusinessLogic\\BusinessLogic.csproj",
-              "RelativeDocumentMoniker": "src\\BusinessLogic\\BusinessLogic.csproj",
-              "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\BusinessLogic\\BusinessLogic.csproj",
-              "RelativeToolTip": "src\\BusinessLogic\\BusinessLogic.csproj",
+              "DocumentIndex": 10,
+              "Title": "Index.razor",
+              "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\BlazorClient\\Pages\\Index.razor",
+              "RelativeDocumentMoniker": "src\\BlazorClient\\Pages\\Index.razor",
+              "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\BlazorClient\\Pages\\Index.razor",
+              "RelativeToolTip": "src\\BlazorClient\\Pages\\Index.razor",
+              "ViewState": "AgIAAE4BAAAAAAAAAAAvwGgBAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-13T04:56:32.52Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AcademicYears.razor",
+              "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\BlazorClient\\Pages\\AcademicYears.razor",
+              "RelativeDocumentMoniker": "src\\BlazorClient\\Pages\\AcademicYears.razor",
+              "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\BlazorClient\\Pages\\AcademicYears.razor",
+              "RelativeToolTip": "src\\BlazorClient\\Pages\\AcademicYears.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAALoAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-13T04:44:33.331Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ApiService.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\BlazorClient\\Services\\ApiService.cs",
+              "RelativeDocumentMoniker": "src\\BlazorClient\\Services\\ApiService.cs",
+              "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\BlazorClient\\Services\\ApiService.cs",
+              "RelativeToolTip": "src\\BlazorClient\\Services\\ApiService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-11-12T15:45:37.394Z",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T04:25:42.246Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "app.css",
+              "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\BlazorClient\\wwwroot\\css\\app.css",
+              "RelativeDocumentMoniker": "src\\BlazorClient\\wwwroot\\css\\app.css",
+              "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\BlazorClient\\wwwroot\\css\\app.css",
+              "RelativeToolTip": "src\\BlazorClient\\wwwroot\\css\\app.css",
+              "ViewState": "AgIAAJAAAAAAAAAAAAAswKgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-11-13T04:15:15.881Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\BlazorClient\\Layout\\NavMenu.razor",
+              "RelativeDocumentMoniker": "src\\BlazorClient\\Layout\\NavMenu.razor",
+              "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\BlazorClient\\Layout\\NavMenu.razor",
+              "RelativeToolTip": "src\\BlazorClient\\Layout\\NavMenu.razor",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAAAEIAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-13T04:08:58.719Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Tag.razor",
+              "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\BlazorClient\\Pages\\Tag.razor",
+              "RelativeDocumentMoniker": "src\\BlazorClient\\Pages\\Tag.razor",
+              "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\BlazorClient\\Pages\\Tag.razor",
+              "RelativeToolTip": "src\\BlazorClient\\Pages\\Tag.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEABAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-13T04:04:52.114Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Subject.razor",
+              "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\BlazorClient\\Pages\\Subject.razor",
+              "RelativeDocumentMoniker": "src\\BlazorClient\\Pages\\Subject.razor",
+              "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\BlazorClient\\Pages\\Subject.razor",
+              "RelativeToolTip": "src\\BlazorClient\\Pages\\Subject.razor",
+              "ViewState": "AgIAAC8BAAAAAAAAAAAswDsBAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-13T04:04:39.208Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TaskType.razor",
+              "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\BlazorClient\\Pages\\TaskType.razor",
+              "RelativeDocumentMoniker": "src\\BlazorClient\\Pages\\TaskType.razor",
+              "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\BlazorClient\\Pages\\TaskType.razor",
+              "RelativeToolTip": "src\\BlazorClient\\Pages\\TaskType.razor",
+              "ViewState": "AgIAAC8BAAAAAAAAAAAswEkBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-13T04:04:21.819Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "DataAccess.csproj",
-              "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\DataAccess\\DataAccess.csproj",
-              "RelativeDocumentMoniker": "src\\DataAccess\\DataAccess.csproj",
-              "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\DataAccess\\DataAccess.csproj",
-              "RelativeToolTip": "src\\DataAccess\\DataAccess.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-11-12T15:45:30.854Z",
+              "Title": "Role.razor",
+              "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\BlazorClient\\Pages\\Role.razor",
+              "RelativeDocumentMoniker": "src\\BlazorClient\\Pages\\Role.razor",
+              "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\BlazorClient\\Pages\\Role.razor",
+              "RelativeToolTip": "src\\BlazorClient\\Pages\\Role.razor",
+              "ViewState": "AgIAAC8BAAAAAAAAAAAswEkBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-13T04:04:08.213Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Author.razor",
+              "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\BlazorClient\\Pages\\Author.razor",
+              "RelativeDocumentMoniker": "src\\BlazorClient\\Pages\\Author.razor",
+              "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\BlazorClient\\Pages\\Author.razor",
+              "RelativeToolTip": "src\\BlazorClient\\Pages\\Author.razor",
+              "ViewState": "AgIAAC8BAAAAAAAAAAAswEkBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-13T04:02:12.946Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "User.razor",
+              "DocumentMoniker": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\BlazorClient\\Pages\\User.razor",
+              "RelativeDocumentMoniker": "src\\BlazorClient\\Pages\\User.razor",
+              "ToolTip": "C:\\Users\\victo\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Modules\\StudyArchieve\\StudyArchieve\\src\\BlazorClient\\Pages\\User.razor",
+              "RelativeToolTip": "src\\BlazorClient\\Pages\\User.razor",
+              "ViewState": "AgIAAIUAAAAAAAAAAAAAAJkAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-13T04:01:20.301Z",
               "EditorCaption": ""
             }
           ]

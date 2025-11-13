@@ -1,0 +1,903 @@
+﻿@page "/task/{TaskId:int}"
+@using BlazorClient.Services.Contracts.Task
+@using BlazorClient.Services.Contracts.Solution
+@using BlazorClient.Services.Contracts.TaskFile
+@using BlazorClient.Services.Contracts.SolutionFile
+@using BlazorClient.Services.Contracts.User
+@using Microsoft.AspNetCore.Components.Forms
+@inject ApiService ApiService
+@inject HttpClient Http
+@inject NavigationManager Navigation
+@inject FileUploadService FileUploadService
+
+<PageTitle>Задание @(task?.Title ?? "") - Архив</PageTitle>
+
+@if (isLoading)
+{
+    <div class="text-center py-5">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="visually-hidden">Загрузка...</span>
+        </div>
+        <p class="mt-3 text-muted">Загрузка задания...</p>
+    </div>
+}
+else if (task == null)
+{
+    <div class="text-center py-5">
+        <i class="bi bi-exclamation-triangle display-1 text-warning mb-3"></i>
+        <h4 class="text-warning">Задание не найдено</h4>
+        <p class="text-muted">Запрошенное задание не существует или было удалено</p>
+        <a href="/tasks" class="btn btn-primary">
+            <i class="bi bi-arrow-left me-2"></i>Вернуться к поиску
+        </a>
+    </div>
+}
+else
+{
+    <div class="container-fluid">
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Главная</a></li>
+                <li class="breadcrumb-item"><a href="/tasks">Поиск заданий</a></li>
+                <li class="breadcrumb-item active">@task.Title</li>
+            </ol>
+        </nav>
+
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                        <h4 class="mb-0">@task.Title</h4>
+                        <div>
+                            @if (task.UserAdded != null)
+                            {
+                                <button class="btn btn-sm btn-outline-light me-2" @onclick="() => NavigateToUser(task.UserAdded.Id)">
+                                    <i class="bi bi-person me-1"></i>@task.UserAdded.Username
+                                </button>
+                            }
+                            <button class="btn btn-sm btn-light me-2" @onclick="ToggleEditMode">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+                            <button class="btn btn-sm btn-danger" @onclick="ShowDeleteModal">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    @if (isEditing)
+                    {
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Название задания:</label>
+                                <input @bind="editTask.Title" class="form-control" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Условие задания:</label>
+                                <textarea @bind="editTask.ConditionText" class="form-control" rows="6"></textarea>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <button @onclick="SaveTask" class="btn btn-success" disabled="@isSaving">
+                                    @if (isSaving)
+                                    {
+                                        <span class="spinner-border spinner-border-sm me-2"></span>
+                                    }
+                                    Сохранить
+                                </button>
+                                <button @onclick="CancelEdit" class="btn btn-secondary">Отмена</button>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="card-body">
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <strong>Дисциплина:</strong> @task.Subject?.Name
+                                </div>
+                                <div class="col-md-6">
+                                    <strong>Тип задания:</strong> @task.Type?.Name
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <strong>Учебный год:</strong> @(task.AcademicYear?.YearLabel ?? "Не указан")
+                                </div>
+                                <div class="col-md-6">
+                                    <strong>Дата добавления:</strong> @task.DateAdded.ToString("dd.MM.yyyy")
+                                    @if (task.UserAdded != null)
+                                    {
+                                        <span>
+                                            пользователем
+                                            <button class="btn btn-link p-0" @onclick="() => NavigateToUser(task.UserAdded.Id)">
+                                                @task.UserAdded.Username
+                                            </button>
+                                        </span>
+                                    }
+                                </div>
+                            </div>
+
+                            @if (!string.IsNullOrEmpty(task.ConditionText))
+                            {
+                                <div class="mb-3">
+                                    <strong>Условие:</strong>
+                                    <div class="mt-2 p-3 bg-light rounded">
+                                        @task.ConditionText
+                                    </div>
+                                </div>
+                            }
+
+                            @if (task.Authors?.Any() == true)
+                            {
+                                <div class="mb-3">
+                                    <strong>Авторы:</strong>
+                                    <div class="mt-1">
+                                        @foreach (var author in task.Authors)
+                                        {
+                                            <span class="badge bg-secondary me-1">@author.Name</span>
+                                        }
+                                    </div>
+                                </div>
+                            }
+
+                            @if (task.Tags?.Any() == true)
+                            {
+                                <div class="mb-3">
+                                    <strong>Тэги:</strong>
+                                    <div class="mt-1">
+                                        @foreach (var tag in task.Tags)
+                                        {
+                                            <span class="badge bg-success me-1">@tag.Name</span>
+                                        }
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                </div>
+
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">
+                            <i class="bi bi-file-earmark me-2"></i>Файлы задания
+                        </h5>
+                        <button class="btn btn-sm btn-light" @onclick="ShowUploadTaskFileModal">
+                            <i class="bi bi-plus-lg"></i> Добавить файл
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        @if (taskFiles?.Any() == true)
+                        {
+                            <div class="list-group">
+                                @foreach (var file in taskFiles)
+                                {
+                                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <i class="bi bi-file-earmark-text me-2"></i>
+                                            <span>@file.FileName</span>
+                                            <small class="text-muted ms-2">(@FormatFileSize(file.FileSize))</small>
+                                        </div>
+                                        <div>
+                                            <a href="@($"/api/TaskFile/{file.Id}/download")"
+                                               class="btn btn-sm btn-outline-primary me-2"
+                                               target="_blank">
+                                                <i class="bi bi-download"></i>
+                                            </a>
+                                            <button class="btn btn-sm btn-outline-danger"
+                                                    @onclick="() => DeleteTaskFile(file.Id)">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        }
+                        else
+                        {
+                            <p class="text-muted text-center mb-0">Файлы задания отсутствуют</p>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">
+                            <i class="bi bi-check-circle me-2"></i>Решения
+                            <span class="badge bg-light text-dark ms-2">@solutions.Count</span>
+                        </h5>
+                        <button class="btn btn-sm btn-light" @onclick="ToggleSolutions">
+                            @if (showSolutions)
+                            {
+                                <i class="bi bi-chevron-up"></i>
+                            }
+                            else
+                            {
+                                <i class="bi bi-chevron-down"></i>
+                            }
+                        </button>
+                    </div>
+
+                    @if (showSolutions)
+                    {
+                        <div class="card-body">
+                            <button class="btn btn-primary w-100 mb-3" @onclick="ShowAddSolutionModal">
+                                <i class="bi bi-plus-circle me-2"></i>Добавить решение
+                            </button>
+
+                            @if (solutions?.Any() == true)
+                            {
+                                <div class="solutions-list">
+                                    @foreach (var solution in solutions)
+                                    {
+                                        <div class="card mb-3">
+                                            <div class="card-header bg-light d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <small class="text-muted">
+                                                        @solution.DateAdded.ToString("dd.MM.yyyy HH:mm")
+                                                    </small>
+                                                    @if (solution.UserAdded != null)
+                                                    {
+                                                        <button class="btn btn-sm btn-outline-info ms-2"
+                                                                @onclick="() => NavigateToUser(solution.UserAdded.Id)">
+                                                            <i class="bi bi-person me-1"></i>@solution.UserAdded.Username
+                                                        </button>
+                                                    }
+                                                </div>
+                                                <div>
+                                                    <button class="btn btn-sm btn-outline-warning me-1"
+                                                            @onclick="() => StartEditSolution(solution)">
+                                                        <i class="bi bi-pencil"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-outline-danger"
+                                                            @onclick="() => DeleteSolution(solution.Id)">
+                                                        <i class="bi bi-trash"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                @if (editingSolutionId == solution.Id)
+                                                {
+                                                    <textarea @bind="editSolutionText" class="form-control mb-2" rows="4"></textarea>
+                                                    <div class="d-flex gap-2">
+                                                        <button @onclick="() => SaveSolution(solution.Id)"
+                                                                class="btn btn-success btn-sm">
+                                                            Сохранить
+                                                        </button>
+                                                        <button @onclick="CancelEditSolution"
+                                                                class="btn btn-secondary btn-sm">
+                                                            Отмена
+                                                        </button>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <p class="card-text">@solution.SolutionText</p>
+
+                                                    @if (solutionFiles.ContainsKey(solution.Id) && solutionFiles[solution.Id].Any())
+                                                    {
+                                                        <div class="mt-3">
+                                                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                                                <small class="text-muted fw-semibold">Файлы решения:</small>
+                                                                <button class="btn btn-sm btn-outline-primary"
+                                                                        @onclick="() => ShowUploadSolutionFileModal(solution.Id)">
+                                                                    <i class="bi bi-plus"></i> Добавить файл
+                                                                </button>
+                                                            </div>
+                                                            <div class="list-group">
+                                                                @foreach (var file in solutionFiles[solution.Id])
+                                                                {
+                                                                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                                                                        <small>
+                                                                            <i class="bi bi-file-earmark me-1"></i>
+                                                                            @file.FileName
+                                                                        </small>
+                                                                        <div>
+                                                                            <a href="@($"/api/SolutionFile/{file.Id}/download")"
+                                                                               class="btn btn-sm btn-outline-primary me-1"
+                                                                               target="_blank">
+                                                                                <i class="bi bi-download"></i>
+                                                                            </a>
+                                                                            <button class="btn btn-sm btn-outline-danger"
+                                                                                    @onclick="() => DeleteSolutionFile(file.Id)">
+                                                                                <i class="bi bi-trash"></i>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                }
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="text-center">
+                                                            <button class="btn btn-sm btn-outline-primary"
+                                                                    @onclick="() => ShowUploadSolutionFileModal(solution.Id)">
+                                                                <i class="bi bi-plus me-1"></i>Добавить файлы к решению
+                                                            </button>
+                                                        </div>
+                                                    }
+                                                }
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            }
+                            else
+                            {
+                                <p class="text-muted text-center mb-0">Решения отсутствуют</p>
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<!-- Модальное окно добавления решения -->
+@if (showAddSolutionModal)
+{
+    <div class="modal show d-block" style="background-color: rgba(0,0,0,0.5);">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Добавить решение</h5>
+                    <button type="button" class="btn-close" @onclick="CloseAddSolutionModal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Текст решения:</label>
+                        <textarea @bind="newSolutionText" class="form-control" rows="6" placeholder="Введите текст решения..."></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" @onclick="CloseAddSolutionModal">Отмена</button>
+                    <button type="button" class="btn btn-primary" @onclick="AddSolution" disabled="@isSavingSolution">
+                        @if (isSavingSolution)
+                        {
+                            <span class="spinner-border spinner-border-sm me-2"></span>
+                        }
+                        Добавить решение
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<!-- Модальное окно загрузки файла задания -->
+@if (showUploadTaskFileModal)
+{
+    <div class="modal show d-block" style="background-color: rgba(0,0,0,0.5);">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Добавить файл к заданию</h5>
+                    <button type="button" class="btn-close" @onclick="CloseUploadTaskFileModal"></button>
+                </div>
+                <div class="modal-body">
+                    <InputFile @ref="taskFileInput" OnChange="HandleTaskFileSelected" class="form-control"
+                               accept=".pdf,.doc,.docx,.txt,.jpg,.jpeg,.png,.zip" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" @onclick="CloseUploadTaskFileModal">Отмена</button>
+                    <button type="button" class="btn btn-primary" @onclick="UploadTaskFile" disabled="@isUploadingTaskFile">
+                        @if (isUploadingTaskFile)
+                        {
+                            <span class="spinner-border spinner-border-sm me-2"></span>
+                        }
+                        Загрузить
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<!-- Модальное окно загрузки файла решения -->
+@if (showUploadSolutionFileModal)
+{
+    <div class="modal show d-block" style="background-color: rgba(0,0,0,0.5);">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Добавить файл к решению</h5>
+                    <button type="button" class="btn-close" @onclick="CloseUploadSolutionFileModal"></button>
+                </div>
+                <div class="modal-body">
+                    <InputFile @ref="solutionFileInput" OnChange="HandleSolutionFileSelected" class="form-control"
+                               accept=".pdf,.doc,.docx,.txt,.jpg,.jpeg,.png,.zip" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" @onclick="CloseUploadSolutionFileModal">Отмена</button>
+                    <button type="button" class="btn btn-primary" @onclick="UploadSolutionFile" disabled="@isUploadingSolutionFile">
+                        @if (isUploadingSolutionFile)
+                        {
+                            <span class="spinner-border spinner-border-sm me-2"></span>
+                        }
+                        Загрузить
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<!-- Модальное окно удаления задания -->
+@if (showDeleteModal)
+{
+    <div class="modal show d-block" style="background-color: rgba(0,0,0,0.5);">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Подтверждение удаления</h5>
+                    <button type="button" class="btn-close" @onclick="CloseDeleteModal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Вы уверены, что хотите удалить задание <strong>"@task?.Title"</strong>?</p>
+                    <p class="text-danger"><small>Это действие нельзя отменить. Будут удалены все связанные файлы и решения.</small></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" @onclick="CloseDeleteModal">Отмена</button>
+                    <button type="button" class="btn btn-danger" @onclick="DeleteTask" disabled="@isDeleting">
+                        @if (isDeleting)
+                        {
+                            <span class="spinner-border spinner-border-sm me-2"></span>
+                        }
+                        Удалить
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<style>
+    .solutions-list {
+        max-height: 600px;
+        overflow-y: auto;
+    }
+
+    .card {
+        border: 1px solid #e9ecef;
+    }
+
+    .card-header {
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .badge {
+        font-size: 0.75em;
+    }
+
+    .list-group-item {
+        border: 1px solid #e9ecef;
+        margin-bottom: 0.5rem;
+        border-radius: 0.375rem;
+    }
+
+    .btn-link {
+        text-decoration: none;
+    }
+
+        .btn-link:hover {
+            text-decoration: underline;
+        }
+
+    @@media (max-width: 768px) {
+        .breadcrumb {
+            font-size: 0.9rem;
+        }
+
+        .card-header h4 {
+            font-size: 1.25rem;
+        }
+    }
+</style>
+
+@code {
+    [Parameter]
+    public int TaskId { get; set; }
+
+    private GetTaskResponse? task;
+    private List<GetSolutionResponse> solutions = new();
+    private List<TaskFileResponse> taskFiles = new();
+    private Dictionary<int, List<SolutionFileResponse>> solutionFiles = new();
+
+    private bool isLoading = true;
+    private bool showSolutions = true;
+    private bool isEditing = false;
+    private bool showAddSolutionModal = false;
+    private bool showUploadTaskFileModal = false;
+    private bool showUploadSolutionFileModal = false;
+    private bool showDeleteModal = false;
+    private bool isSaving = false;
+    private bool isSavingSolution = false;
+    private bool isUploadingTaskFile = false;
+    private bool isUploadingSolutionFile = false;
+    private bool isDeleting = false;
+
+    private string newSolutionText = string.Empty;
+    private int? editingSolutionId = null;
+    private string editSolutionText = string.Empty;
+    private int? currentSolutionIdForFileUpload = null;
+
+    private InputFile? taskFileInput;
+    private InputFile? solutionFileInput;
+    private IBrowserFile? selectedTaskFile;
+    private IBrowserFile? selectedSolutionFile;
+
+    private UpdateTaskRequest editTask = new();
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (TaskId > 0)
+        {
+            await LoadTaskData();
+        }
+    }
+
+    private async Task LoadTaskData()
+    {
+        isLoading = true;
+        StateHasChanged();
+
+        try
+        {
+            task = await ApiService.GetFromJsonAsync<GetTaskResponse>($"api/Task/{TaskId}");
+
+            if (task != null)
+            {
+                solutions = await ApiService.GetListFromJsonAsync<GetSolutionResponse>($"api/Solution/task/{TaskId}");
+                taskFiles = await ApiService.GetListFromJsonAsync<TaskFileResponse>($"api/TaskFile/task/{TaskId}");
+
+                foreach (var solution in solutions)
+                {
+                    var files = await ApiService.GetListFromJsonAsync<SolutionFileResponse>($"api/SolutionFile/solution/{solution.Id}");
+                    solutionFiles[solution.Id] = files;
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Ошибка загрузки данных задания: {ex.Message}");
+        }
+        finally
+        {
+            isLoading = false;
+            StateHasChanged();
+        }
+    }
+
+    private void NavigateToUser(int userId)
+    {
+        Navigation.NavigateTo($"/admin/users/{userId}");
+    }
+
+    private void ToggleSolutions()
+    {
+        showSolutions = !showSolutions;
+    }
+
+    private void ToggleEditMode()
+    {
+        if (isEditing)
+        {
+            CancelEdit();
+        }
+        else
+        {
+            editTask = new UpdateTaskRequest
+            {
+                Id = task!.Id,
+                Title = task.Title,
+                ConditionText = task.ConditionText ?? "",
+                SubjectId = task.SubjectId,
+                AcademicYearId = task.AcademicYearId,
+                TypeId = task.TypeId,
+                AuthorIds = task.Authors?.Select(a => a.Id).ToList() ?? new List<int>(),
+                TagIds = task.Tags?.Select(t => t.Id).ToList() ?? new List<int>(),
+            };
+            isEditing = true;
+        }
+    }
+
+    private async Task SaveTask()
+    {
+        isSaving = true;
+        StateHasChanged();
+
+        try
+        {
+            var response = await ApiService.PutAsJsonAsync("api/Task", editTask);
+            if (response.IsSuccessStatusCode)
+            {
+                await LoadTaskData();
+                isEditing = false;
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Ошибка сохранения задания: {ex.Message}");
+        }
+        finally
+        {
+            isSaving = false;
+            StateHasChanged();
+        }
+    }
+
+    private void CancelEdit()
+    {
+        isEditing = false;
+        editTask = new UpdateTaskRequest();
+    }
+
+    private void ShowAddSolutionModal()
+    {
+        showAddSolutionModal = true;
+        newSolutionText = string.Empty;
+    }
+
+    private void CloseAddSolutionModal()
+    {
+        showAddSolutionModal = false;
+    }
+
+    private async Task AddSolution()
+    {
+        if (string.IsNullOrWhiteSpace(newSolutionText)) return;
+
+        isSavingSolution = true;
+        StateHasChanged();
+
+        try
+        {
+            var solution = new CreateSolutionRequest
+            {
+                TaskId = TaskId,
+                SolutionText = newSolutionText,
+                UserAddedId = 1 // TODO: Заменить на ID текущего пользователя
+            };
+
+            var response = await ApiService.PostAsJsonAsync("api/Solution", solution);
+            if (response.IsSuccessStatusCode)
+            {
+                showAddSolutionModal = false;
+                await LoadTaskData();
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Ошибка добавления решения: {ex.Message}");
+        }
+        finally
+        {
+            isSavingSolution = false;
+            StateHasChanged();
+        }
+    }
+
+    private void StartEditSolution(GetSolutionResponse solution)
+    {
+        editingSolutionId = solution.Id;
+        editSolutionText = solution.SolutionText;
+    }
+
+    private async Task SaveSolution(int solutionId)
+    {
+        try
+        {
+            var solution = new UpdateSolutionRequest
+            {
+                Id = solutionId,
+                SolutionText = editSolutionText
+            };
+
+            var response = await ApiService.PutAsJsonAsync("api/Solution", solution);
+            if (response.IsSuccessStatusCode)
+            {
+                editingSolutionId = null;
+                editSolutionText = string.Empty;
+                await LoadTaskData();
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Ошибка сохранения решения: {ex.Message}");
+        }
+    }
+
+    private void CancelEditSolution()
+    {
+        editingSolutionId = null;
+        editSolutionText = string.Empty;
+    }
+
+    private async Task DeleteSolution(int solutionId)
+    {
+        try
+        {
+            var response = await Http.DeleteAsync($"api/Solution/{solutionId}");
+            if (response.IsSuccessStatusCode)
+            {
+                await LoadTaskData();
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Ошибка удаления решения: {ex.Message}");
+        }
+    }
+
+    private void ShowUploadTaskFileModal()
+    {
+        showUploadTaskFileModal = true;
+    }
+
+    private void CloseUploadTaskFileModal()
+    {
+        showUploadTaskFileModal = false;
+        selectedTaskFile = null;
+    }
+
+    private void HandleTaskFileSelected(InputFileChangeEventArgs e)
+    {
+        selectedTaskFile = e.File;
+    }
+
+    private async Task UploadTaskFile()
+    {
+        if (selectedTaskFile == null) return;
+
+        isUploadingTaskFile = true;
+        StateHasChanged();
+
+        try
+        {
+            var success = await FileUploadService.UploadTaskFileAsync(TaskId, selectedTaskFile);
+            if (success)
+            {
+                showUploadTaskFileModal = false;
+                selectedTaskFile = null;
+                await LoadTaskData();
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Ошибка загрузки файла задания: {ex.Message}");
+        }
+        finally
+        {
+            isUploadingTaskFile = false;
+            StateHasChanged();
+        }
+    }
+
+    private void ShowUploadSolutionFileModal(int solutionId)
+    {
+        showUploadSolutionFileModal = true;
+        currentSolutionIdForFileUpload = solutionId;
+    }
+
+    private void CloseUploadSolutionFileModal()
+    {
+        showUploadSolutionFileModal = false;
+        selectedSolutionFile = null;
+        currentSolutionIdForFileUpload = null;
+    }
+
+    private void HandleSolutionFileSelected(InputFileChangeEventArgs e)
+    {
+        selectedSolutionFile = e.File;
+    }
+
+    private async Task UploadSolutionFile()
+    {
+        if (selectedSolutionFile == null || !currentSolutionIdForFileUpload.HasValue) return;
+
+        isUploadingSolutionFile = true;
+        StateHasChanged();
+
+        try
+        {
+            var success = await FileUploadService.UploadSolutionFileAsync(currentSolutionIdForFileUpload.Value, selectedSolutionFile);
+            if (success)
+            {
+                showUploadSolutionFileModal = false;
+                selectedSolutionFile = null;
+                currentSolutionIdForFileUpload = null;
+                await LoadTaskData();
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Ошибка загрузки файла решения: {ex.Message}");
+        }
+        finally
+        {
+            isUploadingSolutionFile = false;
+            StateHasChanged();
+        }
+    }
+
+    private async Task DeleteSolutionFile(int fileId)
+    {
+        try
+        {
+            var success = await FileUploadService.DeleteSolutionFileAsync(fileId);
+            if (success)
+            {
+                await LoadTaskData();
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Ошибка удаления файла решения: {ex.Message}");
+        }
+    }
+
+    private async Task DeleteTaskFile(int fileId)
+    {
+        try
+        {
+            var response = await Http.DeleteAsync($"api/TaskFile/{fileId}");
+            if (response.IsSuccessStatusCode)
+            {
+                await LoadTaskData();
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Ошибка удаления файла: {ex.Message}");
+        }
+    }
+
+    private void ShowDeleteModal()
+    {
+        showDeleteModal = true;
+    }
+
+    private void CloseDeleteModal()
+    {
+        showDeleteModal = false;
+    }
+
+    private async Task DeleteTask()
+    {
+        isDeleting = true;
+        StateHasChanged();
+
+        try
+        {
+            var response = await Http.DeleteAsync($"api/Task/{TaskId}");
+            if (response.IsSuccessStatusCode)
+            {
+                Navigation.NavigateTo("/tasks");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Ошибка удаления задания: {ex.Message}");
+        }
+        finally
+        {
+            isDeleting = false;
+            StateHasChanged();
+        }
+    }
+
+    private string FormatFileSize(long bytes)
+    {
+        string[] sizes = { "B", "KB", "MB", "GB" };
+        int order = 0;
+        double len = bytes;
+        while (len >= 1024 && order < sizes.Length - 1)
+        {
+            order++;
+            len /= 1024;
+        }
+        return $"{len:0.##} {sizes[order]}";
+    }
+}

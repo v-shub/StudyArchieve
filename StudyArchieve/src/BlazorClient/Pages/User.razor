@@ -1,0 +1,463 @@
+﻿@page "/admin/users/{UserId:int}"
+@using BlazorClient.Services.Contracts.User
+@using BlazorClient.Services.Contracts.Role
+@inject ApiService ApiService
+@inject NavigationManager Navigation
+
+<PageTitle>Управление пользователем - Архив</PageTitle>
+
+<div class="container-fluid">
+    <!-- Хлебные крошки -->
+    <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Главная</a></li>
+            <li class="breadcrumb-item active">Редактирование пользователя</li>
+        </ol>
+    </nav>
+
+    @if (isLoading)
+    {
+        <div class="text-center py-5">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Загрузка...</span>
+            </div>
+            <p class="mt-2">Загрузка данных пользователя...</p>
+        </div>
+    }
+    else if (user == null)
+    {
+        <div class="alert alert-danger">
+            <i class="bi bi-exclamation-triangle me-2"></i>Пользователь не найден
+        </div>
+        <button class="btn btn-secondary" @onclick="NavigateToAdmin">
+            <i class="bi bi-arrow-left me-2"></i>Вернуться в админку
+        </button>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                        <h4 class="mb-0">
+                            <i class="bi bi-person-gear me-2"></i>Редактирование пользователя
+                        </h4>
+                        <span class="badge bg-light text-dark">ID: @user.Id</span>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Имя пользователя *</label>
+                                        <input @bind="editUser.Username" class="form-control"
+                                               placeholder="Введите имя пользователя" />
+                                        @if (!string.IsNullOrEmpty(validationErrors.Username))
+                                        {
+                                            <div class="text-danger small mt-1">@validationErrors.Username</div>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Email *</label>
+                                        <input @bind="editUser.Email" type="email" class="form-control"
+                                               placeholder="Введите email" />
+                                        @if (!string.IsNullOrEmpty(validationErrors.Email))
+                                        {
+                                            <div class="text-danger small mt-1">@validationErrors.Email</div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Роль *</label>
+                                        <select @bind="editUser.RoleId" class="form-select">
+                                            <option value="">Выберите роль</option>
+                                            @foreach (var role in availableRoles)
+                                            {
+                                                <option value="@role.Id">@role.RoleName</option>
+                                            }
+                                        </select>
+                                        @if (!string.IsNullOrEmpty(validationErrors.RoleId))
+                                        {
+                                            <div class="text-danger small mt-1">@validationErrors.RoleId</div>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Пароль</label>
+                                        <input @bind="password" type="password" class="form-control"
+                                               placeholder="Введите новый пароль" />
+                                        <div class="form-text">Оставьте пустым, если не нужно менять пароль</div>
+                                        @if (!string.IsNullOrEmpty(validationErrors.Password))
+                                        {
+                                            <div class="text-danger small mt-1">@validationErrors.Password</div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Подтверждение пароля -->
+                            <div class="row" style="@(string.IsNullOrEmpty(password) ? "display: none;" : "")">
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">Подтверждение пароля</label>
+                                        <input @bind="confirmPassword" type="password" class="form-control"
+                                               placeholder="Повторите пароль" />
+                                        @if (!string.IsNullOrEmpty(validationErrors.ConfirmPassword))
+                                        {
+                                            <div class="text-danger small mt-1">@validationErrors.ConfirmPassword</div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between">
+                        <button class="btn btn-secondary" @onclick="NavigateToAdmin">
+                            <i class="bi bi-arrow-left me-2"></i>Отмена
+                        </button>
+                        <div>
+                            <button class="btn btn-outline-danger me-2" @onclick="ShowDeleteModal">
+                                <i class="bi bi-trash me-2"></i>Удалить
+                            </button>
+                            <button class="btn btn-primary" @onclick="SaveUser" disabled="@isSaving">
+                                @if (isSaving)
+                                {
+                                    <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+                                }
+                                <i class="bi bi-check-circle me-2"></i>Сохранить
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Боковая панель с информацией -->
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-header bg-info text-white">
+                        <h5 class="mb-0">
+                            <i class="bi bi-info-circle me-2"></i>Информация о пользователе
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center me-3"
+                                 style="width: 60px; height: 60px;">
+                                <i class="bi bi-person text-white" style="font-size: 1.5rem;"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-0">@user.Username</h5>
+                                <span class="badge bg-info">ID: @user.Id</span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <i class="bi bi-envelope me-2 text-muted"></i>
+                            <span>@user.Email</span>
+                        </div>
+                        <div class="mb-3">
+                            <i class="bi bi-shield me-2 text-muted"></i>
+                            <span class="badge bg-success">@user.Role?.RoleName</span>
+                        </div>
+
+                        <!-- Статус пароля -->
+                        <div class="alert alert-warning mt-3">
+                            <small>
+                                <i class="bi bi-key me-1"></i>
+                                <strong>Пароль:</strong> скрыт для безопасности
+                            </small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Подсказки -->
+                <div class="card mt-3">
+                    <div class="card-header bg-light">
+                        <h6 class="mb-0">
+                            <i class="bi bi-lightbulb me-2"></i>Подсказки
+                        </h6>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled small mb-0">
+                            <li class="mb-2">
+                                <i class="bi bi-info-circle text-primary me-1"></i>
+                                Пароль должен быть не менее 6 символов
+                            </li>
+                            <li class="mb-2">
+                                <i class="bi bi-info-circle text-primary me-1"></i>
+                                Email должен быть уникальным
+                            </li>
+                            <li>
+                                <i class="bi bi-info-circle text-primary me-1"></i>
+                                Обязательно выберите роль пользователя
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<!-- Модальное окно удаления -->
+@if (showDeleteModal)
+{
+    <div class="modal show d-block" style="background-color: rgba(0,0,0,0.5);">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-danger">
+                        <i class="bi bi-exclamation-triangle me-2"></i>Подтверждение удаления
+                    </h5>
+                    <button type="button" class="btn-close" @onclick="CloseDeleteModal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Вы уверены, что хотите удалить пользователя <strong>"@user?.Username"</strong>?</p>
+                    <div class="alert alert-warning">
+                        <small>
+                            <i class="bi bi-warning me-1"></i>
+                            <strong>Внимание:</strong> Это действие нельзя отменить. Все данные пользователя будут безвозвратно удалены.
+                        </small>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" @onclick="CloseDeleteModal">Отмена</button>
+                    <button type="button" class="btn btn-danger" @onclick="DeleteUser" disabled="@isDeleting">
+                        @if (isDeleting)
+                        {
+                            <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+                        }
+                        <i class="bi bi-trash me-2"></i>Удалить пользователя
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public int UserId { get; set; }
+
+    private GetUserResponse? user;
+    private UpdateUserRequest editUser = new();
+    private List<GetRoleResponse> availableRoles = new();
+    private bool isLoading = true;
+    private bool isSaving = false;
+    private bool isDeleting = false;
+    private bool showDeleteModal = false;
+    private string password = string.Empty;
+    private string confirmPassword = string.Empty;
+
+    private class ValidationErrors
+    {
+        public string Username { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string RoleId { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
+        public string ConfirmPassword { get; set; } = string.Empty;
+    }
+
+    private ValidationErrors validationErrors = new();
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (UserId > 0)
+        {
+            await LoadUserData();
+            await LoadAvailableRoles();
+        }
+    }
+
+    private async Task LoadUserData()
+    {
+        try
+        {
+            isLoading = true;
+            StateHasChanged();
+
+            user = await ApiService.GetFromJsonAsync<GetUserResponse>($"api/User/{UserId}");
+
+            if (user != null)
+            {
+                editUser = new UpdateUserRequest
+                {
+                    Id = user.Id,
+                    Username = user.Username,
+                    Email = user.Email,
+                    Password = "", // Не заполняем пароль из соображений безопасности
+                    RoleId = user.RoleId
+                };
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Ошибка загрузки данных пользователя: {ex.Message}");
+        }
+        finally
+        {
+            isLoading = false;
+            StateHasChanged();
+        }
+    }
+
+    private async Task LoadAvailableRoles()
+    {
+        try
+        {
+            availableRoles = await ApiService.GetFromJsonAsync<List<GetRoleResponse>>("api/Role") ?? new();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Ошибка загрузки ролей: {ex.Message}");
+        }
+    }
+
+    private bool ValidateForm()
+    {
+        validationErrors = new ValidationErrors();
+
+        // Проверка имени пользователя
+        if (string.IsNullOrWhiteSpace(editUser.Username))
+            validationErrors.Username = "Имя пользователя обязательно";
+        else if (editUser.Username.Length < 3)
+            validationErrors.Username = "Имя пользователя должно быть не менее 3 символов";
+
+        // Проверка email
+        if (string.IsNullOrWhiteSpace(editUser.Email))
+            validationErrors.Email = "Email обязателен";
+        else if (!IsValidEmail(editUser.Email))
+            validationErrors.Email = "Некорректный формат email";
+
+        // Проверка роли
+        if (editUser.RoleId <= 0)
+            validationErrors.RoleId = "Роль обязательна";
+
+        // Проверка пароля (если указан)
+        if (!string.IsNullOrEmpty(password))
+        {
+            if (password.Length < 6)
+                validationErrors.Password = "Пароль должен быть не менее 6 символов";
+            else if (password != confirmPassword)
+                validationErrors.ConfirmPassword = "Пароли не совпадают";
+        }
+
+        return string.IsNullOrEmpty(validationErrors.Username) &&
+               string.IsNullOrEmpty(validationErrors.Email) &&
+               string.IsNullOrEmpty(validationErrors.RoleId) &&
+               string.IsNullOrEmpty(validationErrors.Password) &&
+               string.IsNullOrEmpty(validationErrors.ConfirmPassword);
+    }
+
+    private bool IsValidEmail(string email)
+    {
+        try
+        {
+            var addr = new System.Net.Mail.MailAddress(email);
+            return addr.Address == email;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
+    private async Task SaveUser()
+    {
+        if (!ValidateForm()) return;
+
+        isSaving = true;
+        StateHasChanged();
+
+        try
+        {
+            // Если указан новый пароль, используем его, иначе оставляем старый
+            if (!string.IsNullOrEmpty(password))
+            {
+                editUser.Password = password;
+            }
+            else
+            {
+                // Если пароль не меняется, не отправляем его (или отправляем существующий)
+                // В зависимости от логики API может потребоваться другая обработка
+                editUser.Password = ""; // Или существующий пароль, если API его ожидает
+            }
+
+            var response = await ApiService.PutAsJsonAsync("api/User", editUser);
+
+            if (response.IsSuccessStatusCode)
+            {
+                Navigation.NavigateTo("/admin");
+            }
+            else
+            {
+                var errorContent = await response.Content.ReadAsStringAsync();
+                Console.WriteLine($"Ошибка при сохранении пользователя: {errorContent}");
+                // Можно добавить отображение ошибки пользователю
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Ошибка сохранения пользователя: {ex.Message}");
+        }
+        finally
+        {
+            isSaving = false;
+            StateHasChanged();
+        }
+    }
+
+    private void ShowDeleteModal()
+    {
+        showDeleteModal = true;
+    }
+
+    private void CloseDeleteModal()
+    {
+        showDeleteModal = false;
+    }
+
+    private async Task DeleteUser()
+    {
+        if (user == null) return;
+
+        isDeleting = true;
+        StateHasChanged();
+
+        try
+        {
+            var response = await ApiService.DeleteAsync($"api/User/{user.Id}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                Navigation.NavigateTo("/admin");
+            }
+            else
+            {
+                var errorContent = await response.Content.ReadAsStringAsync();
+                Console.WriteLine($"Ошибка при удалении пользователя: {errorContent}");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Ошибка удаления пользователя: {ex.Message}");
+        }
+        finally
+        {
+            isDeleting = false;
+            StateHasChanged();
+        }
+    }
+
+    private void NavigateToAdmin()
+    {
+        Navigation.NavigateTo("/admin");
+    }
+}
